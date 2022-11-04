@@ -1,7 +1,8 @@
 package com.petmily.customer.command;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface CustomerCommand {
-	public void execute(HttpServletResponse request, HttpServletResponse response);
+	public void execute(HttpServletRequest request, HttpServletResponse response);
 }

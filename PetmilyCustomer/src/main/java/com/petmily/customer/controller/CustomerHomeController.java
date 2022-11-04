@@ -10,9 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.customer.command.CustomerCommand;
+import com.petmily.customer.command.KakaoTokenCommand;
 
 
-@WebServlet("*")
+@WebServlet("*.do")
 public class CustomerHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -49,7 +50,10 @@ public class CustomerHomeController extends HttpServlet {
 //					viewpage = "ShoesListBefore.jsp";
 //				}
 //				break;	
-			
+			case ("/sign_up_kakao.do"):
+				command = new KakaoTokenCommand();
+				viewpage = "sign_up_form.jsp";
+				break;
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewpage);
