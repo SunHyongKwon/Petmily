@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petmily.admin.command.CustomerCommand;
+import com.petmily.admin.command.AdminCommand;
 
 
 @WebServlet("*.do")
-public class CustomerHomeController extends HttpServlet {
+public class AdminHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public CustomerHomeController() {
+    public AdminHomeController() {
         super();
     }
 
@@ -33,7 +33,7 @@ public class CustomerHomeController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String viewpage = null;
-		CustomerCommand command = null;
+		AdminCommand command = null;
 		
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
