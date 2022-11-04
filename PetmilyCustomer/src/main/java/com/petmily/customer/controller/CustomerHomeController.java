@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.petmily.customer.command.CustomerCommand;
 
 
-@WebServlet("*.do")
+@WebServlet("*")
 public class CustomerHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
