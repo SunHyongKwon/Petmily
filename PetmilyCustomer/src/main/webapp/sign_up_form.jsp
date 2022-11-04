@@ -7,5 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>${kakao.name }</h1>
+	<img src = "${kakao.profile}">
 </body>
 </html>

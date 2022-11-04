@@ -52,6 +52,7 @@ public class CustomerHomeController extends HttpServlet {
 //				break;	
 			case ("/sign_up_kakao.do"):
 				command = new KakaoTokenCommand();
+				command.execute(request, response);
 				viewpage = "sign_up_form.jsp";
 				break;
 		}
