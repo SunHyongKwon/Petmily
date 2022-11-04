@@ -1,4 +1,4 @@
-package com.petmily.web.controller;
+package com.petmily.customer.controller;
 
 import java.io.IOException;
 
@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petmily.web.command.PetmilyCommand;
+import com.petmily.customer.command.CustomerCommand;
 
 
 @WebServlet("*.do")
-public class PetmilyHomeController extends HttpServlet {
+public class CustomerHomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public PetmilyHomeController() {
+    public CustomerHomeController() {
         super();
     }
 
@@ -33,7 +33,7 @@ public class PetmilyHomeController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String viewpage = null;
-		PetmilyCommand command = null;
+		CustomerCommand command = null;
 		
 		String uri = request.getRequestURI();
 		String context = request.getContextPath();
