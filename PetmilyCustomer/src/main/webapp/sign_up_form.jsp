@@ -34,9 +34,17 @@
 					class="rounded-circle" alt="...">
 			</div>
 		</div>
+		<div class="row justify-content-center">
+			<button class="btn btn-warning col-2 gy-3" type="button"
+				style="width: 13%">
+				<img src="img/camera.png"
+					style="width: 1.8rem; height: 1.8rem; margin-right: 0.6rem">사진
+				선택하기
+			</button>
+		</div>
 		<div class="row justify-content-center ">
 			<!-- text field + 제목 -->
-			<div class="col-4 mb-3 gy-2">
+			<div class="col-4 mb-3 gy-5">
 				<label for="exampleFormControlInput1" class="form-label">ID
 				</label> <input type="text" class="form-control"
 					id="exampleFormControlInput1" placeholder="아이디를 입력해 주세요"
@@ -89,7 +97,8 @@
 					id="exampleFormControlInput1" placeholder="이메일을 입력해 주세요"
 					value="${kakao.email }">
 			</div>
-			<div class="col-1 gy-2"></div>
+			<button class="btn btn-warning col-1 gy-2 align-self-center" type="button"
+				style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem;">인증</button>
 		</div>
 		<div class="row justify-content-center ">
 			<!-- text field + 제목 -->
@@ -107,7 +116,9 @@
 				</label> <input type="text" class="form-control"
 					id="exampleFormControlInput1" placeholder="주소를 입력해 주세요">
 			</div>
-			<div class="col-2 gy-2"></div>
+			<button class="btn btn-warning col-1 gy-2 align-self-center" type="button"
+				style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem;">검색</button>
+			<div class="col-1 gy-2"></div>
 		</div>
 		<div class="row justify-content-center ">
 			<!-- text field + 제목 -->
@@ -115,7 +126,14 @@
 				<input type="text" class="form-control"
 					id="exampleFormControlInput1" placeholder="상세 주소를 입력해 주세요">
 			</div>
-
+		</div>
+		
+		<div class="row justify-content-center ">
+			<!-- text field + 제목 -->
+			<button class="btn btn-warning col-6 gy-5" type="button">가입하기</button>
+		</div>
+		
+		<div class="row justify-content-center" style="height:4rem">
 		</div>
 	</div>
 	<script
