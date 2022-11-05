@@ -13,7 +13,7 @@ import com.petmily.customer.dto.kakaoDTO;
  */
 
 public class KakaoTokenCommand implements CustomerCommand {
-
+	
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String code = request.getParameter("code");
@@ -23,11 +23,9 @@ public class KakaoTokenCommand implements CustomerCommand {
 		kakaoDTO kakao = dao.getKakao(access_token);
 		
 		request.setAttribute("kakao", kakao);
-
+		
+		dao.unlink(kakao.getId(),access_token);
+		
 	}
-
-	
-
-	
 
 }

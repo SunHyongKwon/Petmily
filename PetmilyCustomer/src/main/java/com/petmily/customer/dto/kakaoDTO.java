@@ -1,6 +1,7 @@
 package com.petmily.customer.dto;
 
 public class kakaoDTO {
+	long id;
 	String name;
 	String profile;
 	String birthday;
@@ -11,8 +12,11 @@ public class kakaoDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public kakaoDTO(String name, String profile, String birthday, String email, String gender) {
+	
+
+	public kakaoDTO(long id, String name, String profile, String birthday, String email, String gender) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.profile = profile;
 		this.birthday = birthday;
@@ -20,10 +24,14 @@ public class kakaoDTO {
 		this.gender = gender;
 	}
 
-	public kakaoDTO(String name, String profile) {
-		super();
-		this.name = name;
-		this.profile = profile;
+
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getName() {
