@@ -23,12 +23,13 @@
 
 <style>
 .table {
-    width: 100%;
+    width: 95%;
     max-width: 95%;
     margin-bottom: 20px;
     margin-left: 15px;
     margin-right: 30px;
     }
+    
 .search{
 	width: 25%;
     max-width: 95%;
@@ -38,7 +39,7 @@
 }
 </style>
 
-<!-- by gukHwa / 어드민 도전과제 리스트 -->
+<!-- by gukHwa / 회원 정보관리 -->
 
 <body>
   <div class="container-scroller">
@@ -301,10 +302,13 @@
       </nav>
       <!-- partial -->
       
+        
+        
 <div class="color" align="right">
 <div class="paddingTop50 table" align="left">
-<h1>도전과제 리스트</h1>
+<h1>회원정보 관리</h1>
 </div>
+
 <form class="navbar-form pull-center" role="search">
 <!-- 검색창[S] -->
    <div class="input-group search">
@@ -314,60 +318,36 @@
       </div>
    </div>
 <!-- 검색창[E] -->
-<br>
-<br>
 
-<div class="container" align="right"> 
-	<div class="row">
-		<div class="col">
-			<button id="myInput" type="button" class="btn btn-danger" style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">검색</button>
-			
-		</div>
-	</div>
-</div>
+<br>
+<br>
 
 <!-- Table[S] -->
+<div align="left">
 <table class="table table-striped" id="myList">
   <thead>
     <tr>
-      <th scope="col">번호</th>
-      <th scope="col">게시글 번호</th>
-      <th scope="col">제목</th>
-      <th scope="col">내용</th>
-      <th scope="col">날짜</th>
-      <th scope="col">선택</th>
+      <th scope="col">이름</th>
+      <th scope="col">주소</th>
+      <th scope="col">이메일</th>
+      <th scope="col">전화번호</th>
+      <th scope="col">등급</th>
+      <th scope="col">별점</th>
+      <th scope="col">탈퇴</th>
+      <th scope="col">가입일자</th>
     </tr>
   </thead>
   <tbody>
+    
     <tr>
       <th scope="row">1</th>
       <td>23546</td>
-      <td>ㄱㄱ</td>
-      <td>11월 매칭성공은 80%, 블랙리스트..</td>
-      <td>2022.11.01</td>
-      <td>
-		<div id="wrapper">
-		  <label id="label">
-		    <input id="hiddenCheckbox" type="checkbox" />
-		    <div id="showCheckbox"></div>
-		  </label>
-		</div>
-	  </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>22</td>
       <td>매칭 현황</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
       <td>2022.11.01</td>
-      <td>
-		<div id="wrapper">
-		  <label id="label">
-		    <input id="hiddenCheckbox" type="checkbox" />
-		    <div id="showCheckbox"></div>
-		  </label>
-		</div>
-	  </td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
     </tr>
     <tr>
       <th scope="row">1</th>
@@ -375,14 +355,9 @@
       <td>매칭 현황</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
       <td>2022.11.01</td>
-      <td>
-		<div id="wrapper">
-		  <label id="label">
-		    <input id="hiddenCheckbox" type="checkbox" />
-		    <div id="showCheckbox"></div>
-		  </label>
-		</div>
-	  </td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
     </tr>
     <tr>
       <th scope="row">1</th>
@@ -390,14 +365,9 @@
       <td>매칭 현황</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
       <td>2022.11.01</td>
-      <td>
-		<div id="wrapper">
-		  <label id="label">
-		    <input id="hiddenCheckbox" type="checkbox" />
-		    <div id="showCheckbox"></div>
-		  </label>
-		</div>
-	  </td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
     </tr>
     <tr>
       <th scope="row">1</th>
@@ -405,14 +375,9 @@
       <td>매칭 현황</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
       <td>2022.11.01</td>
-      <td>
-		<div id="wrapper">
-		  <label id="label">
-		    <input id="hiddenCheckbox" type="checkbox" />
-		    <div id="showCheckbox"></div>
-		  </label>
-		</div>
-	  </td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
     </tr>
     <tr>
       <th scope="row">1</th>
@@ -420,31 +385,69 @@
       <td>매칭 현황</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
       <td>2022.11.01</td>
-      <td>
-		<div id="wrapper">
-		  <label id="label">
-		    <input id="hiddenCheckbox" type="checkbox" />
-		    <div id="showCheckbox"></div>
-		  </label>
-		</div>
-	  </td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>23546</td>
+      <td>매칭 현황</td>
+      <td>11월 매칭성공은 80%, 블랙리스트..</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>23546</td>
+      <td>매칭 현황</td>
+      <td>11월 매칭성공은 80%, 블랙리스트..</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>23546</td>
+      <td>매칭 현황</td>
+      <td>11월 매칭성공은 80%, 블랙리스트..</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>23546</td>
+      <td>매칭 현황</td>
+      <td>11월 매칭성공은 80%, 블랙리스트..</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>23546</td>
+      <td>매칭 현황</td>
+      <td>11월 매칭성공은 80%, 블랙리스트..</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
+      <td>2022.11.01</td>
     </tr>
   </tbody>
 </table>
+</div>
 <!-- Table[E] -->
 
 <div align="left">
 	<h5>총 10건이 검색되었습니다.</h5>
 </div>
 
-<div class="container" align="right"> 
-	<div class="row">
-		<div class="col">
-			<button type="button" class="btn btn-danger" style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">삭제</button>
-			
-		</div>
-	</div>
-</div>
 <!-- 페이징[S] -->
 <div class="container paddingBottom100" align="center">
 <nav aria-label="Page navigation example">
