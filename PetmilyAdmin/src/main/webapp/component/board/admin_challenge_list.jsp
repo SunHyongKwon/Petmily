@@ -37,7 +37,6 @@
     margin-left: 15px;
     margin-right: 30px;
 }
-@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
 </style>
 
 <!-- by gukHwa / 어드민 도전과제 리스트 -->
