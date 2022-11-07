@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="img/gold_foot.png" width="24" height="24">
+            <img src="images/gold_foot.png" width="24" height="24">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
