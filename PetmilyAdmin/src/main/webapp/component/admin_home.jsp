@@ -128,7 +128,7 @@
               <div class="card" >
 
 <!-- 차트 넣을 자리1 -->
-	<jsp:include page="/chart1.jsp"></jsp:include>
+	<jsp:include page="/component/chart1.jsp"></jsp:include>
 	
 
               </div>
@@ -137,7 +137,7 @@
               <div class="card">
                
 <!-- 차트 넣을 자리2 -->
-	<jsp:include page="/chart2.jsp"></jsp:include>
+	<jsp:include page="/component/chart2.jsp"></jsp:include>
                
               </div>
             </div>
@@ -146,7 +146,7 @@
             <div class="col-12 grid-margin">
              
 <!-- 차트 넣을 자리3 -->
-			<jsp:include page="/chart3.jsp"></jsp:include>
+			<jsp:include page="/component/chart3.jsp"></jsp:include>
 	
 
                
@@ -160,7 +160,7 @@
                     <table class="table">
                     
 <!-- 차트 넣을 자리4 -->
-	<jsp:include page="/chart4.jsp"></jsp:include>
+	<jsp:include page="/component/chart4.jsp"></jsp:include>
 
                     </table>
                   </div>

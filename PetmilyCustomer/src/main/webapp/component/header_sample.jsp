@@ -36,8 +36,9 @@
 	font-family: "Indie Flower";
 	font-size: 26px;
 }
-.dropdown:hover .dropdown-menu{
-    display: block;
+
+.dropdown:hover .dropdown-menu {
+	display: block;
 	margin-top: 0;
 }
 </style>
@@ -65,8 +66,7 @@
 				</button>
 
 				<a class="navbar-brand " id="headerlogo" href="index.html"><strong><img
-						alt="" src="images/header/logo4.png"> <span>PETMILY</span></strong>
-				</a>
+						alt="" src="images/header/logo4.png"> <span>PETMILY</span></strong> </a>
 
 				<div class="d-lg-none">
 					<a href="sign-in.html" class="bi-person custom-icon me-3"></a> <a
@@ -105,11 +105,6 @@
 										here</a></li>
 							</ul></li>
 
-
-
-
-
-
 					</ul>
 
 					<div class="d-none d-lg-block">
@@ -126,24 +121,7 @@
 			</div>
 		</nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</main>
-
-
-
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
