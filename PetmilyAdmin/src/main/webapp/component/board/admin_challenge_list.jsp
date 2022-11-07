@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
 </head>
 
 <style>
@@ -36,6 +37,7 @@
     margin-left: 15px;
     margin-right: 30px;
 }
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap');
 </style>
 
 <!-- by gukHwa / 어드민 도전과제 리스트 -->
@@ -304,6 +306,7 @@
 <div class="color" align="right">
 <div class="paddingTop50 table" align="left">
 	<h1 style ="color : #de6637;"><strong>도전과제 리스트</strong></h1>
+	<p class="c" style="font-family: 'Jua' !important;">petMily</p>
 </div>
 <form class="navbar-form pull-center" role="search">
 <!-- 검색창[S] -->
