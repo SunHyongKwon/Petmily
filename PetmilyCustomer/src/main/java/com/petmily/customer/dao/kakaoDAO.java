@@ -33,7 +33,6 @@ public class kakaoDAO {
 		code = "code=" + code + "&";
 		String client_secret = "client_secret=KVcPxAefokHxNYI8wSKHbAVXWHYYRG8d";
 
-
 		HttpsURLConnection conn = null;
 		OutputStreamWriter writer = null;
 		BufferedReader reader = null;
@@ -49,6 +48,7 @@ public class kakaoDAO {
 			conn.setRequestProperty("charset", "utf-8");
 
 			conn.setRequestMethod("POST");
+			
 			conn.setDoOutput(true);
 
 			writer = new OutputStreamWriter(conn.getOutputStream());
@@ -191,7 +191,7 @@ public class kakaoDAO {
 
 			writer = new OutputStreamWriter(conn.getOutputStream());
 			writer.flush();
-
+			
 			// 결과값
 			int responseCode = conn.getResponseCode();
 			isr = new InputStreamReader(conn.getInputStream());
