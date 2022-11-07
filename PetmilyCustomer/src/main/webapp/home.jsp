@@ -28,8 +28,7 @@
 
 <style>
 @import
-	url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap')
-	;
+	url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 #headerlogo {
 	font-family: "Indie Flower";
@@ -242,21 +241,6 @@
 					  </button>
 				</div>
             </section>
-
-
-          
-		
-		
-		
-		
-		
-		
-    
-    
-  
-
-		
-		
         
         </main>
        

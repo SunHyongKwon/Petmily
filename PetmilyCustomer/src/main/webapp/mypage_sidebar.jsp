@@ -72,20 +72,20 @@
           <h3 style="color: #e8853e;"><strong>마이페이지</strong></h3>
         </li>
         <li><a href="#">
-          <img src="img/modify.png" width="20" height="20">
+          <img src="images/modify.png" width="20" height="20">
           개인정보수정</a></li>
         <li><a href="#">
-          <img src="img/chalinge.png" width="20" height="20">  
+          <img src="images/chalinge.png" width="20" height="20">  
           도전과제 목록</a></li>
         <li>조회</li>
         <li><a href="#">
-          <img src="img/search.png" width="20" height="20">
+          <img src="images/search.png" width="20" height="20">
           1365적립</a></li>
         <li><a href="#">
-          <img src="img/search.png" width="20" height="20">
+          <img src="images/search.png" width="20" height="20">
           참여내역</a></li>
         <li><a href="#">
-          <img src="img/search.png" width="20" height="20">
+          <img src="images/search.png" width="20" height="20">
           작성내역</a></li>
       </ul>
     </div>

@@ -92,7 +92,7 @@
 
 		<div class="row my-2">
 			<div class="col-1">
-				<img src="img/companion.png"
+				<img src="images/companion.png"
 					style="width: 3em; height: 3rem; margin-right: 0.6rem">
 			</div>
 			<div class="col-6 align-self-center" style="padding-top: 0.8rem">

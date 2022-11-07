@@ -59,7 +59,7 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
 	<div class="container" >
 		<div class="row justify-content-center">
 			<div class="text-center gy-3">
-			<img class="rounded-circle" src="img/profile_dog.png" width="210px" height="210px">
+			<img class="rounded-circle" src="images/profile_dog.png" width="210px" height="210px">
 			</div>
 		</div>
 		<div class="text-center ">

@@ -21,16 +21,12 @@
 	href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap"
 	rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-icons.css" rel="stylesheet">
+
 <link rel="stylesheet" href="css/slick.css" />
 
 <link href="css/tooplate-little-fashion.css" rel="stylesheet">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-	crossorigin="anonymous">
-
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap')
@@ -40,9 +36,8 @@
 	font-family: "Indie Flower";
 	font-size: 26px;
 }
-
-.dropdown:hover .dropdown-menu {
-	display: block;
+.dropdown:hover .dropdown-menu{
+    display: block;
 	margin-top: 0;
 }
 </style>
@@ -70,7 +65,8 @@
 				</button>
 
 				<a class="navbar-brand " id="headerlogo" href="index.html"><strong><img
-						alt="" src="images/header/logo4.png"> <span>PETMILY</span></strong> </a>
+						alt="" src="images/header/logo4.png"> <span>PETMILY</span></strong>
+				</a>
 
 				<div class="d-lg-none">
 					<a href="sign-in.html" class="bi-person custom-icon me-3"></a> <a
@@ -92,7 +88,7 @@
 
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#"
-							data-bs-toggle="dropdown" aria-expanded="false">함께</a>
+							data-bs-toggle="dropdown" aria-expanded="false">함께v</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="#">Action</a></li>
 								<li><a class="dropdown-item" href="#">Another action</a></li>
@@ -101,71 +97,56 @@
 							</ul></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#"
-							data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
+							data-bs-toggle="dropdown" aria-expanded="false">게시판v</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="#">Action</a></li>
 								<li><a class="dropdown-item" href="#">Another action</a></li>
 								<li><a class="dropdown-item" href="#">Something else
 										here</a></li>
 							</ul></li>
+
+
+
+
+
+
 					</ul>
 
+					<div class="d-none d-lg-block">
+
+						<a href="sign-in.html" class="bi-person "
+							style="margin-right: 5px;">로그인</a> <a href="product-detail.html"
+							class="bi-bag " style="margin-right: 5px;"></a> <a
+							href="product-detail.html" class="bi-heart "></a>
 
 
 
-					<div class="d-none d-lg-block ">
-						<!-- ulevel 정보를 가져와서 등급을 띄우기,ulevel 앞에 추가해줘야함 -->
-
-						<!-- 도전과제 -->
-						<a href="product-detail.html" class="bi-calendar2-check "
-							style="font-size: 1.3rem; margin-right: 4px;"></a>
-						<!-- 채팅 -->
-						<a href="product-detail.html" class="bi-chat "
-							style="font-size: 1.3rem; margin-right: 4px;"></a>
-
-
-
-						<!-- 알림 -->
-						<div class="dropdown show ">
-							<a href="sign-in.html" class="dropdown bi-bell position-relative"
-								style="margin-right: 5px; font-size: 1.3rem"
-								data-bs-toggle="dropdown" aria-expanded="false"><span
-								class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-								style="color: #FFFFFF; font-size: 12px; margin-top: 3px;">6<span
-									class="visually-hidden">unread messages</span></span></a>
-
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								>새로운메세지 <a class="dropdown-item" href="#">Action</a> <a
-									class="dropdown-item" href="#">Another action</a> >최근달린댓글 <a
-									class="dropdown-item" href="#">Something else here</a>
-							</div>
-						</div>
-
-						<!-- 개인정 -->
-						<div class="dropdown show ">
-							<a class="dropdown-toggle" href="#" data-bs-toggle="dropdown"
-								aria-expanded="false">이병준 </a>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-
-								<a class="dropdown-item" href="#">Action</a> <a
-									class="dropdown-item" href="#">Another action</a> <a
-									class="dropdown-item" href="#">Something else here</a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
-
 		</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	</main>
 
-	<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-	crossorigin="anonymous"></script>
+
 
 
 	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/Headroom.js"></script>
 	<script src="js/jQuery.headroom.js"></script>
 	<script src="js/slick.min.js"></script>
