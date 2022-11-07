@@ -105,7 +105,7 @@ body {
 	<main class="form-signin">
 		<form name="signupForm" action="login.jsp" method="post">
 			<img class="mb-4"
-				src="${pageContext.request.contextPath}/images/LOGO.png" alt=""
+				src="images/LOGO.png" alt=""
 				width="300" height="250">
 			<h3>회원가입</h3>
 
