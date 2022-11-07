@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	<jsp:include page="admin_header_sidebar.jsp" />
+	<%-- <jsp:include page="admin_header_sidebar.jsp" /> --%>
 
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->

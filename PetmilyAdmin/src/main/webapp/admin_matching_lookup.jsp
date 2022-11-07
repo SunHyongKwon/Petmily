@@ -2,7 +2,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html lang="en">
 
-	<jsp:include page="admin_header_sidebar.jsp" />
+
+
+
+
+
+
+
+
+
+
+
+	<jsp:include page="admin_header.jsp" />
+	<%-- <jsp:include page="admin_sidebar.jsp" /> --%>
       
      <!--  partial -->
       <div class="main-panel">        
