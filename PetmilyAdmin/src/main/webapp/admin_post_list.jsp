@@ -190,13 +190,12 @@
 								<li class="page-item"><a class="page-link" href="#">1</a></li>
 								<li class="page-item"><a class="page-link" href="#">2</a></li>
 								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								
-		<div>
-			<jsp:include page="admin_footer.jsp" />
-		</div>
-		
+								<li class="page-item"><a class="page-link" href="#">Next</a></li>		
 							</ul>
+							
+			<div>
+		<jsp:include page="admin_footer.jsp" />
+			</div>
 						</nav>
 					</div>
 					<!-- 페이징[E] -->
