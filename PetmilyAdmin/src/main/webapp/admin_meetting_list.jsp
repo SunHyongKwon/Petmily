@@ -15,7 +15,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
   <!-- endinject -->
- <link rel="shortcut icon" href="images/LOGO.png" />
+   <link rel="shortcut icon" href="images/LOGO.png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -39,7 +39,7 @@
 	}
 </style>
 
-<!-- by gukHwa / 어드민 공지사항 -->
+<!-- by gukHwa / 어드민 미팅 -->
 
 <body>
   <div class="container-scroller">
@@ -304,7 +304,7 @@
         
 <div class="color" align="right">
 <div class="paddingTop50 table" align="left">
-	<h1 style ="color : #de6637;"><strong>공지사항</strong></h1>
+<h1>미팅</h1>
 
 </div>
 <form class="navbar-form pull-center" role="search">
@@ -322,7 +322,7 @@
 <div class="container" align="right"> 
 	<div class="row">
 		<div class="col">
-			<button type="button" class="btn btn-danger" style="background: linear-gradient(90deg, rgb(222,102,55) 0%, rgb(238,162,100) 100%); border: rgb(232, 133, 62);">작성</button>
+			<button id="myInput" type="button" class="btn btn-danger" style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">작성</button>
 			
 		</div>
 	</div>
@@ -334,7 +334,10 @@
     <tr>
       <th scope="col"></th>
       <th scope="col">번호</th>
-      <th scope="col">제목</th>
+      <th scope="col">게시글번호</th>
+      <th scope="col">반려회원</th>
+      <th scope="col">비반려회원</th>
+      <th scope="col">날짜</th>
       <th scope="col">시간</th>
       <th scope="col">장소</th>
     </tr>
@@ -352,8 +355,12 @@
       <td>23546</td>
       <td>23546</td>
       <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
 	  </tr>
+     <tr>
      <tr>
       <td>
       	<div id="wrapper">
@@ -366,8 +373,12 @@
       <td>23546</td>
       <td>23546</td>
       <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
 	  </tr>
+     <tr>
      <tr>
       <td>
       	<div id="wrapper">
@@ -380,8 +391,12 @@
       <td>23546</td>
       <td>23546</td>
       <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
 	  </tr>
+     <tr>
      <tr>
       <td>
       	<div id="wrapper">
@@ -394,8 +409,12 @@
       <td>23546</td>
       <td>23546</td>
       <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
 	  </tr>
+     <tr>
      <tr>
       <td>
       	<div id="wrapper">
@@ -408,22 +427,12 @@
       <td>23546</td>
       <td>23546</td>
       <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
 	  </tr>
      <tr>
-      <td>
-      	<div id="wrapper">
-		  <label id="label">
-		    <input id="hiddenCheckbox" type="checkbox" />
-		    	<div id="showCheckbox"></div>
-		  </label> 
-		</div>
-	  </td>
-      <td>23546</td>
-      <td>23546</td>
-      <td>23546</td>
-      <td>11월 매칭성공은 80%, 블랙리스트..</td>
-	  </tr>
      <tr>
       <td>
       	<div id="wrapper">
@@ -436,7 +445,49 @@
       <td>23546</td>
       <td>23546</td>
       <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
       <td>11월 매칭성공은 80%, 블랙리스트..</td>
+	  </tr>
+     <tr>
+     <tr>
+      <td>
+      	<div id="wrapper">
+		  <label id="label">
+		    <input id="hiddenCheckbox" type="checkbox" />
+		    	<div id="showCheckbox"></div>
+		  </label>
+		</div>
+	  </td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>11월 매칭성공은 80%, 블랙리스트..</td>
+	  </tr>
+     <tr>
+     <tr>
+      <td>
+      	<div id="wrapper">
+		  <label id="label">
+		    <input id="hiddenCheckbox" type="checkbox" />
+		    	<div id="showCheckbox"></div>
+		  </label>
+		</div>
+	  </td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>23546</td>
+      <td>11월 매칭성공은 80%, 블랙리스트..</td>
+	  </tr>
+     <tr>
+      
 	  </tr>
   </tbody>
 </table>
@@ -449,8 +500,8 @@
 <div class="container" align="right"> 
 	<div class="row">
 		<div class="col">
-			<button type="button" class="btn btn-danger" style="background: linear-gradient(90deg, rgb(222,102,55) 0%, rgb(238,162,100) 100%); border: rgb(232, 133, 62);">수정</button>
-			<button type="button" class="btn btn-danger" style="background: linear-gradient(90deg, rgb(222,102,55) 0%, rgb(238,162,100) 100%); border: rgb(232, 133, 62);">삭제</button>
+			<button type="button" class="btn btn-danger" style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">수정</button>
+			<button type="button" class="btn btn-danger" style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">삭제</button>
 			
 		</div>
 	</div>

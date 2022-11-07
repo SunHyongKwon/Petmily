@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,32 +18,13 @@
 <!-- inject:css -->
 <link rel="stylesheet" href="css/style.css">
 <!-- endinject -->
-<link rel="shortcut icon" href="images/favicon.png" />
+ <link rel="shortcut icon" href="images/LOGO.png" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<!-- datePicker -->
-<!— Popperjs —>
-<script
-	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.2/dist/umd/popper.min.js"
-	crossorigin="anonymous"></script>
-<!— Tempus Dominus JavaScript —>
-<script
-	src="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/js/tempus-dominus.js"
-	crossorigin="anonymous"></script>
-
-<!— Tempus Dominus Styles —>
-<link
-	href="https://cdn.jsdelivr.net/gh/Eonasdan/tempus-dominus@master/dist/css/tempus-dominus.css"
-	rel="stylesheet" crossorigin="anonymous">
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-	rel="stylesheet">
-	 <link rel="shortcut icon" href="images/LOGO.png" />
 </head>
 
 <style>
@@ -55,27 +37,18 @@
 }
 
 .search {
-	width: 100%;
-	max-width: 25%;
-	margin-bottom: 20px;
+	width: 25%;
+	max-width: 95%;
 	margin-left: 15px;
 	margin-right: 30px;
 }
 
-.datepicker {
-	width: 100%;
-	max-width: 15%;
-	margin-bottom: 20px;
-	margin-left: 15px;
-	margin-right: 30px;
-}
-
-.marginleft30 {
-	margin-left: 30px;
+.margin_bt20 {
+	margin-bottom: 40px;
 }
 </style>
 
-<!-- by gukHwa / 관리자 정보관리 -->
+<!-- by gukHwa / 어드민 미팅 -->
 
 <body>
 	<div class="container-scroller">
@@ -341,253 +314,137 @@
 			</nav>
 			<!-- partial -->
 
-
-
-			<div class="color table">
-				<div class="paddingTop50 marginleft30">
-					<h1 style ="color : #de6637;"><strong>회원 정보관리</strong></h1>
+			<div class="color" align="right">
+				<div class="paddingTop50 table" align="left">
+					<h1 style ="color : #de6637;"><strong>게시물 조회</strong></h1>
 				</div>
-				
-				
-				
+
+				<!-- dropdown[E] -->
 				<form class="navbar-form pull-center" role="search">
 					<!-- 검색창[S] -->
-					<div class= "container">
-					<div class = "row justify-content-end">
-							<div class="input-group search col-6">
-								<input type="text" class="form-control" placeholder="Search"
-									id="myInput">
-								<div class="input-group-btn" align="left">
-									<button type="submit" class="btn btn-default">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>
-								</div>
-							</div>
+					<div class="input-group search">
+						<input type="text" class="form-control" placeholder="Search"
+							id="myInput">
+						<div class="input-group-btn" align="left">
+							<button type="submit" class="btn btn-default">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
 						</div>
 					</div>
 					<!-- 검색창[E] -->
-
 					<br> <br>
 
-					<!-- datepicker[S] -->
-					<div class='input-group datepicker' id='datetimepicker1'
-						data-td-target-input='nearest' data-td-target-toggle='nearest'
-						align="left">
-						<h6>시작일 :</h6>
-						<input id='datetimepicker1Input' type='text' class='form-control'
-							data-td-target='#datetimepicker1' /> <span
-							data-td-target='#datetimepicker1' data-td-toggle='datetimepicker'>
-							<span class='fa-solid fa-calendar'></span>
-						</span>
-					</div>
-					
-					
-					<script type="text/javascript">
-						new tempusDominus.TempusDominus(document
-								.getElementById('datetimepicker1'), {
-							display : {
-								components : {
-									seconds : false,
-									useTwentyfourHour : false,
-								},
-								icons : {
-									type : 'icons',
-									time : 'fa fa-solid fa-clock',
-									date : 'fa fa-solid fa-calendar',
-									up : 'fa fa-solid fa-arrow-up',
-									down : 'fa fa-solid fa-arrow-down',
-									previous : 'fa fa-solid fa-chevron-left',
-									next : 'fa fa-solid fa-chevron-right',
-									today : 'fa fa-solid fa-calendar-check',
-									clear : 'fa fa-solid fa-trash',
-									close : 'fas fa-solid fa-xmark'
-								},
-							},
-						});
-					</script>
-					<!-- datepicker[E] -->
+					<!-- dropdown[S] -->
+					<div class="container">
+						<div class="row justify-content-start">
+							<div class="dropdown table margin_bt20 col-1" align="left">
+								<button class="btn btn-default dropdown-toggle" type="button"
+									data-toggle="dropdown">카테고리</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">함께산책</a></li>
+									<li class="divider"></li>
+									<li><a href="#">함께봉사</a></li>
+									<li class="divider"></li>
+									<li><a href="#">함께 펫카페</a></li>
+									<li class="divider"></li>
+									<li><a href="#">찾아주세요</a></li>
+								</ul>
+							</div>
 
-					<!-- datepicker[S] -->
-					<div class='input-group datepicker' id='datetimepicker2'
-						data-td-target-input='nearest' data-td-target-toggle='nearest'
-						align="left">
-						<h6>종료일 :</h6>
-						<input id='datetimepicker2Input' type='text' class='form-control'
-							data-td-target='#datetimepicker2' /> <span
-							data-td-target='#datetimepicker2' data-td-toggle='datetimepicker'>
-							<span class='fa-solid fa-calendar'></span>
-						</span>
+							<div class="dropdown table margin_bt20 col-1" align="left">
+								<button class="btn btn-default dropdown-toggle" type="button"
+									data-toggle="dropdown">지역별</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">서울시</a></li>
+									<li class="divider"></li>
+									<li><a href="#">경기도</a></li>
+									<li class="divider"></li>
+									<li><a href="#">강원도</a></li>
+									<li class="divider"></li>
+									<li><a href="#">충청남도</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
-					
-					
-					<script type="text/javascript">
-						new tempusDominus.TempusDominus(document
-								.getElementById('datetimepicker2'), {
-							display : {
-								components : {
-									seconds : false,
-									useTwentyfourHour : false,
-								},
-								icons : {
-									type : 'icons',
-									time : 'fa fa-solid fa-clock',
-									date : 'fa fa-solid fa-calendar',
-									up : 'fa fa-solid fa-arrow-up',
-									down : 'fa fa-solid fa-arrow-down',
-									previous : 'fa fa-solid fa-chevron-left',
-									next : 'fa fa-solid fa-chevron-right',
-									today : 'fa fa-solid fa-calendar-check',
-									clear : 'fa fa-solid fa-trash',
-									close : 'fas fa-solid fa-xmark'
-								},
-							},
-						});
-					</script>
-					<!-- datepicker[E] -->
+					<!-- dropdown[E] -->
+
 
 
 					<!-- Table[S] -->
-					<div align="left">
-						<table class="table table-striped" id="myList">
-							<thead>
-								<tr>
-									<th scope="col">이름</th>
-									<th scope="col">주소</th>
-									<th scope="col">이메일</th>
-									<th scope="col">전화번호</th>
-									<th scope="col">비밀번호</th>
-									<th scope="col">등급</th>
-									<th scope="col">별점</th>
-									<th scope="col">탈퇴</th>
-									<th scope="col">가입일자</th>
-								</tr>
-							</thead>
-							<tbody>
+					<table class="table table-striped" id="myList">
+						<thead>
+							<tr>
+								<th scope="col">번호</th>
+								<th scope="col">게시글번호</th>
+								<th scope="col">반려회원</th>
+								<th scope="col">비반려회원</th>
+								<th scope="col">날짜</th>
+								<th scope="col">시간</th>
+								<th scope="col">장소</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>11월 매칭성공은 80%, 블랙리스트..</td>
+							</tr>
+							<tr>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>11월 매칭성공은 80%, 블랙리스트..</td>
+							</tr>
+							<tr>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>11월 매칭성공은 80%, 블랙리스트..</td>
+							</tr>
+							<tr>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>11월 매칭성공은 80%, 블랙리스트..</td>
+							</tr>
+							<tr>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>11월 매칭성공은 80%, 블랙리스트..</td>
+							</tr>
+							<tr>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>23546</td>
+								<td>11월 매칭성공은 80%, 블랙리스트..</td>
+							</tr>
 
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-								<tr>
-									<th scope="row">1</th>
-									<td>23546</td>
-									<td>매칭 현황</td>
-									<td>11월 매칭성공은 80%, 블랙리스트..</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-									<td>2022.11.01</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
+						</tbody>
+					</table>
 					<!-- Table[E] -->
 
 					<div align="left">
 						<h5>총 10건이 검색되었습니다.</h5>
-					</div>
-					<div class="container" align="right">
-						<div class="row">
-							<div class="col">
-								<button type="button" class="btn btn-light">승인</button>
-							</div>
-						</div>
 					</div>
 					<!-- 페이징[S] -->
 					<div class="container paddingBottom100" align="center">

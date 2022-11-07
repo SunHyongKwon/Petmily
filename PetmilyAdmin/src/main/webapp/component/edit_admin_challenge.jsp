@@ -43,7 +43,7 @@
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                         <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                          <button class="file-upload-browse btn btn-gradient-primary" type="button" style="background: linear-gradient(90deg, rgb(222,102,55) 0%, rgb(238,162,100) 100%);">Upload</button>
                         </span>
                       </div>
                     </div>                  
