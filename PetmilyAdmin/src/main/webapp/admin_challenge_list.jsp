@@ -303,7 +303,7 @@
       
 <div class="color" align="right">
 <div class="paddingTop50 table" align="left">
-<h1>도전과제 리스트</h1>
+	<h1 style ="color : #de6637;"><strong>도전과제 리스트</strong></h1>
 </div>
 <form class="navbar-form pull-center" role="search">
 <!-- 검색창[S] -->
@@ -320,7 +320,7 @@
 <div class="container" align="right"> 
 	<div class="row">
 		<div class="col">
-			<button id="myInput" type="button" class="btn btn-danger" style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">검색</button>
+			<button type="button" class="btn btn-danger" style="background: linear-gradient(90deg, rgb(222,102,55) 0%, rgb(238,162,100) 100%); border: rgb(232, 133, 62);">검색</button>
 			
 		</div>
 	</div>
@@ -440,8 +440,7 @@
 <div class="container" align="right"> 
 	<div class="row">
 		<div class="col">
-			<button type="button" class="btn btn-danger" style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">삭제</button>
-			
+			<button type="button" class="btn btn-danger" style="background: linear-gradient(90deg, rgb(222,102,55) 0%, rgb(238,162,100) 100%); border: rgb(232, 133, 62);">삭제</button>
 		</div>
 	</div>
 </div>

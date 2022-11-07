@@ -316,7 +316,7 @@
 
 			<div class="color" align="right">
 				<div class="paddingTop50 table" align="left">
-					<h1>게시물 조회</h1>
+					<h1 style ="color : #de6637;"><strong>게시물 조회</strong></h1>
 				</div>
 
 				<!-- dropdown[E] -->
