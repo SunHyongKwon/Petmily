@@ -18,7 +18,7 @@
 <!-- inject:css -->
 <link rel="stylesheet" href="css/style.css">
 <!-- endinject -->
-<link rel="shortcut icon" href="images/favicon.png" />
+ <link rel="shortcut icon" href="images/LOGO.png" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
