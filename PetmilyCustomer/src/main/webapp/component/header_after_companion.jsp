@@ -59,28 +59,26 @@
 					<li class="nav-item"><a class="nav-link mx-3" href="#" style = "color : black;">펫과사전</a>
 					</li>
 
-					<li class="nav-item"><a class="nav-link mx-3" href="#" style = "color : black;">구조</a>
+					<li class="nav-item"><a class="nav-link mx-3" href="#" style = "color : black;">도전</a>
 					</li>
 
-					<li class="nav-item"><a class="nav-link mx-3" href="#" style = "color : black;">분양</a></li>
+					<li class="nav-item"><a class="nav-link mx-3" href="#" style = "color : black;">매칭</a></li>
 
 					<li class="nav-item dropdown mx-3"><a
 						class="nav-link dropdown-toggle" href="#"
 						data-bs-toggle="dropdown" aria-expanded="false" style = "color : black;">함께</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><a class="dropdown-item" href="#">Something else
-									here</a></li>
+							<li><a class="dropdown-item" href="#">함께 펫카페</a></li>
+							<li><a class="dropdown-item" href="#">함께 산책</a></li>
+							<li><a class="dropdown-item" href="#">함께 봉사
+									</a></li>
 						</ul></li>
 					<li class="nav-item dropdown mx-3"><a
 						class="nav-link dropdown-toggle" href="#"
-						data-bs-toggle="dropdown" aria-expanded="false" style = "color : black;">게시판</a>
+						data-bs-toggle="dropdown" aria-expanded="false" style = "color : black;">구조</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><a class="dropdown-item" href="#">Something else
-									here</a></li>
+							<li><a class="dropdown-item" href="#">찾아주세요</a></li>
+							<li><a class="dropdown-item" href="#">찾았어요</a></li>
 						</ul>
 					</li>
 				</ul>
