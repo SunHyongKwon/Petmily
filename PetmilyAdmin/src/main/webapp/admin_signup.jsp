@@ -98,6 +98,7 @@ body {
           form.submit()   
     }
   </script>
+    <link rel="shortcut icon" href="images/LOGO.png" />
 </head>
 
 <body class="text-center">

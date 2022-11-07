@@ -35,7 +35,7 @@ body {
 	margin: auto;
 }
 </style>
-
+  <link rel="shortcut icon" href="images/LOGO.png" />
 </head>
 
 <body>
@@ -58,7 +58,7 @@ body {
 			</div>
 			<div class="form-floating">
 				<input type="password" class="form-control" id="pw" name="pw"
-					placeholder="Password"> <label for="pwd">비밀번호</label>
+					placeholder="Password"> <label for="pw">비밀번호</label>
 			</div>
 			<div>
 				<label> </label>

@@ -55,18 +55,23 @@ body {
 	border-top-right-radius: 0;
 }
 </style>
-  <link rel="shortcut icon" href="images/LOGO.png" />
+ <link rel="shortcut icon" href="images/LOGO.png" />
 </head>
 
 <body>
 	<main class="form-signin">
 		<form name="loginForm" action="login.jsp" method="post">
 
-			<h3 class="text-center">아이디 찾기</h3>
-			<br>
-			<h6 class="text-center">회원정보에 입력한 정보를 작성해주세요.</h6>
+			<h3 class="text-center">MY PAGE</h3>
 			<br>
 
+			<div class="form-floating">
+				<input type="text" class="form-control" id="id" name="id"
+					placeholder="아이디 입력..."> <label for="id">아이디</label>
+			</div>
+			<div>
+				<label> </label>
+			</div>
 			<div class="form-floating">
 				<input type="text" class="form-control" id="name" name="name"
 					placeholder="Name"> <label for="name">이름</label>
@@ -74,15 +79,33 @@ body {
 			<div>
 				<label> </label>
 			</div>
+			
+			
+			<div class="row">
 			<div class="form-floating">
-				<input type="email" class="form-control" id="email" name="email"
-					placeholder="Email"> <label for="email">이메일</label>
+				<input type="text" class="form-control" id="email" name="email"
+					placeholder="Email"> <label for="email">이메일 주소</label>
+			</div>
 			</div>
 			<div>
 				<label> </label>
 			</div>
+			
+			<div class="form-floating">
+				<input type="text" class="form-control" id="pw"
+					name="pw" placeholder="Password">
+				<label for="pw">비밀번호</label>
+			</div>
+			<div align="right">
+			<input type="submit" value="확인"  > 
+			</div>
+		
+
+			<div>
+				<label> </label>
+			</div>
 			<button class="w-100 btn btn-lg btn-primary" type="submit"
-				style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">아이디 찾기</button>
+				style="background-color: rgb(232, 133, 62); border: rgb(232, 133, 62);">수정하기</button>
 		</form>
 	</main>
 </body>

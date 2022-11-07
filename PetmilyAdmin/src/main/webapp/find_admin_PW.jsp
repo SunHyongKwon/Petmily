@@ -55,7 +55,7 @@ body {
 	border-top-right-radius: 0;
 }
 </style>
-
+  <link rel="shortcut icon" href="images/LOGO.png" />
 </head>
 
 <body>
@@ -78,13 +78,14 @@ body {
 			
 			<div class="row">
 			<div class="form-floating">
-				<input type="email" class="form-control" id="email" name="email"
+				<input type="text" class="form-control" id="email" name="email"
 					placeholder="Email"> <label for="email">이메일 주소</label>
 			</div>
 			</div>
-			
-				<input type="submit" value="번호받기" style="background-color: rgb(245, 245, 245); border: rgb(245, 245, 245);" > 
-			
+			<div align="right">
+			<input type="submit" value="인증번호"  > 
+			</div>
+		
 
 
 			<div class="form-floating">
