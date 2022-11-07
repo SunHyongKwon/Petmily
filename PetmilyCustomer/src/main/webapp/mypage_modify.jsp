@@ -28,19 +28,10 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row jstify-content-center">
-			<div class="text-center gy-3">
-				<img src="https://picsum.photos/200/200/?random"
-					class="rounded-circle" alt="...">
-			</div>
-		</div>
 		<div class="row justify-content-center">
-			<button class="btn btn-warning col-2 gy-3" type="button"
-				style="width: 13%">
-				<img src="img/camera.png"
-					style="width: 1.8rem; height: 1.8rem; margin-right: 0.6rem">사진
-				선택하기
-			</button>
+			<div class="text-center gy-3" style="color: #e8853e;">
+                <h1><strong>개인정보수정</strong></h1>
+            </div>
 		</div>
 		<div class="row justify-content-center ">
 			<!-- text field + 제목 -->
@@ -51,24 +42,6 @@
 					value="${kakao.id }">
 			</div>
 			<div class="col-2"></div>
-		</div>
-		<div class="row justify-content-center ">
-			<!-- text field + 제목 -->
-			<div class="col-4 mb-3 gy-2">
-				<label for="exampleFormControlInput1" class="form-label">비밀번호
-				</label> <input type="password" class="form-control"
-					id="exampleFormControlInput1" placeholder="비밀번호를 입력해 주세요">
-			</div>
-			<div class="col-2 gy-2"></div>
-		</div>
-		<div class="row justify-content-center ">
-			<!-- text field + 제목 -->
-			<div class="col-4 mb-3 gy-2">
-				<label for="exampleFormControlInput1" class="form-label">비밀번호
-					확인 </label> <input type="password" class="form-control"
-					id="exampleFormControlInput1" placeholder="한번 더 입력해 주세요">
-			</div>
-			<div class="col-2 gy-2"></div>
 		</div>
 		<div class="row justify-content-center ">
 			<!-- text field + 제목 -->
@@ -97,8 +70,8 @@
 					id="exampleFormControlInput1" placeholder="이메일을 입력해 주세요"
 					value="${kakao.email }">
 			</div>
-			<button class="btn btn-warning col-1 gy-2 align-self-center" type="button"
-				style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem;">인증</button>
+			<button class="btn col-1 gy-2 align-self-center" type="button"
+				style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem; background-color: #e8853e;">인증</button>
 		</div>
 		<div class="row justify-content-center ">
 			<!-- text field + 제목 -->
@@ -116,8 +89,8 @@
 				</label> <input type="text" class="form-control"
 					id="exampleFormControlInput1" placeholder="주소를 입력해 주세요">
 			</div>
-			<button class="btn btn-warning col-1 gy-2 align-self-center" type="button"
-				style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem;">검색</button>
+			<button class="btn col-1 gy-2 align-self-center" type="button"
+				style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem; background-color: #e8853e;">검색</button>
 			<div class="col-1 gy-2"></div>
 		</div>
 		<div class="row justify-content-center ">
@@ -130,7 +103,7 @@
 		
 		<div class="row justify-content-center ">
 			<!-- text field + 제목 -->
-			<button class="btn btn-warning col-6 gy-5" type="button">가입하기</button>
+			<button class="btn col-6 gy-5" type="button" style="background-color: #e8853e;">수정</button>
 		</div>
 		
 		<div class="row justify-content-center" style="height:4rem">
