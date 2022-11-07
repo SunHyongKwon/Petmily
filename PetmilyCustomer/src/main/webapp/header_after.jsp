@@ -21,12 +21,16 @@
 	href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap"
 	rel="stylesheet">
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/bootstrap-icons.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="css/slick.css" />
 
 <link href="css/tooplate-little-fashion.css" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+	crossorigin="anonymous">
+
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap')
@@ -66,8 +70,7 @@
 				</button>
 
 				<a class="navbar-brand " id="headerlogo" href="index.html"><strong><img
-						alt="" src="images/header/logo4.png"> <span>PETMILY</span></strong>
-				</a>
+						alt="" src="images/header/logo4.png"> <span>PETMILY</span></strong> </a>
 
 				<div class="d-lg-none">
 					<a href="sign-in.html" class="bi-person custom-icon me-3"></a> <a
@@ -115,7 +118,7 @@
 
 						<!-- 도전과제 -->
 						<a href="product-detail.html" class="bi-calendar2-check "
-							style="font-size: 1.3rem; margin-right: 4px;"></a> 
+							style="font-size: 1.3rem; margin-right: 4px;"></a>
 						<!-- 채팅 -->
 						<a href="product-detail.html" class="bi-chat "
 							style="font-size: 1.3rem; margin-right: 4px;"></a>
@@ -154,28 +157,15 @@
 			</div>
 
 		</nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	</main>
 
-
+	<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+	crossorigin="anonymous"></script>
 
 
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/Headroom.js"></script>
 	<script src="js/jQuery.headroom.js"></script>
 	<script src="js/slick.min.js"></script>
