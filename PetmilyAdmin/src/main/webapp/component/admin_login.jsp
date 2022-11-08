@@ -42,23 +42,23 @@ body {
 
 
 	<main class="form-signin">
-		<form name="loginForm" action="login.jsp" method="post">
+		<form name="adminlogin" action="admin_login.do" method="post">
 			<img class="mb-4"
-				src="${pageContext.request.contextPath}/images/LOGO.png" alt=""
+				src="images/LOGO.png" alt=""
 				width="300" height="250">
 			<h3 class="text-center">로그인 페이지</h3>
 			<br>
 
 			<div class="form-floating">
-				<input type="text" class="form-control" id="id" name="id"
-					placeholder="아이디 입력..."> <label for="id">아이디</label>
+				<input type="text" class="form-control" id="adid" name="adid"
+					placeholder="아이디 입력..."> <label for="adid">아이디</label>
 			</div>
 			<div>
 				<label> </label>
 			</div>
 			<div class="form-floating">
-				<input type="password" class="form-control" id="pw" name="pw"
-					placeholder="Password"> <label for="pw">비밀번호</label>
+				<input type="password" class="form-control" id="adpw" name="adpw"
+					placeholder="Password"> <label for="adpw">비밀번호</label>
 			</div>
 			<div>
 				<label> </label>
@@ -76,14 +76,14 @@ body {
 					</form>
 				</div>
 				<div class="col-sm-3">
-					<form action="find_admin_ID.jsp" method="post">
+					<form action="admin_search_id.jsp" method="post">
 						<input type="submit" value="ID찾기"
 							style="background-color: rgb(245, 245, 245); border: rgb(245, 245, 245);">
 					</form>
 				</div>
 				<div class="col-sm-1">/</div>
 				<div class="col-sm-3">
-					<form action="find_admin_PW.jsp" method="post">
+					<form action="admin_search_pw.jsp" method="post">
 						<input type="submit" value="PW찾기"
 							style="background-color: rgb(245, 245, 245); border: rgb(245, 245, 245);">
 					</form>
@@ -92,7 +92,7 @@ body {
 		</div>
 
 		<footer class="my-3 text-center text-small">
-			<p class="mb-1">&copy; 2021 YD</p>
+			<p class="mb-1">&copy; 2022 YD</p>
 		</footer>
 
 

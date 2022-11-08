@@ -103,7 +103,7 @@ body {
 
 <body class="text-center">
 	<main class="form-signin">
-		<form name="signupForm" action="login.jsp" method="post">
+		<form name="adminsignup" action="admin_signup.do" method="post">
 			<img class="mb-4"
 				src="images/LOGO.png" alt=""
 				width="300" height="250">
@@ -111,15 +111,15 @@ body {
 
 			<div align="left">아이디</div>
 			<div class="form-floating">
-				<input type="text" class="form-control" id="id" name="id"
-					placeholder="아이디 입력..."> <label for="id"
+				<input type="text" class="form-control" id="adid" name="adid"
+					placeholder="아이디 입력..."> <label for="adid"
 					style="color: rgb(230, 230, 230);">ID</label>
 			</div>
 
 			<div align="left">비밀번호</div>
 			<div class="form-floating">
-				<input type="password" class="form-control" id="pw" name="pw"
-					placeholder="Password"> <label for="pw"
+				<input type="password" class="form-control" id="adpw" name="adpw"
+					placeholder="Password"> <label for="adpw"
 					style="color: rgb(230, 230, 230);">Password</label>
 			</div>
 
@@ -132,15 +132,15 @@ body {
 
 			<div align="left">이름</div>
 			<div class="form-floating">
-				<input type="text" class="form-control" id="name" name="name"
-					placeholder="Name"> <label for="name"
+				<input type="text" class="form-control" id="adname" name="adname"
+					placeholder="Name"> <label for="adname"
 					style="color: rgb(230, 230, 230);">Name</label>
 			</div>
 
 			<div align="left">이메일</div>
 			<div class="form-floating">
-				<input type="email" class="form-control" id="email" name="email"
-					placeholder="Email"> <label for="email"
+				<input type="text" class="form-control" id="ademail" name="ademail"
+					placeholder="Email"> <label for="ademail"
 					style="color: rgb(230, 230, 230);">Email</label>
 			</div>
 

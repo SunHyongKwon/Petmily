@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 
 <meta charset="UTF-8">
-<title>ADMIN LOGIN</title>
+<title>ADMIN SEARCH PW</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 <style>
@@ -55,12 +55,47 @@ body {
 	border-top-right-radius: 0;
 }
 </style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+
+
+function
+$(document).ready(function() {
+ $('email_check').click(function(){
+	   
+        var pstype=$('#pstype').val();
+         
+        if(pstype=="")
+       	{
+			alert("동물 유형을 선택해 주세요")	 ;
+        }
+        else
+        {
+            $.ajax({
+               url:'email_check.do',
+               type:'POST',
+               data:'pstype='+pstype,
+               dataType:"json",
+               success:function(response)
+               {
+                  
+                   
+               }
+            });
+        }
+         
+		});
+})*/
+
+
+
+</script>
   <link rel="shortcut icon" href="images/LOGO.png" />
 </head>
 
 <body>
 	<main class="form-signin">
-		<form name="loginForm" action="login.jsp" method="post">
+		<form name="adminsearchpw" action="#" method="post">
 
 			<h3 class="text-center">비밀번호 찾기</h3>
 			<br>
@@ -83,7 +118,7 @@ body {
 			</div>
 			</div>
 			<div align="right">
-			<input type="submit" value="인증번호"  > 
+			<input type="button" value="인증번호" id="email_check"   > 
 			</div>
 		
 

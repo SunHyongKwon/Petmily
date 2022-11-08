@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 
 <meta charset="UTF-8">
-<title>ADMIN LOGIN</title>
+<title>ADMIN SEARCH ID</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 <style>
@@ -55,12 +55,12 @@ body {
 	border-top-right-radius: 0;
 }
 </style>
-  <link rel="shortcut icon" href="images/LOGO.png" />
+ <link rel="shortcut icon" href="images/LOGO.png" />
 </head>
 
 <body>
 	<main class="form-signin">
-		<form name="loginForm" action="login.jsp" method="post">
+		<form name="adminsearchid" action="#" method="post">
 
 			<h3 class="text-center">아이디 찾기</h3>
 			<br>
@@ -87,3 +87,4 @@ body {
 	</main>
 </body>
 </html>
+
