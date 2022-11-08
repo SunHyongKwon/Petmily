@@ -34,6 +34,7 @@ public class CustomerHomeController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		String viewpage = null;
+		String content_viewpage = null;
 		CustomerCommand command = null;
 		
 		String uri = request.getRequestURI();
@@ -54,6 +55,8 @@ public class CustomerHomeController extends HttpServlet {
 				command = new KakaoTokenCommand();
 				command.execute(request, response);
 				viewpage = "sign_up_form.jsp";
+				content_viewpage = "mypage_modify.jsp";
+				request.setAttribute("content_viewpage", content_viewpage);
 				break;
 		}
 		

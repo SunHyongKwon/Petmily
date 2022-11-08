@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
@@ -61,8 +59,6 @@
   }
 
 </style>
-</head>
-<body>
 <div id="page-wrapper">
   <!-- 사이드바 -->
   <div id="sidebar-wrapper">
@@ -97,5 +93,3 @@
   <!-- /본문 -->
 </div>
 
-</body>
-</html>

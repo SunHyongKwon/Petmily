@@ -8,9 +8,12 @@
 </head>
 <body>
 	<jsp:include page="component/header.jsp"></jsp:include>
+	
 	<jsp:include page="component/mypage_header.jsp"></jsp:include>
 	<jsp:include page="component/mypage_sidebar.jsp"></jsp:include>
-	<jsp:include page="component/mypage_modify.jsp"></jsp:include>
+	<%-- <jsp:include page="component/mypage_challenge_list.jsp"></jsp:include> --%>
+	
+	<%-- <jsp:include page="component/${content_viewpage}"></jsp:include> --%>
 	
 </body>
 </html>

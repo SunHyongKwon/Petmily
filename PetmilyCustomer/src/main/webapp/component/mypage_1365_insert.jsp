@@ -51,19 +51,19 @@
             <hr>
             <div class="col-5 mb-3 gy-2">
                 <label for="exampleFormControlInput1" class="form-label">봉사명
-                </label> <input type="text" class="form-control" name="volunname">
+                </label> <input type="text" class="form-control" name="volunname" disabled="disabled">
             </div>
             <div class="col-5 mb-3 gy-2">
                 <label for="exampleFormControlInput1" class="form-label">봉사유형
-                </label> <input type="text" class="form-control" name="voluntype">
+                </label> <input type="text" class="form-control" name="voluntype" disabled="disabled">
             </div>
             <div class="col-5 mb-3 gy-2">
                 <label for="text" class="form-label">봉사날짜
-                </label> <input type="1365num" class="form-control" name="voluntime">
+                </label> <input type="text" class="form-control" name="voluntime" disabled="disabled">
             </div>
             <div class="col-5 mb-3 gy-2">
                 <label for="exampleFormControlInput1" class="form-label">봉사장소
-                </label> <input type="text" class="form-control" name="volunplace">
+                </label> <input type="text" class="form-control" name="volunplace" disabled="disabled">
             </div>
             <div class="align-self-end">
                 <button class="btn col-1 gy-2 align-self-center" type="button"
