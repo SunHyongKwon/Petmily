@@ -1,21 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="utf-8">
-<head>
-    <meta charset="utf-8">
-    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
-    <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>white chat - Bootdey.com</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-	<%@ taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
-</head>
-<body>
+
 <main class="content">
-    <div class="container p-0">
+    <div class="container ">
 
 		<h1 class="h3 mb-3">Messages</h1>
 
@@ -32,11 +19,11 @@
 					</div>
 				<%-- 	<c:forEach items="${체팅목록리스트}" var="dto"> --%>
 					<!-- 채팅목록 -->
-					<a href="#" class="list-group-item list-group-item-action border-0">
+					<a href="#" class="list-group-item list-group-item-action border-0 mx-3">
 						<div class="badge bg-success float-right">5</div>
 						<div class="d-flex align-items-start">
 							<img src="https://bootdey.com/img/Content/avatar/avatar5.png" class="rounded-circle mr-1" alt="Vanessa Tucker" width="40" height="40">
-							<div class="flex-grow-1 ml-3">
+							<div class="flex-grow-1 mx-5">
 								정윤현<%-- ${dto.name } --%><!-- 채팅신청한 사람들 목록 -->
 							</div>
 						</div>
@@ -145,8 +132,3 @@ body{margin-top:20px;}
 }
 </style>
 
-<script type="text/javascript">
-
-</script>
-</body>
-</html>
