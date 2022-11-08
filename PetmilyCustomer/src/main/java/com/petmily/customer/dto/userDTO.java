@@ -12,6 +12,7 @@ public class userDTO {
 	String utype;
 	String ulevel;
 	String uinfo;
+	String unickname;
 	
 	public userDTO() {
 		// TODO Auto-generated constructor stub
@@ -31,7 +32,6 @@ public class userDTO {
 		this.uinfo = uinfo;
 	}
 	
-
 	public String getUid() {
 		return uid;
 	}
@@ -102,6 +102,14 @@ public class userDTO {
 
 	public void setUinfo(String uinfo) {
 		this.uinfo = uinfo;
+	}
+
+	public String getUnickname() {
+		return unickname;
+	}
+
+	public void setUnickname(String unickname) {
+		this.unickname = unickname;
 	}
 	
 	

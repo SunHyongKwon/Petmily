@@ -10,5 +10,12 @@ public class MypageModifyInsertCommand implements CustomerCommand {
 		// TODO Auto-generated method stub
 
 	}
+	@Override
+	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+		return 0;
+
+	}
 
 }

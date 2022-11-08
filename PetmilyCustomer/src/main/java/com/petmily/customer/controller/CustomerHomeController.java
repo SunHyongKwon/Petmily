@@ -13,6 +13,8 @@ import com.petmily.customer.command.CustomerCommand;
 import com.petmily.customer.command.KakaoTokenCommand;
 import com.petmily.customer.command.MypageModifyInsertCommand;
 import com.petmily.customer.command.MypageSelectCommand;
+import com.petmily.customer.command.loginCommand;
+import com.petmily.customer.command.signupCommand;
 
 
 @WebServlet("*.do")
@@ -45,21 +47,14 @@ public class CustomerHomeController extends HttpServlet {
 		
 		switch(com){
 
-//			case ("/list.do"):
-//				command = new OhListCommand();
-//				if(command.executeInt(request, response) == 1) {
-//					viewpage = "ShoesListAfter.jsp";
-//				}else {
-//					viewpage = "ShoesListBefore.jsp";
-//				}
-//				break;	
-//			case ("/sign_up_kakao.do"):
-//				command = new KakaoTokenCommand();
-//				command.execute(request, response);
-//				viewpage = "sign_up_form.jsp";
-//				content_viewpage = "mypage_modify.jsp";
-//				request.setAttribute("content_viewpage", content_viewpage);
-//				break;
+
+		case ("/sign_up_kakao.do"):
+			command = new KakaoTokenCommand();
+			command.execute(request, response);
+			viewpage = "sign_up_form.jsp";
+			content_viewpage = "mypage_modify.jsp";
+			request.setAttribute("content_viewpage", content_viewpage);
+			break;
 		
 		//회원정보 수정 페이지에서 수정버튼 눌렀을 때
 		case("mypage_modify_update.do"):
@@ -73,7 +68,25 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "modify_update.jsp";
 			break;
-		
+		//로그인 버튼 클릭 시
+		case("login.do"):
+			command = new loginCommand();
+			if(command.executeInt(request, response) == 0) {
+				viewpage = "loginTest.jsp";	
+				System.out.println("로그인성공");
+				//로그인
+			}else {
+				viewpage = "loginTest.jsp";
+				System.out.println("로그인 실패");
+				//비로그인
+			}
+			break;
+		//회원가입 화면에서 가입하기 버튼 클릭 시
+		case("sign_up.do"):
+			command = new signupCommand();
+			command.execute(request, response);
+			viewpage = "";
+			break;
 				
 		}
 		
