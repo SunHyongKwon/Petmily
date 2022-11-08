@@ -71,21 +71,21 @@
         <li class="sidebar-brand">
           <h3 style="color: #e8853e;"><strong>마이페이지</strong></h3>
         </li>
-        <li><a href="#">
-          <img src="images/modify.png" width="20" height="20">
+        <li><a href="mypage_modify.do">
+          <img src="component/images/modify.png" width="20" height="20">
           개인정보수정</a></li>
-        <li><a href="#">
-          <img src="images/chalinge.png" width="20" height="20">  
+        <li><a href="mypage_challenge_list.do">
+          <img src="component/images/chalinge.png" width="20" height="20">  
           도전과제 목록</a></li>
         <li>조회</li>
-        <li><a href="#">
-          <img src="images/search.png" width="20" height="20">
+        <li><a href="mypage_1365.do">
+          <img src="component/images/search.png" width="20" height="20">
           1365적립</a></li>
         <li><a href="#">
-          <img src="images/search.png" width="20" height="20">
+          <img src="component/images/search.png" width="20" height="20">
           참여내역</a></li>
         <li><a href="#">
-          <img src="images/search.png" width="20" height="20">
+          <img src="component/images/search.png" width="20" height="20">
           작성내역</a></li>
       </ul>
     </div>
@@ -93,10 +93,7 @@
   <!-- /사이드바 -->
 
   <!-- 본문 -->
-  <div id="content" class="p-4 p-md-5 pt-5">
-
-    
-  </div>
+ 
   <!-- /본문 -->
 </div>
 

@@ -7,7 +7,15 @@
 <title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>
+            function insert(){
+                var form = document.register;
+                form.action = "mypage_1365_insert.do";
 
+                form.submit();
+            }
+        </script>
         
         <script src='main.js'></script>
     </head>
@@ -26,42 +34,43 @@
             </h6>
             </div>
             <hr>
+            <form action="1365_search.do" name="register" method="post">
             <div class="row">
                 <!-- text field + 제목 -->
                 <div class="col-5 mb-3 gy-2">
                     <label for="exampleFormControlInput1" class="form-label">봉사번호
-                    </label> <input type="1365num" class="form-control"
-                        id="exampleFormControlInput1" placeholder="봉사번호를 입력해주세요."
-                        value="${kakao.email }">
+                    </label> <input type="text" class="form-control"
+                        name="volunid" placeholder="봉사번호를 입력해주세요.">
                 </div>
-                <button class="btn btn-warning col-1 gy-2 align-self-center" type="button"
-                    style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem ; background-color: #e8853e;">인증</button>
+                    <input type="submit" class="btn btn-warning col-1 gy-2 align-self-center"
+                    style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem ; background-color: #e8853e;" value="인증">
+                <!-- <button class="btn btn-warning col-1 gy-2 align-self-center" type="button"
+                    style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem ; background-color: #e8853e;">인증</button> -->
+                
             </div>
             <hr>
             <div class="col-5 mb-3 gy-2">
                 <label for="exampleFormControlInput1" class="form-label">봉사명
-                </label> <input type="1365num" class="form-control"
-                    id="exampleFormControlInput1" value="${kakao.email }">
+                </label> <input type="text" class="form-control" name="volunname">
             </div>
             <div class="col-5 mb-3 gy-2">
                 <label for="exampleFormControlInput1" class="form-label">봉사유형
-                </label> <input type="1365num" class="form-control"
-                    id="exampleFormControlInput1" value="${kakao.email }">
+                </label> <input type="text" class="form-control" name="voluntype">
             </div>
             <div class="col-5 mb-3 gy-2">
-                <label for="exampleFormControlInput1" class="form-label">봉사날짜
-                </label> <input type="1365num" class="form-control"
-                    id="exampleFormControlInput1" value="${kakao.email }">
+                <label for="text" class="form-label">봉사날짜
+                </label> <input type="1365num" class="form-control" name="voluntime">
             </div>
             <div class="col-5 mb-3 gy-2">
                 <label for="exampleFormControlInput1" class="form-label">봉사장소
-                </label> <input type="1365num" class="form-control"
-                    id="exampleFormControlInput1" value="${kakao.email }">
+                </label> <input type="text" class="form-control" name="volunplace">
             </div>
             <div class="align-self-end">
                 <button class="btn col-1 gy-2 align-self-center" type="button"
-                    style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem; background-color: #e8853e;">봉사등록</button>
+                    style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem; background-color: #e8853e;" 
+                    onclick="insert()">봉사등록</button>
             </div>
+        </form>
         </div>
         
         
