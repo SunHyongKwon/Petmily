@@ -19,8 +19,23 @@
 <body>
 	<jsp:include page="component/header.jsp"></jsp:include>
 	<div style = "padding : 2rem"></div>
-	<jsp:include page="component/sign_up_form.jsp"></jsp:include>
 	
+	
+	<div class = "container-fluid">
+		<div class="row">
+			<div class="col-3">
+				<jsp:include page="component/challenge_sidebar.jsp"></jsp:include>
+			
+			</div>
+			
+			<div class="col-9">
+				<jsp:include page="component/challenge_video.jsp"></jsp:include>
+				<!-- command에서 이걸 갈아 끼울 것이다.  -->			
+				<%-- <jsp:include page="component/${content_viewpage }"></jsp:include> --%>			
+			</div>
+		</div>
+	
+	</div>
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
