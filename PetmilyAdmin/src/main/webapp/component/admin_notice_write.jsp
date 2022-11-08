@@ -25,8 +25,9 @@
 
 	<!-- content include -->
 	<!-- include자리 -->
-	<div class="main-panel">
+	<div class="main-panel"><!--여긴 div안닫아야됨. footer include에서 닫힘-->
 		<div class="content-wrapper" style="background-color: #ffffff">
+		<!-- 무조건 이부분부터 고치면 됨. -->
 			          <div class="row">
             <div class="col-12 grid-margin stretch-card">
               <div class="card">

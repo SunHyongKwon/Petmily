@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
@@ -61,8 +59,6 @@
   }
 
 </style>
-</head>
-<body>
 <div id="page-wrapper">
   <!-- 사이드바 -->
   <div id="sidebar-wrapper">
@@ -71,21 +67,21 @@
         <li class="sidebar-brand">
           <h3 style="color: #e8853e;"><strong>마이페이지</strong></h3>
         </li>
-        <li><a href="#">
-          <img src="images/modify.png" width="20" height="20">
+        <li><a href="mypage_modify.do">
+          <img src="component/images/modify.png" width="20" height="20">
           개인정보수정</a></li>
-        <li><a href="#">
-          <img src="images/chalinge.png" width="20" height="20">  
+        <li><a href="mypage_challenge_list.do">
+          <img src="component/images/chalinge.png" width="20" height="20">  
           도전과제 목록</a></li>
         <li>조회</li>
-        <li><a href="#">
-          <img src="images/search.png" width="20" height="20">
+        <li><a href="mypage_1365.do">
+          <img src="component/images/search.png" width="20" height="20">
           1365적립</a></li>
         <li><a href="#">
-          <img src="images/search.png" width="20" height="20">
+          <img src="component/images/search.png" width="20" height="20">
           참여내역</a></li>
         <li><a href="#">
-          <img src="images/search.png" width="20" height="20">
+          <img src="component/images/search.png" width="20" height="20">
           작성내역</a></li>
       </ul>
     </div>
@@ -93,12 +89,7 @@
   <!-- /사이드바 -->
 
   <!-- 본문 -->
-  <div id="content" class="p-4 p-md-5 pt-5">
-
-    
-  </div>
+ 
   <!-- /본문 -->
 </div>
 
-</body>
-</html>

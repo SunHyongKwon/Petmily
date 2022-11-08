@@ -37,7 +37,7 @@
                   <form class="forms-sample">
                     <div class="form-group">
                       <label for="exampleInputName1">제목</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Title">
+                      <input type="text" class="form-control" id="exampleInputName1" name="title" placeholder="Title">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail3">작성자</label>
