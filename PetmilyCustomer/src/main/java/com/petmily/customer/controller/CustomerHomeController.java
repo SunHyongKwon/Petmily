@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.customer.command.CustomerCommand;
 import com.petmily.customer.command.KakaoTokenCommand;
+import com.petmily.customer.command.MypageModifyInsertCommand;
+import com.petmily.customer.command.MypageSelectCommand;
 
 
 @WebServlet("*.do")
@@ -51,13 +53,27 @@ public class CustomerHomeController extends HttpServlet {
 //					viewpage = "ShoesListBefore.jsp";
 //				}
 //				break;	
-			case ("/sign_up_kakao.do"):
-				command = new KakaoTokenCommand();
-				command.execute(request, response);
-				viewpage = "sign_up_form.jsp";
-				content_viewpage = "mypage_modify.jsp";
-				request.setAttribute("content_viewpage", content_viewpage);
-				break;
+//			case ("/sign_up_kakao.do"):
+//				command = new KakaoTokenCommand();
+//				command.execute(request, response);
+//				viewpage = "sign_up_form.jsp";
+//				content_viewpage = "mypage_modify.jsp";
+//				request.setAttribute("content_viewpage", content_viewpage);
+//				break;
+		
+		//회원정보 수정 페이지에서 수정버튼 눌렀을 때
+		case("mypage_modify_insert.do"):
+			command = new MypageModifyInsertCommand();
+			command.execute(request, response);
+			viewpage = "login.jsp";
+			break;
+		//로그인 후 개인정보수정 들어갔을 때
+		case("mypage_modify.do"):
+			command = new MypageSelectCommand();
+			command.execute(request, response);
+			break;
+		
+				
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewpage);
