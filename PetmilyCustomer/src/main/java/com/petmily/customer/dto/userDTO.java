@@ -30,6 +30,7 @@ public class userDTO {
 		this.ulevel = ulevel;
 		this.uinfo = uinfo;
 	}
+	
 
 	public String getUid() {
 		return uid;
