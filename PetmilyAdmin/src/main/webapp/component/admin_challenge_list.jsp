@@ -23,6 +23,16 @@
 </head>
 
 <style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap')
+	;
+
+#headerlogo {
+	font-family: "Indie Flower";
+	font-size: 35px;
+	padding-top: 0.5rem;
+	color: #de6637;
+}
 .table {
     width: 100%;
     max-width: 95%;
