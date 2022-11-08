@@ -62,15 +62,16 @@ public class CustomerHomeController extends HttpServlet {
 //				break;
 		
 		//회원정보 수정 페이지에서 수정버튼 눌렀을 때
-		case("mypage_modify_insert.do"):
+		case("mypage_modify_update.do"):
 			command = new MypageModifyInsertCommand();
 			command.execute(request, response);
-			viewpage = "login.jsp";
+			viewpage = "modify_update.jsp";
 			break;
 		//로그인 후 개인정보수정 들어갔을 때
-		case("mypage_modify.do"):
+		case("mypage_modify_select.do"):
 			command = new MypageSelectCommand();
 			command.execute(request, response);
+			viewpage = "modify_update.jsp";
 			break;
 		
 				
