@@ -29,6 +29,7 @@
 	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 	border-color: #a3a3a3;
 	border-radius: 30px;
+	height : 55%;
 }
 </style>
 
@@ -183,9 +184,9 @@
 			<div class="col-3 mb-3 gy-2">
 				<input type="radio" class="btn-check" name="usertype" id="type1"
 			autocomplete="off" value="companion"> 
-			<label class="btn col-3 mb-3 gy-2" for="type1"
-			style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); width: 100%;">
-				<img src="img/companion.png"
+			<label class="btn mb-3 gy-2" for="type1"
+			style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); width : 100%;">
+				<img src="component/images/companion.png"
 					style="width: 6rem; height: 6rem; margin-bottom: 1rem; margin-top: 1rem;">
 					<h4>반려인</h4>
 			</label>
@@ -193,9 +194,9 @@
 			<div class="col-3 mb-3 gy-2">
 				<input type="radio" class="btn-check" name="usertype" id="type2"
 			autocomplete="off" value="becompanion"> 
-			<label class="btn col-3 mb-3 gy-2"
-			for="type2" style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); width: 100%;">
-					<img src="img/becompanion.png"
+			<label class="btn mb-3 gy-2"
+			for="type2" style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); width : 100%;">
+					<img src="component/images/becompanion.png"
 						style="width: 6rem; height: 6rem; margin-bottom: 1rem; margin-top: 1rem;">
 					<h4>비반려인</h4>
 			</label>
