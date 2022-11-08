@@ -98,10 +98,6 @@
     	 	insertTr += "</tr>";
     	 	$("#register_table").append(insertTr);
 			i += 1;
-			
-			
-			
-			
        })
 	
        
@@ -109,9 +105,7 @@
        $(document).on("click","button[name=trash]",function(){ 
     	   /* 내가 클릭한 row를 찾아서 삭제하는 방법 */
     	 $(this).parent().parent().remove();
-    	   
-    	  
-    	   
+
        })
        
        
