@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.admin.command.AdminCommand;
 import com.petmily.admin.command.MypageSelectCommand;
-import com.petmily.admin.command.MypageSelectCommand;
 
 
 @WebServlet("*.do")
