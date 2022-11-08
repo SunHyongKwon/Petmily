@@ -44,11 +44,7 @@
 
 </head>
 <body>
-	<section class="preloader">
-		<div class="spinner">
-			<span class="sk-inner-circle"></span>
-		</div>
-	</section>
+	
 
 	<main>
 
@@ -63,7 +59,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<a class="navbar-brand " id="headerlogo" href="index.html"><strong><img alt="" src="images/header/logo4.png"> <span
+				<a class="navbar-brand " id="headerlogo" href="index.html"><strong><img alt="" src="component/images/header/logo4.png"> <span
 						>PETMILY</span></strong>
 				</a>
 
@@ -105,7 +101,7 @@
     height: 515px;
 			">
                  <div class="slick-custom">
-                    <img src="images/slideshow/home1.png" class="img-fluid" alt="">
+                    <img src="component/images/slideshow/home1.png" class="img-fluid" alt="">
 
                     <div class="slick-bottom">
                         <div class="container text-center">
@@ -144,7 +140,7 @@
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
                                 <a href="product-detail.html">
-                                    <img src="images/main1.png" class="img-fluid product-image" alt="">
+                                    <img src="component/images/main1.png" class="img-fluid product-image" alt="">
                                 </a>
 
                                 <div class="product-top d-flex">
@@ -170,7 +166,7 @@
                         <div class="col-lg-4 col-12 mb-3">
                             <div class="product-thumb">
                                 <a href="product-detail.html">
-                                    <img src="images/main2.jpeg" class="img-fluid product-image" alt="">
+                                    <img src="component/images/main2.jpeg" class="img-fluid product-image" alt="">
                                 </a>
 
                                 <div class="product-top d-flex">
@@ -196,7 +192,7 @@
                         <div class="col-lg-4 col-12">
                             <div class="product-thumb">
                                 <a href="product-detail.html">
-                                    <img src="images/main3.jpeg" class="img-fluid product-image" alt="">
+                                    <img src="component/images/main3.jpeg" class="img-fluid product-image" alt="">
                                 </a>
 
                                 <div class="product-top d-flex">
@@ -247,11 +243,11 @@
 	 
 
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/Headroom.js"></script>
-	<script src="js/jQuery.headroom.js"></script>
-	<script src="js/slick.min.js"></script>
-	<script src="js/custom.js"></script>
+	<script src="component/js/jquery.min.js"></script>
+	<script src="component/js/bootstrap.bundle.min.js"></script>
+	<script src="component/js/Headroom.js"></script>
+	<script src="component/js/jQuery.headroom.js"></script>
+	<script src="component/js/slick.min.js"></script>
+	<script src="component/js/custom.js"></script>
 </body>
 </html>
