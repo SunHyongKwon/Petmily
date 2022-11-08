@@ -204,6 +204,17 @@
 					type="button" id="email_check"
 					style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">인증</button>
 			</div>
+			
+			<!-- 이메일 인증번호  -->
+			<div class="row justify-content-center ">
+				<div class="col-4 mb-3 gy-2">
+					<label for="exampleFormControlInput1" class="form-label">이메일 인증번호
+					</label> <input type="text" class="form-control" name="unickname"
+						id="exampleFormControlInput1" placeholder="인증번호를 입력해 주세요"
+						>
+				</div>
+				<div class="col-2 gy-2"></div>
+			</div>
 
 			<!-- 휴대폰 -->
 			<div class="row justify-content-center ">
