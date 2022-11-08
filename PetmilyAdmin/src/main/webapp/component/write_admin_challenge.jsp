@@ -1,67 +1,58 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html lang="en">
+<!DOCTYPE html>
 
-	<%-- <jsp:include page="admin_header_sidebar.jsp" /> --%>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<!-- cdn -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+	<!-- <article> -->
+		<div class="container" role="main">
+			<h2>함께 산책(매칭)</h2>
+			<br><br>
+		<form name="form" id="form" role="form" method="post" action="${pageContext.request.contextPath}">
+				<div class="mb-3">
+					<label for="title">제목</label>
+					<input type="text" class="form-control" name="title" id="title" placeholder="제목을 작성해 주세요">
+				</div>
+				
+				<div class="mb-3">
+					<label for="title">작성자</label>
+					<input type="text" class="form-control" name="title" id="title" placeholder="작성자를 작성해 주세요">
+				</div>
+				<div>
+				Step 선택<br>
+				<input type="radio" name="step" value="Step1" checked="checked">Step1 &nbsp;&nbsp;&nbsp;
+				<input type="radio" name="step" value="Step2" checked="checked">Step2 &nbsp;&nbsp;&nbsp;
+				<input type="radio" name="step" value="Step3" checked="checked">Step3 &nbsp;&nbsp;&nbsp;
+				<input type="radio" name="step" value="Step4" checked="checked">Step4 &nbsp;&nbsp;&nbsp;
+				<input type="radio" name="step" value="Step5" checked="checked">Step5
+				</div>
+				<br>
+				
+				<div class="mb-3">
+  					<label for="formFile" class="form-label">File Upload</label>
+  					<input class="form-control" type="file" id="formFile">
+				</div>
+
+				<div class="mb-3">
+					<label for="content">내용</label>
+					<textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 작성해 주세요"></textarea>
+				</div>
+			<div >
+				<button type="submit" class="btn btn-sm btn-primary" id="btnSave">작성</button>
+				<button type="submit" class="btn btn-sm btn-primary" id="btnList">목록</button>
+			</div>
+			</form>
+		</div>
 	
-      
-    
-    
-     <!--  partial -->
-      <div class="main-panel">        
-        <div class="content-wrapper">
-          <div class="page-header">
-          </div>
-          
-          <div class="col-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">도전 과제</h4>
-                  <p class="card-description">
-                    아래에 도전 과제를 작성해 주세요
-                  </p>
-                  <form class="forms-sample">
-                    <div class="form-group">
-                      <label for="exampleInputName1">제목</label>
-                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Title">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail3">작성자</label>
-                      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                    <label for="exampleFormControlSelect2">Step 선택</label>
-                    <select class="form-control" id="exampleFormControlSelect2">
-                      <option>Step 1</option>
-                      <option>Step 2</option>
-                      <option>Step 3</option>
-                      <option>Step 4</option>
-                      <option>Step 5</option>
-                    </select>
-                  </div>
-                    <div class="form-group">
-                      <label>File upload</label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-gradient-primary" type="button" style="background: linear-gradient(90deg, rgb(222,102,55) 0%, rgb(238,162,100) 100%);">Upload</button>
-                        </span>
-                      </div>
-                    </div>                  
-                    <div class="form-group">
-                      <label for="exampleTextarea1">내용</label>
-                      <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-gradient-primary mr-2" style="background: linear-gradient(90deg, rgb(222,102,55) 0%, rgb(238,162,100) 100%);">작성하기</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-            </div>
-                
-           <jsp:include page="admin_footer.jsp" />        
-                      
-           
+	<!-- cdn -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-        
+</body>
+</html>
+
