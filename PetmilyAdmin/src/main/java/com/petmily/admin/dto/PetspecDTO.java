@@ -2,7 +2,7 @@ package com.petmily.admin.dto;
 
 import java.sql.Timestamp;
 
-public class petspecDTO {
+public class PetspecDTO {
 
 	int psid;
 	String pstype;
@@ -12,11 +12,11 @@ public class petspecDTO {
 	Timestamp psinitdate;
 	Timestamp psdeletedate;
 	
-	public petspecDTO() {
+	public PetspecDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public petspecDTO(int psid, String pstype, String psbreeds, String pssize, String pscontent, Timestamp psinitdate,
+	public PetspecDTO(int psid, String pstype, String psbreeds, String pssize, String pscontent, Timestamp psinitdate,
 			Timestamp psdeletedate) {
 		super();
 		this.psid = psid;
