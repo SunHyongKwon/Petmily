@@ -17,6 +17,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+	
 	<div style = "padding : 2rem"></div>
 	<jsp:include page="component/login_start.jsp"></jsp:include>
 	<script

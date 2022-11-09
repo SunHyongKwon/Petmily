@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.admin.command.AdminCommand;
 import com.petmily.admin.command.MypageModifyCommand;
-import com.petmily.admin.command.SearchIdCommand;
-import com.petmily.admin.command.SearchPwCommand;
-import com.petmily.admin.command.SignupActionCommand;
+import com.petmily.admin.command.MypageSelectCommand;
+import com.petmily.admin.command.SignupCommand;
+import com.petmily.admin.command.LoginCommand;
 
 
 @WebServlet("*.do")
@@ -55,59 +55,35 @@ public class AdminHomeController extends HttpServlet {
 		case("/home.do"):
 			viewpage = "home.jsp";
 			break;
-			
 		//로그인화면접속
 		case("/login.do"):
 			viewpage = "login.jsp";
 			break;
-			
-		//로그인버튼 클릭시
+		//로그인 클릭시
 		case("/login_action.do"):
-			//command = new LoginCommand();
+				command = new LoginCommand();
 			if(command.executeInt(request, response) == 1) {
-				viewpage = "home.do";
+				viewpage = "home.jsp";
 			}else {
 				viewpage = "login.do";
 			}
 			break;
-			
 			//로그인화면에서 아이디찾기 클릭시
 		case("/search_id.do"):
 			viewpage = "search_id.jsp";
 			break;
-			
-			//아이디찾기 화면에서 찾기버튼 클릭시
-		case("/search_id_action.do"):
-			command = new SearchIdCommand();
-			if(command.executeInt(request, response) == 1) {
-				viewpage = "login.do";
-			}else {
-				viewpage = "search_id.do";
-			}
-			break;
-			
 			//로그인화면에서 비밀번호찾기 클릭시
 		case("/search_pw.do"):
 			viewpage = "search_pw.jsp";
 			break;
-			
-			//비밀번호찾기 화면에서 찾기 클릭
-		case("/search_pw_action.do"):
-			command = new SearchPwCommand();
-			if(command.executeInt(request, response) == 1) {
-				viewpage = "login.do";
-			}else {
-				viewpage = "search_pw.do";
-			}
-			break;
-			
 			//로그인화면에서 회원가입 버튼 클릭시
 		case("/signup_page.do"):
 			viewpage = "signup_page.jsp";
 			break;
-			//회원가입화면에서 가입하기 버튼 클릭시
-		case("/signup_action.do"):
-			command = new SignupActionCommand();
+			//회원가입화면에서 회원가입하기 버튼 클릭시
+		case("/signup_page_action.do"):
+			command = new SignupCommand();
+			command.execute(request, response);
 			viewpage = "signup_page.jsp";
 			break;
 			
