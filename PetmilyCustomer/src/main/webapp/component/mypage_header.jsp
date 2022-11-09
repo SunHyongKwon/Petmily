@@ -13,14 +13,14 @@
 			<div class="collapse navbar-collapse justify-content-between"
 				id="collapsibleNavbar">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="#">이병준님
+					<li class="nav-item"><a class="nav-link" href="#">${user.uname }님
 							환영합니다!</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">등급혜택 보기</a>
-					</li>
+					<!-- <li class="nav-item"><a class="nav-link" href="#">등급혜택 보기</a>
+					</li> -->
 				</ul>
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" href="#">내 채팅목록</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">내 등급관리</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="#">내 등급관리</a></li> -->
 				</ul>
 			</div>
 		</div>

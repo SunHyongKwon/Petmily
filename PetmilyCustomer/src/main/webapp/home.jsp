@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +18,17 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+
 	<jsp:include page="component/header.jsp"></jsp:include>
+	
 	<div style = "padding : 2rem"></div>
-	<jsp:include page="component/home_slide_1.jsp"></jsp:include>
+		<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_1.do"></c:import>
 	<div style = "padding : 2rem"></div>
-	<jsp:include page="component/home_slide_2.jsp"></jsp:include>
+		<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_2.do"></c:import>
 	<div style = "padding : 2rem"></div>
-	<jsp:include page="component/home_slide_3.jsp"></jsp:include>
+		<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_3.do"></c:import>
 	<div style = "padding : 2rem"></div>
+	
 	<jsp:include page="component/footer.jsp"></jsp:include>
 	
 	<script

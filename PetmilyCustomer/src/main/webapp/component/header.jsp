@@ -17,4 +17,3 @@
 	</c:otherwise>
 
 </c:choose>
-
