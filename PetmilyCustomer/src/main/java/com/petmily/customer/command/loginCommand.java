@@ -29,12 +29,12 @@ public class loginCommand implements CustomerCommand {
 					HttpSession session = request.getSession();
 					session.setAttribute("uid", uid);
 					session.setAttribute("unickname", unickname);
-					return 1;
+					return 0;
 				} else {
 
 					request.setAttribute("loginStatus", "로그인에 실패하셨습니다.");
 
-					return 0;
+					return 1;
 				}
 
 	}
