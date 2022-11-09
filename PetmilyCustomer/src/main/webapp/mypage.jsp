@@ -32,7 +32,7 @@
 			</div>
 			
 			<div class="col-10">
-				<jsp:include page="component/mypage_modify.jsp"></jsp:include>
+				<jsp:include page="component/mypage_apply_list.jsp"></jsp:include>
 			</div>
 		</div>
 	

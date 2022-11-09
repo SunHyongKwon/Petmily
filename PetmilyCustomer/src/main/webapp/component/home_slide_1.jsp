@@ -324,7 +324,7 @@ $(document).on('ready',function(){
 									<h5 class="card-title"> ${fn:substring(psbreeds.pscontent,0,20) } </h5>
 									<div class="text-center my-4">
 										<!-- 자세히 보기 링크 펫과사전으로 걸어야 함 -->
-										<a href="#" class="btn btn-warning">자세히 보기</a>
+										<a href="pet_dictionary_card.do" class="btn btn-warning">자세히 보기</a>
 									</div>
 									
 								</div>

@@ -280,7 +280,7 @@ height: 743px;">
 	  <div class="row">
 	    <div class="col my-auto">
 	      그래프 들어갈곳
-	      
+	      <!-- 서울 데이터 광장 가서 데이터 가서와서 그거를 비교하는 거를 해볼 생각이다. -->
 	    </div>
 	    <div class="col">
 	    	
