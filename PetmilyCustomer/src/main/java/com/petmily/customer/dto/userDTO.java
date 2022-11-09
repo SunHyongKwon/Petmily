@@ -32,6 +32,13 @@ public class userDTO {
 		this.uinfo = uinfo;
 	}
 	
+	public userDTO(String uid, String uname, String utype) {
+		super();
+		this.uid = uid;
+		this.uname = uname;
+		this.utype = utype;
+	}
+
 	public String getUid() {
 		return uid;
 	}

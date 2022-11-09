@@ -33,6 +33,7 @@
     }
   </script>
 <body>
+회원가입시 입력했던 비밀번호 입력시 정보가 수정됩니다.
 <form name="admin_mypage" action="mypage_modify.do"  method="get">
 아이디<br>
 ${admin_content_view.adId}<br>
@@ -40,7 +41,7 @@ ${admin_content_view.adId}<br>
 <input type="text" name = "adname" value="${admin_content_view.adname}"><br>
 이메일
 <input type="text" name = "ademail" value="${admin_content_view.ademail}"><br>
-비밀번호
+비밀번호 확인
 <input type="hidden" id="pw" name = "pw" value="${admin_content_view.adpw}">
 <input type="password" id="pwck" name = "pwck"><br>
 <input type="button"  value="수정" onclick="pw_check()">

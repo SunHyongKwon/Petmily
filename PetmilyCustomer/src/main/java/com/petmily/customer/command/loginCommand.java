@@ -20,15 +20,14 @@ public class loginCommand implements CustomerCommand {
 		String uid = request.getParameter("uid");
 		String upw = request.getParameter("upw");
 		
-		userDAO dao = new userDAO();
+		userDTO udto= new userDTO();
 		
-		String unickname = dao.login(uid, upw);
+		String unickname = udto.login();
 		
 		// result 가 1이면 이건 아이디와 pw가 이 사이트에 가입되어 있는 것이기 때문에 앞으로 사용하기 위해 세션에 저장을 시켜준다.
 				if (!(unickname == null)) {
-					HttpSession session = request.getSession();
-					session.setAttribute("uid", uid);
-					session.setAttribute("unickname", unickname);
+					userDTO udto= new userDTO();
+					session.setAttribute("udto", udto);
 					return 0;
 				} else {
 
