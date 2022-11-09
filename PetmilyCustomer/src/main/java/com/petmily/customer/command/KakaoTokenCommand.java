@@ -27,5 +27,12 @@ public class KakaoTokenCommand implements CustomerCommand {
 		dao.unlink(kakao.getId(),access_token);
 		
 	}
+	@Override
+	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+		return 0;
+
+	}
 
 }

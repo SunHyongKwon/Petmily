@@ -1,15 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-	crossorigin="anonymous">
 
 <style>
 .form-label {
@@ -25,16 +15,8 @@
 	border-radius: 30px;
 }
 </style>
-</head>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script>
 
-// 이메일 주소검색 ajax로 해야함 근데 나는 모르겠음 조금 더 공부하고 해야지
-
-</script>
-<body>
 	<div class="container">
-		<form action="mypage_modify_insert.do" name="modify" method="post">
 		<div class="row justify-content-center">
 			<div class="text-center gy-3" style="color: #e8853e;">
                 <h1><strong>개인정보수정</strong></h1>
@@ -46,7 +28,7 @@
 				<label for="exampleFormControlInput1" class="form-label">ID
 				</label> <input type="text" class="form-control"
 					id="exampleFormControlInput1" placeholder="아이디를 입력해 주세요"
-					value="${kakao.id }" name="uid">
+					value="${kakao.id }">
 			</div>
 			<div class="col-2"></div>
 		</div>
@@ -55,7 +37,7 @@
 			<div class="col-3 mb-3 gy-2">
 				<label for="exampleFormControlInput1" class="form-label">이름
 				</label> <input type="text" class="form-control"
-					id="exampleFormControlInput1" placeholder="이름을 입력해 주세요" name="uname">
+					id="exampleFormControlInput1" placeholder="이름을 입력해 주세요">
 			</div>
 			<div class="col-3 gy-2"></div>
 		</div>
@@ -65,7 +47,7 @@
 				<label for="exampleFormControlInput1" class="form-label">닉네임
 				</label> <input type="text" class="form-control"
 					id="exampleFormControlInput1" placeholder="닉네임을 입력해 주세요"
-					value="${kakao.name }" name="unickname">
+					value="${kakao.name }">
 			</div>
 			<div class="col-2 gy-2"></div>
 		</div>
@@ -75,7 +57,7 @@
 				<label for="exampleFormControlInput1" class="form-label">이메일
 				</label> <input type="email" class="form-control"
 					id="exampleFormControlInput1" placeholder="이메일을 입력해 주세요"
-					value="${kakao.email }" name="uemail">
+					value="${kakao.email }">
 			</div>
 			<button class="btn col-1 gy-2 align-self-center" type="button"
 				style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem; background-color: #e8853e;">인증</button>
@@ -85,7 +67,7 @@
 			<div class="col-5 mb-3 gy-2">
 				<label for="exampleFormControlInput1" class="form-label">휴대폰
 					번호 </label> <input type="tel" class="form-control"
-					id="exampleFormControlInput1" placeholder="번호를 입력해 주세요" name="uphone">
+					id="exampleFormControlInput1" placeholder="번호를 입력해 주세요">
 			</div>
 			<div class="col-1 gy-2"></div>
 		</div>
@@ -94,7 +76,7 @@
 			<div class="col-4 mb-3 gy-2">
 				<label for="exampleFormControlInput1" class="form-label">주소
 				</label> <input type="text" class="form-control"
-					id="exampleFormControlInput1" placeholder="주소를 입력해 주세요" name="uaddress_basic">
+					id="exampleFormControlInput1" placeholder="주소를 입력해 주세요">
 			</div>
 			<button class="btn col-1 gy-2 align-self-center" type="button"
 				style="margin-top: 1.5rem; padding-top : 0.7rem; padding-bottom : 0.7rem; background-color: #e8853e;">검색</button>
@@ -104,19 +86,15 @@
 			<!-- text field + 제목 -->
 			<div class="col-6 mb-3">
 				<input type="text" class="form-control"
-					id="exampleFormControlInput1" placeholder="상세 주소를 입력해 주세요" name="uaddress_detail">
+					id="exampleFormControlInput1" placeholder="상세 주소를 입력해 주세요">
 			</div>
 		</div>
-		<div class="row justify-content-center">
-		<input type="submit" class="btn col-6 gy-5" style="background-color: #e8853e;" value="수정">
+		
+		<div class="row justify-content-center ">
+			<!-- text field + 제목 -->
+			<button class="btn col-6 gy-5" type="button" style="background-color: #e8853e;">수정</button>
 		</div>
-	</form> 
+		
 		<div class="row justify-content-center" style="height:4rem">
 		</div>
 	</div>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-		crossorigin="anonymous"></script>
-</body>
-</html>

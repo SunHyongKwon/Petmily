@@ -19,10 +19,9 @@
 <body>
 	<jsp:include page="component/header.jsp"></jsp:include>
 	<div style = "padding : 2rem"></div>
-	<jsp:include page="component/sign_up_form.jsp"></jsp:include>
+	<jsp:include page="component/board_view.jsp"></jsp:include>
 	
-	
-	<script
+<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 		crossorigin="anonymous"></script>
