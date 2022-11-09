@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.customer.dao.PetspecDAO;
 
+// gukHwa [조회_견종설명]
 public class PetDictinaryDetailCommand implements CustomerCommand {
 
 	@Override
