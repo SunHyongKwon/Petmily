@@ -3,7 +3,7 @@ package com.petmily.customer.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MypageApplyeListCommand implements CustomerCommand {
+public class PetDictinaryDetailCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

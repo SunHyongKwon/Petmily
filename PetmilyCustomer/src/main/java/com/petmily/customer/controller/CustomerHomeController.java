@@ -12,18 +12,21 @@ import javax.servlet.http.HttpServletResponse;
 import com.petmily.customer.command.ChallengeVideoCommand;
 import com.petmily.customer.command.ChattingCommand;
 import com.petmily.customer.command.CustomerCommand;
-import com.petmily.customer.command.HomeSlide1ClickCommand;
+import com.petmily.customer.command.HomeSlide1Command;
+import com.petmily.customer.command.HomeSlide2Command;
+import com.petmily.customer.command.HomeSlide3Command;
 import com.petmily.customer.command.KakaoTokenCommand;
 import com.petmily.customer.command.LoginCommand;
 import com.petmily.customer.command.Mypage1365InsertCommand;
 import com.petmily.customer.command.Mypage1365ListCommand;
 import com.petmily.customer.command.Mypage1365SearchCommand;
-import com.petmily.customer.command.MypageApplyeListCommand;
+import com.petmily.customer.command.MypageApplyListCommand;
 import com.petmily.customer.command.MypageChallengeCommand;
 import com.petmily.customer.command.MypageModifyLoginCommand;
 import com.petmily.customer.command.MypageParticipateListCommand;
 import com.petmily.customer.command.MypageWriteListCommand;
 import com.petmily.customer.command.NoticeCommand;
+import com.petmily.customer.command.PetDictinaryDetailCommand;
 import com.petmily.customer.command.PetDictionaryCardCommand;
 import com.petmily.customer.command.SignupCommand;
 
@@ -89,6 +92,7 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "mypage_challenge.jsp";
 			break;
+			
 		//마이페이지에서 1365적립 클릭시
 		case("mypage_1365.do"):
 			viewpage = "mypage_1365.jsp";
@@ -111,7 +115,7 @@ public class CustomerHomeController extends HttpServlet {
 				
 			}
 			break;
-		//1365적립내역 확인시
+		//1365적립내역 확인시 
 		case("mypage_1365_list.do"):
 			command = new Mypage1365ListCommand();
 			command.execute(request, response);
@@ -133,10 +137,10 @@ public class CustomerHomeController extends HttpServlet {
 			break;
 			
 		//마이페이지에서 신청내역 클릭시
-		case("mypage_applye_list.do"):
-			command = new MypageApplyeListCommand();
+		case("mypage_apply_list.do"):
+			command = new MypageApplyListCommand();
 			command.execute(request, response);
-			viewpage = "mypage_applye_list.jsp";
+			viewpage = "mypage_apply_list.jsp";
 			break;		
 			
 		
@@ -163,34 +167,33 @@ public class CustomerHomeController extends HttpServlet {
 			//헤더에서 채팅버튼 클릭시
 		case("/chatting.do"):
 			command = new ChattingCommand();
-			viewpage = "challenge.jsp";
+			command.execute(request, response);
+			viewpage = "chatting.jsp";
 			break;
-		
-			
+		//
+		case("/pet_dictionary_detail.do"):
+			command = new PetDictinaryDetailCommand();
+			command.execute(request, response);
+			viewpage = "pet_dictionary_detail.jsp";
+			break;
 			
 			
 			
 		//home slide_1 초기화면
 		case("/home_slide_1.do"):
-			//command = new HomeSlide1Command();
-			command.execute(request, response);
-			viewpage = "";
-			break;
-		//home slide_1 클릭했을 때
-		case("/home_slide_1_click.do"):
-			command = new HomeSlide1ClickCommand();
+			command = new HomeSlide1Command();
 			command.execute(request, response);
 			viewpage = "";
 			break;
 		//home slide_2
 		case("/home_slide_2.do"):
-			//command = new homeSlide2Command();
+			command = new HomeSlide2Command();
 			command.execute(request, response);
 			viewpage = "";
 			break;
 		//home slide_3
 		case("/home_slide_3.do"):
-			//command = new homeSlide3Command();
+			command = new HomeSlide3Command();
 			command.execute(request, response);
 			viewpage = "";
 			break;
