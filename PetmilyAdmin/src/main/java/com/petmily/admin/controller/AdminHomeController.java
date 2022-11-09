@@ -13,6 +13,8 @@ import com.petmily.admin.command.AdminCommand;
 import com.petmily.admin.command.LoginCommand;
 import com.petmily.admin.command.MypageModifyCommand;
 import com.petmily.admin.command.MypageSelectCommand;
+import com.petmily.admin.command.SearchIdCommand;
+import com.petmily.admin.command.SearchPwCommand;
 import com.petmily.admin.command.SignupCommand;
 
 
@@ -86,6 +88,24 @@ public class AdminHomeController extends HttpServlet {
 			command = new SignupCommand();
 			command.execute(request, response);
 			viewpage = "signup_page.jsp";
+			break;
+			//id찾기화면에서 id 찾기버튼 눌렀을때,,,,<<<<<모달창뜨게 수정해야함>>>>>>
+		case("/search_id_action.do"):
+			command = new SearchIdCommand();
+			if(command.executeInt(request, response) == 1) {
+				viewpage = "home.jsp";
+			}else {
+				viewpage = "login.do";
+			}
+			break;
+			//id찾기화면에서 id 찾기버튼 눌렀을때,,,,<<<<<모달창뜨게 수정해야함>>>>>>
+		case("/search_pw_action.do"):
+			command = new SearchPwCommand();
+			if(command.executeInt(request, response) == 1) {
+				viewpage = "home.jsp";
+			}else {
+				viewpage = "login.do";
+			}
 			break;
 			
 			

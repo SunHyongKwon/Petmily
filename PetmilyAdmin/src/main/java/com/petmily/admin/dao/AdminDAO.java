@@ -124,4 +124,72 @@ public class AdminDAO {
 		}
 	}//insert 끝
 	
+	//idcheck 병준
+		public String idcheck(String adname, String ademail) {
+			
+			int result = 0;
+			String adid = "";
+			try {
+				connection = dataSource.getConnection();
+
+				String query = "select count(*) , adid from admin where adname = '" + adid + "' and ademail = '" + ademail + "'";
+				preparedStatement = connection.prepareStatement(query);
+				resultSet = preparedStatement.executeQuery();
+
+				if (resultSet.next()) {
+					result = resultSet.getInt(1);
+					adid = resultSet.getString(2);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (resultSet != null)
+						resultSet.close();
+					if (preparedStatement != null)
+						preparedStatement.close();
+					if (connection != null)
+						connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return adid;
+		}//idcheck end
+		
+		//pwcheck 병준
+				public String pwcheck(String adid, String ademail) {
+					
+					int result = 0;
+					String adpw = "";
+					try {
+						connection = dataSource.getConnection();
+
+						String query = "select count(*) , adpw from admin where adid = '" + adid + "' and ademail = '" + ademail + "'";
+						preparedStatement = connection.prepareStatement(query);
+						resultSet = preparedStatement.executeQuery();
+
+						if (resultSet.next()) {
+							result = resultSet.getInt(1);
+							adpw = resultSet.getString(2);
+						}
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							if (resultSet != null)
+								resultSet.close();
+							if (preparedStatement != null)
+								preparedStatement.close();
+							if (connection != null)
+								connection.close();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+					return adpw;
+				}//pwcheck end
+	
 }//End
