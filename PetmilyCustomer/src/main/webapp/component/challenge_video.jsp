@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
 	<!-- step 이름 -->
 	<h1>
 		<strong>Step1. 배변훈련</strong>
@@ -22,9 +16,7 @@
 	
 	<!-- 영상 주석  -->
 	<div class = "container-fluid">
-		<div class = "row justify-content-end my-3">
-			<p>영상 출처 : https://youtube.com/sunjinko=pig</p>
+		<div class = "row ">
+			<p class= "justify-content-end">영상 출처 : https://youtube.com/sunjinko=pig</p>
 		</div>
 	</div>
-</body>
-</html>

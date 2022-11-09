@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.admin.command.AdminCommand;
+import com.petmily.admin.command.MypageModifyCommand;
+import com.petmily.admin.command.MypageSelectCommand;
 
 
 @WebServlet("*.do")
@@ -49,8 +51,17 @@ public class AdminHomeController extends HttpServlet {
 //					viewpage = "ShoesListBefore.jsp";
 //				}
 //				break;	
-			
+		
+		// gukHwa [수정]
+		case("mypage_modify.do"):
+			command = new MypageModifyCommand();
+			command.execute(request, response);
+			viewpage = "adminlist.do";
+			break;
 		}
+		
+		 
+		
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewpage);
 		dispatcher.forward(request, response);

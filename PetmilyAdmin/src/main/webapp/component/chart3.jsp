@@ -101,7 +101,7 @@ function toggleDataSeries(e) {
 </script>
 </head>
 <body>
-<div id="chartContainer3" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer3" style="height: 370px; width: 100%; padding-top : 2rem;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 </body>

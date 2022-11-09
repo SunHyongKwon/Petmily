@@ -45,7 +45,7 @@ $.getJSON("https://canvasjs.com/data/gallery/jsp/total-biomass-energy-consumptio
 </script>
 </head>
 <body>
-<div id="chartContainer4" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer4" style="height: 370px; width: 100%;  padding-top : 2rem;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
