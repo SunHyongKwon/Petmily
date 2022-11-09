@@ -32,7 +32,7 @@
 			<h6 style="color: #a3a3a3;">회원정보에 입력한 정보를 작성해 주세요</h6>
 		</div>
 	</div>
-
+<form action="search_id_action.do" method="post">
 	<div class="row justify-content-center ">
 		<div class="col-4 mb-3 gy-2">
 			<label for="exampleFormControlInput1" class="form-label">이름 </label>
@@ -66,14 +66,12 @@
 
 	<div class="row justify-content-center my-3">
 		<div class="d-grid gap-2 col-4 mx-auto">
-			<button class="btn btn-primary" type="button"
-				onClick="location.href='sign_up_form.jsp'"
+		<input type="submit" class="btn btn-primary" value="ID 찾기" 
 				style="background-color: #e8853e; padding-top: 0.9rem; padding-bottom: 0.9rem; 
 				box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); border-color: #a3a3a3">
-				ID 찾기</button>
 		</div>
 	</div>
-
+</form>
 
 
 </div>

@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.petmily.customer.command.ChallengeVideoCommand;
 import com.petmily.customer.command.CustomerCommand;
 import com.petmily.customer.command.KakaoTokenCommand;
 import com.petmily.customer.command.MypageModifyInsertCommand;
 import com.petmily.customer.command.MypageSelectCommand;
+import com.petmily.customer.command.PetDictionaryCardCommand;
 import com.petmily.customer.command.homeSlide1ClickCommand;
 import com.petmily.customer.command.homeSlide1Command;
 import com.petmily.customer.command.loginCommand;
@@ -49,10 +51,35 @@ public class CustomerHomeController extends HttpServlet {
 		
 		
 		switch(com){
-		
+		//홈페이지로 이동
 		case("/home.do"):
 			viewpage = "home.jsp";
 			break;
+		//회원가입으로 이동
+		case("/signup_page.do"):
+			viewpage = "signup_page.jsp";
+			break;
+		//로그인화면으로 이동
+		case("/login_page.do"):
+			viewpage = "signup_page.jsp";
+			break;
+			
+			
+			//헤더에서 펫과사전 클릭시, 펫과사전 사이드바에서 동물종류 클릭시
+		case("/pet_dictionary_card.do"):
+			command = new PetDictionaryCardCommand();
+			command.execute(request, response);
+			viewpage = "pet_dictionary.jsp";
+			break;
+			//헤더에서 도전하기 클릭시, 챌린지 사이드바에서 챕터 클릭시
+		case("/challenge.do"):
+			command = new ChallengeVideoCommand();
+			viewpage = "challenge.jsp";
+			break;
+			//헤더에서 
+			
+			
+			
 		//home slide_1 초기화면
 		case("/home_slide_1.do"):
 			command = new homeSlide1Command();
@@ -67,13 +94,13 @@ public class CustomerHomeController extends HttpServlet {
 			break;
 		//home slide_2
 		case("/home_slide_2.do"):
-			command = new homeSlide2Command();
+			//command = new homeSlide2Command();
 			command.execute(request, response);
 			viewpage = "";
 			break;
 		//home slide_3
 		case("/home_slide_3.do"):
-			command = new homeSlide3Command();
+			//command = new homeSlide3Command();
 			command.execute(request, response);
 			viewpage = "";
 			break;
@@ -111,6 +138,7 @@ public class CustomerHomeController extends HttpServlet {
 				//비로그인
 			}
 			break;
+		
 		
 		//회원가입 화면에서 가입하기 버튼 클릭 시
 		case("/sign_up.do"):

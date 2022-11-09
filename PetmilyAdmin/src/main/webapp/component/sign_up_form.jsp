@@ -251,8 +251,9 @@
 
 			<!-- 가입하기 버튼 -->
 			<div class="row justify-content-center ">
-				<button class="btn btn-warning col-6 gy-5" type="button"
-					onclick="submit()">가입하기</button>
+			<input type="submit" value="가입하기" class="btn btn-warning col-6 gy-5">
+				<!-- <button class="btn btn-warning col-6 gy-5" type="button"
+					onclick="submit()">가입하기</button> -->
 			</div>
 
 			<div class="row justify-content-center" style="height: 4rem"></div>
