@@ -11,4 +11,10 @@ public class MypageSelectCommand implements AdminCommand {
 
 	}
 
+	@Override
+	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

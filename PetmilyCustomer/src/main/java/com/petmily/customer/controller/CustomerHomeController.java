@@ -48,7 +48,6 @@ public class CustomerHomeController extends HttpServlet {
 		
 		switch(com){
 
-
 		case ("/sign_up_kakao.do"):
 			command = new KakaoTokenCommand();
 			command.execute(request, response);

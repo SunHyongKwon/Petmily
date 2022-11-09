@@ -16,7 +16,7 @@
 
 	<div class="container">
 		<div class="row justify-content-start my-2">
-			<h3>게시판 이름 ${notice.category}</h3>
+			<h3>${ncategory}</h3>
 		</div>
 
 		<div class="row my-3">
