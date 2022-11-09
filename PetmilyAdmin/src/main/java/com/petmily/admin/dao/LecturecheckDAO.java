@@ -4,11 +4,11 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class chattingDAO {
+public class LecturecheckDAO {
 
 	DataSource dataSource;
 
-	public chattingDAO() {
+	public LecturecheckDAO() {
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/petmily");

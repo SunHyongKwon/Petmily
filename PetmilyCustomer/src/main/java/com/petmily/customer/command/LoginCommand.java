@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.petmily.customer.dao.userDAO;
 import com.petmily.customer.dto.userDTO;
 
-public class loginCommand implements CustomerCommand {
+public class LoginCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

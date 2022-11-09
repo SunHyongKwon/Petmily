@@ -3,7 +3,7 @@ package com.petmily.admin.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class loginCommand implements AdminCommand {
+public class SearchIdCommand implements AdminCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.admin.command.AdminCommand;
 import com.petmily.admin.command.MypageModifyCommand;
-import com.petmily.admin.command.MypageSelectCommand;
-import com.petmily.admin.command.loginCommand;
-import com.petmily.admin.command.searchIdCommand;
-import com.petmily.admin.command.searchPwCommand;
-import com.petmily.admin.command.signupActionCommand;
+import com.petmily.admin.command.SearchIdCommand;
+import com.petmily.admin.command.SearchPwCommand;
+import com.petmily.admin.command.SignupActionCommand;
 
 
 @WebServlet("*.do")
@@ -65,7 +63,7 @@ public class AdminHomeController extends HttpServlet {
 			
 		//로그인버튼 클릭시
 		case("/login_action.do"):
-				command = new loginCommand();
+			//command = new LoginCommand();
 			if(command.executeInt(request, response) == 1) {
 				viewpage = "home.do";
 			}else {
@@ -80,7 +78,7 @@ public class AdminHomeController extends HttpServlet {
 			
 			//아이디찾기 화면에서 찾기버튼 클릭시
 		case("/search_id_action.do"):
-			command = new searchIdCommand();
+			command = new SearchIdCommand();
 			if(command.executeInt(request, response) == 1) {
 				viewpage = "login.do";
 			}else {
@@ -95,7 +93,7 @@ public class AdminHomeController extends HttpServlet {
 			
 			//비밀번호찾기 화면에서 찾기 클릭
 		case("/search_pw_action.do"):
-			command = new searchPwCommand();
+			command = new SearchPwCommand();
 			if(command.executeInt(request, response) == 1) {
 				viewpage = "login.do";
 			}else {
@@ -109,7 +107,7 @@ public class AdminHomeController extends HttpServlet {
 			break;
 			//회원가입화면에서 가입하기 버튼 클릭시
 		case("/signup_action.do"):
-			command = new signupActionCommand();
+			command = new SignupActionCommand();
 			viewpage = "signup_page.jsp";
 			break;
 			

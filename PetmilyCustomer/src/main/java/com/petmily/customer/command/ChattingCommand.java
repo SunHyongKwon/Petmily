@@ -3,9 +3,7 @@ package com.petmily.customer.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petmily.customer.dao.userDAO;
-
-public class signupCommand implements CustomerCommand {
+public class ChattingCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

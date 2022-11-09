@@ -1,9 +1,9 @@
-package com.petmily.admin.command;
+package com.petmily.customer.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class searchPwCommand implements AdminCommand {
+public class Mypage1365InsertCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

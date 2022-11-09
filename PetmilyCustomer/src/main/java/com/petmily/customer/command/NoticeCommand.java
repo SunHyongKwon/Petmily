@@ -1,9 +1,9 @@
-package com.petmily.admin.command;
+package com.petmily.customer.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class signupActionCommand implements AdminCommand {
+public class NoticeCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
