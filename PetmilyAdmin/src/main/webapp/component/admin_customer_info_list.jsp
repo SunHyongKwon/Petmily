@@ -22,21 +22,7 @@
 </head>
 
 <style>
-.table {
-    width: 95%;
-    max-width: 95%;
-    margin-bottom: 20px;
-    margin-left: 15px;
-    margin-right: 30px;
-    }
-    
-.search{
-	width: 25%;
-    max-width: 95%;
-    margin-bottom: 20px;
-    margin-left: 15px;
-    margin-right: 30px;
-}
+   
 </style>
 
 <!-- by gukHwa / 회원 정보관리 -->
@@ -48,13 +34,13 @@
         
         
 <div class="color" align="right">
-<div class="paddingTop50 table" align="left">
+<div class="paddingTop50" align="left">
 <h1>회원정보 관리</h1>
 </div>
 
 <form class="navbar-form pull-center" role="search">
 <!-- 검색창[S] -->
-   <div class="input-group search">
+   <div class="input-group" style="width: 25%; max-width: 95%; margin-bottom: 20px; margin-left: 15px; margin-right: 30px;">
       <input type="text" class="form-control" placeholder="Search" id="myInput">
       <div class="input-group-btn" align="left">
          <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
@@ -67,7 +53,7 @@
 
 <!-- Table[S] -->
 <div align="left">
-<table class="table table-striped" id="myList">
+<table class="table table-striped" id="myList" style="width: 95%; max-width: 95%; margin-bottom: 20px; margin-left: 15px; margin-right: 30px;">
   <thead>
     <tr>
       <th scope="col">이름</th>
