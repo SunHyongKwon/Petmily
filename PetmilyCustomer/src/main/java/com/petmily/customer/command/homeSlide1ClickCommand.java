@@ -1,9 +1,9 @@
-package com.petmily.admin.command;
+package com.petmily.customer.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MypageSelectCommand implements AdminCommand {
+public class homeSlide1ClickCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

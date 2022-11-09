@@ -13,6 +13,8 @@ import com.petmily.customer.command.CustomerCommand;
 import com.petmily.customer.command.KakaoTokenCommand;
 import com.petmily.customer.command.MypageModifyInsertCommand;
 import com.petmily.customer.command.MypageSelectCommand;
+import com.petmily.customer.command.homeSlide1ClickCommand;
+import com.petmily.customer.command.homeSlide1Command;
 import com.petmily.customer.command.loginCommand;
 import com.petmily.customer.command.signupCommand;
 
@@ -47,8 +49,35 @@ public class CustomerHomeController extends HttpServlet {
 		
 		
 		switch(com){
-
-
+		
+		case("/home.do"):
+			viewpage = "home.jsp";
+			break;
+		//home slide_1 초기화면
+		case("/home_slide_1.do"):
+			command = new homeSlide1Command();
+			command.execute(request, response);
+			viewpage = "";
+			break;
+		//home slide_1 클릭했을 때
+		case("/home_slide_1_click.do"):
+			command = new homeSlide1ClickCommand();
+			command.execute(request, response);
+			viewpage = "";
+			break;
+		//home slide_2
+		case("/home_slide_2.do"):
+			command = new homeSlide2Command();
+			command.execute(request, response);
+			viewpage = "";
+			break;
+		//home slide_3
+		case("/home_slide_3.do"):
+			command = new homeSlide3Command();
+			command.execute(request, response);
+			viewpage = "";
+			break;
+		//카카오로그인
 		case ("/sign_up_kakao.do"):
 			command = new KakaoTokenCommand();
 			command.execute(request, response);
@@ -73,7 +102,7 @@ public class CustomerHomeController extends HttpServlet {
 		case("/login.do"):
 			command = new loginCommand();
 			if(command.executeInt(request, response) == 0) {
-				viewpage = "login.jsp";	
+				viewpage = "home.jsp";	
 				System.out.println("로그인성공");
 				//로그인
 			}else {
@@ -82,12 +111,17 @@ public class CustomerHomeController extends HttpServlet {
 				//비로그인
 			}
 			break;
+		
 		//회원가입 화면에서 가입하기 버튼 클릭 시
 		case("/sign_up.do"):
 			command = new signupCommand();
-			command.execute(request, response);
-			viewpage = "";
+			if(command.executeInt(request, response) == 0) {
+				viewpage = "login.jsp";	
+			}else {
+				viewpage = "signup.jsp";
+			}
 			break;
+		//
 				
 		}
 		
