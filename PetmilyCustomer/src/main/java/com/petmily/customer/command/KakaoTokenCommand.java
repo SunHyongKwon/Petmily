@@ -3,8 +3,8 @@ package com.petmily.customer.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petmily.customer.dao.kakaoDAO;
-import com.petmily.customer.dto.kakaoDTO;
+import com.petmily.customer.dao.KakaoDAO;
+import com.petmily.customer.dto.KakaoDTO;
 
 /*
  *  궁금증
@@ -18,9 +18,9 @@ public class KakaoTokenCommand implements CustomerCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String code = request.getParameter("code");
 
-		kakaoDAO dao = new kakaoDAO();
+		KakaoDAO dao = new KakaoDAO();
 		String access_token = dao.getToken(code);
-		kakaoDTO kakao = dao.getKakao(access_token);
+		KakaoDTO kakao = dao.getKakao(access_token);
 		
 		request.setAttribute("kakao", kakao);
 		

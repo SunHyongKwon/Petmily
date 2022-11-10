@@ -10,7 +10,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.petmily.customer.dto.ApplyDTO;
-import com.petmily.customer.dto.userDTO;
+import com.petmily.customer.dto.UserDTO;
 
 public class userDAO {
 
@@ -70,8 +70,8 @@ public class userDAO {
 	}
 
 	// by 은빈 -- myPageView
-	public userDTO myPageView(String uid) {
-		userDTO dto = null;
+	public UserDTO myPageView(String uid) {
+		UserDTO dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -93,7 +93,7 @@ public class userDAO {
 				String uemail = resultSet.getString("uemail");
 				String uaddress = resultSet.getString("uaddress");
 
-				dto = new userDTO(uid, upw, uname, unickname, uphone, uemail, uaddress);
+				dto = new UserDTO(uid, upw, uname, unickname, uphone, uemail, uaddress);
 			}
 
 		} catch (Exception e) {

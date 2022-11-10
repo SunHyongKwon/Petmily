@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.admin.dao.AdminDAO;
-import com.petmily.admin.dto.adminDTO;
+import com.petmily.admin.dto.AdminDTO;
 
 public class MypageSelectCommand implements AdminCommand {
 	//석진 마이페이지 content view

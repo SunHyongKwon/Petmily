@@ -3,7 +3,7 @@ package com.petmily.customer.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petmily.customer.dao.petDAO;
+import com.petmily.customer.dao.PetDAO;
 import com.petmily.customer.dao.petspecDAO;
 import com.petmily.customer.dao.userDAO;
 
@@ -31,7 +31,7 @@ public class SignupCommand implements CustomerCommand {
 		String petname = request.getParameter("petname");
 		String petgender = request.getParameter("petgender");
 		
-		petDAO dao2 = new petDAO();
+		PetDAO dao2 = new PetDAO();
 		dao2.insert(petname,petgender);
 		
 		// petspec table :s pstype ,s psbreeds

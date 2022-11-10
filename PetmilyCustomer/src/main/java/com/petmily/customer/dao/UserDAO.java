@@ -8,7 +8,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.petmily.customer.dto.userDTO;
+import com.petmily.customer.dto.UserDTO;
 
 public class UserDAO {
 
@@ -28,11 +28,11 @@ public class UserDAO {
 	}
 	
 
-	public userDTO login(String uid, String upw) {
+	public UserDTO login(String uid, String upw) {
 		int result = 0;
 		String uname = "";
 		String utype = "";
-		userDTO udto = null;
+		UserDTO udto = null;
 		
 		try {
 			connection = dataSource.getConnection();
@@ -45,7 +45,7 @@ public class UserDAO {
 				result = resultSet.getInt(1);
 				uname = resultSet.getString(2);
 				utype = resultSet.getString(3);
-				udto = new userDTO(uid, uname, utype);
+				udto = new UserDTO(uid, uname, utype);
 				
 			}
 

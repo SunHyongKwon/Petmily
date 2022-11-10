@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petmily.customer.dao.volunteerDAO;
-import com.petmily.customer.dto.volunteerDTO;
+import com.petmily.customer.dao.VolunteerDAO;
+import com.petmily.customer.dto.VolunteerDTO;
 
 
 public class Mypage1365ListCommand implements CustomerCommand {
@@ -18,8 +18,8 @@ public class Mypage1365ListCommand implements CustomerCommand {
 
 		
 		// by 은빈  --volunteerList
-		volunteerDAO dao = new volunteerDAO();
-		ArrayList<volunteerDTO> dtos = dao.volunteerList();
+		VolunteerDAO dao = new VolunteerDAO();
+		ArrayList<VolunteerDTO> dtos = dao.volunteerList();
 		request.setAttribute("volunteerlist", dtos);
 
 	}

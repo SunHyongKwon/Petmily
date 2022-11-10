@@ -23,7 +23,7 @@ public class MypageSelectCommand implements CustomerCommand {
 		// by 은빈  -- myPageList
 		String uid = request.getParameter("uid");
 		userDAO dao = new userDAO();
-		userDTO dto = dao.myPageView(uid);
+		UserDTO dto = dao.myPageView(uid);
 		request.setAttribute("uid", dto);
 				
 		return 0;

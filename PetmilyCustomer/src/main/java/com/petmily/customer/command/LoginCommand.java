@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.petmily.customer.dao.UserDAO;
-import com.petmily.customer.dto.userDTO;
+import com.petmily.customer.dto.UserDTO;
 
 public class LoginCommand implements CustomerCommand {
 
@@ -20,7 +20,7 @@ public class LoginCommand implements CustomerCommand {
 		String uid = request.getParameter("uid");
 		String upw = request.getParameter("upw");
 		UserDAO dao = new UserDAO();
-		userDTO dto = dao.login(uid, upw);
+		UserDTO dto = dao.login(uid, upw);
 
 		
 		if (!(dto == null)) {
