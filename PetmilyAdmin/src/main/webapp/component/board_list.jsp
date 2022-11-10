@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
 .form-control {
@@ -16,7 +17,7 @@
 
 	<div class="container">
 		<div class="row justify-content-start my-2">
-			<h3>${ncategory}</h3>
+			<h3>${param.pcategory}</h3>
 		</div>
 
 		<form action="board_list.do" method="get">
@@ -37,7 +38,7 @@
 				<div class="col-2">
 					<select class="form-select w-100"
 						aria-label="Default select example" name="option">
-						<option selected>옵션</option>
+						<option selected></option>
 						<option value="1">제목</option>
 						<option value="2">작성자</option>
 					</select>
@@ -54,12 +55,13 @@
 				</div>
 				<!-- 검색 버튼 -->
 				<div class="col-1">
-					<input type="submit" class="btn btn-warning "value="검색">
+					<!-- <input type="submit" class="btn btn-warning "value="검색"> -->
 					<!-- <button class="btn btn-warning " type="button">검색</button> -->
 				</div>
 				<!-- 작성 버튼 -->
 				<div class="col-1">
-					<button class="btn btn-warning" type="button">작성</button>
+				<input type="submit" class="btn btn-warning "value="검색">
+					<!-- <button class="btn btn-warning" type="button">작성</button> -->
 				</div>
 				<div class="col-1">
 				</div>
@@ -82,17 +84,18 @@
 					</tr>
 				</thead>
 				<tbody>
+					<c:forEach var="list" items="${postingList}">
 					<tr>
 						<td><input type="checkbox"></td>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
+						<th scope="row"><a href="#">${list.pid }</a></th>
+						<td>${list.ptitle }</td>
+						<td>${list.user_uid }</td>
+						<td>${list.pinitdate }</td>
+						<td>${list.plocation }</td>
+						<td>${list.shlike }</td>
+						<td>${list.shcount }</td>
 					</tr>
-					
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
