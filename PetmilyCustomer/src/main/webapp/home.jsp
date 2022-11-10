@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,17 +19,41 @@
 </head>
 <body>
 
-	<jsp:include page="component/header.jsp"></jsp:include>
-	
-	<div style = "padding : 2rem"></div>
-		<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_1.do"></c:import>
-	<div style = "padding : 2rem"></div>
-		<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_2.do"></c:import>
-	<div style = "padding : 2rem"></div>
-		<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_3.do"></c:import>
-	<div style = "padding : 2rem"></div>
-	
-	<jsp:include page="component/footer.jsp"></jsp:include>
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<jsp:include page="component/header.jsp"></jsp:include>
+		</div>
+
+		<div style="padding-top: 2rem"></div>
+
+		<div class="row justify-content-center">
+			<div class="col-11">
+				<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_1.do"></c:import>
+			</div>
+		</div>
+
+		<div style="padding-top: 2rem"></div>
+
+		<div class="row justify-content-center">
+			<div class="col-11">
+				<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_2.do"></c:import>
+			</div>
+		</div>
+
+		<div style="padding-top: 2rem"></div>
+
+		<div class="row justify-content-center">
+			<div class="col-11">
+				<c:import url="http://localhost:8080/PetmilyCustomer/home_slide_3.do"></c:import>
+			</div>
+		</div>
+
+		<div style="padding-top: 2rem"></div>
+
+		<div class="row">
+			<jsp:include page="component/footer.jsp"></jsp:include>
+		</div> 
+	</div>
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

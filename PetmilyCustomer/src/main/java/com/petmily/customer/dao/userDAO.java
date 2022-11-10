@@ -26,6 +26,7 @@ public class userDAO {
 	}
 	
 	public String login(String uid, String upw) {
+		System.out.println("함수 성공");
 		int result = 0;
 		String unickname = "";
 		try {
@@ -38,6 +39,7 @@ public class userDAO {
 			if (resultSet.next()) {
 				result = resultSet.getInt(1);
 				unickname = resultSet.getString(2);
+				
 			}
 
 		} catch (Exception e) {

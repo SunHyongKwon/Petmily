@@ -34,29 +34,49 @@
 </style>
 
 <script type="text/javascript">
-	$(document).ready(function() {
+	var url_href = window.location.href;
 
-	$('#add_photo').click(function() {
-		var filepath = $(
-				'#inputGroupFile04').val();
+	var url = new URL(url_href);
+	var pcategory = url.searchParams.get("pcategory");
 
-		var insertTr = "";
+	$(document)
+			.ready(
+					function() {
 
-		insertTr += "<tr>";
-		insertTr += "<td>" + filepath
-				+ "</td>";
-		insertTr += "<td><button name=\"trash\" class=\"btn btn-outline-secondary\"><i class=\"bi bi-trash\"></i></button></td>";
-		insertTr += "</tr>";
-		$("#photo_table").append(insertTr);
-	})
+						$("#pcategory").val(pcategory).attr("selected",
+								"selected");
 
-	/* 동적으로 할당된 것들은 이런식으로 만들어야 된다. */
-	$(document).on("click", "button[name=trash]",function() {
-		/* 내가 클릭한 row를 찾아서 삭제하는 방법 */
-		$(this).parent().parent().remove();
-	})
-});
+						$('#add_photo')
+								.click(
+										function() {
+											var filepath = $(
+													'#inputGroupFile04').val();
+
+											var insertTr = "";
+
+											insertTr += "<tr>";
+											insertTr += "<td>" + filepath
+													+ "</td>";
+											insertTr += "<td><button name=\"trash\" class=\"btn btn-outline-secondary\"><i class=\"bi bi-trash\"></i></button></td>";
+											insertTr += "</tr>";
+											insertTr += "<input type=\"hidden\" name=\"pimage\" value=\""+filepath+ "\" >";
+											
+											if($("#photo_table tr").length < 3){												
+												$("#photo_table").append(insertTr);
+											}else{
+												alert('3개이상은 못넣으세요');
+											}
+										})
+
+						/* 동적으로 할당된 것들은 이런식으로 만들어야 된다. */
+						$(document).on("click", "button[name=trash]",
+								function() {
+									/* 내가 클릭한 row를 찾아서 삭제하는 방법 */
+									$(this).parent().parent().remove();
+								})
+					});
 </script>
+<form action="posting_write_insert.do">
 	<div class="container">
 		<div class="row text-center">
 			<h4>
@@ -68,7 +88,7 @@
 			<div class="row justify-content-center ">
 				<div class="col-4 mb-3 gy-4">
 					<label for="exampleFormControlInput1" class="form-label">제목
-					</label> <input type="text" class="form-control" name="title"
+					</label> <input type="text" class="form-control" name="ptitle"
 						id="exampleFormControlInput1" placeholder="제목을 입력해 주세요">
 				</div>
 				<div class="col-2"></div>
@@ -78,13 +98,13 @@
 		<div class="row justify-content-center">
 			<div class="col-4 mb-3 gy-2">
 				<label for="exampleFormControlInput1" class="form-label">카테고리</label>
-				<select class="form-select" aria-label="Default select example">
-					<option selected>카테고리 선택해 주세요</option>
-					<option value="1">함께 산책</option>
-					<option value="2">함께 봉사</option>
-					<option value="3">함께 펫카페</option>
-					<option value="4">찾아주세요</option>
-					<option value="5">찾았어요</option>
+				<select class="form-select" aria-label="Default select example"
+					id="pcategory" name="pcategory">
+					<option value="walk">함께 산책</option>
+					<option value="volunteer">함께 봉사</option>
+					<option value="petcafe">함께 펫카페</option>
+					<option value="find">찾아주세요</option>
+					<option value="found">찾았어요</option>
 				</select>
 			</div>
 			<div class="col-2"></div>
@@ -93,7 +113,7 @@
 		<div class="row justify-content-center">
 			<div class="col-6 mb-3 gy-2">
 				<label for="exampleFormControlInput1" class="form-label">내용</label>
-				<textarea class="form-control" id="exampleFormControlTextarea1"
+				<textarea class="form-control" id="exampleFormControlTextarea1" name="pcontent"
 					rows="10"></textarea>
 			</div>
 		</div>
@@ -102,7 +122,7 @@
 		<div class="row justify-content-center ">
 			<div class="col-4 mb-3 gy-2">
 				<label for="exampleFormControlInput1" class="form-label">주소
-				</label> <input type="text" class="form-control" name="uaddress_basic"
+				</label> <input type="text" class="form-control" name="plocation_basic"
 					id="exampleFormControlInput1" placeholder="주소를 입력해 주세요">
 			</div>
 			<!-- 주소 검색 버튼 -->
@@ -115,7 +135,7 @@
 		<!-- 상세주소 입력 -->
 		<div class="row justify-content-center ">
 			<div class="col-6 mb-3">
-				<input type="text" class="form-control" name="uaddress_detail"
+				<input type="text" class="form-control" name="plocation_detail"
 					id="exampleFormControlInput1" placeholder="상세 주소를 입력해 주세요">
 			</div>
 		</div>
@@ -155,12 +175,12 @@
 				</table>
 			</div>
 		</div>
-		
+
 		<!-- 등록 버튼 -->
 		<div class="row justify-content-center my-5 text-center">
 			<div class="col-4">
 				<button class="btn btn-warning w-100" type="submit">등록</button>
 			</div>
 		</div>
-		
 	</div>
+</form>

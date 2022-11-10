@@ -17,6 +17,7 @@ import com.petmily.customer.command.HomeSlide2Command;
 import com.petmily.customer.command.HomeSlide3Command;
 import com.petmily.customer.command.KakaoTokenCommand;
 import com.petmily.customer.command.LoginCommand;
+import com.petmily.customer.command.LogoutCommand;
 import com.petmily.customer.command.Mypage1365InsertCommand;
 import com.petmily.customer.command.Mypage1365ListCommand;
 import com.petmily.customer.command.Mypage1365SearchCommand;
@@ -25,9 +26,11 @@ import com.petmily.customer.command.MypageChallengeCommand;
 import com.petmily.customer.command.MypageModifyLoginCommand;
 import com.petmily.customer.command.MypageParticipateListCommand;
 import com.petmily.customer.command.MypageWriteListCommand;
-import com.petmily.customer.command.NoticeCommand;
 import com.petmily.customer.command.PetDictinaryDetailCommand;
 import com.petmily.customer.command.PetDictionaryCardCommand;
+import com.petmily.customer.command.PostingCommand;
+import com.petmily.customer.command.PostingQueryCommand;
+import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.SignupCommand;
 
 
@@ -51,6 +54,7 @@ public class CustomerHomeController extends HttpServlet {
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		
+		int result = 0;
 		String viewpage = null;
 		String content_viewpage = null;
 		CustomerCommand command = null;
@@ -60,144 +64,63 @@ public class CustomerHomeController extends HttpServlet {
 		String com = uri.substring(context.length());
 		
 		
-		switch(com){
+	switch(com){
+	// 홈페이지 관련 do
 		//홈페이지로 이동
 		case("/home.do"):
 			viewpage = "home.jsp";
 			break;
-		//로그인화면으로 이동
-		case("/login_page.do"):
-			viewpage = "login.jsp";
-		break;
-		//회원가입으로 이동
-		case("/signup_page.do"):
-			viewpage = "signup_page.jsp";
-			break;
-		//헤더에서 마이페이지 클릭시 기본화면 
-		case("mypage_modify.do"):
-			viewpage = "mypage_modify_login.jsp";
-		break;
-		//마이페이지에서 비밀번호 확인시
-		case("mypage_modify_login.do"):
-			command = new MypageModifyLoginCommand();
-			if(command.executeInt(request, response) == 1) {
-				viewpage = "mypage_modify.jsp";
-			}else {
-				viewpage = "mypage_modify_login.jsp";
-			}
-			break;
-		//마이페이지에서 챌린지 클릭했을 때
-		case("mypage_challenge.do"):
-			command = new MypageChallengeCommand();
-			command.execute(request, response);
-			viewpage = "mypage_challenge.jsp";
-			break;
-			
-		//마이페이지에서 1365적립 클릭시
-		case("mypage_1365.do"):
-			viewpage = "mypage_1365.jsp";
-			break;
-		//마이페이지에서 1365적립 화면에서 적립 클릭시
-		case("mypage_1365_insert.do"):
-			command = new Mypage1365InsertCommand();
-			if(command.executeInt(request, response) == 1) {
-				
-			}else {
-				
-			}
-			break;
-		//마이페이지에서 1365적립 화면에서 인증 클릭시 1365api에서 정보를 불러옴
-		case("mypage_1365_search.do"):
-			command = new Mypage1365SearchCommand();
-			if(command.executeInt(request, response) == 1) {
-				
-			}else {
-				
-			}
-			break;
-		//1365적립내역 확인시 
-		case("mypage_1365_list.do"):
-			command = new Mypage1365ListCommand();
-			command.execute(request, response);
-			viewpage = "mypage_1365_select.jsp";
-			break;
-		
-		//마이페이지에서 사이트참여내역 클릭시
-		case("mypage_participate_list.do"):
-			command = new MypageParticipateListCommand();
-			command.execute(request, response);
-			viewpage = "mypage_participate_list.jsp";
-			break;
-			
-		//마이페이지에서 작성내역 클릭시
-		case("mypage_write_list.do"):
-			command = new MypageWriteListCommand();
-			command.execute(request, response);
-			viewpage = "mypage_write_list.jsp";
-			break;
-			
-		//마이페이지에서 신청내역 클릭시
-		case("mypage_apply_list.do"):
-			command = new MypageApplyListCommand();
-			command.execute(request, response);
-			viewpage = "mypage_apply_list.jsp";
-			break;		
-			
-		
-		
-		//모든게시판 접속시 테이블보여주기 및 검색시
-		case("nocice.do"):
-			command = new NoticeCommand();
-			command.execute(request, response);
-			viewpage = "board_list.jsp";
-			break;
-		
-			
-			//헤더에서 펫과사전 클릭시, 펫과사전 사이드바에서 동물종류 클릭시
-		case("/pet_dictionary_card.do"):
-			command = new PetDictionaryCardCommand();
-			command.execute(request, response);
-			viewpage = "pet_dictionary.jsp";
-			break;
-			//헤더에서 도전하기 클릭시, 챌린지 사이드바에서 챕터 클릭시
-		case("/challenge.do"):
-			command = new ChallengeVideoCommand();
-			viewpage = "challenge.jsp";
-			break;
-			//헤더에서 채팅버튼 클릭시
-		case("/chatting.do"):
-			command = new ChattingCommand();
-			command.execute(request, response);
-			viewpage = "chatting.jsp";
-			break;
-		//
-		case("/pet_dictionary_detail.do"):
-			command = new PetDictinaryDetailCommand();
-			command.execute(request, response);
-			viewpage = "pet_dictionary_detail.jsp";
-			break;
-			
-			
-			
 		//home slide_1 초기화면
 		case("/home_slide_1.do"):
 			command = new HomeSlide1Command();
 			command.execute(request, response);
-			viewpage = "";
+			viewpage = "component/home_slide_1.jsp";
 			break;
-		//home slide_2
+		//home slide_2 로드 시 
 		case("/home_slide_2.do"):
 			command = new HomeSlide2Command();
 			command.execute(request, response);
-			viewpage = "";
+			viewpage = "component/home_slide_2.jsp";
 			break;
-		//home slide_3
+		//home slide_3 로드 시 
 		case("/home_slide_3.do"):
 			command = new HomeSlide3Command();
 			command.execute(request, response);
-			viewpage = "";
+			viewpage = "component/home_slide_3.jsp";
+			break;			
+			
+			
+	// 로그인 관련 do 
+		//로그인화면으로 이동
+		case("/login_page.do"):
+			viewpage = "login.jsp";
+		break;
+		//로그인 버튼 클릭 시
+		case("/login.do"):
+			command = new LoginCommand();
+			result = command.executeInt(request, response);
+			if(result == 0) {
+				viewpage = "home.do";	
+				System.out.println("로그인성공");
+				//로그인
+			}else {
+				viewpage = "login_page.do";
+				System.out.println("로그인 실패");
+				//비로그인
+			}
 			break;
-		//카카오로그인
+		case("/logout.do"):
+			command = new LogoutCommand();
+			command.execute(request, response);
+			viewpage = "home.do";
+			break;
+		
+	// 회원 가입 관련 do
+		//회원가입으로 이동
+		case("/signup_page.do"):
+			viewpage = "signup.jsp";
+			break;
+		//카카오로 회원 가입 버튼 클릭 시 
 		case ("/sign_up_kakao.do"):
 			command = new KakaoTokenCommand();
 			command.execute(request, response);
@@ -205,32 +128,156 @@ public class CustomerHomeController extends HttpServlet {
 			content_viewpage = "mypage_modify.jsp";
 			request.setAttribute("content_viewpage", content_viewpage);
 			break;
-	
-		//로그인 버튼 클릭 시
-		case("/login.do"):
-			command = new LoginCommand();
-			if(command.executeInt(request, response) == 0) {
-				viewpage = "home.jsp";	
-				System.out.println("로그인성공");
-				//로그인
-			}else {
-				viewpage = "login.jsp";
-				System.out.println("로그인 실패");
-				//비로그인
-			}
-			break;
-		
-		
 		//회원가입 화면에서 가입하기 버튼 클릭 시
 		case("/sign_up.do"):
 			command = new SignupCommand();
-			if(command.executeInt(request, response) == 0) {
+			result = command.executeInt(request, response);
+			if(result == 0) {
 				viewpage = "login.jsp";	
 			}else {
 				viewpage = "signup.jsp";
 			}
 			break;
-		//
+		
+			
+	// 마이 페이지 관련 do
+		//헤더에서 마이페이지 클릭시 기본화면 
+		case("/mypage_modify.do"):
+			viewpage = "mypage_modify_login.jsp";
+		break;
+		//마이페이지에서 비밀번호 확인시
+		case("/mypage_modify_login.do"):
+			command = new MypageModifyLoginCommand();
+			result = command.executeInt(request, response);
+			if(result == 1) {
+				viewpage = "mypage_modify.jsp";
+			}else {
+				viewpage = "mypage_modify_login.jsp";
+			}
+			break;
+		//마이페이지에서 챌린지 클릭했을 때
+		case("/mypage_challenge.do"):
+			command = new MypageChallengeCommand();
+			command.execute(request, response);
+			viewpage = "mypage_challenge.jsp";
+			break;	
+		//마이페이지에서 1365적립 클릭시
+		case("/mypage_1365.do"):
+			viewpage = "mypage_1365.jsp";
+			break;
+		//마이페이지에서 1365적립 화면에서 인증 클릭시 1365api에서 정보를 불러옴
+		case("/mypage_1365_search.do"):
+			command = new Mypage1365SearchCommand();
+			result = command.executeInt(request, response);
+			if(result == 1) {
+				
+			}else {
+				
+			}
+			break;
+		//마이페이지에서 1365적립 화면에서 적립 클릭시
+		case("/mypage_1365_insert.do"):
+			command = new Mypage1365InsertCommand();
+			result = command.executeInt(request, response);
+			if(result == 1) {
+				
+			}else {
+				
+			}
+			viewpage = "mypage_1365.do";
+			break;
+		//1365적립내역 확인시 
+		case("/mypage_1365_list.do"):
+			command = new Mypage1365ListCommand();
+			command.execute(request, response);
+			viewpage = "mypage_1365_select.jsp";
+			break;
+		//마이페이지에서 사이트참여내역 클릭시
+		case("/mypage_participate_list.do"):
+			command = new MypageParticipateListCommand();
+			command.execute(request, response);
+			viewpage = "mypage_participate_list.jsp";
+			break;
+		//마이페이지에서 작성내역 클릭시
+		case("/mypage_write_list.do"):
+			command = new MypageWriteListCommand();
+			command.execute(request, response);
+			viewpage = "mypage_write_list.jsp";
+			break;
+		//마이페이지에서 신청내역 클릭시
+		case("/mypage_apply_list.do"):
+			command = new MypageApplyListCommand();
+			command.execute(request, response);
+			viewpage = "mypage_apply_list.jsp";
+			break;		
+			
+		
+	// 게시판 관련 do
+		//모든게시판 접속시 테이블보여주기 및 검색시
+		case("/posting.do"):
+			command = new PostingCommand();
+			command.execute(request, response);
+			viewpage = "board_list.jsp";
+			break;
+		//모든 게시판에서 검색 버튼 누를 시
+		case("/posting_query.do"):
+			command = new PostingQueryCommand();
+			command.execute(request, response);
+			viewpage = "board_list.jsp";
+			break;
+		//모든 게시판에서 작성 버튼 누를 시 
+		case("/posting_write.do"):
+			viewpage = "board_write.jsp";
+			break;
+		//게시판 작성에서 등록 버튼 누를 시
+		case("/posting_write_inesrt.do"):
+			command = new PostingWriteInsertCommand();
+			result = command.executeInt(request, response);
+			if(result == 1) {
+				viewpage = "posting.do";
+			}else {
+				// 오류 표시
+				viewpage = "posting_write.do";
+			}
+			break;
+		//게시판에서 게시물 클릭 했을 떄 
+//		case("/posting_query.do"):
+//			command = new PostingQueryCommand();
+//			command.execute(request, response);
+//			viewpage = "board_list.jsp";
+//			break;
+			
+	// 펫과사전 관련 do
+		//헤더에서 펫과사전 클릭시, 펫과사전 사이드바에서 동물종류 클릭시
+		case("/pet_dictionary_card.do"):
+			command = new PetDictionaryCardCommand();
+			command.execute(request, response);
+			viewpage = "pet_dictionary.jsp";
+			break;
+		// 펫과사전 카드 클릭 시 
+		case("/pet_dictionary_detail.do"):
+			command = new PetDictinaryDetailCommand();
+			command.execute(request, response);
+			viewpage = "pet_dictionary_detail.jsp";
+			break;
+			
+	
+	// 도전(교육) 관련 do
+		//헤더에서 도전하기 클릭시, 챌린지 사이드바에서 챕터 클릭시
+		case("/challenge.do"):
+			command = new ChallengeVideoCommand();
+			viewpage = "challenge.jsp";
+			break;
+		
+			
+	// 채팅 관련 do
+		//헤더에서 채팅버튼 클릭시
+		case("/chatting.do"):
+			command = new ChattingCommand();
+			command.execute(request, response);
+			viewpage = "chatting.jsp";
+			break;
+		
 				
 		}
 		

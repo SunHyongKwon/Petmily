@@ -27,21 +27,21 @@
 					</li>
 
 					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle mx-2" href="notice.do?ncategory=volunteer" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> 함께 </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="notice.do?ncategory=volunteer">함께 봉사</a></li>
-							<li><a class="dropdown-item" href="notice.do?ncategory=walk">함께 산책</a></li>
-							<li><a class="dropdown-item" href="notice.do?ncategory=petcafe">함께 펫카페</a></li>
-						</ul></li>
+					class="nav-link dropdown-toggle mx-2" href="posting.do?pcategory=volunteer" role="button"
+					data-bs-toggle="dropdown" aria-expanded="false"> 함께 </a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="posting.do?pcategory=volunteer">함께 봉사</a></li>
+						<li><a class="dropdown-item" href="posting.do?pcategory=walk">함께 산책</a></li>
+						<li><a class="dropdown-item" href="posting.do?pcategory=petcafe">함께 펫카페</a></li>
+					</ul></li>
 
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle mx-2" href="notice.do?ncategory=find" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> 구조 </a>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="notice.do?ncategory=find">찾아주세요</a></li>
-							<li><a class="dropdown-item" href="notice.do?ncategory=found">찾았어요</a></li>
-						</ul></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle mx-2" href="posting.do?pcategory=find" role="button"
+					data-bs-toggle="dropdown" aria-expanded="false"> 구조 </a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="posting.do?pcategory=find">찾아주세요</a></li>
+						<li><a class="dropdown-item" href="posting.do?pcategory=found">찾았어요</a></li>
+					</ul></li>
 				</ul>
 
 				<ul class="navbar-nav justify-content-end align-items-center">

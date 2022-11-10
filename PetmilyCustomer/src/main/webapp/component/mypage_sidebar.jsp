@@ -28,7 +28,7 @@
 	  </li>
 	  
 	  <li class="nav-item my-2">
-	   <p class="h5"><a class="nav-link" href="mypage_apply_table.do" style="color:black;">신청 내역</a></p>
+	   <p class="h5"><a class="nav-link" href="mypage_apply_list.do" style="color:black;">신청 내역</a></p>
 	  </li>
 	  
 	</ul>
