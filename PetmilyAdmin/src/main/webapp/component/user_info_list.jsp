@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <style>
 .form-control {
 	color: #a3a3a3;
@@ -17,18 +16,16 @@
 
 	<div class="container">
 		<div class="row justify-content-start my-2">
-			<h3>${param.pcategory}</h3>
+			<h3>??</h3>
 		</div>
 
-		<form action="board_list.do" method="get">
+		<form action="#" method="get">
 		<div class="row my-2">
-		<div class="col-4"></div>
+		<div class="col-4"></div> 
 		<div class="col-5">
-			<input type="radio" name="pcategory" value="함께펫카페"> 함께 펫카페
-			<input type="radio" name="pcategory" value="함께산책"> 함께 산책
-			<input type="radio" name="pcategory" value="함께봉사"> 함께 봉사
-			<input type="radio" name="pcategory" value="찾아주세요"> 찾아주세요
-			<input type="radio" name="pcategory" value="찾았어요"> 찾았어요
+			<input type="radio" name="pcategory" value="petcafe"> 등급별보기
+			<input type="radio" name="pcategory" value="walk"> 탈퇴 회원
+			
 		</div>
 		<div class="col-3"></div>
 		</div>
@@ -38,9 +35,16 @@
 				<div class="col-2">
 					<select class="form-select w-100"
 						aria-label="Default select example" name="option">
-						<option selected></option>
-						<option value="1">제목</option>
-						<option value="2">작성자</option>
+						<option selected>옵션</option>
+						<option value="1">ID</option>
+						<option value="2">이름</option>
+						<option value="2">닉네임</option>
+						<option value="3">이메일</option>
+						<option value="2">전화번호</option>
+						<option value="2">주소</option>
+						<option value="2">등급</option>
+						<option value="2">반려인여부</option>
+						
 					</select>
 				</div>
 				<!-- 검색  -->
@@ -55,13 +59,12 @@
 				</div>
 				<!-- 검색 버튼 -->
 				<div class="col-1">
-					<!-- <input type="submit" class="btn btn-warning "value="검색"> -->
+					<input type="submit" class="btn btn-warning "value="삭제">
 					<!-- <button class="btn btn-warning " type="button">검색</button> -->
 				</div>
 				<!-- 작성 버튼 -->
 				<div class="col-1">
-				<input type="submit" class="btn btn-warning "value="검색">
-					<!-- <button class="btn btn-warning" type="button">작성</button> -->
+					<button class="btn btn-warning" type="button">수정</button>
 				</div>
 				<div class="col-1">
 				</div>
@@ -70,32 +73,35 @@
 
 		
 		<div class="row justify-content-center my-5">
-			<table class="table text-center">
+			<table class="table text-center hover">
 				<thead style="background-color: #FB9E58;">
 					<tr>
-						<th scope="col"></th>
-						<th scope="col">번호</th>
-						<th scope="col">제목</th>
-						<th scope="col">작성자</th>
-						<th scope="col">시간</th>
-						<th scope="col">장소</th>
-						<th scope="col">좋아요</th>
-						<th scope="col">조회수</th>
+						<th scope="col">No</th>
+						<th scope="col">아이디</th>
+						<th scope="col">이름</th>
+						<th scope="col">닉네임</th>
+						<th scope="col">등급</th>
+						<th scope="col">전화번호</th>
+						<th scope="col">이메일</th>
+						<th scope="col">반려인여부</th>
+						
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="list" items="${postingList}">
-					<tr>
-						<td><input type="checkbox"></td>
-						<th scope="row"><a href="#">${list.pid }</a></th>
-						<td>${list.ptitle }</td>
-						<td>${list.user_uid }</td>
-						<td>${list.pinitdate }</td>
-						<td>${list.plocation }</td>
-						<td>${list.shlike }</td>
-						<td>${list.shcount }</td>
-					</tr>
+				<!-- 데이터보여주는곳 -->
+					<c:forEach items="${list }" var="dto">
+						<tr>
+							<th scope="row"><input type="checkbox"><a href="content_view.do?uid=${dto.uid }">1</a></th>
+							<td>${dto.uid }</td>
+							<td>${dto.uname }</td>
+							<td>${dto.unickname }</td>
+							<td>${dto.ulevel }</td>
+							<td>${dto.uphone }</td>
+							<td>${dto.uemail }</td>
+							<td>${dto.utype }</td>
+						</tr>
 					</c:forEach>
+			
 				</tbody>
 			</table>
 		</div>

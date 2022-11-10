@@ -1,4 +1,4 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="com.google.gson.Gson"%>
 <%@ page import="com.google.gson.JsonObject"%>
@@ -105,4 +105,4 @@ function toggleDataSeries(e) {
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
 </body>
-</html>                                        --%>
+</html>
