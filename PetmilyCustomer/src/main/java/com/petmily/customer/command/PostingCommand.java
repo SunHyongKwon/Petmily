@@ -1,5 +1,6 @@
 package com.petmily.customer.command;
 
+
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.petmily.customer.dao.PostingDAO;
 import com.petmily.customer.dto.PostingDTO;
 
-// gukHwa [조회_게시판]
 public class PostingCommand implements CustomerCommand {
 
 	@Override
@@ -19,6 +19,9 @@ public class PostingCommand implements CustomerCommand {
 		PostingDAO dao = new PostingDAO();
 		ArrayList<PostingDTO> dtos = dao.postcategoryList(pcategory);
 		request.setAttribute("pcategory", dtos);
+
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override

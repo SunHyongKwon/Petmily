@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Petmily</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -29,9 +29,8 @@
 			</div>
 			
 			<div class="col-9">
-				<jsp:include page="component/challenge_video.jsp"></jsp:include>
 				<!-- command에서 이걸 갈아 끼울 것이다.  -->			
-				<%-- <jsp:include page="component/${content_viewpage }"></jsp:include> --%>			
+				<jsp:include page="component/${content_viewpage }"></jsp:include>		
 			</div>
 		</div>
 	

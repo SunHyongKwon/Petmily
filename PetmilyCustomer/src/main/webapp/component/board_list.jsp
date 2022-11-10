@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 .form-control {
 	color: #a3a3a3;
@@ -9,14 +9,34 @@
 	border-radius: 30px;
 }
 
-.page-link{
-	color : black;
+.page-link {
+	color: black;
 }
 </style>
 
-	<div class="container">
+<script>
+	
+function changeForm(){
+	
+	var form = document.posting
+	
+	var pcategory = document.getElementById('pcategory').value
+	
+	form.action = 'posting_write.do?pcategory=' + pcategory
+	
+	
+	form.submit()
+	
+}
+	
+	
+</script>
+
+<div class="container">
+	<form action="posting_query.do" name="posting">
 		<div class="row justify-content-start my-2">
-			<h3>게시판 이름 ${notice.category}</h3>
+			<input type="hidden" name="pcategory" id="pcategory" value="${param.pcategory }">
+			<h3>${param.pcategory}</h3>
 		</div>
 
 		<div class="row my-3">
@@ -26,8 +46,8 @@
 				<select class="form-select w-100"
 					aria-label="Default select example">
 					<option selected>옵션</option>
-					<option value="1">제목</option>
-					<option value="2">작성자</option>
+					<option value="ptitle">제목</option>
+					<option value="user_uid">작성자</option>
 				</select>
 			</div>
 			<!-- 검색  -->
@@ -38,13 +58,21 @@
 
 			<!-- 검색 버튼 -->
 			<div class="col-1">
-				<button class="btn btn-warning " type="button">검색</button>
+				<input class="btn btn-warning " type="submit" value="검색">
 			</div>
 
 			<div class="col-2"></div>
 
 			<div class="col-1">
-				<button class="btn btn-warning" type="button">작성</button>
+				<c:choose>
+					<c:when test="${user.utype eq '1' }">
+						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : block">작성</button>
+					</c:when>
+					
+					<c:otherwise>
+						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : none">작성</button>
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<div class="col-1"></div>
 		</div>
@@ -63,66 +91,33 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
+					<!--   -->
+					<c:forEach var="list" items="${postingList}">
+						<tr>
+							<th scope="row"><a href="posting_click.do">${list.pid }</a></th>
+							<td>${list.ptitle }</td>
+							<td>${list.user_uid }</td>
+							<td>${list.pinitdate }</td>
+							<td>${list.plocation }</td>
+							<td>${list.shlike }</td>
+							<td>${list.shcount }</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
 
 		<div class="row justify-content-center my-2">
-			
-				<nav aria-label="Page navigation example ">
-					<ul class="pagination justify-content-center">
-						<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
-					</ul>
-				</nav>
-		</div>
 
-	</div>
+			<nav aria-label="Page navigation example ">
+				<ul class="pagination justify-content-center">
+					<li class="page-item"><a class="page-link" href="">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			</nav>
+		</div>
+	</form>
+</div>

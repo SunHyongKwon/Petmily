@@ -151,7 +151,7 @@
 			</div>
 
 			<!-- PW -->
-			<div class="row justify-content-center ">
+			<div class="row justify-content-center">
 				<div class="col-4 mb-3 gy-2">
 					<label for="exampleFormControlInput1" class="form-label">비밀번호
 					</label> <input type="password" class="form-control" name="upw"

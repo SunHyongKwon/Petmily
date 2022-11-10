@@ -11,11 +11,7 @@ public class MypageSelectCommand implements AdminCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String adid =request.getParameter("adid");
-		AdminDAO dao= new AdminDAO();
-		adminDTO dto=dao.adminContentView(adid);
 		
-		request.setAttribute("admin_content_view", dto);
 
 	}
 
