@@ -26,6 +26,7 @@ public class signupCommand implements CustomerCommand {
 		userDAO dao = new userDAO();
 		dao.insert(uid,upw,uname,uphone,uemail,uaddress_basic,uaddress_detail,utype);
 		
+		
 		// pet 관련 :s petname ,s petgender 
 		String petname = request.getParameter("petname");
 		String petgender = request.getParameter("petgender");
