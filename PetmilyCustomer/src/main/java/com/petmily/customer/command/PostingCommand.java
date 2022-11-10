@@ -4,21 +4,20 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.petmily.customer.dao.NoticeDAO;
-import com.petmily.customer.dto.NoticeDTO;
+import com.petmily.customer.dao.PostingDAO;
+import com.petmily.customer.dto.PostingDTO;
 
 // gukHwa [조회_게시판]
-public class NoticeCommand implements CustomerCommand {
+public class PostingCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		String ncategory = request.getParameter("ncategory");
 		
-		NoticeDAO dao = new NoticeDAO();
-		ArrayList<NoticeDTO> dtos = dao.noticecategoryList(ncategory);
+		PostingDAO dao = new PostingDAO();
+		ArrayList<PostingDTO> dtos = dao.postcategoryList(ncategory);
 		request.setAttribute("ncategory", dtos);
 	}
 
