@@ -93,7 +93,7 @@ public class AdminDAO {
 	}//login end
 	
 	//insert시작 병준 
-	public void insert(String adid, String adpw, String adname, String ademail, String adphone) {
+	public void signupInsert(String adid, String adpw, String adname, String ademail, String adphone) {
 		PreparedStatement ps = null;
 		
 		try {
@@ -125,7 +125,7 @@ public class AdminDAO {
 	}//insert 끝
 	
 	//idcheck 병준
-		public String idcheck(String adname, String ademail) {
+		public String idCheck(String adname, String ademail) {
 			
 			int result = 0;
 			String adid = "";
@@ -159,7 +159,7 @@ public class AdminDAO {
 		}//idcheck end
 		
 		//pwcheck 병준
-				public String pwcheck(String adid, String ademail) {
+				public String pwCheck(String adid, String ademail) {
 					
 					int result = 0;
 					String adpw = "";

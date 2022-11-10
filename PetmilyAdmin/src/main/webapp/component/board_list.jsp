@@ -23,11 +23,11 @@
 		<div class="row my-2">
 		<div class="col-4"></div>
 		<div class="col-5">
-			<input type="radio" name="pcategory" value="함께펫카페"> 함께 펫카페
-			<input type="radio" name="pcategory" value="함께산책"> 함께 산책
-			<input type="radio" name="pcategory" value="함께봉사"> 함께 봉사
-			<input type="radio" name="pcategory" value="찾아주세요"> 찾아주세요
-			<input type="radio" name="pcategory" value="찾았어요"> 찾았어요
+			<input type="radio" name="pcategory" value="petcafe"> 함께 펫카페
+			<input type="radio" name="pcategory" value="walk"> 함께 산책
+			<input type="radio" name="pcategory" value="volunteer"> 함께 봉사
+			<input type="radio" name="pcategory" value="find"> 찾아주세요
+			<input type="radio" name="pcategory" value="found"> 찾았어요
 		</div>
 		<div class="col-3"></div>
 		</div>

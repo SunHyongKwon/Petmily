@@ -25,7 +25,7 @@ public class SearchIdCommand implements AdminCommand {
 		
 		// name , email를 넘겨줘서 이걸 가지고 체크 한다.
 		
-		String adid = dao.idcheck(adname, ademail);
+		String adid = dao.idCheck(adname, ademail);
 
 		
 		if (!(adid == null)) {

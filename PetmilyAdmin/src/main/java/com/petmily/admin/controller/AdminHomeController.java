@@ -10,13 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.admin.command.AdminCommand;
+import com.petmily.admin.command.AdminInfoList;
+import com.petmily.admin.command.BoardListCommand;
 import com.petmily.admin.command.LoginCommand;
+import com.petmily.admin.command.LogoutCommand;
 import com.petmily.admin.command.MypageModifyCommand;
 import com.petmily.admin.command.MypageModifyLoginCommand;
 import com.petmily.admin.command.MypageSelectCommand;
+import com.petmily.admin.command.NoticeList;
 import com.petmily.admin.command.SearchIdCommand;
 import com.petmily.admin.command.SearchPwCommand;
 import com.petmily.admin.command.SignupCommand;
+import com.petmily.admin.command.UserInfoList;
 
 
 
@@ -48,12 +53,6 @@ public class AdminHomeController extends HttpServlet {
 		String com = uri.substring(context.length());
 		
 		switch(com){
-		// gukHwa [수정]
-		case("/mypage_modify.do"):
-			command = new MypageModifyCommand();
-			command.execute(request, response);
-			viewpage = "adminlist.do";
-			break;
 		
 		//홈페이지 접속시
 		case("/home.do"):
@@ -68,11 +67,15 @@ public class AdminHomeController extends HttpServlet {
 			command = new LoginCommand();
 			if(command.executeInt(request, response) == 1) {
 				viewpage = "home.jsp";
-				System.out.println("로그인성공");
 			}else {
 				viewpage = "login_page.do";
-				System.out.println("로그인실패");
 			}
+			break;
+			//로그아웃 클릭시
+		case("/logout.do"):
+			command = new LogoutCommand();
+			command.execute(request, response);
+			viewpage = "login.jsp";
 			break;
 			//로그인화면에서 아이디찾기 클릭시
 		case("/search_id.do"):
@@ -111,12 +114,12 @@ public class AdminHomeController extends HttpServlet {
 			}
 			break;
 			//헤더에서 마이페이지 클릭시 기본화면 
-		case("mypage_modify.do"):
+		case("/mypage_modify.do"):
 			viewpage = "mypage_modify_login.jsp";
 			break;
 			
 			//마이페이지에서 비밀번호 확인시
-		case("mypage_modify_login.do"):
+		case("/mypage_modify_login.do"):
 			command = new MypageModifyLoginCommand();
 			if(command.executeInt(request, response) == 1) {
 				viewpage = "mypage_modify.jsp";
@@ -124,8 +127,30 @@ public class AdminHomeController extends HttpServlet {
 				viewpage = "mypage_modify_login.jsp";
 			}
 			break;
-			
-			
+			//사이드바에서 게시물관리 클릭
+		case("/board_list.do"):
+			command = new BoardListCommand();
+			command.execute(request, response);
+			viewpage = "board_list.jsp";
+			break;
+			//사이드바에서 관리리자정보관리 클릭 
+		case("/admin_info_list.do"):
+			command = new AdminInfoList();
+			command.execute(request, response);
+			viewpage = "admin_info_list.jsp";
+			break;
+			//사이드바에서 회원정보관리 클릭 
+		case("/user_info_list.do"):
+			command = new UserInfoList();
+			command.execute(request, response);
+			viewpage = "user_info_list.jsp";
+			break;
+			//사이드바에서 공지사항관리 클릭 
+		case("/notice_list.do"):
+			command = new NoticeList();
+			command.execute(request, response);
+			viewpage = "notice_list.jsp";
+			break;
 			
 		}
 

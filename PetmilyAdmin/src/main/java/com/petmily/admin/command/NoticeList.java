@@ -3,15 +3,11 @@ package com.petmily.admin.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petmily.admin.dao.AdminDAO;
-import com.petmily.admin.dto.adminDTO;
+public class NoticeList implements AdminCommand {
 
-public class MypageSelectCommand implements AdminCommand {
-	//석진 마이페이지 content view
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
 
 	}
 
