@@ -19,7 +19,7 @@
 			<h3>${ncategory}</h3>
 		</div>
 
-		<form action="#" method="get">
+		<form action="board_list.do" method="get">
 		<div class="row my-2">
 		<div class="col-4"></div>
 		<div class="col-5">
@@ -71,6 +71,7 @@
 			<table class="table text-center">
 				<thead style="background-color: #FB9E58;">
 					<tr>
+						<th scope="col"></th>
 						<th scope="col">번호</th>
 						<th scope="col">제목</th>
 						<th scope="col">작성자</th>
@@ -82,6 +83,7 @@
 				</thead>
 				<tbody>
 					<tr>
+						<td><input type="checkbox"></td>
 						<th scope="row"><a href="#">1</a></th>
 						<td>Mark</td>
 						<td>Otto</td>
@@ -90,42 +92,7 @@
 						<td>Otto</td>
 						<td>@mdo</td>
 					</tr>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
-					<tr>
-						<th scope="row"><a href="#">1</a></th>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-						<td>Mark</td>
-						<td>Otto</td>
-						<td>@mdo</td>
-					</tr>
+					
 				</tbody>
 			</table>
 		</div>

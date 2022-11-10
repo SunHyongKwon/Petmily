@@ -44,7 +44,7 @@ public class AdminHomeController extends HttpServlet {
 	
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		
+		int result = 0;
 		String viewpage = null;
 		AdminCommand command = null;
 		
@@ -65,7 +65,8 @@ public class AdminHomeController extends HttpServlet {
 		//로그인 클릭시
 		case("/login.do"):
 			command = new LoginCommand();
-			if(command.executeInt(request, response) == 1) {
+			result = command.executeInt(request, response);
+			if(result == 1) {
 				viewpage = "home.jsp";
 			}else {
 				viewpage = "login_page.do";
@@ -98,7 +99,8 @@ public class AdminHomeController extends HttpServlet {
 			//id찾기화면에서 id 찾기버튼 눌렀을때,,,,<<<<<모달창뜨게 수정해야함>>>>>>
 		case("/search_id_action.do"):
 			command = new SearchIdCommand();
-			if(command.executeInt(request, response) == 1) {
+			result = command.executeInt(request, response);
+			if(result == 1) {
 				viewpage = "home.jsp";
 			}else {
 				viewpage = "login.do";
@@ -107,7 +109,8 @@ public class AdminHomeController extends HttpServlet {
 			//id찾기화면에서 id 찾기버튼 눌렀을때,,,,<<<<<모달창뜨게 수정해야함>>>>>>
 		case("/search_pw_action.do"):
 			command = new SearchPwCommand();
-			if(command.executeInt(request, response) == 1) {
+			result = command.executeInt(request, response);
+			if(result == 1) {
 				viewpage = "home.jsp";
 			}else {
 				viewpage = "login.do";
@@ -121,31 +124,32 @@ public class AdminHomeController extends HttpServlet {
 			//마이페이지에서 비밀번호 확인시
 		case("/mypage_modify_login.do"):
 			command = new MypageModifyLoginCommand();
-			if(command.executeInt(request, response) == 1) {
+			result = command.executeInt(request, response);
+			if(result == 1) {
 				viewpage = "mypage_modify.jsp";
 			}else {
 				viewpage = "mypage_modify_login.jsp";
 			}
 			break;
-			//사이드바에서 게시물관리 클릭
+			//사이드바에서 게시물관리 클릭 및 검색버튼 클릭 
 		case("/board_list.do"):
 			command = new BoardListCommand();
 			command.execute(request, response);
 			viewpage = "board_list.jsp";
 			break;
-			//사이드바에서 관리리자정보관리 클릭 
+			//사이드바에서 관리리자정보관리 클릭 및 검색버튼 클릭
 		case("/admin_info_list.do"):
 			command = new AdminInfoList();
 			command.execute(request, response);
 			viewpage = "admin_info_list.jsp";
 			break;
-			//사이드바에서 회원정보관리 클릭 
+			//사이드바에서 회원정보관리 클릭 및 검색버튼 클릭 
 		case("/user_info_list.do"):
 			command = new UserInfoList();
 			command.execute(request, response);
 			viewpage = "user_info_list.jsp";
 			break;
-			//사이드바에서 공지사항관리 클릭 
+			//사이드바에서 공지사항관리 클릭 및 검색버튼 클릭 
 		case("/notice_list.do"):
 			command = new NoticeList();
 			command.execute(request, response);
