@@ -30,7 +30,7 @@ public class PostingDAO {
 	}
 	
 	// gukHwa [조회_게시판]
-		public ArrayList<PostingDTO> postcategoryList(String ncategory) {
+		public ArrayList<PostingDTO> postcategoryList(String pcategory) {
 
 			ArrayList<PostingDTO> dtos = new ArrayList<>();
 			Connection connection = null;
@@ -41,7 +41,7 @@ public class PostingDAO {
 				connection = dataSource.getConnection();
 				
 			String query = "select nid, ntitle , ncontent , nimage1 , nimage2 , nimage3 , "
-					+ "ncategory , nlocation from notice where ncategory = '" + ncategory + "'";
+					+ "ncategory , nlocation from notice where ncategory = '" + pcategory + "'";
 				
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
@@ -53,7 +53,7 @@ public class PostingDAO {
 				String nimage1 = resultSet.getString("nimage1");
 				String nimage2 = resultSet.getString("nimage2");
 				String nimage3 = resultSet.getString("nimage3");
-				ncategory = resultSet.getString("ncategory");
+				pcategory = resultSet.getString("ncategory");
 				String nlocation = resultSet.getString("nlocation");
 				
 				PostingDTO dto = new PostingDTO(nid, ntitle, ncontent, nimage1, nimage2, nimage3, ncategory, nlocation);

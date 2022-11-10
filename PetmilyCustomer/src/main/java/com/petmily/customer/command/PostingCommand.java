@@ -14,11 +14,11 @@ public class PostingCommand implements CustomerCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		String ncategory = request.getParameter("ncategory");
+		String pcategory = request.getParameter("pcategory");
 		
 		PostingDAO dao = new PostingDAO();
-		ArrayList<PostingDTO> dtos = dao.postcategoryList(ncategory);
-		request.setAttribute("ncategory", dtos);
+		ArrayList<PostingDTO> dtos = dao.postcategoryList(pcategory);
+		request.setAttribute("pcategory", dtos);
 	}
 
 	@Override
