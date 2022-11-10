@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.petmily.admin.command.AdminCommand;
 import com.petmily.admin.command.LoginCommand;
 import com.petmily.admin.command.MypageModifyCommand;
+import com.petmily.admin.command.MypageModifyLoginCommand;
 import com.petmily.admin.command.MypageSelectCommand;
 import com.petmily.admin.command.SearchIdCommand;
 import com.petmily.admin.command.SearchPwCommand;
@@ -59,16 +60,18 @@ public class AdminHomeController extends HttpServlet {
 			viewpage = "home.jsp";
 			break;
 		//로그인화면접속
-		case("/login.do"):
+		case("/login_page.do"):
 			viewpage = "login.jsp";
 			break;
 		//로그인 클릭시
-		case("/login_action.do"):
-				command = new LoginCommand();
+		case("/login.do"):
+			command = new LoginCommand();
 			if(command.executeInt(request, response) == 1) {
 				viewpage = "home.jsp";
+				System.out.println("로그인성공");
 			}else {
-				viewpage = "login.do";
+				viewpage = "login_page.do";
+				System.out.println("로그인실패");
 			}
 			break;
 			//로그인화면에서 아이디찾기 클릭시
@@ -105,6 +108,20 @@ public class AdminHomeController extends HttpServlet {
 				viewpage = "home.jsp";
 			}else {
 				viewpage = "login.do";
+			}
+			break;
+			//헤더에서 마이페이지 클릭시 기본화면 
+		case("mypage_modify.do"):
+			viewpage = "mypage_modify_login.jsp";
+			break;
+			
+			//마이페이지에서 비밀번호 확인시
+		case("mypage_modify_login.do"):
+			command = new MypageModifyLoginCommand();
+			if(command.executeInt(request, response) == 1) {
+				viewpage = "mypage_modify.jsp";
+			}else {
+				viewpage = "mypage_modify_login.jsp";
 			}
 			break;
 			

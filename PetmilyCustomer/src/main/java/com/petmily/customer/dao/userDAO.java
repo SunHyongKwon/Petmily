@@ -29,22 +29,22 @@ public class userDAO {
 	
 	public userDTO login(String uid, String upw) {
 		int result = 0;
-		String unickname = "";
+		String uname = "";
 		String utype = "";
 		userDTO udto = null;
 		
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select count(*) , unickname, utype from user where uid = '" + uid + "' and upw = '" + upw + "'";
+			String query = "select count(*) , uname, utype from user where uid = '" + uid + "' and upw = '" + upw + "'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
 			if (resultSet.next()) {
 				result = resultSet.getInt(1);
-				unickname = resultSet.getString(2);
+				uname = resultSet.getString(2);
 				utype = resultSet.getString(3);
-			udto = new userDTO(uid, unickname, utype);
+			udto = new userDTO(uid, uname, utype);
 				
 			}
 

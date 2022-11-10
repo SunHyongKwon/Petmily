@@ -20,7 +20,7 @@
 						class="nav-link dropdown-toggle mx-2" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"> ${user.uname }유저 이름 </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#">마이페이지</a></li>
+							<li><a class="dropdown-item" href="mypage_modify.do">마이페이지</a></li>
 							<li><a class="dropdown-item" href="#">로그아웃</a></li>
 						</ul></li>
 
@@ -30,5 +30,4 @@
 
 				</ul>
 			</div>
-		</div>
 	</nav>

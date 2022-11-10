@@ -25,7 +25,7 @@
 				<h3>PETMILY</h3>
 			</div>
 		</div>
-		<form action="login_action.do" method="post">
+		<form action="login.do" method="post">
 		<div class="row justify-content-center ">
 			<div class="col-4 mb-3 gy-3">
 				<input type="text" class="form-control" name="adid"
