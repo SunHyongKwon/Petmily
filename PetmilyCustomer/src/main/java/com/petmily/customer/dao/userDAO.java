@@ -8,6 +8,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.petmily.customer.dto.userDTO;
+
 public class userDAO {
 
 	DataSource dataSource;
@@ -55,6 +57,49 @@ public class userDAO {
 			}
 		}
 		return unickname;
-	} 
+	}  // login
+		
+		
+		// by 은빈 -- myPageView		
+		public userDTO myPageView(String uid) {  
+			userDTO dto = null;
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			ResultSet resultSet = null;
+			
+			try {
+				connection = dataSource.getConnection();
+				
+				String query = "select * from user where uid = ?";
+				preparedStatement = connection.prepareStatement(query);
+				preparedStatement.setString(1, "uid");
+				resultSet = preparedStatement.executeQuery();
+				
+				if(resultSet.next()) {
+					uid = resultSet.getString("uid");
+					String upw = resultSet.getString("upw");
+					String uname = resultSet.getString("uname");
+					String unickname = resultSet.getString("unickname");
+					String uphone = resultSet.getString("uphone");
+					String uemail = resultSet.getString("uemail");
+					String uaddress = resultSet.getString("uaddress");
+					
+					dto = new userDTO(uid, upw, uname, unickname, uphone, uemail, uaddress);										
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if(resultSet != null) resultSet.close();
+					if(preparedStatement != null) preparedStatement.close();
+					if(connection != null) connection.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return dto;
+		} // myPageView
+ 
 	
 }

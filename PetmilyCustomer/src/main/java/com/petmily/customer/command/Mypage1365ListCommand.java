@@ -1,33 +1,30 @@
 package com.petmily.customer.command;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.petmily.customer.dao.*;
-import com.petmily.customer.dto.*;
+import com.petmily.customer.dao.volunteerDAO;
+import com.petmily.customer.dto.volunteerDTO;
 
-public class MypageSelectCommand implements CustomerCommand {
+public class Mypage1365ListCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		
+		// by 은빈  --volunteerList
+		volunteerDAO dao = new volunteerDAO();
+		ArrayList<volunteerDTO> dtos = dao.volunteerList();
+		request.setAttribute("volunteerlist", dtos);
 
 	}
-	
-	// 나중애 바꿔야됨
+
 	@Override
 	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
-		
-		// by 은빈  -- myPageList
-		String uid = request.getParameter("uid");
-		userDAO dao = new userDAO();
-		userDTO dto = dao.myPageView(uid);
-		request.setAttribute("uid", dto);
-				
 		return 0;
-
 	}
 
 }

@@ -9,8 +9,10 @@ public class petspecDTO {
 	String psbreeds;
 	String pssize;
 	String pscontent;
+	String psimage;
 	Timestamp psinitdate;
 	Timestamp psdeletedate;
+	
 	
 	public petspecDTO() {
 		// TODO Auto-generated constructor stub
@@ -27,6 +29,15 @@ public class petspecDTO {
 		this.psinitdate = psinitdate;
 		this.psdeletedate = psdeletedate;
 	}
+	
+	// by 은빈  -- 카드 클릭시 list 나오게 하기 위해 만듬
+	public petspecDTO(String pstype, String psimage, String psbreeds) {
+		super();
+		this.pstype = pstype;
+		this.psimage = psimage;
+		this.psbreeds = psbreeds;
+	}
+	
 
 	public int getPsid() {
 		return psid;

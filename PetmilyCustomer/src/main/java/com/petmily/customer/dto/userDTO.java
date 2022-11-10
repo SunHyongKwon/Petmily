@@ -19,7 +19,7 @@ public class userDTO {
 	}
 
 	public userDTO(String uid, String upw, String uname, String uemail, String uphone, String uaddress, String utype,
-			String ulevel, String uinfo) {
+			String ulevel, String uinfo, String unickname) {
 		super();
 		this.uid = uid;
 		this.upw = upw;
@@ -30,6 +30,19 @@ public class userDTO {
 		this.utype = utype;
 		this.ulevel = ulevel;
 		this.uinfo = uinfo;
+		this.unickname = unickname;
+	}
+	
+	// by eunbeen  -- myPageView
+	public userDTO(String uid, String upw, String uname, String uemail, String uphone, String uaddress, String unickname) {
+		super();
+		this.uid = uid;
+		this.upw = upw;
+		this.uname = uname;
+		this.uemail = uemail;
+		this.uphone = uphone;
+		this.uaddress = uaddress;
+		this.unickname = unickname;
 	}
 	
 	public String getUid() {
