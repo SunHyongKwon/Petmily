@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public interface AdminCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response);
+	public int executeInt(HttpServletRequest request, HttpServletResponse response);
 
 	
 }

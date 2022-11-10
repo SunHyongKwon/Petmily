@@ -32,7 +32,7 @@
 			<h6 style="color: #a3a3a3;">간단한 인증을 통해 비밀번호를 찾아드립니다.</h6>
 		</div>
 	</div>
-
+<form action="search_pw_action.do" method="post">
 	<div class="row justify-content-center ">
 		<div class="col-4 mb-3 gy-2">
 			<label for="exampleFormControlInput1" class="form-label">아이디 </label>
@@ -66,14 +66,12 @@
 
 	<div class="row justify-content-center my-3">
 		<div class="d-grid gap-2 col-4 mx-auto">
-			<button class="btn btn-primary" type="button"
-				onClick="location.href='sign_up_form.jsp'"
+		<input type="submit" class="btn btn-primary" value="비밀번호 찾기"
 				style="background-color: #e8853e; padding-top: 0.9rem; padding-bottom: 0.9rem; 
 				box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); border-color: #a3a3a3">
-				비밀번호 찾기</button>
 		</div>
 	</div>
-
+</form>
 
 
 </div>

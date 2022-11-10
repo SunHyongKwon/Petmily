@@ -3,20 +3,10 @@ package com.petmily.customer.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class homeSlide1Command implements CustomerCommand {
+public class PetDictionaryCardCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String pstype = request.getParameter("pstype");
-		
-		if(pstype == null) {
-			pstype = "dog";
-		}
-		
-		PetspecDAO dao = new PetspecDAO();
-		ArrayList<PetspecDTO> dto = dao.petSpecList(pstype);
-		
-		request.setAttribute("petSpecList", dto);
 		// TODO Auto-generated method stub
 
 	}

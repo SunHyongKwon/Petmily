@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.admin.dao.AdminDAO;
 
+
 // gukHwa [수정]
 public class MypageModifyCommand implements AdminCommand {
 
@@ -21,6 +22,12 @@ public class MypageModifyCommand implements AdminCommand {
 			dao.update(adpw, adname, adphone, ademail);
 			
 		}
+
+	@Override
+	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	}
 
