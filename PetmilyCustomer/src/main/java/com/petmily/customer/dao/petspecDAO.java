@@ -24,4 +24,35 @@ public class petspecDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public void insert(String pstype, String psbreeds) {
+		// TODO Auto-generated method stub
+		PreparedStatement ps = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "insert into petspec (pstype,psbreeds) values ( ? , ? ) ";
+			
+			ps = connection.prepareStatement(query);
+			
+			ps.setString(1,pstype);
+			ps.setString(2,psbreeds);
+		
+
+			ps.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(resultSet != null) resultSet.close();
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null)connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 }

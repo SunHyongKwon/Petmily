@@ -65,6 +65,42 @@ public class userDAO {
 		
 		
 		return udto;
-	} 
+	}
+
+	public void insert(String uid, String upw, String uname, String uphone, String uemail, 
+			String uaddress_basic, String uaddress_detail, String utype) {
+		// TODO Auto-generated method stub
+			PreparedStatement ps = null;
+			
+			try {
+				connection = dataSource.getConnection();
+				
+				String query = "insert into user (uid,upw,uname,uphone,uemail,uaddress, utype) values ( ? , ? , ? , ? , ? , ? , ? ) ";
+				
+				ps = connection.prepareStatement(query);
+				
+				ps.setString(1,uid);
+				ps.setString(2,upw);
+				ps.setString(3,uname);
+				ps.setString(4,uphone);
+				ps.setString(5,uemail);
+				ps.setString(6,uaddress_basic+uaddress_detail);
+				ps.setString(7,utype);
+
+				ps.executeUpdate();
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if(resultSet != null) resultSet.close();
+					if(preparedStatement != null) preparedStatement.close();
+					if(connection != null)connection.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
 	
 }

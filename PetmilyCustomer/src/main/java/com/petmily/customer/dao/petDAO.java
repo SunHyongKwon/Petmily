@@ -24,4 +24,35 @@ public class petDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void insert(String petname,String petgender) {
+		// TODO Auto-generated method stub
+			PreparedStatement ps = null;
+			
+			try {
+				connection = dataSource.getConnection();
+				
+				String query = "insert into pet (petname,petgender) values ( ? , ? ) ";
+				
+				ps = connection.prepareStatement(query);
+				
+				ps.setString(1,petname);
+				ps.setString(2,petgender);
+			
+
+				ps.executeUpdate();
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if(resultSet != null) resultSet.close();
+					if(preparedStatement != null) preparedStatement.close();
+					if(connection != null)connection.close();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	
 }
