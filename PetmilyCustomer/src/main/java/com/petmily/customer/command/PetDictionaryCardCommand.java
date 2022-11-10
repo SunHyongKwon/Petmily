@@ -20,7 +20,7 @@ public class PetDictionaryCardCommand implements CustomerCommand {
 		// by 은빈  -- petList
 		String pstype = request.getParameter("pstype");
 		PetspecDAO dao = new PetspecDAO();
-		ArrayList<PetspecDTO> dto = dao.petList(pstype);
+		ArrayList<PetspecDTO> dto = dao.petSpecList(pstype);
 		
 		request.setAttribute("petList", dto); 
 

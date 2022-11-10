@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.customer.dao.PetDAO;
-import com.petmily.customer.dao.petspecDAO;
-import com.petmily.customer.dao.userDAO;
+import com.petmily.customer.dao.PetspecDAO;
+import com.petmily.customer.dao.UserDAO;
 
 
 public class SignupCommand implements CustomerCommand {
@@ -24,7 +24,7 @@ public class SignupCommand implements CustomerCommand {
 		String uaddress_detail = request.getParameter("uaddress_detail");
 		String utype = request.getParameter("utype");
 		
-		userDAO dao = new userDAO();
+		UserDAO dao = new UserDAO();
 		dao.insert(uid,upw,uname,uphone,uemail,uaddress_basic,uaddress_detail,utype);
 		
 		
@@ -39,7 +39,7 @@ public class SignupCommand implements CustomerCommand {
 		String pstype = request.getParameter("pstype");
 		String psbreeds = request.getParameter("psbreeds");
 		
-		petspecDAO dao3 = new petspecDAO();
+		PetspecDAO dao3 = new PetspecDAO();
 		dao3.insert(pstype,psbreeds);
 		
 		//register table은 t reginitdate
