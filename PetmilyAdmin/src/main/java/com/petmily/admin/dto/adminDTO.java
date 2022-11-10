@@ -31,6 +31,16 @@ public class adminDTO {
 		this.addeletedate = addeletedate;
 		this.adacceptdate = adacceptdate;
 	}
+	
+
+	public adminDTO(String adid, String adname,  String ademail,String adpw, Timestamp adinitdate) {
+		super();
+		this.adid = adid;
+		this.adpw = adpw;
+		this.adname = adname;
+		this.ademail = ademail;
+		this.adinitdate = adinitdate;
+	}
 
 	public String getAdid() {
 		return adid;

@@ -93,7 +93,7 @@ public class AdminDAO {
 	}//login end
 	
 	//insert시작 병준 
-	public void insert(String adid, String adpw, String adname, String ademail, String adphone) {
+	public void signupInsert(String adid, String adpw, String adname, String ademail, String adphone) {
 		PreparedStatement ps = null;
 		
 		try {
@@ -123,5 +123,73 @@ public class AdminDAO {
 			}
 		}
 	}//insert 끝
+	
+	//idcheck 병준
+		public String idCheck(String adname, String ademail) {
+			
+			int result = 0;
+			String adid = "";
+			try {
+				connection = dataSource.getConnection();
+
+				String query = "select count(*) , adid from admin where adname = '" + adid + "' and ademail = '" + ademail + "'";
+				preparedStatement = connection.prepareStatement(query);
+				resultSet = preparedStatement.executeQuery();
+
+				if (resultSet.next()) {
+					result = resultSet.getInt(1);
+					adid = resultSet.getString(2);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (resultSet != null)
+						resultSet.close();
+					if (preparedStatement != null)
+						preparedStatement.close();
+					if (connection != null)
+						connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return adid;
+		}//idcheck end
+		
+		//pwcheck 병준
+				public String pwCheck(String adid, String ademail) {
+					
+					int result = 0;
+					String adpw = "";
+					try {
+						connection = dataSource.getConnection();
+
+						String query = "select count(*) , adpw from admin where adid = '" + adid + "' and ademail = '" + ademail + "'";
+						preparedStatement = connection.prepareStatement(query);
+						resultSet = preparedStatement.executeQuery();
+
+						if (resultSet.next()) {
+							result = resultSet.getInt(1);
+							adpw = resultSet.getString(2);
+						}
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							if (resultSet != null)
+								resultSet.close();
+							if (preparedStatement != null)
+								preparedStatement.close();
+							if (connection != null)
+								connection.close();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+					return adpw;
+				}//pwcheck end
 	
 }//End

@@ -351,17 +351,9 @@ $(document).ready(function(){
 			<div class="row justify-content-center ">
 				
 					<input type="submit" value="가입하기"
-					style="width: 364px;
-height: 58px;background: #E8853E;font-weight: 700;
-font-size: 22px;
-line-height: 30px;
-/* identical to box height */
+					class="btn btn-warning col-6 gy-5">
 
-text-align: center;
-
-color: #FFFFFF;
-">
-					
+			
 			</div>
 
 			<div class="row justify-content-center" style="height: 4rem"></div>

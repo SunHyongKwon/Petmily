@@ -22,8 +22,6 @@ public class LoginCommand implements AdminCommand {
 		// TODO Auto-generated method stub
 		String adid = request.getParameter("adid");
 		String adpw = request.getParameter("adpw");
-		System.out.println(adid);
-		System.out.println(adpw);
 
 		AdminDAO dao = new AdminDAO();
 		
