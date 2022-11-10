@@ -26,7 +26,7 @@
 					<li class="nav-item"><a class="nav-link mx-2" href="#">매칭</a>
 					</li>
 
-					<<li class="nav-item dropdown"><a
+					<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle mx-2" href="posting.do?pcategory=volunteer" role="button"
 					data-bs-toggle="dropdown" aria-expanded="false"> 함께 </a>
 					<ul class="dropdown-menu">

@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ohshoes.web.dao.UserDAO;
-import com.petmily.customer.dao.userDAO;
+import com.petmily.customer.dao.UserDAO;
 
 public class SignupCommand implements CustomerCommand {
 

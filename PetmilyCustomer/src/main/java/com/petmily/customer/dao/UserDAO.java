@@ -10,14 +10,14 @@ import javax.sql.DataSource;
 
 import com.petmily.customer.dto.userDTO;
 
-public class userDAO {
+public class UserDAO {
 
 	DataSource dataSource;
 	Connection connection = null;
 	PreparedStatement preparedStatement = null;
 	ResultSet resultSet = null;
 
-	public userDAO() {
+	public UserDAO() {
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/petmily");

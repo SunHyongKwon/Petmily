@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.petmily.customer.dao.userDAO;
+import com.petmily.customer.dao.UserDAO;
 import com.petmily.customer.dto.userDTO;
 
 public class LoginCommand implements CustomerCommand {
@@ -19,7 +19,7 @@ public class LoginCommand implements CustomerCommand {
 		// TODO Auto-generated method stub
 		String uid = request.getParameter("uid");
 		String upw = request.getParameter("upw");
-		userDAO dao = new userDAO();
+		UserDAO dao = new UserDAO();
 		userDTO dto = dao.login(uid, upw);
 
 		

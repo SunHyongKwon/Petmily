@@ -28,6 +28,7 @@ import com.petmily.customer.command.MypageParticipateListCommand;
 import com.petmily.customer.command.MypageWriteListCommand;
 import com.petmily.customer.command.PetDictinaryDetailCommand;
 import com.petmily.customer.command.PetDictionaryCardCommand;
+import com.petmily.customer.command.PostingClickCommand;
 import com.petmily.customer.command.PostingCommand;
 import com.petmily.customer.command.PostingQueryCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
@@ -101,11 +102,9 @@ public class CustomerHomeController extends HttpServlet {
 			result = command.executeInt(request, response);
 			if(result == 0) {
 				viewpage = "home.do";	
-				System.out.println("로그인성공");
 				//로그인
 			}else {
 				viewpage = "login_page.do";
-				System.out.println("로그인 실패");
 				//비로그인
 			}
 			break;
@@ -115,6 +114,7 @@ public class CustomerHomeController extends HttpServlet {
 			viewpage = "home.do";
 			break;
 		
+			
 	// 회원 가입 관련 do
 		//회원가입으로 이동
 		case("/signup_page.do"):
@@ -241,11 +241,12 @@ public class CustomerHomeController extends HttpServlet {
 			}
 			break;
 		//게시판에서 게시물 클릭 했을 떄 
-//		case("/posting_query.do"):
-//			command = new PostingQueryCommand();
-//			command.execute(request, response);
-//			viewpage = "board_list.jsp";
-//			break;
+		case("/posting_click.do"):
+			command = new PostingClickCommand();
+			command.execute(request, response);
+			viewpage = "board_view.jsp";
+			break;
+			
 			
 	// 펫과사전 관련 do
 		//헤더에서 펫과사전 클릭시, 펫과사전 사이드바에서 동물종류 클릭시

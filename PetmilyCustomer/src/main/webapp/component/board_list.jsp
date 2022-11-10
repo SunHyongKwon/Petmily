@@ -64,7 +64,15 @@ function changeForm(){
 			<div class="col-2"></div>
 
 			<div class="col-1">
-				<button class="btn btn-warning" type="button" onclick="changeForm()">작성</button>
+				<c:choose>
+					<c:when test="${user.utype eq '1' }">
+						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : block">작성</button>
+					</c:when>
+					
+					<c:otherwise>
+						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : none">작성</button>
+					</c:otherwise>
+				</c:choose>
 			</div>
 			<div class="col-1"></div>
 		</div>
@@ -86,7 +94,7 @@ function changeForm(){
 					<!--   -->
 					<c:forEach var="list" items="${postingList}">
 						<tr>
-							<th scope="row"><a href="">${list.pid }</a></th>
+							<th scope="row"><a href="posting_click.do">${list.pid }</a></th>
 							<td>${list.ptitle }</td>
 							<td>${list.user_uid }</td>
 							<td>${list.pinitdate }</td>
