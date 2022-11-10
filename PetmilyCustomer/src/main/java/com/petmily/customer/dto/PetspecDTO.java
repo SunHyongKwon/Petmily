@@ -2,7 +2,7 @@ package com.petmily.customer.dto;
 
 import java.sql.Timestamp;
 
-public class petspecDTO {
+public class PetspecDTO {
 
 	int psid;
 	String pstype;
@@ -11,12 +11,21 @@ public class petspecDTO {
 	String pscontent;
 	Timestamp psinitdate;
 	Timestamp psdeletedate;
+	String psimage;
 	
-	public petspecDTO() {
+	public PetspecDTO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	// gukHwa [조회_pet 설명_종류별(dog,cat,etc)card view 4개씩]
+	public PetspecDTO(String psbreeds, String psimage, String pscontent) {
+		super();
+		this.psbreeds = psbreeds;
+		this.psimage = psimage;
+		this.pscontent = pscontent;
+	}
 
-	public petspecDTO(int psid, String pstype, String psbreeds, String pssize, String pscontent, Timestamp psinitdate,
+	public PetspecDTO(int psid, String pstype, String psbreeds, String pssize, String pscontent, Timestamp psinitdate,
 			Timestamp psdeletedate) {
 		super();
 		this.psid = psid;

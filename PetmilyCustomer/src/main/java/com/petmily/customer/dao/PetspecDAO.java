@@ -3,10 +3,14 @@ package com.petmily.customer.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.petmily.customer.dto.ApplyDTO;
+import com.petmily.customer.dto.PetspecDTO;
 
 public class PetspecDAO {
 	DataSource dataSource;
@@ -38,7 +42,6 @@ public class PetspecDAO {
 			
 			String query = "select pscontent from petspec where psbreeds = " + psbreeds;
 			preparedStatement = connection.prepareStatement(query);
-			
 			preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
@@ -59,4 +62,67 @@ public class PetspecDAO {
 		
 		return pscontent;
 	}
+
+	// gukHwa [조회_pet 설명_종류별(dog,cat,etc)card view 4개씩]
+	public ArrayList<PetspecDTO> petSpecList(String pstype) {
+		
+		ArrayList<PetspecDTO> dtos = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "select psbreeds, psimage, pscontent from petspec where pstype = " + pstype + " Limit 4;";
+			
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				String psbreeds = resultSet.getString("psbreeds");
+				String psimage = resultSet.getString("psimage");
+				String pscontent = resultSet.getString("pscontent");
+
+				PetspecDTO dto = new PetspecDTO(psbreeds, psimage, pscontent);
+				dtos.add(dto);
+			}
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+	         try {
+	             if(preparedStatement != null ) preparedStatement.close();
+	             if(connection != null) connection.close();
+	          }catch (Exception e) {
+	             e.printStackTrace();
+	          }
+		}
+		
+		
+		return dtos;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

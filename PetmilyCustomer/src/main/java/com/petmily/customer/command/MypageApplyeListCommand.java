@@ -17,7 +17,7 @@ public class MypageApplyeListCommand implements CustomerCommand {
 		
 		String user_uid = request.getParameter("user_uid");
 		
-		ApplyDAO dao = new ApplyDAO();
+		ApplyDAO dao = new ApplyDAO();                  
 		ArrayList<ApplyDTO> dto = dao.applyList(user_uid);
 		
 		request.setAttribute("applyList", dto);
