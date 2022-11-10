@@ -56,7 +56,7 @@ public class PostingDAO {
 				pcategory = resultSet.getString("ncategory");
 				String nlocation = resultSet.getString("nlocation");
 				
-				PostingDTO dto = new PostingDTO(nid, ntitle, ncontent, nimage1, nimage2, nimage3, ncategory, nlocation);
+				PostingDTO dto = new PostingDTO(nid, ntitle, ncontent, nimage1, nimage2, nimage3, pcategory, nlocation);
 				dtos.add(dto);
 				}	
 			

@@ -2,7 +2,7 @@ package com.petmily.customer.dto;
 
 import java.sql.Timestamp;
 
-public class applyDTO {
+public class ApplyDTO {
 
 	int apid;
 	String apcontent;
@@ -14,11 +14,19 @@ public class applyDTO {
 	int posting_pid;
 	String posting_user_uid;
 	
-	public applyDTO() {
+	public ApplyDTO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	// gukHwa [조회_신청함 리스트]
+	public ApplyDTO(String user_uid, String apcontent) {
+		super();
+		this.user_uid = user_uid;
+		this.apcontent = apcontent;
+	}
+	
 
-	public applyDTO(int apid, String apcontent, Timestamp apdate, Timestamp apcaceldate, Timestamp apmatchingdate,
+	public ApplyDTO(int apid, String apcontent, Timestamp apdate, Timestamp apcaceldate, Timestamp apmatchingdate,
 			Timestamp apcompletedate, String user_uid, int posting_pid, String posting_user_uid) {
 		super();
 		this.apid = apid;
