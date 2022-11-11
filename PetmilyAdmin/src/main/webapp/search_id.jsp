@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +16,29 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	function id_search() { 
+	 	var frm = document.idfindscreen;
+
+	 	if (frm.adname.value.length < 1) {
+		  alert("이름을 입력해주세요");
+		  return;
+		 }
+
+		 if (frm.ademail.value.length < 3) {
+			  alert("이메일을 입력해주세요");
+			  return;
+		 }
+
+	 frm.method = "post";
+	 frm.action = "search_id_action.do"; //넘어간화면
+	 frm.submit();  
+	 }</script>
+	
 </head>
 <body>
 	<div style="padding: 2rem"></div>
-	<jsp:include page="component/login_search_id.jsp"></jsp:include>
+	<jsp:include page="component/login_search_id2.jsp"></jsp:include>
 
 
 
@@ -28,4 +48,5 @@
 		integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
 		crossorigin="anonymous"></script>
 </body>
+
 </html>

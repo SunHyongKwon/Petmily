@@ -18,7 +18,8 @@ public class SearchIdCommand implements AdminCommand {
 	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
 		String adname = request.getParameter("adname");
 		String ademail = request.getParameter("ademail");
-	
+	System.out.println("name:"+adname);
+	System.out.println("ademail:"+ademail);
 
 
 		AdminDAO dao = new AdminDAO();
@@ -26,11 +27,12 @@ public class SearchIdCommand implements AdminCommand {
 		// name , email를 넘겨줘서 이걸 가지고 체크 한다.
 		
 		String adid = dao.idCheck(adname, ademail);
-
 		
-		if (!(adid == null)) {
+
+		if (!(adid.length()==0)) {
 			request.setAttribute("ADID", adid);
 			return 1;
+			
 		} else {
 			//실패시 상태알림
 			request.setAttribute("idStatus", "일치하는 정보가 없습니다.");
