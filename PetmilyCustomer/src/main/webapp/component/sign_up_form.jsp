@@ -261,7 +261,7 @@
 			<div class="row justify-content-center ">
 				<div class="col-3 mb-3 gy-2">
 					<input type="radio" class="btn-check" name="utype" id="type1"
-						autocomplete="off" value="companion"> <label
+						autocomplete="off" value="1"> <label
 						class="btn mb-3 gy-2" for="type1"
 						style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); width: 100%;">
 						<img src="component/images/companion.png"
@@ -271,7 +271,7 @@
 				</div>
 				<div class="col-3 mb-3 gy-2">
 					<input type="radio" class="btn-check" name="utype" id="type2"
-						autocomplete="off" value="becompanion"> <label
+						autocomplete="off" value="0"> <label
 						class="btn mb-3 gy-2" for="type2"
 						style="box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); width: 100%;">
 						<img src="component/images/becompanion.png"

@@ -76,7 +76,7 @@ public class UserDAO {
 			try {
 				connection = dataSource.getConnection();
 				
-				String query = "insert into user (uid,upw,uname,uphone,uemail,uaddress, utype) values ( ? , ? , ? , ? , ? , ? , ? ) ";
+				String query = "insert into user (uid,upw,uname,uphone,uemail,uaddress, utype, uinitdate) values ( ? , ? , ? , ? , ? , ? , ?, now( ) ";
 				
 				ps = connection.prepareStatement(query);
 				

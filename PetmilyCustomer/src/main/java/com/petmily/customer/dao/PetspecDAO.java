@@ -133,5 +133,38 @@ public class PetspecDAO {
 	         }
 	      }
 	}
-	      
+	
+	public int searchpsid(String pstype,String psbreeds) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		int result = 0;
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select psid from petspec where pstype = '" + pstype + "' and psbreeds=' "+psbreeds+"'";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				result = resultSet.getInt(1);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
 }
