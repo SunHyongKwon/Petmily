@@ -67,4 +67,36 @@ public class VolunteerDAO {
 		}
 		return dtos;
 	} // list
+	
+	// 은빈 -- (1365 봉사활동 입력)
+	public void mypage1365Insert(String volunregisno, String volunname, String volunorganization, int voluntime, String volunplace) {		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;		
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "insert into volunteer (volunregisno, volunname, volunorganization, voluntime, volunplace) values (?,?,?,?,?)";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, volunregisno);
+			preparedStatement.setString(2, volunname);
+			preparedStatement.setString(3, volunorganization);
+			preparedStatement.setInt(4, voluntime);
+			preparedStatement.setString(5, volunplace);
+			
+			preparedStatement.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(preparedStatement != null) connection.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+}  // mypage1365Insert
+
+
 }

@@ -101,7 +101,76 @@ public class UserDAO {
 					e.printStackTrace();
 				}
 			}
+			
+			
 		}
+	
+	// by 은빈 -- 비밀번호 확인 후 마이페이지 들어가기
+	
+	public String mypagePwCheck(String uid) {
+		int result = 0;
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select count(*) , uid from user where uid = '" + uid + "'";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				result = resultSet.getInt(uid);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return uid;
+		
+	}
+	// by 은빈  -- 마이페이지 수정
+	public void mypageLoginModify(String uid, String upw, String uname, String unickname, String uphone, String uemail, String uaddress) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "update user set uid, upw =?, uname =?, unickname =?, uphone =?, uemail =?, uaddress =? ";
+			String query2 = "where uid =? ";
+			preparedStatement = connection.prepareStatement(query+query2);
+			
+			
+			preparedStatement.setString(1, uid);
+			preparedStatement.setString(2,upw);
+			preparedStatement.setString(3,uname);
+			preparedStatement.setString(4,unickname);
+			preparedStatement.setString(5,uphone);
+			preparedStatement.setString(6,uemail);
+			preparedStatement.setString(7,uaddress);
+			
+			preparedStatement.executeUpdate();
+			
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			if(preparedStatement != null) preparedStatement.close();
+			if(connection != null) connection.close();
+		}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+	} // MypageModifyLoginCommand
 		
 	
 }

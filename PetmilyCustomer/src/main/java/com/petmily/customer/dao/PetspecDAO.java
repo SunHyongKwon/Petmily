@@ -104,18 +104,19 @@ public class PetspecDAO {
 		return dtos;
 	}
 
-	public void insert(String pstype, String psbreeds) {
+	public void insert(String psimage, String psbreeds) {
 	      // TODO Auto-generated method stub
+		  // by 은빈  -- 사이드바 클릭시 리스트 넘겨주기
 	      PreparedStatement ps = null;
 	      
 	      try {
 	         connection = dataSource.getConnection();
 	         
-	         String query = "insert into petspec (pstype,psbreeds) values ( ? , ? ) ";
+	         String query = "select psimange,psbreeds from petspec where pstype = ? ";
 	         
 	         ps = connection.prepareStatement(query);
 	         
-	         ps.setString(1,pstype);
+	         ps.setString(1,psimage);
 	         ps.setString(2,psbreeds);
 	      
 
