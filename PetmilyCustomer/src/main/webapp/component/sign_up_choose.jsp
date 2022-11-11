@@ -12,7 +12,7 @@
 		</div>
 		<div class="row justify-content-center my-3">
 			<div class="d-grid gap-2 col-4 mx-auto">
-				<button class="btn btn-outline-secondary" type="button" onClick="location.href='sign_up_form.jsp'"
+				<button class="btn btn-outline-secondary" type="button" onClick="location.href='signup_form.do'"
 					style="color: #A3A3A3; padding-top: 0.9rem; padding-bottom: 0.9rem; box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); border-color: #a3a3a3">ID
 					, PW로 가입하기</button>
 			</div>

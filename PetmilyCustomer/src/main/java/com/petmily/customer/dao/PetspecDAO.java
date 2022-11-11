@@ -9,7 +9,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.petmily.customer.dto.ApplyDTO;
 import com.petmily.customer.dto.PetspecDTO;
 
 public class PetspecDAO {
@@ -39,9 +38,9 @@ public class PetspecDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select pscontent from petspec where psbreeds = " + psbreeds;
+			String query = "select pscontent from petspec where psbreeds = '" + psbreeds + "'";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.executeQuery();
+			resultSet = preparedStatement.executeQuery();
 
 			if (resultSet.next()) {
 				pscontent = resultSet.getString(1);
@@ -74,16 +73,17 @@ public class PetspecDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select psbreeds, psimage, pscontent from petspec where pstype = " + pstype + " Limit 4;";
+			String query = "select psbreeds, psimage, pscontent from petspec where pstype = '" + pstype + "'";
 
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.executeQuery();
-
-			while (resultSet.next()) {
+			resultSet = preparedStatement.executeQuery();
+		
+			while(resultSet.next()) {
+				
 				String psbreeds = resultSet.getString("psbreeds");
 				String psimage = resultSet.getString("psimage");
 				String pscontent = resultSet.getString("pscontent");
-
+				System.out.println(psbreeds);
 				PetspecDTO dto = new PetspecDTO(psbreeds, psimage, pscontent);
 				dtos.add(dto);
 			}

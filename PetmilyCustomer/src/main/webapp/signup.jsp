@@ -14,7 +14,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 	<jsp:include page="component/header.jsp"></jsp:include>

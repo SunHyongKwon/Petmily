@@ -23,12 +23,12 @@
 	
 	<div class = "container-fluid">
 		<div class="row">
-			<div class="col-3">
+			<div class="col-3 border">
 				<jsp:include page="component/challenge_sidebar.jsp"></jsp:include>
 			
 			</div>
 			
-			<div class="col-9">
+			<div class="col-8">
 				<!-- command에서 이걸 갈아 끼울 것이다.  -->			
 				<jsp:include page="component/${content_viewpage }"></jsp:include>		
 			</div>
