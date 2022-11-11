@@ -244,7 +244,7 @@ $(document).ready(function(){
 </script>
 
 	<div class="container">
-		<form action="sign_up_action.do" name="signup">
+		<form action="signup_page_action.do" method="post">
 			
 			
 			<!-- 선택된 사진 보이는 곳 -->

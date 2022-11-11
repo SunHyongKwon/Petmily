@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
 .form-label {
 	font-weight: bold;
@@ -15,6 +16,7 @@
 	height: 3.3rem;
 }
 </style>
+
 
 
 <div class="container">
@@ -33,12 +35,12 @@
 		</div>
 	</div>
 	
-<form action="search_id_action.do" method="post">
+<form name="idfindscreen" action="search_id_action.do" method="post">
 	<div class="row justify-content-center ">
 		<div class="col-4 mb-3 gy-2">
 			<label for="exampleFormControlInput1" class="form-label">이름 </label>
 			<input type="text" class="form-control" name="adname"
-				id="exampleFormControlInput1" placeholder="이름을 입력해 주세요">
+				id="exampleFormControlInput1" placeholder="이름을 입력해 주세요" autofocus required>
 		</div>
 	</div>
 
@@ -46,7 +48,7 @@
 		<div class="col-3 mb-3 gy-2">
 			<label for="exampleFormControlInput1" class="form-label">이메일
 			</label> <input type="email" class="form-control" name="ademail"
-				id="exampleFormControlInput1" placeholder="이메일을 입력해 주세요">
+				id="exampleFormControlInput1" placeholder="이메일을 입력해 주세요"required>
 		</div>
 		<!-- 이메일 인증 버튼 -->
 		<button class="btn btn-warning col-1 gy-2 align-self-center"
@@ -67,7 +69,7 @@
 
 	<div class="row justify-content-center my-3">
 		<div class="d-grid gap-2 col-4 mx-auto">
-		<input type="submit" class="btn btn-primary" value="ID 찾기" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+		<input type="button" class="btn btn-primary" name="enter" value="ID 찾기" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
 				style="background-color: #e8853e; padding-top: 0.9rem; padding-bottom: 0.9rem; 
 				box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); border-color: #a3a3a3">
 				

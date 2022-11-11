@@ -132,7 +132,7 @@ public class AdminDAO {
 			try {
 				connection = dataSource.getConnection();
 
-				String query = "select count(*) , adid from admin where adname = '" + adid + "' and ademail = '" + ademail + "'";
+				String query = "select count(*), adid from admin where adname = '" + adname + "' and ademail = '" + ademail + "' group by adid";
 				preparedStatement = connection.prepareStatement(query);
 				resultSet = preparedStatement.executeQuery();
 
@@ -140,7 +140,7 @@ public class AdminDAO {
 					result = resultSet.getInt(1);
 					adid = resultSet.getString(2);
 				}
-
+				System.out.println("adid"+adid);
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -166,7 +166,7 @@ public class AdminDAO {
 					try {
 						connection = dataSource.getConnection();
 
-						String query = "select count(*) , adpw from admin where adid = '" + adid + "' and ademail = '" + ademail + "'";
+						String query = "select count(*) , adpw from admin where adid = '" + adid + "' and ademail = '" + ademail + "' group by adid";
 						preparedStatement = connection.prepareStatement(query);
 						resultSet = preparedStatement.executeQuery();
 
