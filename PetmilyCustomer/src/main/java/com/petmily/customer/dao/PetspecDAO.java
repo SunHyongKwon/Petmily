@@ -103,6 +103,46 @@ public class PetspecDAO {
 
 		return dtos;
 	}
+	
+	public ArrayList<PetspecDTO> petSpecListFour(String pstype) {
+
+		ArrayList<PetspecDTO> dtos = new ArrayList<>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select psbreeds, psimage, pscontent from petspec where pstype = '" + pstype + "' limit 4";
+
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+		
+			while(resultSet.next()) {
+				
+				String psbreeds = resultSet.getString("psbreeds");
+				String psimage = resultSet.getString("psimage");
+				String pscontent = resultSet.getString("pscontent");
+				PetspecDTO dto = new PetspecDTO(psbreeds, psimage, pscontent);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return dtos;
+	}
 
 	public void insert(String pstype, String psbreeds) {
 	      // TODO Auto-generated method stub

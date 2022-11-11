@@ -73,25 +73,13 @@ public class CustomerHomeController extends HttpServlet {
 	// 홈페이지 관련 do
 		//홈페이지로 이동
 		case("/home.do"):
-			viewpage = "home.jsp";
-			break;
-		//home slide_1 초기화면
-		case("/home_slide_1.do"):
 			command = new HomeSlide1Command();
 			command.execute(request, response);
-			viewpage = "component/home_slide_1.jsp";
-			break;
-		//home slide_2 로드 시 
-		case("/home_slide_2.do"):
 			command = new HomeSlide2Command();
 			command.execute(request, response);
-			viewpage = "component/home_slide_2.jsp";
-			break;
-		//home slide_3 로드 시 
-		case("/home_slide_3.do"):
 			command = new HomeSlide3Command();
 			command.execute(request, response);
-			viewpage = "component/home_slide_3.jsp";
+			viewpage = "home.jsp";
 			break;			
 			
 			
