@@ -10,18 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.admin.command.AdminCommand;
-import com.petmily.admin.command.AdminInfoList;
+import com.petmily.admin.command.AdminInfoListCommand;
 import com.petmily.admin.command.BoardListCommand;
 import com.petmily.admin.command.LoginCommand;
 import com.petmily.admin.command.LogoutCommand;
-import com.petmily.admin.command.MypageModifyCommand;
 import com.petmily.admin.command.MypageModifyLoginCommand;
-import com.petmily.admin.command.MypageSelectCommand;
-import com.petmily.admin.command.NoticeList;
+import com.petmily.admin.command.NoticeListCommand;
+import com.petmily.admin.command.NoticeViewCommand;
+import com.petmily.admin.command.NoticeListCommand;
+import com.petmily.admin.command.NoticeWriteCommand;
 import com.petmily.admin.command.SearchIdCommand;
 import com.petmily.admin.command.SearchPwCommand;
 import com.petmily.admin.command.SignupCommand;
-import com.petmily.admin.command.UserInfoList;
+import com.petmily.admin.command.UserInfoListCommand;
 
 
 
@@ -139,22 +140,39 @@ public class AdminHomeController extends HttpServlet {
 			break;
 			//사이드바에서 관리리자정보관리 클릭 및 검색버튼 클릭
 		case("/admin_info_list.do"):
-			command = new AdminInfoList();
+			command = new AdminInfoListCommand();
 			command.execute(request, response);
 			viewpage = "admin_info_list.jsp";
 			break;
 			//사이드바에서 회원정보관리 클릭 및 검색버튼 클릭 
 		case("/user_info_list.do"):
-			command = new UserInfoList();
+			command = new UserInfoListCommand();
 			command.execute(request, response);
 			viewpage = "user_info_list.jsp";
 			break;
-			//사이드바에서 공지사항관리 클릭 및 검색버튼 클릭 
+			//사이드바에서 공지사항 클릭 및 페이지수 클릭 시
 		case("/notice_list.do"):
-			command = new NoticeList();
+			command = new NoticeListCommand();
 			command.execute(request, response);
 			viewpage = "notice_list.jsp";
 			break;
+			//공지사항 작성에서 등록버튼 클릭시  
+		case("/notice_write_action.do"):
+			command = new NoticeWriteCommand();
+			command.execute(request, response);
+			viewpage = "notice_list.jsp";
+			break;
+			//공지사항 리스트에서 작성버튼 클릭시
+		case("/notice_write.do"):
+			viewpage = "notice_write.jsp";
+		break;
+			//공지사항 리스트에서 게시물제목 클릭시
+		case("/notice_view.do"):
+			command = new NoticeViewCommand();
+			command.execute(request, response);
+			viewpage="notice_view.jsp";
+			break;
+		
 			
 		}
 

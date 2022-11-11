@@ -20,7 +20,7 @@
 			<h3>${param.pcategory}</h3>
 		</div>
 
-		<form action="board_list.do" method="get">
+		<form action="notice_list.do" method="get">
 			<div class="row my-3">
 				<div class="col-1"></div>
 				<!-- 드롭다운  -->
@@ -50,7 +50,7 @@
 				<!-- 작성 버튼 -->
 				<div class="col-1">
 				<!-- <input type="submit" class="btn btn-warning "value="검색"> -->
-					<button class="btn btn-warning" type="button">작성</button>
+					<button class="btn btn-warning" type="button"onclick="location.href='notice_write.do'">작성</button>
 				</div>
 				<div class="col-1">
 				</div>
@@ -62,27 +62,20 @@
 			<table class="table text-center">
 				<thead style="background-color: #FB9E58;">
 					<tr>
-						<th scope="col"></th>
 						<th scope="col">번호</th>
 						<th scope="col">제목</th>
 						<th scope="col">작성자</th>
 						<th scope="col">시간</th>
-						<th scope="col">장소</th>
-						<th scope="col">좋아요</th>
-						<th scope="col">조회수</th>
+						
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="list" items="${postingList}">
+					<c:forEach var="list" items="${noticeList}" varStatus="status">
 					<tr>
-						<td><input type="checkbox"></td>
-						<th scope="row"><a href="#">${list.pid }</a></th>
-						<td>${list.ptitle }</td>
-						<td>${list.user_uid }</td>
-						<td>${list.pinitdate }</td>
-						<td>${list.plocation }</td>
-						<td>${list.shlike }</td>
-						<td>${list.shcount }</td>
+						<th scope="row">${paging.endRow - status.index }</th>
+						<td><a href="notice_view.do?nid=${list.nid }">${list.ntitle }</a></td>
+						<td>${list.admin_adid }</td>
+						<td>${list.ninitdate }</td>
 					</tr>
 					</c:forEach>
 				</tbody>
@@ -93,13 +86,74 @@
 			
 				<nav aria-label="Page navigation example ">
 					<ul class="pagination justify-content-center">
-						<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
+						<c:set var="startPage" value="paging.startPage"/>
+						<c:choose>
+						
+							<c:when test="${paging.startPage eq '1'}"><!-- if -->
+							<li class="page-item">
+							<a class="page-link" href="#"><
+							</a></li>
+							</c:when>
+							
+							<c:otherwise><!-- else -->
+							<li class="page-item">
+							<a class="page-link" href="notice_list.do?page=${paging.startPage - 1}"><
+							</a></li>
+							</c:otherwise>
+							
+						</c:choose>
+						<!-- int = startPage; i <= endPage; i++ -->
+						<c:forEach var="count" begin="${paging.startPage}" end="${paging.endPage}" >
+							<li class="page-item">
+							<a class="page-link" href="notice_list.do?page=${count}">${count}
+							</a></li>
+						</c:forEach>
+						
+						<c:choose>
+						
+							<c:when test="${paging.totalPages eq paging.endPage}"><!-- if -->
+							<li class="page-item">
+							<a class="page-link" href="#">>
+							</a></li>
+							</c:when>
+							
+							<c:otherwise><!-- else -->
+							<li class="page-item">
+							<a class="page-link" href="notice_list.do?page=${paging.endPage + 1}">>
+							</a></li>
+							</c:otherwise>
+							
+						</c:choose>
+						
+						
 					</ul>
 				</nav>
 		</div>
-
+	
+	<%-- <c:set var="startPage" value="dto.startPage"/>
+	<c:choose>
+	
+	<c:when test="${dto.startPage eq '1'}"><!-- if -->
+	<li class="page-item">
+	<a class="page-link" href="#"><
+	</a></li>
+	</c:when>
+	
+	<c:otherwise><!-- else -->
+	
+	<li class="page-item">
+	<a class="page-link" href="notice_page_select.do?${dto.startPage - 1}"><
+	</a></li>
+	
+	</c:otherwise>
+	</c:choose>
+	<!-- int = startPage; i <= endPage; i++ -->
+	<c:forEach begin="${dto.startPage}" end="${dto.endPage}">
+	<li class="page-item">
+	<a class="page-link" href="notice_page_select.do?page=${i}">${i}
+	</a></li>
+	</c:forEach> --%>
+	
 	</div>
+	
+	

@@ -39,6 +39,28 @@ public class NoticeDTO {
 		this.ndeletedate = ndeletedate;
 		this.admin_adid = admin_adid;
 	}
+	
+	public NoticeDTO(int nid, String ntitle, Timestamp ninitdate, String admin_adid) {
+		super();
+		this.nid = nid;
+		this.ntitle = ntitle;
+		this.ninitdate = ninitdate;
+		this.admin_adid = admin_adid;
+	}
+	
+	
+	public NoticeDTO(int nid, String ntitle, String ncontent, String nimage1, String nimage2, String nimage3,
+			Timestamp ninitdate, String admin_adid) {
+		super();
+		this.nid = nid;
+		this.ntitle = ntitle;
+		this.ncontent = ncontent;
+		this.nimage1 = nimage1;
+		this.nimage2 = nimage2;
+		this.nimage3 = nimage3;
+		this.ninitdate = ninitdate;
+		this.admin_adid = admin_adid;
+	}
 
 	public int getNid() {
 		return nid;

@@ -7,8 +7,7 @@ public class LogoutCommand implements AdminCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-
+		// TODO Auto-generated method stu
 	}
 
 	@Override

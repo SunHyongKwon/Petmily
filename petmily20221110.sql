@@ -34,6 +34,7 @@ CREATE TABLE `admin` (
   `adupdatedate` datetime DEFAULT NULL,
   `addeletedate` datetime DEFAULT NULL,
   `adacceptdate` varchar(45) DEFAULT NULL,
+  `adimage` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`adid`),
   UNIQUE KEY `adid_UNIQUE` (`adid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -45,7 +46,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('admin','admin','관리자','01028373948','admin@gmail.com','2022-11-03 17:52:31',NULL,NULL,'2022-11-03 17:52:55');
+INSERT INTO `admin` VALUES ('admin','admin','관리자','01028373948','admin@gmail.com','2022-11-03 17:52:31',NULL,NULL,'2022-11-03 17:52:55',NULL);
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -473,6 +474,10 @@ CREATE TABLE `user` (
   `ulevel` varchar(45) DEFAULT NULL COMMENT '등급 표시',
   `uinfo` text COMMENT '자기 소개',
   `unickname` varchar(30) DEFAULT NULL,
+  `uimage` varchar(45) DEFAULT NULL,
+  `uinitdate` datetime DEFAULT NULL,
+  `uupdatedate` datetime DEFAULT NULL,
+  `udeletedate` datetime DEFAULT NULL,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `uid_UNIQUE` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -484,7 +489,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('1111','1111','홍길도','1111@1111.1111','010-1111-1111','서울시 강남구','0',NULL,NULL,'서자');
+INSERT INTO `user` VALUES ('1111','1111','홍길도','1111@1111.1111','010-1111-1111','서울시 강남구','0',NULL,NULL,'서자',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -527,4 +532,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-10  1:23:55
+-- Dump completed on 2022-11-10 18:20:40
