@@ -19,11 +19,12 @@ public class PetDictionaryCardCommand implements CustomerCommand {
 	
 		// by 은빈  -- petList
 		String pstype = request.getParameter("pstype");
+		System.out.println(pstype);
 		PetspecDAO dao = new PetspecDAO();
 		ArrayList<PetspecDTO> dto = dao.petSpecList(pstype);
 		
 		request.setAttribute("petList", dto); 
-
+		request.setAttribute("content_viewpage", "pet_dictionary_card.jsp");
 	}
 
 	@Override
