@@ -3,14 +3,13 @@
 
 	<div class="container">
 		<div class="row justify-content-center my-4 text-center">
-			<h4>게시글 제목</h4>
+			<h4>${notice.ntitle }</h4>
 		</div>
 
 		<div class="row justify-content-between my-2">
 			<div class="col-2 text-start align-self-center">
 				<img src="https://picsum.photos/50/50/?random"
-					class="rounded-circle" alt=""> <span class="mx-2">user
-					name</span>
+					class="rounded-circle" alt=""> <span class="mx-2">${notice.admin_adid}</span>
 			</div>
 
 
@@ -22,11 +21,11 @@
 		<div class="row justify-content-between">
 			<div class="col-4 text-start">
 				<i class="bi bi-geo-alt" style="font-size: 1.7rem;"></i> <span
-					class="mx-2">board location</span>
+					class="mx-2"></span>
 			</div>
 
 
-			<div class="col-2 text-end align-self-center">날짜 들어와야 됨</div>
+			<div class="col-2 text-end align-self-center">${notice.ninitdate}</div>
 		</div>
 
 		<!-- img -->
@@ -36,16 +35,16 @@
 					class="carousel carousel-dark slide" data-bs-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
+							<img src="${notice.nimage1}" class="rounded"
+								alt="이미지1">
 						</div>
 						<div class="carousel-item">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
+							<img src="${notice.nimage2}" class="rounded"
+								alt="이미지2">
 						</div>
 						<div class="carousel-item">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
+							<img src="${notice.nimage3}" class="rounded"
+								alt="이미지3">
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button"
@@ -64,9 +63,7 @@
 
 		<!-- 게시글 내용 -->
 		<div class="row justify-content-center my-3">
-			<div class="col-8 text-right">컨텐츠 내용이 들어가는데 모들어갈 까요 컨텐츠 내용이
-				들어가는데 모들어갈 까요 컨텐츠 내용이 들어가는데 모들어갈 까요 컨텐츠 내용이 들어가는데 모들어갈 까요 컨텐츠 내용이
-				들어가는데 모들어갈 까요 컨텐츠 내용이 들어가는데 모들어갈 까요 컨텐츠 내용이 들어가는데 모들어갈 까요</div>
+			<div class="col-8 text-right">${notice.ncontent}</div>
 		</div>
 
 		<hr>
@@ -78,6 +75,7 @@
 					data-bs-toggle="button">
 					<i class="bi bi-heart" style="font-size: 1.5rem;"></i>
 				</button>
+				조회수 몇
 			</div>
 		</div>
 

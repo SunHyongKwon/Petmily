@@ -26,9 +26,10 @@ public class SearchPwCommand implements AdminCommand {
 		// id , email를 넘겨줘서 이걸 가지고 체크 한다.
 		
 		String adpw = dao.pwCheck(adid, ademail);
+		System.out.println(adpw);
 
 		
-		if (!(adpw == null)) {
+		if (!(adpw.length() == 0)) {
 			request.setAttribute("ADPW", adpw);
 			return 1;
 		} else {

@@ -18,7 +18,10 @@ public class SignupCommand implements AdminCommand {
 		String ademail = request.getParameter("ademail");
 		String adphone = request.getParameter("adphone");
 		
+		System.out.println(adname);
+		
 		AdminDAO dao = new AdminDAO();
+		System.out.println("command 끝");
 		dao.signupInsert(adid,adpw,adname,ademail,adphone);
 
 	}
