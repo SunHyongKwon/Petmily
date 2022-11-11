@@ -13,7 +13,7 @@
 			</div>
 
 
-			<div class="col-2 text-end align-self-center"></div>
+			<div class="col-2 text-end align-self-center">조회수 :</div>
 		</div>
 
 		<hr>
@@ -25,7 +25,7 @@
 			</div>
 
 
-			<div class="col-2 text-end align-self-center">${notice.ninitedate}</div>
+			<div class="col-2 text-end align-self-center">${notice.ninitdate}</div>
 		</div>
 
 		<!-- img -->
@@ -35,16 +35,16 @@
 					class="carousel carousel-dark slide" data-bs-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
+							<img src="${notice.nimage1}" class="rounded"
+								alt="이미지1">
 						</div>
 						<div class="carousel-item">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
+							<img src="${notice.nimage2}" class="rounded"
+								alt="이미지2">
 						</div>
 						<div class="carousel-item">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
+							<img src="${notice.nimage3}" class="rounded"
+								alt="이미지3">
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button"
@@ -63,7 +63,7 @@
 
 		<!-- 게시글 내용 -->
 		<div class="row justify-content-center my-3">
-			<div class="col-8 text-right">{notice.ncontent</div>
+			<div class="col-8 text-right">${notice.ncontent}</div>
 		</div>
 
 		<hr>
@@ -75,6 +75,7 @@
 					data-bs-toggle="button">
 					<i class="bi bi-heart" style="font-size: 1.5rem;"></i>
 				</button>
+				조회수 몇
 			</div>
 		</div>
 

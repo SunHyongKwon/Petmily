@@ -61,7 +61,8 @@ function changeForm(){
 				<input class="btn btn-warning " type="submit" value="검색">
 			</div>
 
-			<div class="col-2"></div>
+			<div class="col-1"></div>
+			<div class="col-1"><button class="btn btn-warning" type="button"onclick="location.href='posting_write.do'">작성</button></div>
 
 			<div class="col-1">
 				<c:choose>
@@ -95,7 +96,7 @@ function changeForm(){
 					<c:forEach var="list" items="${postingList}">
 						<tr>
 							<th scope="row"><a href="posting_click.do">${list.pid }</a></th>
-							<td>${list.ptitle }</td>
+							<td>${postingList.get(i).like}</td>
 							<td>${list.user_uid }</td>
 							<td>${list.pinitdate }</td>
 							<td>${list.plocation }</td>
