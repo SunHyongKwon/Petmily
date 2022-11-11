@@ -9,7 +9,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.petmily.customer.dto.NoticeDTO;
 import com.petmily.customer.dto.PostingDTO;
 
 public class PostingDAO {
