@@ -35,7 +35,6 @@ import com.petmily.customer.command.PostingCommand;
 import com.petmily.customer.command.PostingQueryCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.SignupCommand;
-import com.petmily.customer.command.SignupIdCheckCommand;
 
 
 @WebServlet("*.do")

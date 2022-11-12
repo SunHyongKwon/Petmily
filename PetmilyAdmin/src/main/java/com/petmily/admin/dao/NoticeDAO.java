@@ -99,17 +99,17 @@ public class NoticeDAO {
 		return noticeMax;
 
 	}
-	//블럭갯수 및 
 	
+	//페이징관련 계산
 	public NoticePagingDTO noticeListPaging(int cPage,int totalRows, int pageLength) {
 		
 		
 		int currentBlock = 0;
-		int startPage = 0;
-		int endPage = 0;
-		int totalPages = 0;
-		int startRow = 0;
-		int endRow = 0;
+		int startPage = 0;//시작 페이지
+		int endPage = 0;//마지막 페이지
+		int totalPages = 0;//총 페이지수
+		int startRow = 0;//시작 로우
+		int endRow = 0;//마지막로우
 	
 		totalPages = totalRows % pageLength == 0 ? totalRows / pageLength : (totalRows/pageLength) + 1;
 		
@@ -179,7 +179,7 @@ public class NoticeDAO {
 		return dtos;
 		
 	}
-	
+	//공지사항 게시물 출력
 	public NoticeDTO noticeView(int nids) {
 		
 		NoticeDTO dto = new  NoticeDTO();

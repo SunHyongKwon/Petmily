@@ -24,22 +24,6 @@ public class PostingDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	// gukHwa [조회_게시판]
-		public PostingDTO(int pid, String ptitle, String pcontent, String pimage1,
-				String pimage2, String pimage3, String pcategory, String plocation) {
-			super();
-			this.pid = pid;
-			this.ptitle = ptitle;
-			this.pcontent = pcontent;
-			this.pimage1 = pimage1;
-			this.pimage2 = pimage2;
-			this.pimage3 = pimage3;
-			this.pcategory = pcategory;
-			this.plocation = plocation;
-		}
-		
-
-	
 	public PostingDTO(int pid, String ptitle, String pcontent, String pimage1, String pimage2, String pimage3,
 			String pcategory, String plocation, int pulevel, int plevel, int pparentid, Timestamp pinitdate,
 			Timestamp pupdatedate, Timestamp pdeletedate, String user_uid) {
@@ -58,6 +42,15 @@ public class PostingDTO {
 		this.pinitdate = pinitdate;
 		this.pupdatedate = pupdatedate;
 		this.pdeletedate = pdeletedate;
+		this.user_uid = user_uid;
+	}
+	
+	public PostingDTO(int pid, String ptitle, String plocation, Timestamp pinitdate, String user_uid) {
+		super();
+		this.pid = pid;
+		this.ptitle = ptitle;
+		this.plocation = plocation;
+		this.pinitdate = pinitdate;
 		this.user_uid = user_uid;
 	}
 

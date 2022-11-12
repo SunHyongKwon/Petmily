@@ -76,7 +76,7 @@
 								})
 					});
 </script>
-<form action="posting_write_insert.do">
+<form action="posting_write_inesrt.do">
 	<div class="container">
 		<div class="row text-center">
 			<h4>
@@ -180,6 +180,9 @@
 		<div class="row justify-content-center my-5 text-center">
 			<div class="col-4">
 				<button class="btn btn-warning w-100" type="submit">등록</button>
+				<input type="hidden" name="pimage1" value="11">
+				<input type="hidden" name="pimage2" value="22">
+				<input type="hidden" name="pimage3" value="33">
 			</div>
 		</div>
 	</div>
