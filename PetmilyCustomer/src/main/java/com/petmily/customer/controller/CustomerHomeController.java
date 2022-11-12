@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.petmily.customer.command.AddressSearchCommand;
 import com.petmily.customer.command.ChallengeVideoCommand;
 import com.petmily.customer.command.ChattingCommand;
 import com.petmily.customer.command.CustomerCommand;
+import com.petmily.customer.command.EmailCommand;
 import com.petmily.customer.command.HomeSlide1Command;
 import com.petmily.customer.command.HomeSlide2Command;
 import com.petmily.customer.command.HomeSlide3Command;
@@ -54,6 +56,7 @@ public class CustomerHomeController extends HttpServlet {
 	
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
 		
 		int result = 0;
 		String viewpage = null;
@@ -69,25 +72,13 @@ public class CustomerHomeController extends HttpServlet {
 	// 홈페이지 관련 do
 		//홈페이지로 이동
 		case("/home.do"):
-			viewpage = "home.jsp";
-			break;
-		//home slide_1 초기화면
-		case("/home_slide_1.do"):
 			command = new HomeSlide1Command();
 			command.execute(request, response);
-			viewpage = "component/home_slide_1.jsp";
-			break;
-		//home slide_2 로드 시 
-		case("/home_slide_2.do"):
 			command = new HomeSlide2Command();
 			command.execute(request, response);
-			viewpage = "component/home_slide_2.jsp";
-			break;
-		//home slide_3 로드 시 
-		case("/home_slide_3.do"):
 			command = new HomeSlide3Command();
 			command.execute(request, response);
-			viewpage = "component/home_slide_3.jsp";
+			viewpage = "home.jsp";
 			break;			
 			
 			
@@ -116,9 +107,19 @@ public class CustomerHomeController extends HttpServlet {
 		
 			
 	// 회원 가입 관련 do
-		//회원가입으로 이동
+		//회원가입 유형 선택 화면으로 이동
 		case("/signup_page.do"):
 			viewpage = "signup.jsp";
+			break;
+		// 회원가입 양식 화면으로 이동
+		case("/signup_form.do"):
+			viewpage = "signup_page.jsp";
+			break;
+		// 이메일 보내기
+		case("/email.do"):
+			command = new EmailCommand();
+			command.execute(request, response);
+			viewpage="signup_page.jsp";
 			break;
 		//카카오로 회원 가입 버튼 클릭 시 
 		case ("/sign_up_kakao.do"):
@@ -138,7 +139,10 @@ public class CustomerHomeController extends HttpServlet {
 				viewpage = "signup.jsp";
 			}
 			break;
-		
+		case("/address_search.do"):
+			command = new AddressSearchCommand();
+			viewpage = "";
+			break;
 			
 	// 마이 페이지 관련 do
 		//헤더에서 마이페이지 클릭시 기본화면 
@@ -259,7 +263,7 @@ public class CustomerHomeController extends HttpServlet {
 		case("/pet_dictionary_detail.do"):
 			command = new PetDictinaryDetailCommand();
 			command.execute(request, response);
-			viewpage = "pet_dictionary_detail.jsp";
+			viewpage = "pet_dictionary.jsp";
 			break;
 			
 	

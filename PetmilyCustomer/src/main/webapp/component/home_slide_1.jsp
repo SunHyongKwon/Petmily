@@ -4,37 +4,31 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <script>
-$(document).on('ready',function(){
-	$('button[name=pstype]').on('click',function(){
-		/* 클릭 했을 때 home_slide_1_click.do 로 넘겨 주면 됨 */
-		var pstype = $(this).val();
+$(document).ready(function(){
+	$(".btn-group > button.btn").on("click", function(){
+		var thisBtn = $(this);
+	 	thisBtn.addClass('active').siblings().removeClass('active');
+		var btnValue = thisBtn.val();
 		
-		$.ajax({
-            url:'home_slide_1_click.do',
-            type:'POST',
-            data:'pstype='+pstype,
-            dataType:"json",
-            success:function(response)
-            {
-                /* response를 리스트 형식으로 넘겨 줘야 됨 */
-            }
-         });
-	})
-})
-
+		$('#pstype').val(btnValue);
+		
+		document.homeSlide1.submit();
+	});
+});
 </script>
 	<section class="featured-product section-padding mb-15">
-		<form action = "home_slide_1_click.do">
+		<form action = "home.do" name="homeSlide1">
 		<div class="container">
 			<div class="row">
 
 				<div class="col-12 text-center">
 					<h2 class="mb-3">알면 알수록 쓸모있는 펫과사전</h2>
-					<div class="btn-group mx-auto mb-2" role="group"
+					<div class="btn-group" role="group"
 						aria-label="Default button group">
-						<button type="button" class="btn btn-outline-dark clicked" name="pstype" value="dog">강아지</button>
-						<button type="button" class="btn btn-outline-dark" name="pstype" value="cat">고양이</button>
-						<button type="button" class="btn btn-outline-dark" name="pstype" value="etc">기타</button>
+						<input type="hidden" id="pstype" name="pstype">
+						<button type="button" class="btn" value="dog" >강아지</button>
+						<button type="button" class="btn" value="cat" >고양이</button>
+						<button type="button" class="btn" value="etc" >기타</button>
 					</div>
 				</div>
 				<div class="container-fluid bg-trasparent my-4 p-3"
@@ -42,11 +36,11 @@ $(document).on('ready',function(){
 					<div
 						class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
 						
-					<c:forEach var="psbreeds" items="${specList }" begin="1" end="4" step="1">
+					<c:forEach var="psbreeds" items="${specList }">
 						<div class="col-3">
 							<div class="card h-100 shadow-sm">
 								<img
-									src="${psbreeds.psimage }"
+									src="1.png" width=""
 									class="card-img-top" alt="...">
 								<div class="card-body">
 									<div class="clearfix mb-3">

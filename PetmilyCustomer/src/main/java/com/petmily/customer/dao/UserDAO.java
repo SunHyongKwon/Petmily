@@ -103,5 +103,36 @@ public class UserDAO {
 			}
 		}
 		
-	
+	public int registerCheck(String uid) {
+		
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select * from user where uid = '" + uid + "'";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next() || uid.equals("")) {
+				return 0;
+			}else {
+				return 1;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return -1;
+	}
 }

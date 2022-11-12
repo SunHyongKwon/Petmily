@@ -19,7 +19,7 @@ public class PetDictinaryDetailCommand implements CustomerCommand {
 		String pscontent = dao.pscontent(psbreeds);
 		
 		request.setAttribute("pscontent", pscontent);
-
+		request.setAttribute("content_viewpage", "pet_dictionary_detail.jsp");
 
 	}
 

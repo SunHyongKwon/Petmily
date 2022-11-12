@@ -7,15 +7,15 @@
 		
 			 <c:forEach var="list" items="${petList }">
 				<div class="col-3 gy-2">
-					<a href="pet_dictionary_detail.do?psbreeds=${list.psbreeds }">
-						<div class="card" style="width: 18rem;">
-							<img src="${list.psimage }" class="card-img-top" alt="...">
-							<div class="card-body">
-								<p class="card-text">${list.psbreeds }</p>
-							</div>
+				<a href="pet_dictionary_detail.do?psbreeds=${list.psbreeds }">
+					<div class="card" style="width: 18rem;">
+						<img src="1.png" class="card-img-top" alt="...">
+						<div class="card-body">
+							<p class="card-text">${list.psbreeds }</p>
 						</div>
-					</a>
-				</div>
+					</div>
+				</a>
+			</div>
 			</c:forEach>
 		</div>
 	</div>
