@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
@@ -36,23 +36,7 @@ function changeForm(){
 	<form action="posting_query.do" name="posting">
 		<div class="row justify-content-start my-2">
 			<input type="hidden" name="pcategory" id="pcategory" value="${param.pcategory }">
-			<c:choose>
-				<c:when test="${param.pcategory eq 'volunteer'}"><!-- if -->
-				<h3>함께 봉사</h3>
-				</c:when>
-				<c:when test="${param.pcategory eq 'walk'}"><!-- if -->
-				<h3>함께 산책</h3>
-				</c:when>
-				<c:when test="${param.pcategory eq 'petcafe'}"><!-- if -->
-				<h3>함께 펫카페</h3>
-				</c:when>
-				<c:when test="${param.pcategory eq 'find'}"><!-- if -->
-				<h3>찾아주세요</h3>
-				</c:when>
-				<c:when test="${param.pcategory eq 'found'}"><!-- if -->
-				<h3>찾았어요</h3>
-				</c:when>
-			</c:choose>
+			<h3>${param.pcategory}</h3>
 		</div>
 
 		<div class="row my-3">
@@ -107,16 +91,16 @@ function changeForm(){
 					</tr>
 				</thead>
 				<tbody>
-					<!-- ${list[0].title} , <c:forEach var="i" begin="0" end="3"> , ${fn:length(list) }-->
+					<!--   -->
 					<c:forEach var="list" items="${postingList}">
 						<tr>
-							<th scope="row">${paging.endRow - status.index }</th>
-							<td><a href="posting_click.do?uid=${list.pid }">${list.ptitle }</a></td>
+							<th scope="row"><a href="posting_click.do">${list.pid }</a></th>
+							<td>${list.ptitle }</td>
 							<td>${list.user_uid }</td>
 							<td>${list.pinitdate }</td>
 							<td>${list.plocation }</td>
-							<%-- <td>${list.shlike }</td>
-							<td>${list.shcount }</td> --%>
+							<td>${list.shlike }</td>
+							<td>${list.shcount }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -127,49 +111,13 @@ function changeForm(){
 
 			<nav aria-label="Page navigation example ">
 				<ul class="pagination justify-content-center">
-				
-				<c:set var="startPage" value="paging.startPage"/>
-						<c:choose>
-						
-							<c:when test="${paging.startPage eq '1'}"><!-- if -->
-							<li class="page-item">
-							<a class="page-link" href="#">Previous
-							</a></li>
-							</c:when>
-							
-							<c:otherwise><!-- else -->
-							<li class="page-item">
-							<a class="page-link" href="posting.do?page=${paging.startPage - 1}&pcategory=${param.pcategory }">Previous
-							</a></li>
-							</c:otherwise>
-							
-						</c:choose>
-						<!-- int = startPage; i <= endPage; i++ -->
-						<c:forEach var="count" begin="${paging.startPage}" end="${paging.endPage}" >
-							<li class="page-item">
-							<a class="page-link" href="posting.do?page=${count}&pcategory=${param.pcategory }">${count}
-							</a></li>
-						</c:forEach>
-						
-						<c:choose>
-						
-							<c:when test="${paging.totalPages eq paging.endPage}"><!-- if -->
-							<li class="page-item">
-							<a class="page-link" href="#">Next
-							</a></li>
-							</c:when>
-							
-							<c:otherwise><!-- else -->
-							<li class="page-item">
-							<a class="page-link" href="posting.do?page=${paging.endPage + 1}&pcategory=${param.pcategory }">Next
-							</a></li>
-							</c:otherwise>
-							
-						</c:choose>
-
+					<li class="page-item"><a class="page-link" href="">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
 				</ul>
 			</nav>
 		</div>
 	</form>
 </div>
-
