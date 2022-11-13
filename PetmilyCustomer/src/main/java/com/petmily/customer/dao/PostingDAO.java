@@ -29,7 +29,7 @@ public class PostingDAO {
 			e.printStackTrace();
 		}
 	}
-
+	//게시물 입력
 	public void postingWriteAction(String ptitle, String pcontent, String pimage1, String pimage2, String pimage3, 
 			String pcategory, String plocation, int plevel, String user_uid ) {
 		
@@ -191,5 +191,61 @@ public class PostingDAO {
 		return dtos;
 		
 	}
+	//게시물 출력
+public PostingDTO postingGetDetail(int pid){
 		
+		PostingDTO dto = new PostingDTO();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+		
+		String ptitle;
+		String pcontent;
+		String pimage1;
+		String pimage2;
+		String pimage3;
+		String plocation;
+		Timestamp pinitdate;
+		String user_uid;
+		
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select ptitle, pcontent, pimage1, pimage2, pimage3, plocation, pinitdate, user_uid from posting where pid = " + pid;
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				ptitle = resultSet.getString(1);
+				pcontent = resultSet.getString(2);
+				pimage1 = resultSet.getString(3);
+				pimage2 = resultSet.getString(4);
+				pimage3 = resultSet.getString(5);
+				plocation = resultSet.getString(6);
+				pinitdate = resultSet.getTimestamp(7);
+				user_uid = resultSet.getString(8);
+				
+				dto = new PostingDTO(ptitle, pcontent, pimage1, pimage2, pimage3, plocation, pinitdate, user_uid);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dto;
+		
+	}
 }

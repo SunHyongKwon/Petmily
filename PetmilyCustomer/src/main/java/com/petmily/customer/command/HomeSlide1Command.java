@@ -13,6 +13,7 @@ public class HomeSlide1Command implements CustomerCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		
 		String pstype = request.getParameter("pstype");
 		
 		if( pstype == null || pstype.equals("") ) {

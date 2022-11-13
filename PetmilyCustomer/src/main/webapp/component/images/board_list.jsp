@@ -34,7 +34,6 @@ function changeForm(){
 
 <div class="container">
 	<form action="posting_query.do" name="posting">
-	
 		<div class="row justify-content-start my-2">
 			<input type="hidden" name="pcategory" id="pcategory" value="${param.pcategory }">
 			
@@ -101,7 +100,8 @@ function changeForm(){
 			</div>
 			<div class="col-1"></div>
 		</div>
-		
+		<input type="hidden"  name="pid" value="${posting.pid}">
+		<input type="hidden"  name="user_uid" value="${posting.user_uid}">
 		<div class="row justify-content-center my-5">
 			<table class="table text-center">
 				<thead style="background-color: #FB9E58;">
@@ -121,7 +121,7 @@ function changeForm(){
 					<c:forEach var="list" items="${postingList}" varStatus="status">
 					<tr>
 						<th scope="row">${paging.endRow - status.index }</th>
-						<td><a href="posting_click.do?pid=${list.pid }&user_uid=${list.user_uid}">${list.ptitle }</a></td>
+						<td><a href="posting_click.do?pid=${list.pid }">${list.ptitle }</a></td>
 						<td>${list.user_uid }</td>
 						<td>${list.pinitdate }</td>
 						<td>${list.plocation }</td>
@@ -130,7 +130,7 @@ function changeForm(){
 				</tbody>
 			</table>
 		</div>
-		
+
 		<div class="row justify-content-center my-2">
 
 			<nav aria-label="Page navigation example ">
