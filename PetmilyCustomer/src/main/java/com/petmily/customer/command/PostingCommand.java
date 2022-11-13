@@ -24,8 +24,17 @@ public class PostingCommand implements CustomerCommand {
 		int totalRows = 0;
 		int rowLength=5;
 		String tempPage = request.getParameter("page");
-		String pcategory = request.getParameter("pcategory");
+		String pcategory_temp1 = request.getParameter("pcategory");
+		String pcategory_temp2 = (String) request.getAttribute("pcategory");
+		String pcategory = "";
 		
+		if(pcategory_temp1 == null || pcategory_temp1.equals("")) {
+			pcategory = pcategory_temp2;
+		}
+		
+		if(pcategory_temp2 == null || pcategory_temp2.equals("")) {
+			pcategory = pcategory_temp1;
+		}
 		
 		if(tempPage == null || tempPage.length()==0) {
 			cPage = 1;
