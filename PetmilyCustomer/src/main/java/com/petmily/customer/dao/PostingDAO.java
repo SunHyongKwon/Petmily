@@ -245,7 +245,43 @@ public PostingDTO postingGetDetail(int pid){
 				e.printStackTrace();
 			}
 		}
-		return dto;
+		return dto;	
+	}
+
+	//댓글 입력
+	public void postingRyplyWriteAction(String pparentid, String ureply, int plevel, String user_uid ) {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "insert into posting (pparentid, pcontent, plevel, user_uid, pinitdate ) ";
+			String query2 = "values (?,?,?,?,now())";
+			preparedStatement = connection.prepareStatement(query + query2);
+			
+			preparedStatement.setString(1, pparentid);
+			preparedStatement.setString(2, ureply);
+			preparedStatement.setInt(3, plevel);
+			preparedStatement.setString(4,user_uid);
+			
+			
+			preparedStatement.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+	         try {
+	             if(preparedStatement != null ) preparedStatement.close();
+	             if(connection != null) connection.close();
+	          }catch (Exception e) {
+	             e.printStackTrace();
+	          }
+		}
+		
 		
 	}
 }

@@ -90,7 +90,7 @@ function changeForm(){
 
 			<div class="col-1">
 				<c:choose>
-					<c:when test="${user.utype eq '1' }">
+					<c:when test="${user.utype eq 'companion' }">
 						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : block">작성</button>
 					</c:when>
 					

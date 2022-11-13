@@ -22,19 +22,10 @@ public class PostingReplyInsertCommand implements CustomerCommand {
 		
 		String user_uid = udto.getUid();
 		String pid = request.getParameter("pid");
-		String ptitle = request.getParameter("ptitle");
-		String pcontent = request.getParameter("pcontent");
-		String pimage1 = request.getParameter("pimage1");
-		String pimage2 = request.getParameter("pimage2");
-		String pimage3 = request.getParameter("pimage3");
-		String pcategory = request.getParameter("pcategory");
-		String plocation_basic = "null";
-		String plocation_detail = request.getParameter("plocation_detail");
+		String ureply = request.getParameter("ureply");
 		int plevel = 2;//댓글
 		
-		pdao.postingWriteAction(ptitle, pcontent, pimage1, pimage2, pimage3, pcategory, plocation_detail, plevel, user_uid);
-		
-		
+		pdao.postingRyplyWriteAction(pid, ureply, plevel, user_uid);
 		
 	}
 
