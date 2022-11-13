@@ -25,9 +25,10 @@ public class LoginCommand implements CustomerCommand {
 		
 		if (!(dto == null)) {
 			HttpSession session = request.getSession();
-
 			session.setAttribute("user", dto);
+			
 			return 0;
+			
 		} else {
 
 			request.setAttribute("loginStatus", "로그인에 실패하셨습니다.");

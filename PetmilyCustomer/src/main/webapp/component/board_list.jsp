@@ -15,28 +15,70 @@
 </style>
 
 <script>
-	
-function changeForm(){
-	
-	var form = document.posting
-	
-	var pcategory = document.getElementById('pcategory').value
-	
-	form.action = 'posting_write.do?pcategory=' + pcategory
-	
-	
-	form.submit()
-	
-}
-	
-	
+	function changeForm() {
+
+		var form = document.posting
+
+		var pcategory = document.getElementById('pcategory').value
+
+		form.action = 'posting_write.do?pcategory=' + pcategory
+
+		form.submit()
+
+	}
 </script>
 
 <div class="container">
 	<form action="posting_query.do" name="posting">
+
+		<%
+			String param = request.getParameter("pcategory");
+			String attribute = (String) request.getAttribute("pcategory");
+			
+			
+			if(param == null || param.equals("")){
+		%>	
+				<c:set var="pcategory" value="<%=attribute %>" />
+		<% 		
+			}
+			
+			if(attribute == null || attribute.equals("")){
+		%>
+		
+				<c:set var="pcategory" value="<%=param %>" />
+		<% 		
+			}
+		%>
+		
 		<div class="row justify-content-start my-2">
-			<input type="hidden" name="pcategory" id="pcategory" value="${param.pcategory }">
-			<h3>${param.pcategory}</h3>
+
+			<input type="hidden" name="pcategory" id="pcategory"
+				value="${pcategory }">
+
+			<c:choose>
+
+				<c:when test="${pcategory eq 'walk'}">
+					<h3>함께 산책</h3>
+				</c:when>
+
+				<c:when test="${pcategory eq 'volunteer'}">
+					<h3>함께 봉사</h3>
+				</c:when>
+
+				<c:when test="${pcategory eq 'petcafe'}">
+					<h3>함께 펫카페</h3>
+				</c:when>
+
+				<c:when test="${pcategory eq 'find'}">
+					<h3>찾아주세요</h3>
+				</c:when>
+
+				<c:when test="${pcategory eq 'found'}">
+					<h3>찾았어요</h3>
+				</c:when>
+
+			</c:choose>
+
 		</div>
 
 		<div class="row my-3">
@@ -65,12 +107,14 @@ function changeForm(){
 
 			<div class="col-1">
 				<c:choose>
-					<c:when test="${user.utype eq '1' }">
-						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : block">작성</button>
+					<c:when test="${user.utype eq 'companion' }">
+						<button class="btn btn-warning" type="button"
+							onclick="changeForm()" style="display: block">작성</button>
 					</c:when>
-					
+
 					<c:otherwise>
-						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : none">작성</button>
+						<button class="btn btn-warning" type="button"
+							onclick="changeForm()" style="display: none">작성</button>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -90,17 +134,17 @@ function changeForm(){
 						<th scope="col">조회수</th>
 					</tr>
 				</thead>
+
 				<tbody>
 					<!--   -->
-					<c:forEach var="list" items="${postingList}">
+					<c:forEach var="list" items="${postingList}" varStatus="status">
 						<tr>
-							<th scope="row"><a href="posting_click.do">${list.pid }</a></th>
-							<td>${list.ptitle }</td>
+							<th scope="row">${paging.endRow - status.index }</th>
+							<td><a
+								href="posting_click.do?pid=${list.pid }&user_uid=${list.user_uid}">${list.ptitle }</a></td>
 							<td>${list.user_uid }</td>
 							<td>${list.pinitdate }</td>
 							<td>${list.plocation }</td>
-							<td>${list.shlike }</td>
-							<td>${list.shcount }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -111,11 +155,46 @@ function changeForm(){
 
 			<nav aria-label="Page navigation example ">
 				<ul class="pagination justify-content-center">
-					<li class="page-item"><a class="page-link" href="">Previous</a></li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+					<c:set var="startPage" value="paging.startPage" />
+					<c:choose>
+
+						<c:when test="${paging.startPage eq '1'}">
+							<!-- if -->
+							<li class="page-item"><a class="page-link" href="#">Previous
+							</a></li>
+						</c:when>
+
+						<c:otherwise>
+							<!-- else -->
+							<li class="page-item"><a class="page-link"
+								href="posting.do?page=${paging.startPage - 1}&pcategory=${param.pcategory }">Previous
+							</a></li>
+						</c:otherwise>
+
+					</c:choose>
+					<!-- int = startPage; i <= endPage; i++ -->
+					<c:forEach var="count" begin="${paging.startPage}"
+						end="${paging.endPage}">
+						<li class="page-item"><a class="page-link"
+							href="posting.do?page=${count}&pcategory=${param.pcategory }">${count}
+						</a></li>
+					</c:forEach>
+
+					<c:choose>
+
+						<c:when test="${paging.totalPages eq paging.endPage}">
+							<!-- if -->
+							<li class="page-item"><a class="page-link" href="#">> </a></li>
+						</c:when>
+
+						<c:otherwise>
+							<!-- else -->
+							<li class="page-item"><a class="page-link"
+								href="posting.do?page=${paging.endPage + 1}&pcategory=${param.pcategory }">Next
+							</a></li>
+						</c:otherwise>
+
+					</c:choose>
 				</ul>
 			</nav>
 		</div>

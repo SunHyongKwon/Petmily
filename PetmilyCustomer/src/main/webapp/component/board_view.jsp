@@ -1,20 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<div class="container">
 		<div class="row justify-content-center my-4 text-center">
-			<h4>게시글 제목</h4>
+			<h4>${postingDetail.ptitle}</h4>
 		</div>
 
 		<div class="row justify-content-between my-2">
 			<div class="col-2 text-start align-self-center">
 				<img src="https://picsum.photos/50/50/?random"
-					class="rounded-circle" alt=""> <span class="mx-2">user
-					name</span>
+					class="rounded-circle" alt=""> <span class="mx-2"> ${postingUid}</span>
 			</div>
 
 
-			<div class="col-2 text-end align-self-center">조회수 :</div>
+			<div class="col-2 text-end align-self-center">조회수 : ${postingView}</div>
 		</div>
 
 		<hr>
@@ -22,62 +21,56 @@
 		<div class="row justify-content-between">
 			<div class="col-4 text-start">
 				<i class="bi bi-geo-alt" style="font-size: 1.7rem;"></i> <span
-					class="mx-2">board location</span>
+					class="mx-2">${postingDetail.plocation}</span>
 			</div>
 
 
-			<div class="col-2 text-end align-self-center">날짜 들어와야 됨</div>
+			<div class="col-2 text-end align-self-center">${postingDetail.pinitdate}</div>
 		</div>
 
 		<!-- img -->
-		<div class="row justify-content-center text-center my-5">
-			<div class="col-8">
-				<div id="carouselExampleControls"
-					class="carousel carousel-dark slide" data-bs-ride="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
-						</div>
-						<div class="carousel-item">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
-						</div>
-						<div class="carousel-item">
-							<img src="https://picsum.photos/500/400/?random" class="rounded"
-								alt="">
-						</div>
-					</div>
-					<button class="carousel-control-prev" type="button"
-						data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Previous</span>
-					</button>
-					<button class="carousel-control-next" type="button"
-						data-bs-target="#carouselExampleControls" data-bs-slide="next">
-						<span class="carousel-control-next-icon" aria-hidden="true"></span>
-						<span class="visually-hidden">Next</span>
-					</button>
+		<c:if test="${not empty postingDetail.pimage1}">	
+			<div class="row justify-content-center text-center my-5">
+				<div class="col-8">
+					
+					<img src="https://picsum.photos/1000/400/?random" class="rounded my-1"
+						alt="" style="width: 500px;">
+
+					<img src="https://picsum.photos/500/400/?random" class="rounded my-1"
+						alt="" style="width: 500px;">
+
+					<img src="https://picsum.photos/500/400/?random" class="rounded my-1"
+						alt="" style="width: 500px;">
 				</div>
 			</div>
-		</div>
-
+		</c:if>
 		<!-- 게시글 내용 -->
 		<div class="row justify-content-center my-3">
-			<div class="col-8 text-right">컨텐츠 내용이 들어가는데 모들어갈 까요 컨텐츠 내용이
-				들어가는데 모들어갈 까요 컨텐츠 내용이 들어가는데 모들어갈 까요 컨텐츠 내용이 들어가는데 모들어갈 까요 컨텐츠 내용이
-				들어가는데 모들어갈 까요 컨텐츠 내용이 들어가는데 모들어갈 까요 컨텐츠 내용이 들어가는데 모들어갈 까요</div>
+			<div class="col-8 text-right">${postingDetail.pcontent}</div>
+				
 		</div>
 
 		<hr>
 
 		<div class="row my-2">
 			<div class="col-4 text-start">
-				<!-- arial-pressed 가 true이면 좋아요 1 추가 된다 이느낌인듯 -->
-				<button type="button" class="btn btn-outline-danger"
-					data-bs-toggle="button">
+			
+				<c:if test="${likeCheck eq '1'}"><!-- 좋아요를 누른 경우 -->
+					<button type="button" class="btn btn-outline-danger active"
+					data-bs-toggle="button" aria-pressed="true" onclick="location.href='posting_like_click.do?likeCheck=${likeCheck}&pid=${pid}'">
 					<i class="bi bi-heart" style="font-size: 1.5rem;"></i>
 				</button>
+				</c:if>
+				
+				<c:if test="${likeCheck eq '0'}">
+					<button type="button" class="btn btn-outline-danger"
+					data-bs-toggle="button" aria-pressed="false" onclick="location.href='posting_like_click.do?likeCheck=${likeCheck}&pid=${pid}'">
+					<i class="bi bi-heart" style="font-size: 1.5rem;"></i>
+				</button>
+				</c:if>
+				<!-- arial-pressed 가 true이면 좋아요 1 추가 된다 이느낌인듯 -->
+				${postingLike}
+				
 			</div>
 		</div>
 
@@ -89,55 +82,26 @@
 					class="rounded-circle" alt=""> <span class="mx-2">username</span>
 			</div>
 			<div class="col-4 text-start align-self-center">
-				<span>댓글에 무엇을 들어가야 될까요 고민고민하지마 걸</span>
+				<span>댓글에 무엇을 들어가야 될까요 고민고민하지마 걸 헤이 유고걸 데레데레뎃뎃 뎃 걸</span>
 			</div>
 			<div class="col-2 text-end align-self-center">
 				<h6>2021/10/21 10:00:29</h6>
 			</div>
 			<div class="col-2"></div>
-		</div>
-
-		<div class="row justify-content-center my-2">
-			<div class="col-2"></div>
-			<div class="col-2 align-self-center">
-				<img src="https://picsum.photos/50/50/?random"
-					class="rounded-circle" alt=""> <span class="mx-2">username</span>
-			</div>
-			<div class="col-4 text-start align-self-center">
-				<span>댓글에 무엇을 들어가야 될까요 고민고민하지마 걸</span>
-			</div>
-			<div class="col-2 text-end align-self-center">
-				<h6>2021/10/21 10:00:29</h6>
-			</div>
-			<div class="col-2"></div>
-		</div>
-
-		<div class="row justify-content-center my-2">
-			<div class="col-2"></div>
-			<div class="col-2 align-self-center">
-				<img src="https://picsum.photos/50/50/?random"
-					class="rounded-circle" alt=""> <span class="mx-2">username</span>
-			</div>
-			<div class="col-4 text-start align-self-center">
-				<span>댓글에 무엇을 들어가야 될까요 고민고민하지마 걸</span>
-			</div>
-			<div class="col-2 text-end align-self-center">
-				<h6>2021/10/21 10:00:29</h6>
-			</div>
-			<div class="col-2"></div>
-		</div>
+		</div>		
 		
-		
-		<div class="row justify-content-center my-5">
-			<div class="col-6">
-				<input type="text" class="form-control" name="ureply"
-					id="exampleFormControlInput1" placeholder="댓글을 입력해 주세요">
+		<form action="posting_reply_insert.do" method="get">
+			<div class="row justify-content-center my-5">
+				<div class="col-6">
+					<input type="text" class="form-control" name="ureply"
+						id="exampleFormControlInput1" placeholder="댓글을 입력해 주세요">
+				</div>
+				<input type="hidden" name="pid" value="${pid}">
+				<div class="col-1">
+					<input type="submit" class="btn btn-warning" value="입력">
+				</div>
 			</div>
-			
-			<div class="col-1">
-				<button class="btn btn-warning" type="button">입력</button>
-			</div>
-		</div>
+		</form>
 		
 	</div>
 

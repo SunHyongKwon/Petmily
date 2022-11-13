@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.petmily.customer.dao.EmailDAO;
 
-/**
- * Servlet implementation class Email
- */
-@WebServlet("/Email")
+
+@WebServlet("/Email2")
 public class Email extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,7 +26,7 @@ public class Email extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		
 		String uemail = request.getParameter("uemail");
-		
+		System.out.println(uemail);
 		EmailDAO dao = new EmailDAO();
 		
 		response.getWriter().write(dao.send(uemail) + "");
