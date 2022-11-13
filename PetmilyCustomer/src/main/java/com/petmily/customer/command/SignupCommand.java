@@ -1,57 +1,113 @@
 package com.petmily.customer.command;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.petmily.customer.dao.ChooseDAO;
+import com.petmily.customer.dao.FileDAO;
 import com.petmily.customer.dao.PetDAO;
 import com.petmily.customer.dao.PetspecDAO;
 import com.petmily.customer.dao.UserDAO;
 
-
 public class SignupCommand implements CustomerCommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		//user,register,pet,choose,petspec
-		
-		//user table : s uid ,s upw ,s uname ,s uemail ,s uphone ,s uaddress_basic ,s uaddress_detail ,s utype 
-		String uid = request.getParameter("uid");
-		String upw = request.getParameter("upw");
-		String uname = request.getParameter("uname");
-		String uemail = request.getParameter("uemail");
-		String uphone = request.getParameter("uphone");
-		String uaddress_basic = request.getParameter("uaddress_basic");
-		String uaddress_detail = request.getParameter("uaddress_detail");
-		String utype = request.getParameter("utype");
-		
-		UserDAO dao = new UserDAO();
-		dao.insert(uid,upw,uname,uphone,uemail,uaddress_basic,uaddress_detail,utype);
-		
-		
-		// pet 관련 :s petname ,s petgender 
-		String petname = request.getParameter("petname");
-		String petgender = request.getParameter("petgender");
-		
-		PetDAO dao2 = new PetDAO();
-		dao2.insert(petname,petgender);
-		
-		// petspec table :s pstype ,s psbreeds
-		String pstype = request.getParameter("pstype");
-		String psbreeds = request.getParameter("psbreeds");
-		
-		PetspecDAO dao3 = new PetspecDAO();
-		dao3.insert(pstype,psbreeds);
-		
-		//register table은 t reginitdate
-		//choose table은 t chodate
-		
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 	}
 
 	@Override
-	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int executeInt(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// 프로필 사진 저장 start
+		ServletContext application = request.getServletContext();
+
+		String directory = application.getRealPath("/user/");
+		int maxSize = 1024 * 1024 * 100;
+		String encoding = "UTF-8";
+
+		MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxSize, encoding,
+				new DefaultFileRenamePolicy());
+		// 사용자가 넣은 file의 이름이 여기 들어오고
+		String fileName = multipartRequest.getOriginalFileName("file");
+		// 우리가 서버에 저장할 이름이 여기 들어가면 된다.
+		String fileRealName = multipartRequest.getFilesystemName("file");
+		String uid = multipartRequest.getParameter("uid");
+
+		int result;
+		if (!(fileName == null)) {
+			FileDAO dao = new FileDAO();
+			result = dao.rename(directory, fileRealName, uid);
+		}else { 
+			result = 1;
+		}
+		// end
+
+		if (result == 1) {
+			// 넣어줄 parameter 값들 가져오기
+			// user 테이블에 넣어줘야 될 값들
+			// uid -> 파일에 넣으려고 선언한 uid 값 가져오면 됨
+			// upw
+			String upw = multipartRequest.getParameter("upw");
+			// uname
+			String uname = multipartRequest.getParameter("uname");
+			// unickname
+			String unickname = multipartRequest.getParameter("unickname");
+			// uemail
+			String uemail = multipartRequest.getParameter("uemail");
+			// uphone
+			String uphone = multipartRequest.getParameter("uphone");
+			// uaddress
+			// uaddress_basic
+			String uaddress_basic = multipartRequest.getParameter("uaddress_basic");
+			// uaddress_detail
+			String uaddress_detail = multipartRequest.getParameter("uaddress_detail");
+			String uaddress = uaddress_basic + " " + uaddress_detail;
+			// utype
+			String utype = multipartRequest.getParameter("utype");
+
+			// database user table에 insert 하기
+			UserDAO userDAO = new UserDAO();
+			userDAO.insert(uid, upw, uname, uphone, uemail, unickname, uaddress, utype);
+
+			if (utype.equals("companion")) {
+				// pet table에 들어가야 될 값들
+				// petname
+				String[] petname = multipartRequest.getParameterValues("petname");
+				// petgender
+				String[] petgender = multipartRequest.getParameterValues("petgender");
+				// uid
+
+				PetDAO petDAO = new PetDAO();
+				petDAO.insert(petname, petgender, uid);
+
+				// choose table에 petspec pet 연결하기 위한 작업
+				// petid list select 해오기
+				ArrayList<Integer> petIdList = petDAO.selectPetId(uid);
+				// pstype
+				String[] pstype = multipartRequest.getParameterValues("pstype");
+				// psbreeds
+				String[] psbreeds = multipartRequest.getParameterValues("psbreeds");
+	
+				PetspecDAO petspecDAO = new PetspecDAO();
+				// pstype 과 psbreeds로 맞는 psid list 가져오기
+				ArrayList<Integer> psidList = petspecDAO.selectPsId(pstype, psbreeds);
+
+				// choose table에 petid , psid list 같이 넣기
+				ChooseDAO chooseDAO = new ChooseDAO();
+				chooseDAO.insert(petIdList, psidList);
+
+				return 0;
+			}
+		}
+
+		return 1;
 	}
 
 }

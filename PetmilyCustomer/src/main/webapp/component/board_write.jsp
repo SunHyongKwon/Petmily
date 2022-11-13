@@ -76,7 +76,7 @@
 								})
 					});
 </script>
-<form action="posting_write_inesrt.do">
+<form action="posting_write_insert.do">
 	<div class="container">
 		<div class="row text-center">
 			<h4>
@@ -161,6 +161,12 @@
 			<div class="col-4 mb-3 gy-3">
 				<label for="exampleFormControlInput1" class="form-label">사진
 					항목</label>
+					<!-- 이미지 테스트를 위한 input -->
+					<input type="hidden" name="pimage1" value="image1.png">
+					<input type="hidden" name="pimage2" value="image2.png">
+					<input type="hidden" name="pimage3" value="image3.png">
+					
+					<!-- 여기까지 테스트임 -->
 			</div>
 			<div class="col-2 mb-3 gy-3"></div>
 		</div>
@@ -180,9 +186,6 @@
 		<div class="row justify-content-center my-5 text-center">
 			<div class="col-4">
 				<button class="btn btn-warning w-100" type="submit">등록</button>
-				<input type="hidden" name="pimage1" value="11">
-				<input type="hidden" name="pimage2" value="22">
-				<input type="hidden" name="pimage3" value="33">
 			</div>
 		</div>
 	</div>

@@ -35,6 +35,7 @@ import com.petmily.customer.command.PostingCommand;
 import com.petmily.customer.command.PostingQueryCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.SignupCommand;
+import com.petmily.customer.command.SignupIdCheckCommand;
 
 
 @WebServlet("*.do")
@@ -56,7 +57,6 @@ public class CustomerHomeController extends HttpServlet {
 	
 	private void actionDo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
 		
 		int result = 0;
 		String viewpage = null;
@@ -114,12 +114,6 @@ public class CustomerHomeController extends HttpServlet {
 		// 회원가입 양식 화면으로 이동
 		case("/signup_form.do"):
 			viewpage = "signup_page.jsp";
-			break;
-		// 이메일 보내기
-		case("/email.do"):
-			command = new EmailCommand();
-			command.execute(request, response);
-			viewpage="signup_page.jsp";
 			break;
 		//카카오로 회원 가입 버튼 클릭 시 
 		case ("/sign_up_kakao.do"):

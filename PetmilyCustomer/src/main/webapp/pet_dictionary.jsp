@@ -22,7 +22,7 @@
 <body>
 
 	<div class="container-fluid">
-		<div class="row my-3">		
+		<div class="row">		
 			<jsp:include page="component/header.jsp"></jsp:include>
 		</div>
 		<div class="row">

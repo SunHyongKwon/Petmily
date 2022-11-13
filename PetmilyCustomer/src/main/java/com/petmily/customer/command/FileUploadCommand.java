@@ -1,19 +1,19 @@
 package com.petmily.customer.command;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class PostingWriteInsertCommand implements CustomerCommand {
+public class FileUploadCommand implements CustomerCommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
 	}
 
 	@Override
 	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

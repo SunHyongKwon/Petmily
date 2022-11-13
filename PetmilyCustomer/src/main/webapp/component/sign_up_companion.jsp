@@ -1,22 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
-.form-label {
-	font-weight: bold;
-}
 
-.form-control, .form-select {
-	color: #a3a3a3;
-	padding-top: 0.75rem;
-	padding-bottom: 0.75rem;
-	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-	border-color: #a3a3a3;
-	border-radius: 30px;
-}
 
 #list {
-	
 	color: #a3a3a3;
 	border-radius : 10px;
 	border-color : #a3a3a3;
@@ -30,8 +18,8 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
-       /* $('#pstype').change(function(){
-    	   
+       $('#pstype').change(function(){
+    	
         var pstype=$('#pstype').val();
          
         if(pstype=="")
@@ -41,26 +29,28 @@
         else
         {
             $.ajax({
-               url:'psbreeds_list.do',
-               type:'POST',
+               url:'http://localhost:8080/PetmilyCustomer/PsbreedsList',
+               type:'GET',
                data:'pstype='+pstype,
-               dataType:"json",
                success:function(response)
                {
-                  for(var key in response){
-                	  response[key]
-                	  var option = $("option value="+response[key]+">"+response[key]+"/option");
-                	  $('#psbreeds').append(option);
+            	  $('#psbreeds').children('option:not(:first)').remove();
+                  response = response.replace('[','');
+                  response = response.replace(']','');
+                  response = response.split(',');
+                  
+                  for(var i=0;i < response.length ; i++){
+                	  var insert = "<option value=\"" + response[i].trim() + "\">"+ response[i].trim() + "</option>"
+                	  $("#psbreeds").append(insert);
+                	  
                   }
-                   
                }
             });
         }
          
-		}); */
+		});
 		
 		
-       var i = 1;
        
        $('#register').click(function(){
     	 	var pstype = $('#pstype').val();
@@ -75,17 +65,19 @@
     	 	}
     	 	
     	 	var insertTr = "";
-    	 	
+    	 		 	
     	 	insertTr += "<tr>";
-    	 	insertTr += "<th scope = \"row\">"+i+"</th>";
-    	 	insertTr += "<td>" + pstype + "</td>";
-    	 	insertTr += "<td>" + psbreeds + "</td>";
-    	 	insertTr += "<td>" + petname + "</td>";
-    	 	insertTr += "<td>" + petgender + "</td>";
+    	 	insertTr += "<td>" + pstype + "</td> <input type=\"hidden\" name = \"pstype\" value=\"" + pstype +"\">" ;
+    	 	insertTr += "<td>" + psbreeds + "</td> <input type=\"hidden\" name = \"psbreeds\" value=\"" + psbreeds +"\">" ;
+    	 	insertTr += "<td>" + petname + "</td> <input type=\"hidden\" name = \"petname\" value=\"" + petname +"\">" ;
+    	 	insertTr += "<td>" + petgender + "</td> <input type=\"hidden\" name = \"petgender\" value=\"" + petgender +"\">" ;
     	 	insertTr += "<td><button name=\"trash\" class=\"btn btn-outline-secondary\"><i class=\"bi bi-trash\"></i></button></td>";
     	 	insertTr += "</tr>";
     	 	$("#register_table").append(insertTr);
-			i += 1;
+    	 	
+    	 	$('#petname').val('');
+    	 	$('#psbreeds').val('');
+    	 	$('#pstype').val('');
        })
 	
        
@@ -123,12 +115,6 @@
 				<label for="exampleFormControlInput1" class="form-label">종이
 					무엇인가요 </label> <select class="form-select" name="psbreeds" id="psbreeds">
 					<option value="" disabled selected>종 선택</option>
-					<!-- 동물 유형 선택 시에 종을 일로 가져와야됨 -->
-					<!-- ajax로 불러와서 넣어주도록 함 구상은 했고 시범은 나중에 -->
-					<option value="dog">강아지</option>
-					<option value="cat">고양이</option>
-					<option value="rabbit">토끼</option>
-					<option value="turtle">거북이</option>
 				</select>
 			</div>
 			<div class="col-2"></div>
@@ -186,7 +172,7 @@
 		<div class = "row justify-content-center">
 			<div class = "col-6 border" id="list">
 				<table class = "table text-center" id="register_table">
-					<tbody>
+					<tbody id="tbody">
 					</tbody>
 				</table>
 			</div>

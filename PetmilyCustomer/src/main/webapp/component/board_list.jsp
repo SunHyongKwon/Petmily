@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
@@ -15,42 +15,44 @@
 </style>
 
 <script>
-	
-function changeForm(){
-	
-	var form = document.posting
-	
-	var pcategory = document.getElementById('pcategory').value
-	
-	form.action = 'posting_write.do?pcategory=' + pcategory
-	
-	
-	form.submit()
-	
-}
-	
-	
+	function changeForm() {
+
+		var form = document.posting
+
+		var pcategory = document.getElementById('pcategory').value
+
+		form.action = 'posting_write.do?pcategory=' + pcategory
+
+		form.submit()
+
+	}
 </script>
 
 <div class="container">
 	<form action="posting_query.do" name="posting">
 		<div class="row justify-content-start my-2">
-			<input type="hidden" name="pcategory" id="pcategory" value="${param.pcategory }">
+			<input type="hidden" name="pcategory" id="pcategory"
+				value="${param.pcategory }">
 			<c:choose>
-				<c:when test="${param.pcategory eq 'volunteer'}"><!-- if -->
-				<h3>함께 봉사</h3>
+				<c:when test="${param.pcategory eq 'volunteer'}">
+					<!-- if -->
+					<h3>함께 봉사</h3>
 				</c:when>
-				<c:when test="${param.pcategory eq 'walk'}"><!-- if -->
-				<h3>함께 산책</h3>
+				<c:when test="${param.pcategory eq 'walk'}">
+					<!-- if -->
+					<h3>함께 산책</h3>
 				</c:when>
-				<c:when test="${param.pcategory eq 'petcafe'}"><!-- if -->
-				<h3>함께 펫카페</h3>
+				<c:when test="${param.pcategory eq 'petcafe'}">
+					<!-- if -->
+					<h3>함께 펫카페</h3>
 				</c:when>
-				<c:when test="${param.pcategory eq 'find'}"><!-- if -->
-				<h3>찾아주세요</h3>
+				<c:when test="${param.pcategory eq 'find'}">
+					<!-- if -->
+					<h3>찾아주세요</h3>
 				</c:when>
-				<c:when test="${param.pcategory eq 'found'}"><!-- if -->
-				<h3>찾았어요</h3>
+				<c:when test="${param.pcategory eq 'found'}">
+					<!-- if -->
+					<h3>찾았어요</h3>
 				</c:when>
 			</c:choose>
 		</div>
@@ -82,11 +84,13 @@ function changeForm(){
 			<div class="col-1">
 				<c:choose>
 					<c:when test="${user.utype eq '1' }">
-						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : block">작성</button>
+						<button class="btn btn-warning" type="button"
+							onclick="changeForm()" style="display: block">작성</button>
 					</c:when>
-					
+
 					<c:otherwise>
-						<button class="btn btn-warning" type="button" onclick="changeForm()" style= "display : none">작성</button>
+						<button class="btn btn-warning" type="button"
+							onclick="changeForm()" style="display: none">작성</button>
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -115,8 +119,8 @@ function changeForm(){
 							<td>${list.user_uid }</td>
 							<td>${list.pinitdate }</td>
 							<td>${list.plocation }</td>
-							<%-- <td>${list.shlike }</td>
-							<td>${list.shcount }</td> --%>
+							<td>${list.shlike }</td>
+							<td>${list.shcount }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -127,45 +131,48 @@ function changeForm(){
 
 			<nav aria-label="Page navigation example ">
 				<ul class="pagination justify-content-center">
-				
-				<c:set var="startPage" value="paging.startPage"/>
-						<c:choose>
-						
-							<c:when test="${paging.startPage eq '1'}"><!-- if -->
-							<li class="page-item">
-							<a class="page-link" href="#">Previous
+
+					<c:set var="startPage" value="paging.startPage" />
+					<c:choose>
+
+						<c:when test="${paging.startPage eq '1'}">
+							<!-- if -->
+							<li class="page-item"><a class="page-link" href="#">Previous
 							</a></li>
-							</c:when>
-							
-							<c:otherwise><!-- else -->
-							<li class="page-item">
-							<a class="page-link" href="posting.do?page=${paging.startPage - 1}&pcategory=${param.pcategory }">Previous
+						</c:when>
+
+						<c:otherwise>
+							<!-- else -->
+							<li class="page-item"><a class="page-link"
+								href="posting.do?page=${paging.startPage - 1}&pcategory=${param.pcategory }">Previous
 							</a></li>
-							</c:otherwise>
-							
-						</c:choose>
-						<!-- int = startPage; i <= endPage; i++ -->
-						<c:forEach var="count" begin="${paging.startPage}" end="${paging.endPage}" >
-							<li class="page-item">
-							<a class="page-link" href="posting.do?page=${count}&pcategory=${param.pcategory }">${count}
+						</c:otherwise>
+
+					</c:choose>
+					<!-- int = startPage; i <= endPage; i++ -->
+					<c:forEach var="count" begin="${paging.startPage}"
+						end="${paging.endPage}">
+						<li class="page-item"><a class="page-link"
+							href="posting.do?page=${count}&pcategory=${param.pcategory }">${count}
+						</a></li>
+					</c:forEach>
+
+					<c:choose>
+
+						<c:when test="${paging.totalPages eq paging.endPage}">
+							<!-- if -->
+							<li class="page-item"><a class="page-link" href="#">Next
 							</a></li>
-						</c:forEach>
-						
-						<c:choose>
-						
-							<c:when test="${paging.totalPages eq paging.endPage}"><!-- if -->
-							<li class="page-item">
-							<a class="page-link" href="#">Next
+						</c:when>
+
+						<c:otherwise>
+							<!-- else -->
+							<li class="page-item"><a class="page-link"
+								href="posting.do?page=${paging.endPage + 1}&pcategory=${param.pcategory }">Next
 							</a></li>
-							</c:when>
-							
-							<c:otherwise><!-- else -->
-							<li class="page-item">
-							<a class="page-link" href="posting.do?page=${paging.endPage + 1}&pcategory=${param.pcategory }">Next
-							</a></li>
-							</c:otherwise>
-							
-						</c:choose>
+						</c:otherwise>
+
+					</c:choose>
 
 				</ul>
 			</nav>

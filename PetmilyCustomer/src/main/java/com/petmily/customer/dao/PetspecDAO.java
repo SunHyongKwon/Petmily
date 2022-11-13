@@ -62,6 +62,42 @@ public class PetspecDAO {
 		return pscontent;
 	}
 
+	// gukHwa [조회_견종설명]
+	public ArrayList<String> psbreedsList(String pstype) {
+		ArrayList<String> psbreedsList = new ArrayList<>();
+		String psbreeds = null;
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select psbreeds from petspec where pstype = '" + pstype + "'";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				psbreeds = resultSet.getString(1);
+				psbreedsList.add(psbreeds);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return psbreedsList;
+	}
+
 	// gukHwa [조회_pet 설명_종류별(dog,cat,etc)card view 4개씩]
 	public ArrayList<PetspecDTO> petSpecList(String pstype) {
 
@@ -77,13 +113,12 @@ public class PetspecDAO {
 
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
-		
-			while(resultSet.next()) {
-				
+
+			while (resultSet.next()) {
+
 				String psbreeds = resultSet.getString("psbreeds");
 				String psimage = resultSet.getString("psimage");
 				String pscontent = resultSet.getString("pscontent");
-				System.out.println(psbreeds);
 				PetspecDTO dto = new PetspecDTO(psbreeds, psimage, pscontent);
 				dtos.add(dto);
 			}
@@ -103,7 +138,7 @@ public class PetspecDAO {
 
 		return dtos;
 	}
-	
+
 	public ArrayList<PetspecDTO> petSpecListFour(String pstype) {
 
 		ArrayList<PetspecDTO> dtos = new ArrayList<>();
@@ -118,9 +153,9 @@ public class PetspecDAO {
 
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
-		
-			while(resultSet.next()) {
-				
+
+			while (resultSet.next()) {
+
 				String psbreeds = resultSet.getString("psbreeds");
 				String psimage = resultSet.getString("psimage");
 				String pscontent = resultSet.getString("pscontent");
@@ -145,33 +180,79 @@ public class PetspecDAO {
 	}
 
 	public void insert(String pstype, String psbreeds) {
-	      // TODO Auto-generated method stub
-	      PreparedStatement ps = null;
-	      
-	      try {
-	         connection = dataSource.getConnection();
-	         
-	         String query = "insert into petspec (pstype,psbreeds) values ( ? , ? ) ";
-	         
-	         ps = connection.prepareStatement(query);
-	         
-	         ps.setString(1,pstype);
-	         ps.setString(2,psbreeds);
-	      
+		// TODO Auto-generated method stub
+		PreparedStatement ps = null;
 
-	         ps.executeUpdate();
-	         
-	      }catch(Exception e) {
-	         e.printStackTrace();
-	      }finally {
-	         try {
-	            if(resultSet != null) resultSet.close();
-	            if(preparedStatement != null) preparedStatement.close();
-	            if(connection != null)connection.close();
-	         }catch(Exception e) {
-	            e.printStackTrace();
-	         }
-	      }
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "insert into petspec (pstype,psbreeds) values ( ? , ? ) ";
+
+			ps = connection.prepareStatement(query);
+
+			ps.setString(1, pstype);
+			ps.setString(2, psbreeds);
+
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null)
+					resultSet.close();
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
-	      
+
+	public ArrayList<Integer> selectPsId(String[] pstype, String[] psbreeds) {
+
+		ArrayList<Integer> psIdList = new ArrayList<>();
+		int psid = 0;
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			for (int i = 0; i < pstype.length; i++) {
+
+				String query = "select psid from petspec where pstype = '" + pstype[i] + "' and psbreeds = '" + psbreeds[i]
+						+ "'";
+
+				preparedStatement = connection.prepareStatement(query);
+				resultSet = preparedStatement.executeQuery();
+
+				if (resultSet.next()) {
+
+					psid = resultSet.getInt(1);
+					System.out.println(psid);
+					psIdList.add(psid);
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return psIdList;
+	}
+
 }
