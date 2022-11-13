@@ -29,7 +29,7 @@
 </script>
 
 <div class="container">
-	<form action="posting.do" name="posting">
+	<form action="mypage_write_list_search.do" name="posting">
 
 		<%
 			String param = request.getParameter("pcategory");
@@ -52,8 +52,8 @@
 		
 		<div class="row justify-content-start my-2">
 
-			<input type="hidden" name="pcategory" id="pcategory"
-				value="${pcategory }">
+			<!-- <input type="hidden" name="pcategory" id="pcategory"
+				value="${pcategory }"> -->
 
 			<c:choose>
 
@@ -82,14 +82,22 @@
 		</div>
 
 		<div class="row my-3">
-			<div class="col-3"></div>
+			<div class="col-1"></div>
 			<!-- 드롭다운  -->
-			
+				<div class="col-2">
+					<select class="form-select w-100"
+						aria-label="Default select example" name="pcategory">
+						<option value="walk" selected>함께 산책</option>
+						<option value="volunteer">함께 봉사</option>
+						<option value="petcafe">함께 펫카페</option>
+						<option value="find">찾아주세요</option>
+						<option value="found">찾았어요</option>
+					</select>
+				</div>
 				<div class="col-1">
 					<select class="form-select w-100"
 						aria-label="Default select example" name="option">
 						<option value="ptitle" selected>제목</option>
-						<option value="user_uid">작성자</option>
 						<option value="plocation">장소</option>
 					</select>
 				</div>

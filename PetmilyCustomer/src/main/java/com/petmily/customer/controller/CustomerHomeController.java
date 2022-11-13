@@ -26,6 +26,7 @@ import com.petmily.customer.command.Mypage1365SearchCommand;
 import com.petmily.customer.command.MypageApplyListCommand;
 import com.petmily.customer.command.MypageChallengeCommand;
 import com.petmily.customer.command.MypageModifyLoginCommand;
+import com.petmily.customer.command.MypageModifyUpdateCommand;
 import com.petmily.customer.command.MypageParticipateListCommand;
 import com.petmily.customer.command.MypageWriteListCommand;
 import com.petmily.customer.command.PetDictinaryDetailCommand;
@@ -150,11 +151,18 @@ public class CustomerHomeController extends HttpServlet {
 			command = new MypageModifyLoginCommand();
 			result = command.executeInt(request, response);
 			if(result == 1) {
-				viewpage = "mypage_modify.jsp";
+				viewpage = "mypage_modify_update.do";
 			}else {
 				viewpage = "mypage_modify_login.jsp";
 			}
 			break;
+		//마이페이지 개인정보수정화면
+		case("/mypage_modify_update.do"):
+			command = new MypageModifyUpdateCommand();
+			command.execute(request, response);
+			viewpage = "mypage_modify.jsp";
+			break;
+		
 		//마이페이지에서 챌린지 클릭했을 때
 		case("/mypage_challenge.do"):
 			command = new MypageChallengeCommand();
@@ -200,6 +208,12 @@ public class CustomerHomeController extends HttpServlet {
 			break;
 		//마이페이지에서 작성내역 클릭시
 		case("/mypage_write_list.do"):
+			command = new MypageWriteListCommand();
+			command.execute(request, response);
+			viewpage = "mypage_write_list.jsp";
+			break;
+		//마이페이지에 작성내역에서 검색 클릭시
+		case("/ypage_write_list_search.do"):
 			command = new MypageWriteListCommand();
 			command.execute(request, response);
 			viewpage = "mypage_write_list.jsp";

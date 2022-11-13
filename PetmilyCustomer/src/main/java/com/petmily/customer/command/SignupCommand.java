@@ -2,6 +2,7 @@ package com.petmily.customer.command;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -30,15 +31,21 @@ public class SignupCommand implements CustomerCommand {
 		String directory = application.getRealPath("/user/");
 		int maxSize = 1024 * 1024 * 100;
 		String encoding = "UTF-8";
-
+		
+		
+		
+		
 		MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxSize, encoding,
 				new DefaultFileRenamePolicy());
+	
+
+		
 		// 사용자가 넣은 file의 이름이 여기 들어오고
 		String fileName = multipartRequest.getOriginalFileName("file");
 		// 우리가 서버에 저장할 이름이 여기 들어가면 된다.
 		String fileRealName = multipartRequest.getFilesystemName("file");
 		String uid = multipartRequest.getParameter("uid");
-
+		
 		int result;
 		if (!(fileName == null)) {
 			FileDAO dao = new FileDAO();
@@ -70,10 +77,12 @@ public class SignupCommand implements CustomerCommand {
 			String uaddress = uaddress_basic + " " + uaddress_detail;
 			// utype
 			String utype = multipartRequest.getParameter("utype");
+			//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			String uimage = multipartRequest.getParameter("uid");
 
 			// database user table에 insert 하기
 			UserDAO userDAO = new UserDAO();
-			userDAO.insert(uid, upw, uname, uphone, uemail, unickname, uaddress, utype);
+			userDAO.insert(uid, upw, uname, uphone, uemail, unickname, uaddress, utype, uimage);
 
 			if (utype.equals("companion")) {
 				// pet table에 들어가야 될 값들

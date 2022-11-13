@@ -61,7 +61,7 @@
 							<li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
 						</ul></li>
 
-					<li class="nav-item"><img src="https://picsum.photos/40/40/?random"
+					<li class="nav-item"><img src="user/${user.uimage }"
 						class="rounded-circle" alt="">
 					</li>
 

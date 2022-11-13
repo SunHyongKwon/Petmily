@@ -29,17 +29,19 @@
 		</div>
 
 		<!-- img -->
-		<c:if test="${not empty postingDetail.pimage1}">	
+		<c:if test="${not empty postingDetail.pimage3}">	
 			<div class="row justify-content-center text-center my-5">
 				<div class="col-8">
-					
-					<img src="https://picsum.photos/1000/400/?random" class="rounded my-1"
+					<img src="posting/${postingDetail.pimage3}" 
+					class="rounded my-1"
 						alt="" style="width: 500px;">
 
-					<img src="https://picsum.photos/500/400/?random" class="rounded my-1"
+					<img src="posting/${postingDetail.pimage2}"
+					 class="rounded my-1"
 						alt="" style="width: 500px;">
 
-					<img src="https://picsum.photos/500/400/?random" class="rounded my-1"
+					<img src="posting/${postingDetail.pimage1}"
+					 class="rounded my-1"
 						alt="" style="width: 500px;">
 				</div>
 			</div>
