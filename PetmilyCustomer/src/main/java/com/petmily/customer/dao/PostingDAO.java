@@ -155,7 +155,7 @@ public class PostingDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select pid, ptitle, plocation, pinitdate, user_uid from posting where pcategory = '" + pcategory + "' order by pid desc  limit " + start + "," + rowLength;
+			String query = "select pid, ptitle, plocation, pinitdate, user_uid from posting where pcategory = '" + pcategory + "' and pdeletedate is null order by pid desc  limit " + start + "," + rowLength;
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
@@ -281,7 +281,7 @@ public PostingDTO postingGetDetail(int pid){
 	             e.printStackTrace();
 	          }
 		}
-		
-		
 	}
+
+	
 }

@@ -24,8 +24,11 @@ public class PostingReplyInsertCommand implements CustomerCommand {
 		String pid = request.getParameter("pid");
 		String ureply = request.getParameter("ureply");
 		int plevel = 2;//댓글
+		System.out.println(ureply);
 		
-		pdao.postingRyplyWriteAction(pid, ureply, plevel, user_uid);
+			pdao.postingRyplyWriteAction(pid, ureply, plevel, user_uid);			
+		
+		
 		
 	}
 

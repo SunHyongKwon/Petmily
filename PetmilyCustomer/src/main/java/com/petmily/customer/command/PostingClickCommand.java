@@ -45,8 +45,6 @@ public class PostingClickCommand implements CustomerCommand {
 		view = sdao.showViewAllCount(pid);
 		like = sdao.showLikeAllCount(pid);
 		
-		System.out.println(postingUid);
-		
 		request.setAttribute("pid", pid);
 		request.setAttribute("postingView", view);
 		request.setAttribute("postingLike", like);
