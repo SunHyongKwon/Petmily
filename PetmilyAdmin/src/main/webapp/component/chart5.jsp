@@ -25,19 +25,19 @@
 			<div class="col-md-4">
 				<div class="card text-center">
 					 <canvas id="myChart2"></canvas>
-					일일 게시글 작성 갯수(7일치)
+					일일 게시글 작성 갯수(7day)
 				 </div>
 			</div>
 			<div class="col-md-4">
 				<div class="card text-center">
-				 <h4>일자별 요약(테이블)</h4>
+				 <h4>일자별 요약(7day)</h4>
 				 <table class="table">
 					  <thead>
 					    <tr>
 					      <th scope="col">Day</th>
 					      <th scope="col">작성글수</th>
-					      <th scope="col">Last</th>
-					      <th scope="col">Handle</th>
+					      <th scope="col">달린댓글수</th>
+					      <th scope="col">매칭횟수</th>
 					    </tr>
 					  </thead>
 					  <tbody>
