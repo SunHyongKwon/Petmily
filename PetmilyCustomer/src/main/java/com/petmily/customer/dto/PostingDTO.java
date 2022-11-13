@@ -61,6 +61,29 @@ public class PostingDTO {
 		this.user_uid = user_uid;
 	}
 
+	public PostingDTO(String ptitle, String pcontent, String pimage1, String pimage2, String pimage3, String plocation,
+			Timestamp pinitdate, String user_uid) {
+		super();
+		this.ptitle = ptitle;
+		this.pcontent = pcontent;
+		this.pimage1 = pimage1;
+		this.pimage2 = pimage2;
+		this.pimage3 = pimage3;
+		this.plocation = plocation;
+		this.pinitdate = pinitdate;
+		this.user_uid = user_uid;
+	}
+
+	public PostingDTO(int pid, String ptitle, String plocation, Timestamp pinitdate, String user_uid) {
+		super();
+		this.pid = pid;
+		this.ptitle = ptitle;
+		this.plocation = plocation;
+		this.pinitdate = pinitdate;
+		this.user_uid = user_uid;
+	}
+
+
 	public int getPid() {
 		return pid;
 	}

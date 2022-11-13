@@ -32,7 +32,9 @@ import com.petmily.customer.command.PetDictinaryDetailCommand;
 import com.petmily.customer.command.PetDictionaryCardCommand;
 import com.petmily.customer.command.PostingClickCommand;
 import com.petmily.customer.command.PostingCommand;
+import com.petmily.customer.command.PostingLikeClickCommand;
 import com.petmily.customer.command.PostingQueryCommand;
+import com.petmily.customer.command.PostingReplyInsertCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.SignupCommand;
 import com.petmily.customer.command.SignupIdCheckCommand;
@@ -209,7 +211,7 @@ public class CustomerHomeController extends HttpServlet {
 			viewpage = "mypage_apply_list.jsp";
 			break;		
 			
-		
+	
 	// 게시판 관련 do
 		//모든게시판 접속시 테이블보여주기 및 검색시
 		case("/posting.do"):
@@ -244,7 +246,18 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "board_view.jsp";
 			break;
-			
+		//게시물에서 좋아요 클릭 시
+		case("/posting_like_click.do"):
+			command = new PostingLikeClickCommand();
+			command.execute(request, response);
+			viewpage = "posting_click.do";
+			break;
+		//게시물에서 댓글 입력시
+		case("/posting_reply_insert.do"):
+			command = new PostingReplyInsertCommand();
+			command.execute(request, response);
+			viewpage = "posting_click.do";
+			break;
 			
 	// 펫과사전 관련 do
 		//헤더에서 펫과사전 클릭시, 펫과사전 사이드바에서 동물종류 클릭시
@@ -284,3 +297,4 @@ public class CustomerHomeController extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 }
+
