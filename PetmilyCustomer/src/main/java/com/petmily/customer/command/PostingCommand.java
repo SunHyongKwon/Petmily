@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.petmily.customer.dao.PostingDAO;
+import com.petmily.customer.dto.PagingDTO;
 import com.petmily.customer.dto.PostingDTO;
 
 public class PostingCommand implements CustomerCommand {

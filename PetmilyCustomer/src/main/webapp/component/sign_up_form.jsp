@@ -71,7 +71,7 @@
 			    	   alert('이메일 전송중입니다.이메일 전송 완료 알람이 뜰 떄까지 기다려주세요.');
 			    	   
 			           $.ajax({
-			              url:'http://localhost:8080/PetmilyCustomer/Email',
+			              url:'http://localhost:8080/PetmilyCustomer/Email2',
 			              type:'POST',
 			              data:{uemail : uemail},
 			              success:function(response)
