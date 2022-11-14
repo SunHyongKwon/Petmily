@@ -58,11 +58,12 @@ public class UserDTO {
 		this.uimage = uimage;
 	}
 
-	public UserDTO(String uid, String uname, String utype) {
+	public UserDTO(String uid, String uname, String utype , String uimage) {
 		super();
 		this.uid = uid;
 		this.uname = uname;
 		this.utype = utype;
+		this.uimage = uimage;
 	}
 
 	public String getUid() {

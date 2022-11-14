@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<nav class="navbar navbar-expand-lg shadow-sm">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="home.do">Petmily</a>
@@ -59,15 +59,25 @@
 
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle mx-2" href="mypage_modify.do" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false"> ${user.uname } </a>
+						data-bs-toggle="dropdown" aria-expanded="false"> ${user.uid } </a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="mypage_modify.do">마이페이지</a></li>
 							<li><a class="dropdown-item" href="logout.do">로그아웃</a></li>
 						</ul></li>
 
-					<li class="nav-item"><img src="https://picsum.photos/40/40/?random"
-						class="rounded-circle" alt="">
-					</li>
+					<c:choose>
+					<c:when test="${user.uimage eq null }">
+						<li class="nav-item"><img src="user/profile_sample.png"
+							height="60" width="60" class="rounded-circle" alt=""></li>
+					</c:when>
+
+					<c:otherwise>
+						<li class="nav-item"><img src="user/${user.uimage }"
+							height="60" width="60" class="rounded-circle" alt=""></li>
+					</c:otherwise>
+					
+				</c:choose>
+
 
 				</ul>
 			</div>

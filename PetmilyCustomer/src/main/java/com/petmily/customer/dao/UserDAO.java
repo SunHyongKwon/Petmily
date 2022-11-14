@@ -34,6 +34,7 @@ public class UserDAO {
 		int result = 0;
 		String uname = "";
 		String utype = "";
+		String uimage = "";
 		UserDTO udto = null;
 
 		try {
@@ -47,7 +48,8 @@ public class UserDAO {
 				result = resultSet.getInt(1);
 				uname = resultSet.getString(2);
 				utype = resultSet.getString(3);
-				udto = new UserDTO(uid, uname, utype);
+				uimage = resultSet.getString(4);
+				udto = new UserDTO(uid, uname, utype,uimage);
 
 			}
 
@@ -189,7 +191,7 @@ public class UserDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select uname, uemail, uphone, uaddress, unickname ,uimage from user where uid = "+uid;
+			String query = "select uname, uemail, uphone, uaddress, unickname ,uimage from user where uid = '"+ uid + "'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
