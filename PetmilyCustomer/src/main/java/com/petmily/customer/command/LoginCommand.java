@@ -20,19 +20,15 @@ public class LoginCommand implements CustomerCommand {
 		String uid = request.getParameter("uid");
 		String upw = request.getParameter("upw");
 		UserDAO dao = new UserDAO();
-		UserDTO dto = dao.login(uid, upw);
-
+		int result = dao.userPwCheck(uid, upw);
 		
-		if (!(dto == null)) {
+		if(result == 1) {
+			UserDTO dto = dao.login(uid, upw);			
 			HttpSession session = request.getSession();
 			session.setAttribute("user", dto);
-			
 			return 0;
-			
-		} else {
-
+		}else {
 			request.setAttribute("loginStatus", "로그인에 실패하셨습니다.");
-
 			return 1;
 		}
 

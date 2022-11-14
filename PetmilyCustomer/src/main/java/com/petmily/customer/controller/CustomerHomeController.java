@@ -39,6 +39,7 @@ import com.petmily.customer.command.PostingReplyInsertCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.SignupCommand;
 import com.petmily.customer.command.SignupIdCheckCommand;
+import com.petmily.customer.command.postingApplyCommand;
 
 
 @WebServlet("*.do")
@@ -272,6 +273,13 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "posting_click.do";
 			break;
+		//
+		case("/posting_apply.do"):
+			command = new postingApplyCommand();
+			command.execute(request, response);
+			viewpage = "board_apply.jsp";
+			break;
+
 			
 	// 펫과사전 관련 do
 		//헤더에서 펫과사전 클릭시, 펫과사전 사이드바에서 동물종류 클릭시

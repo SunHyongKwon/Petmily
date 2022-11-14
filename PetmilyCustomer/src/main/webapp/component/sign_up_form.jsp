@@ -448,7 +448,7 @@
 			<div class="col-4 mb-3 gy-2">
 				<label for="exampleFormControlInput1" class="form-label">주소
 				</label> <input type="text" class="form-control" name="uaddress_basic"
-					id="uaddress_basic" placeholder="주소를 입력해 주세요">
+					id="uaddress_basic" placeholder="주소를 입력해 주세요" readonly="readonly">
 			</div>
 			<!-- 주소 검색 버튼 -->
 			<button class="btn btn-warning col-1 gy-2 align-self-center"

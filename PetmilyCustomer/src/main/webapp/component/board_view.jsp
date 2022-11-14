@@ -24,9 +24,37 @@
 			<span class="mx-2"> ${postingUid}</span>
 		</div>
 
+		<%
+		String user_uid = request.getParameter("user_uid");
+		%>	
+			<c:set var="postAuthor" value="<%=user_uid %>" />
+
 
 		<div class="col-2 text-end align-self-center">조회수 :
 			${postingView}</div>
+			<div class="row justify-content-between my-2">
+				<div class="text-end">
+
+
+					<c:choose>
+					<c:when test = "${user_uid eq postAuthor}">
+						<button class="btn btn-primary col-1 gy-2 align-self-center"
+						type="button" onclick="#"
+						style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">수정하기</button>
+
+						<button class="btn btn-danger col-1 gy-2 align-self-center"
+						type="button" onclick="#"
+						style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">삭제하기</button>
+					</c:when>
+					<c:otherwise>
+						<button class="btn btn-warning col-1 gy-2 align-self-center"
+						type="button" onclick="#"
+						style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">신청하기</button>
+					</c:otherwise>
+
+					</c:choose>
+				</div>
+			</div>
 	</div>
 
 	<hr>

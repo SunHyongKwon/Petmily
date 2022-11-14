@@ -56,6 +56,7 @@ public class PostingClickCommand implements CustomerCommand {
 		commentList = pdao.selectCommentList(pid);
 		ArrayList<String> commentImageList = udao.selectImageList(commentList);
 		
+		request.setAttribute("user_uid", user_uid);
 		request.setAttribute("pid", pid);
 		request.setAttribute("postingView", view);
 		request.setAttribute("postingLike", like);
