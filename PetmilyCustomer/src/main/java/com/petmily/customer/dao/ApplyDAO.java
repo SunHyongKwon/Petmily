@@ -220,7 +220,7 @@ public class ApplyDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "update apply set apcanceldate = now() where posting_pid = " + pid;
+			String query = "update apply set apcanceldate = now() where posting_pid = " + pid + " and apmatchingdate is null";
 			preparedStatement = connection.prepareStatement(query);
 
 			preparedStatement.executeUpdate();
