@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
 <div class="container">
 	<div class="row justify-content-center my-4 text-center">
 		<h4>${postingDetail.ptitle}</h4>
@@ -39,7 +42,7 @@
 					<c:choose>
 					<c:when test = "${user_uid eq postAuthor}">
 						<button class="btn btn-primary col-1 gy-2 align-self-center"
-						type="button" onclick="#"
+						type="button" onclick="location.href='posting_apply.do'" 
 						style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">수정하기</button>
 
 						<button class="btn btn-danger col-1 gy-2 align-self-center"
@@ -48,7 +51,7 @@
 					</c:when>
 					<c:otherwise>
 						<button class="btn btn-warning col-1 gy-2 align-self-center"
-						type="button" onclick="#"
+						type="button" onclick="location.href='posting_apply.do?pid=${pid}&user_uid=${postingUid}&ptitle=${postingDetail.ptitle}'" 
 						style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">신청하기</button>
 					</c:otherwise>
 
@@ -146,7 +149,7 @@
 		</div>
 	</c:forEach>
 
-	<form action="posting_reply_insert.do" method="get">
+	<form action="posting_reply_insert.do" method="get" id="reply">
 		<div class="row justify-content-center my-5">
 			<div class="col-6">
 				<input type="text" class="form-control" name="ureply"
