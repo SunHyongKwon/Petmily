@@ -123,9 +123,7 @@ public class CustomerHomeController extends HttpServlet {
 		case ("/sign_up_kakao.do"):
 			command = new KakaoTokenCommand();
 			command.execute(request, response);
-			viewpage = "sign_up_form.jsp";
-			content_viewpage = "mypage_modify.jsp";
-			request.setAttribute("content_viewpage", content_viewpage);
+			viewpage = "signup_form.do";
 			break;
 		//회원가입 화면에서 가입하기 버튼 클릭 시
 		case("/sign_up.do"):

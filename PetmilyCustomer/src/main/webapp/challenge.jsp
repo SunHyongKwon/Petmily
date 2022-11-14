@@ -18,16 +18,12 @@
 </head>
 <body>
 	<jsp:include page="component/header.jsp"></jsp:include>
-	<div style = "padding : 2rem"></div>
-	
 	
 	<div class = "container-fluid">
 		<div class="row">
-			<div class="col-3 border">
+			<div class="col-3">
 				<jsp:include page="component/challenge_sidebar.jsp"></jsp:include>
-			
 			</div>
-			
 			<div class="col-8">
 				<!-- command에서 이걸 갈아 끼울 것이다.  -->			
 				<jsp:include page="component/${content_viewpage }"></jsp:include>		

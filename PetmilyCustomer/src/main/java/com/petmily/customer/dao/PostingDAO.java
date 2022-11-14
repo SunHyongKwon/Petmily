@@ -301,7 +301,7 @@ public class PostingDAO {
 
 			//String query = "select pid, ptitle, plocation, pinitdate, user_uid from posting where pcategory = '" + pcategory + "' and pdeletedate is null order by pid desc  limit " + start + "," + rowLength;
 			String query1 = "select pid, ptitle, plocation, pinitdate, user_uid from posting ";
-			String query2 = "where pcategory = '"+pcategory+"' and pdeletedate is null and "+option+" like '%"+query+"%' and user_uid = "+uid;
+			String query2 = "where pcategory = '"+pcategory+"' and pdeletedate is null and "+option+" like '%"+query+"%' and user_uid = '"+uid+"'";
 			String query3 = " order by pid desc limit "+start+","+rowLength;
 			preparedStatement = connection.prepareStatement(query1+query2+query3);
 			resultSet = preparedStatement.executeQuery();
