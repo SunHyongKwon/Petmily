@@ -156,7 +156,7 @@ $(document).ready(function(){
 				</button>
 			</c:if>
 			<!-- arial-pressed 가 true이면 좋아요 1 추가 된다 이느낌인듯 -->
-			${postingLike}
+			<strong>좋아요 ${postingLike} 개</strong>
 
 		</div>
 	</div>

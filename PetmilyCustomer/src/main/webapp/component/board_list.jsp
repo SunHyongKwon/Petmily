@@ -131,8 +131,6 @@
 						<th scope="col">작성자</th>
 						<th scope="col">시간</th>
 						<th scope="col">장소</th>
-						<th scope="col">좋아요</th>
-						<th scope="col">조회수</th>
 					</tr>
 				</thead>
 

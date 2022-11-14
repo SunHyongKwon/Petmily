@@ -25,8 +25,6 @@
 				<li class="nav-item"><a class="nav-link mx-2"
 					href="challenge.do">도전</a></li>
 
-				<li class="nav-item"><a class="nav-link mx-2" href="#">매칭</a></li>
-
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle mx-2"
 					href="posting.do?pcategory=volunteer" role="button"

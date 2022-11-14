@@ -389,5 +389,7 @@ public class PostingDAO {
 		
 		return commentList;
 	}
+	
+	
 
 }

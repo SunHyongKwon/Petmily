@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 #square-bronze {
 	width: 6.5rem;
@@ -26,97 +26,256 @@
 	border-radius: 15px;
 }
 
-.bi-lock {
+.bi-lock, .bi-play-circle, .bi-cup-straw, .bi-gift, .bi-flower1,
+	.bi-flower2, .bi-globe-asia-australia {
 	font-size: 4rem;
 	color: white;
 	text-align: center;
 }
 </style>
 
-	<div class="container">
-		<h3 style="color: #de6637; margin-bottom: 1.3rem;">
-			<strong>도전과제 목록</strong>
-		</h3>
-		<!-- 영상 이름 -->
-		<p style="color: #a3a3a3; margin-bottom: 0;">
-			<small>당신이 달성한 도전과제를 확인 할 수 있어요.</small>
-		</p>
-		<p style="color: #a3a3a3; margin-bottom: 2rem;">
-			<small>모든 도전과제를 달성하기 위해 지금 도전하세요.</small>
-		</p>
+<div class="container">
+	<h3 style="color: #de6637; margin-bottom: 1.3rem;">
+		<strong>도전과제 목록</strong>
+	</h3>
+	<!-- 영상 이름 -->
+	<p style="color: #a3a3a3; margin-bottom: 0;">
+		<small>당신이 달성한 도전과제를 확인 할 수 있어요.</small>
+	</p>
+	<p style="color: #a3a3a3; margin-bottom: 2rem;">
+		<small>모든 도전과제를 달성하기 위해 지금 도전하세요.</small>
+	</p>
 
-		<div class="row">
-			<h5 style="margin-bottom: 1.3rem;">봉사활동 뱃지</h5>
+	<div class="row">
+		<h5 style="margin-bottom: 1.3rem;">도전 수강 뱃지</h5>
+	</div>
+
+	<div class="row text-center">
+		<div class="col-2 mx-2 my-2" id="square-bronze">
+			<c:choose>
+				<c:when test="${checkChapter ge 1 }">
+					<i class="bi bi-play-circle"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
 		</div>
-
-		<div class="row text-center">
-			<div class="col-2 mx-2 my-2" id="square-bronze">
-				<i class="bi bi-lock"></i>
-				<!-- 사진 화면 if문 돌리면 됨 -->
-				<!-- <i class="bi bi-lock"></i> -->
-			</div>
-			<div class="col-2 mx-2 my-2" id="square-silver">
-				<i class="bi bi-lock"></i>
-			</div>
-			<div class="col-2 mx-2 my-2" id="square-gold">
-				<i class="bi bi-lock"></i>
-			</div>
+		<div class="col-2 mx-2 my-2" id="square-silver">
+			<c:choose>
+				<c:when test="${checkChapter ge 2 }">
+					<i class="bi bi-play-circle"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
 		</div>
-
-		<hr>
-
-		<div class="row">
-			<h5 style="margin-bottom: 1.3rem;">같이산책 뱃지</h5>
+		<div class="col-2 mx-2 my-2" id="square-gold">
+			<c:choose>
+				<c:when test="${checkChapter ge 3 }">
+					<i class="bi bi-play-circle"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
 		</div>
+	</div>
 
-		<div class="row text-center">
-			<div class="col-2 mx-2 my-2" id="square-bronze">
-				<i class="bi bi-lock"></i>
-			</div>
-			<div class="col-2 mx-2 my-2" id="square-silver">
-				<i class="bi bi-lock"></i>
-			</div>
-			<div class="col-2 mx-2 my-2" id="square-gold">
-				<i class="bi bi-lock"></i>
-			</div>
+	<hr>
+
+	<div class="row">
+		<h5 style="margin-bottom: 1.3rem;">같이산책 뱃지</h5>
+	</div>
+
+	<div class="row text-center">
+		<div class="col-2 mx-2 my-2" id="square-bronze">
+			<c:choose>
+				<c:when test="${checkWalk ge 1 }">
+					<i class="bi bi-globe-asia-australia"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
 		</div>
-
-		<hr>
-
-		<div class="row">
-			<h5 style="margin-bottom: 1.3rem;">같이 펫카페 뱃지</h5>
+		<div class="col-2 mx-2 my-2" id="square-silver">
+			<c:choose>
+				<c:when test="${checkWalk ge 2 }">
+					<i class="bi bi-globe-asia-australia"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
 		</div>
-
-		<div class="row text-center">
-			<div class="col-2 mx-2 my-2" id="square-bronze">
-				<i class="bi bi-lock"></i>
-			</div>
-			<div class="col-2 mx-2 my-2" id="square-silver">
-				<i class="bi bi-lock"></i>
-			</div>
-			<div class="col-2 mx-2 my-2" id="square-gold">
-				<i class="bi bi-lock"></i>
-			</div>
+		<div class="col-2 mx-2 my-2" id="square-gold">
+			<c:choose>
+				<c:when test="${checkWalk ge 3 }">
+					<i class="bi bi-globe-asia-australia"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
 		</div>
+	</div>
 
-		<hr>
+	<hr>
 
-		<div class="row">
-			<h5 style="margin-bottom: 1.3rem;">유기견 신고 뱃지</h5>
+	<div class="row">
+		<h5 style="margin-bottom: 1.3rem;">같이 펫카페 뱃지</h5>
+	</div>
+
+	<div class="row text-center">
+		<div class="col-2 mx-2 my-2" id="square-bronze">
+			<c:choose>
+				<c:when test="${checkPetcafe ge 1 }">
+					<i class="bi bi-cup-straw"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
 		</div>
-
-		<div class="row text-center">
-			<div class="col-2 mx-2 my-2" id="square-bronze">
-				<i class="bi bi-lock"></i>
-			</div>
-			<div class="col-2 mx-2 my-2" id="square-silver">
-				<i class="bi bi-lock"></i>
-			</div>
-			<div class="col-2 mx-2 my-2" id="square-gold">
-				<i class="bi bi-lock"></i>
-			</div>
-
-
+		<div class="col-2 mx-2 my-2" id="square-silver">
+			<c:choose>
+				<c:when test="${checkPetcafe ge 2 }">
+					<i class="bi bi-cup-straw"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
 		</div>
+		<div class="col-2 mx-2 my-2" id="square-gold">
+			<c:choose>
+				<c:when test="${checkPetcafe ge 3 }">
+					<i class="bi bi-cup-straw"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<h5 style="margin-bottom: 1.3rem;">같이 봉사 뱃지</h5>
+	</div>
+
+	<div class="row text-center">
+		<div class="col-2 mx-2 my-2" id="square-bronze">
+			<c:choose>
+				<c:when test="${checkVolunteer ge 1 }">
+					<i class="bi bi-gift"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="col-2 mx-2 my-2" id="square-silver">
+			<c:choose>
+				<c:when test="${checkVolunteer ge 2 }">
+					<i class="bi bi-gift"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="col-2 mx-2 my-2" id="square-gold">
+			<c:choose>
+				<c:when test="${checkVolunteer ge 3 }">
+					<i class="bi bi-gift"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<h5 style="margin-bottom: 1.3rem;">찾아주세요 뱃지</h5>
+	</div>
+
+	<div class="row text-center">
+		<div class="col-2 mx-2 my-2" id="square-bronze">
+			<c:choose>
+				<c:when test="${checkFind ge 1 }">
+					<i class="bi bi-flower2"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="col-2 mx-2 my-2" id="square-silver">
+			<c:choose>
+				<c:when test="${checkFind ge 2 }">
+					<i class="bi bi-flower2"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="col-2 mx-2 my-2" id="square-gold">
+			<c:choose>
+				<c:when test="${checkFind ge 3 }">
+					<i class="bi bi-flower2"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>
+
+	<hr>
+
+	<div class="row">
+		<h5 style="margin-bottom: 1.3rem;">찾았어요 뱃지</h5>
+	</div>
+
+	<div class="row text-center">
+		<div class="col-2 mx-2 my-2" id="square-bronze">
+			<c:choose>
+				<c:when test="${checkFound ge 1 }">
+					<i class="bi bi-flower1"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="col-2 mx-2 my-2" id="square-silver">
+			<c:choose>
+				<c:when test="${checkFound ge 2 }">
+					<i class="bi bi-flower1"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="col-2 mx-2 my-2" id="square-gold">
+			<c:choose>
+				<c:when test="${checkFound ge 3 }">
+					<i class="bi bi-flower1"></i>
+				</c:when>
+				<c:otherwise>
+					<i class="bi bi-lock"></i>
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</div>
 
 </div>
