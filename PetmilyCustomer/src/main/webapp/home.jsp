@@ -27,7 +27,7 @@
 		<div style="padding-top: 2rem"></div>
 
 		<div class="row justify-content-center">
-			<div class="col-11">
+			<div class="col">
 				<jsp:include page="component/home_slide_0.jsp"></jsp:include>
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 		<div style="padding-top: 2rem"></div>
 
 		<div class="row justify-content-center">
-			<div class="col-11">
+			<div class="col">
 				<jsp:include page="component/home_slide_1.jsp"></jsp:include>
 			</div>
 		</div>
@@ -43,7 +43,7 @@
 		<div style="padding-top: 2rem"></div>
 
 		<div class="row justify-content-center">
-			<div class="col-11">
+			<div class="col">
 				<jsp:include page="component/home_slide_2.jsp"></jsp:include>
 			</div>
 		</div>
@@ -51,7 +51,7 @@
 		<div style="padding-top: 2rem"></div>
 
 		<div class="row justify-content-center">
-			<div class="col-11">
+			<div class="col">
 				<jsp:include page="component/home_slide_3.jsp"></jsp:include>
 			</div>
 		</div>

@@ -28,10 +28,10 @@
 			
 			</div>
 			
-			<div class="col-10 mt-4">
+			<div class="col-10 mt-4 text-center">
 				<!-- command에서 이걸 갈아 끼울 것이다.  -->			
 				<!--<jsp:include page="component/${content_viewpage }"></jsp:include>	-->	
-				<jsp:include page="component/challenge_video.jsp"></jsp:include>
+				ddddd
 			</div>
 		</div>
 	

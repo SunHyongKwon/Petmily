@@ -18,6 +18,7 @@ import com.petmily.customer.command.HomeSlide1Command;
 import com.petmily.customer.command.HomeSlide2Command;
 import com.petmily.customer.command.HomeSlide3Command;
 import com.petmily.customer.command.KakaoTokenCommand;
+import com.petmily.customer.command.LectureListCommand;
 import com.petmily.customer.command.LoginCommand;
 import com.petmily.customer.command.LogoutCommand;
 import com.petmily.customer.command.Mypage1365InsertCommand;
@@ -36,6 +37,7 @@ import com.petmily.customer.command.PostingLikeClickCommand;
 import com.petmily.customer.command.PostingQueryCommand;
 import com.petmily.customer.command.PostingReplyInsertCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
+import com.petmily.customer.command.QuizCheckCommand;
 import com.petmily.customer.command.SignupCommand;
 import com.petmily.customer.command.SignupIdCheckCommand;
 
@@ -280,6 +282,23 @@ public class CustomerHomeController extends HttpServlet {
 			command = new ChallengeVideoCommand();
 			viewpage = "challenge.jsp";
 			break;
+		//사이드바에서 하나 선택했을때
+		case("/lecture_view.do"):
+			command = new LectureListCommand();
+			command.execute(request, response);
+			viewpage = "challenge.jsp";
+			break;
+		case("/quizcheck.do"):
+			command = new QuizCheckCommand();
+			int result2 = command.executeInt(request, response);
+			System.out.println(result2);
+			if(result2 == 1) {
+				viewpage = "challenge_success.jsp";
+			}else {
+				viewpage = "challenge_fail.jsp";
+			}
+			break;
+			
 		
 			
 	// 채팅 관련 do

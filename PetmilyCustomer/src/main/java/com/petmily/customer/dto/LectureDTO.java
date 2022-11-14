@@ -30,6 +30,14 @@ public class LectureDTO {
 			this.linitdate = linitdate;
 			this.ldeletedate = ldeletedate;
 		}
+		public LectureDTO(String ltitle, String lcontent, String lvideolink, int lchapter, int lvideolength) {
+			super();
+			this.ltitle = ltitle;
+			this.lcontent = lcontent;
+			this.lvideolink = lvideolink;
+			this.lchapter = lchapter;
+			this.lvideolength = lvideolength;
+		}
 
 
 		public int getLid() {

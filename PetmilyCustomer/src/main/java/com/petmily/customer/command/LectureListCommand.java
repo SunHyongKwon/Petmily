@@ -3,11 +3,19 @@ package com.petmily.customer.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ChallengeVideoCommand implements CustomerCommand {
+import com.petmily.customer.dao.LectureDAO;
+import com.petmily.customer.dto.LectureDTO;
+
+public class LectureListCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		String slid = request.getParameter("lid");
+		LectureDAO dao = new LectureDAO();
+		LectureDTO dto = dao.lecturView(slid);
+		request.setAttribute("lecture_view", dto);
+		
 		
 
 	}
