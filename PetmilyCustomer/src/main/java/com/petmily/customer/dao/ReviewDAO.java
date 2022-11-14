@@ -8,6 +8,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.petmily.customer.dto.UserDTO;
+
 public class ReviewDAO {
 
 	DataSource dataSource;
@@ -22,6 +24,72 @@ public class ReviewDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public int selectRating(String user_uid) {
+		int totalRate = 0;
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select sum(revrating) from review where to_uid = '" + user_uid + "' group by to_uid"; 
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				totalRate = resultSet.getInt(1);
+			}
+			
+			
+			return totalRate;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	
+	public void update(int apid,String columnname) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "update review set "+ columnname + " = now() where apid = " + apid;
+			preparedStatement = connection.prepareStatement(query);
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

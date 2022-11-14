@@ -30,9 +30,8 @@
 					
 					<div align = "center">
 						<!-- rate의 value에 유저의 별점이 들어오면 된다.  -->
-						<c:set var="rate" value="8" />
-						<c:set var="full" value="${rate / 2 }" />
-						<c:set var="half" value="${rate % 2 }" />
+						<c:set var="full" value="${userRating / 2 }" />
+						<c:set var="half" value="${userRating % 2 }" />
 						<c:set var="emp" value="${5 - full }" />
 						
 						<c:choose>
@@ -61,10 +60,11 @@
 				
 				<div class="col-7 gy-3">
 					<!-- 작성자명  -->
-					<h5 style = "color : #FB9E58;"><strong>스마일맨</strong></h5>
-					<!-- 자기소개서 -->
-					<p>안녕하세요? 사이트 구경하다가 신청합니다. 강아지는 사랑입니다. 본가에서 키우는 저희 누룽지랑 닮아서 깜짝 놀랐어요.
-					제 프로필 사진이 우리 누룽지랍니다.</p>
+					<h5 style = "color : #FB9E58;"><strong>${applyUserInfoList.get(status.index).unickname }</strong></h5>
+					<!-- 신청 보낸 날짜  -->
+					<p>${apply.apdate }</p>
+					<!-- 신청 시 보낸 메시지 내용 -->
+					<p>${apply.apcontent }</p>
 				</div>
 			</div>
 		</div>

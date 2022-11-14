@@ -54,11 +54,7 @@ public class PostingCommand implements CustomerCommand {
 		} catch (Exception e) {
 			cPage = 1;
 		}
-		System.out.println(pcategory);
-		System.out.println(option);
-		System.out.println(query);
 
-		
 		totalRows = dao.postingListRow(pcategory);
 		PagingDTO dto =  dao.postingListPaging(cPage, totalRows, pageLength);
 		ArrayList<PostingDTO> dtos = dao.postingGetList(cPage, rowLength, pcategory, option, query);

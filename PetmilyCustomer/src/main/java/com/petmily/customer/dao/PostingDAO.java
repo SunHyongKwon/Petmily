@@ -150,7 +150,6 @@ public class PostingDAO {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;// 검색
-
 		int start = (cPage - 1) * rowLength;
 
 		try {

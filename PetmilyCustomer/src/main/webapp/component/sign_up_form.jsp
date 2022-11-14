@@ -317,7 +317,7 @@
 		<!-- 선택된 사진 보이는 곳 -->
 		<div class="row jstify-content-center">
 			<div class="text-center gy-1">
-				<img src="component/images/profile_sample.png" width="300"
+				<img src="user/profile_sample.png" width="300"
 					height="300" class="rounded-circle" alt="사진 선택시 변경" id="blah">
 			</div>
 		</div>
