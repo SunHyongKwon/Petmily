@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 
 public class FileDAO {
 
-	public int rename(String directory, String fileRealName, String fileChangeName) {
+	public String rename(String directory, String fileRealName, String fileChangeName) {
 		
 		String extension = fileRealName.substring(fileRealName.indexOf("."),fileRealName.length());
 		
@@ -41,13 +41,13 @@ public class FileDAO {
 				fout.close();
 				oldFile.delete();
 			}
-
-			return 1;
+		
+			return fileChangeName + extension;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return 0;
 		}
 		
+		return null;
 	}
 
 }

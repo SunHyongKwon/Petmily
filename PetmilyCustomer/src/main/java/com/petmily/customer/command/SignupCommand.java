@@ -46,16 +46,16 @@ public class SignupCommand implements CustomerCommand {
 		String fileRealName = multipartRequest.getFilesystemName("file");
 		String uid = multipartRequest.getParameter("uid");
 		
-		int result;
+		String uimage;
 		if (!(fileName == null)) {
 			FileDAO dao = new FileDAO();
-			result = dao.rename(directory, fileRealName, uid);
+			uimage = dao.rename(directory, fileRealName, uid);
 		}else { 
-			result = 1;
+			uimage = "";
 		}
 		// end
 
-		if (result == 1) {
+		if (!uimage.equals("")) {
 			// 넣어줄 parameter 값들 가져오기
 			// user 테이블에 넣어줘야 될 값들
 			// uid -> 파일에 넣으려고 선언한 uid 값 가져오면 됨
@@ -78,7 +78,6 @@ public class SignupCommand implements CustomerCommand {
 			// utype
 			String utype = multipartRequest.getParameter("utype");
 			//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-			String uimage = multipartRequest.getParameter("uid");
 
 			// database user table에 insert 하기
 			UserDAO userDAO = new UserDAO();
