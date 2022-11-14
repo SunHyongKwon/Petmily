@@ -46,7 +46,7 @@ $(document).ready(function(){
 						<div class="col-3">
 							<div class="card h-100">
 								<img
-									src="1.png" width="200" height="200"
+									src="petspec/${psbreeds.psbreeds }.jpeg" width="200" height="250"
 									class="card-img-top" alt="...">
 								<div class="card-body text-center">
 									<div class="clearfix mb-3">

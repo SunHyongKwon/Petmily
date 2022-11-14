@@ -11,7 +11,6 @@ import com.petmily.customer.dao.ReviewDAO;
 import com.petmily.customer.dao.UserDAO;
 import com.petmily.customer.dto.ApplyDTO;
 import com.petmily.customer.dto.PagingDTO;
-import com.petmily.customer.dto.ReviewDTO;
 import com.petmily.customer.dto.UserDTO;
 
 public class MypageApplyListCommand implements CustomerCommand {

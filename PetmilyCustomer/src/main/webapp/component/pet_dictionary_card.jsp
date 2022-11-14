@@ -8,7 +8,7 @@
 			<div class="col-3 gy-3">
 				<div class="card">
 					<a href="pet_dictionary_detail.do?psbreeds=${list.psbreeds }">
-						<img src="petdictionary/${list.psbreeds }.jpg" class="card-img-top" alt="..."
+						<img src="petspec/${list.psbreeds }.jpeg" class="card-img-top" alt="..."
 						height="200">
 					</a>
 					<div class="card-body">
