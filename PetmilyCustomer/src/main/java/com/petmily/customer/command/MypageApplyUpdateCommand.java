@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class postingApplyCommand implements CustomerCommand {
+public class MypageApplyUpdateCommand implements CustomerCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 
 	}
 

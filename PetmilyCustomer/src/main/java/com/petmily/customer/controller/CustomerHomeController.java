@@ -24,6 +24,7 @@ import com.petmily.customer.command.Mypage1365InsertCommand;
 import com.petmily.customer.command.Mypage1365ListCommand;
 import com.petmily.customer.command.Mypage1365SearchCommand;
 import com.petmily.customer.command.MypageApplyListCommand;
+import com.petmily.customer.command.MypageApplyUpdateCommand;
 import com.petmily.customer.command.MypageChallengeCommand;
 import com.petmily.customer.command.MypageModifyLoginCommand;
 import com.petmily.customer.command.MypageModifyUpdateCommand;
@@ -40,6 +41,7 @@ import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.SignupCommand;
 import com.petmily.customer.command.SignupIdCheckCommand;
 import com.petmily.customer.command.postingApplyCommand;
+import com.petmily.customer.command.postingApplyInsertCommand;
 
 
 @WebServlet("*.do")
@@ -225,6 +227,12 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "mypage_apply_list.jsp";
 			break;		
+		//마이페이지에서 거절승락
+		case("/apply_update.do"):
+		command = new MypageApplyUpdateCommand();
+		command.execute(request, response);
+			viewpage = "mypage_apply_list.do";
+			
 			
 	
 	// 게시판 관련 do
@@ -273,11 +281,11 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "posting_click.do";
 			break;
-		//
-		case("/posting_apply.do"):
-			command = new postingApplyCommand();
+		//신청하기 작성페이지에서 신청하기 버튼 클릭 시
+		case("/posting_apply_insert.do"):
+			command = new postingApplyInsertCommand();
 			command.execute(request, response);
-			viewpage = "board_apply.jsp";
+			viewpage = "posting_click.do";
 			break;
 
 			

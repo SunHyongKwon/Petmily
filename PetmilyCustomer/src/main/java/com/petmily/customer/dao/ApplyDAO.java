@@ -1,6 +1,5 @@
 package com.petmily.customer.dao;
 
-import java.io.StringBufferInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +12,6 @@ import javax.sql.DataSource;
 
 import com.petmily.customer.dto.ApplyDTO;
 import com.petmily.customer.dto.PagingDTO;
-import com.petmily.customer.dto.PostingDTO;
-import com.petmily.customer.dto.UserDTO;
 
 public class ApplyDAO {
 
@@ -153,4 +150,40 @@ public class ApplyDAO {
 		return dtos;
 		
 	}
+	
+	public void postingApplyInsert(String user_uid, int posting_pid, String posting_user_uid, String aptitle, String apcontent) {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "insert into apply (user_uid, posting_pid, posting_user_uid, aptitle, apcontent, apdate) ";
+			String query2 = "values (?,?,?,?,?,now())";
+			preparedStatement = connection.prepareStatement(query + query2);
+
+			preparedStatement.setString(1, user_uid);
+			preparedStatement.setInt(2, posting_pid);
+			preparedStatement.setString(3, posting_user_uid);
+			preparedStatement.setString(4, aptitle);
+			preparedStatement.setString(5, apcontent);
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 }
