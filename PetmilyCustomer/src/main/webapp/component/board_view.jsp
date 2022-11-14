@@ -9,18 +9,19 @@
 	<div class="row justify-content-between my-2">
 		<div class="col-4 text-start align-self-center">
 			<c:choose>
-			
+
 				<c:when test="${postingUimage eq null }">
-					<li class="nav-item"><img src="user/profile_sample.png"
-						height="60" width="60" class="rounded-circle" alt=""></li>
+					<img src="user/profile_sample.png"
+						height="60" width="60" class="rounded-circle" alt="">
 				</c:when>
 
 				<c:otherwise>
-					<li class="nav-item"><img src="user/${postingUimage }"
-						height="40" width="40" class="rounded-circle" alt=""></li>
+					<img src="user/${postingUimage }"
+						height="40" width="40" class="rounded-circle" alt="">
 				</c:otherwise>
 
-			</c:choose> <span class="mx-2"> ${postingUid}</span>
+			</c:choose>
+			<span class="mx-2"> ${postingUid}</span>
 		</div>
 
 
@@ -87,20 +88,35 @@
 	</div>
 
 	<!-- 댓글 -->
-	<div class="row justify-content-center my-2">
-		<div class="col-2"></div>
-		<div class="col-2 align-self-center">
-			<img src="https://picsum.photos/50/50/?random" class="rounded-circle"
-				alt=""> <span class="mx-2">username</span>
+	<!-- parent id가 pid인 걸 가져와서 댓글 쓴 사람의 아이디를 가지고 이미지를 불러오고 -->
+	<!-- 그거의 댓글과 날짜를 보여주면 된다. -->
+	<c:forEach var="comment" items="${commentList }" varStatus="status">
+		<div class="row justify-content-center my-3">
+			<div class="col-1 align-self-center">
+				<c:choose>
+					<c:when test="${commentImageList.get(status.index) eq null }">
+						<img src="user/profile_sample.png"
+							height="40" width="40" class="rounded-circle" alt="">
+					</c:when>
+
+					<c:otherwise>
+						<img src="user/${commentImageList.get(status.index) }"
+							height="40" width="40" class="rounded-circle" alt="">
+					</c:otherwise>
+
+				</c:choose>
+			</div>
+			<div class="col-2 text-start align-self-center" >
+				<span class="mx-2"> ${comment.user_uid}</span>
+			</div>
+			<div class="col-4 text-start align-self-center">
+				<span>${comment.pcontent }</span>
+			</div>
+			<div class="col-2 text-end align-self-center">
+				<h6>${comment.pinitdate }</h6>
+			</div>
 		</div>
-		<div class="col-4 text-start align-self-center">
-			<span>댓글에 무엇을 들어가야 될까요 고민고민하지마 걸 헤이 유고걸 데레데레뎃뎃 뎃 걸</span>
-		</div>
-		<div class="col-2 text-end align-self-center">
-			<h6>2021/10/21 10:00:29</h6>
-		</div>
-		<div class="col-2"></div>
-	</div>
+	</c:forEach>
 
 	<form action="posting_reply_insert.do" method="get">
 		<div class="row justify-content-center my-5">

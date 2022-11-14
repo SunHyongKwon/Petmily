@@ -1,5 +1,7 @@
 package com.petmily.customer.command;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -48,6 +50,12 @@ public class PostingClickCommand implements CustomerCommand {
 		view = sdao.showViewAllCount(pid);
 		like = sdao.showLikeAllCount(pid);
 		
+		// 댓글 불러오기
+		// pcontent , pinitdate , user_uid 가져오기
+		ArrayList<PostingDTO> commentList = new ArrayList<>();
+		commentList = pdao.selectCommentList(pid);
+		ArrayList<String> commentImageList = udao.selectImageList(commentList);
+		
 		request.setAttribute("pid", pid);
 		request.setAttribute("postingView", view);
 		request.setAttribute("postingLike", like);
@@ -55,7 +63,8 @@ public class PostingClickCommand implements CustomerCommand {
 		request.setAttribute("postingDetail", pdto);
 		request.setAttribute("postingUid", postingUid);
 		request.setAttribute("postingUimage", uimage);
-		
+		request.setAttribute("commentList", commentList);
+		request.setAttribute("commentImageList", commentImageList);
 		
 	}
 

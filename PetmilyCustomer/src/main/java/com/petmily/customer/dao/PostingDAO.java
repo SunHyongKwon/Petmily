@@ -340,5 +340,55 @@ public class PostingDAO {
 		
 		
 	}
+	
+	public ArrayList<PostingDTO> selectCommentList(int pid){
+		ArrayList<PostingDTO> commentList = new ArrayList<>();
+		
+		String pcontent;
+		Timestamp pinitdate;
+		String user_uid;
+		
+
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select pcontent, pinitdate, user_uid from posting where pparentid = " + pid + " order by pinitdate desc";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			// 한개일때는 if, 여러개일때는while
+
+			while (resultSet.next() == true) {
+				 pcontent = resultSet.getString(1);
+				 pinitdate = resultSet.getTimestamp(2);
+				 user_uid = resultSet.getString(3);
+				 
+				 PostingDTO dto = new PostingDTO(pcontent, pinitdate, user_uid);
+				 commentList.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return commentList;
+	}
 
 }
