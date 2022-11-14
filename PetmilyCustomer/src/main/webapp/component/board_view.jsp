@@ -19,7 +19,7 @@ $(document).ready(function(){
 	})
 	
 	$('#apply_button').click(function(){
-		$('#posting_apply_insert').submit;
+		$('#posting_apply_insert').submit();
 	})
 })
 
