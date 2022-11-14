@@ -67,29 +67,5 @@ public class ReviewDAO {
 		return 0;
 	}
 	
-	public void update(int apid,String columnname) {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-
-		try {
-			connection = dataSource.getConnection();
-
-			String query = "update review set "+ columnname + " = now() where apid = " + apid;
-			preparedStatement = connection.prepareStatement(query);
-
-			preparedStatement.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-				if (connection != null)
-					connection.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+	
 }

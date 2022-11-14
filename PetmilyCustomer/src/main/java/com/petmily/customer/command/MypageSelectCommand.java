@@ -19,12 +19,6 @@ public class MypageSelectCommand implements CustomerCommand {
 	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		// 하다 만거 
-		// by 은빈  -- myPageList
-		String uid = request.getParameter("uid");
-		UserDAO dao = new UserDAO();
-		UserDTO dto = dao.myPageView(uid);
-		request.setAttribute("uid", dto);
 				
 		return 0;
 

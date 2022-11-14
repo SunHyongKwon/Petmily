@@ -60,7 +60,7 @@ $(document).ready(function(){
 		<form action="posting_apply_insert.do" name="posting_apply_insert" id="posting_apply_insert">
 			<div class="row justify-content-between my-2">
 				<div class="text-end">
-					<input type="hidden" name="user_uid" value="${user_uid }">
+					<input type="hidden" name="user_uid" value="${postingUid }">
 					<input type="hidden" name="pid" value="${pid }">
 
 					<c:choose>

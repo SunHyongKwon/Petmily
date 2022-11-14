@@ -19,7 +19,8 @@
 
 <script>
 	$(document).ready(function() {
-
+		
+		
 		$('#detail-1').click(function() {
 			if ($('#detail-page-1').css("display") == "none") {
 				$('#detail-page-1').show();
@@ -59,19 +60,28 @@
 				$('#detail-page-5').hide();
 			}
 		})
-		$('button[name=func]').click(functon){
-			var index = $(this).parent().parent().index();
-			   $('#index').val(index);
-			$("form").submit();
-		}
+
+		$('button[name=func1]').on("click", function() {
+			var index = $(this).parent().parent().index() / 3;
+			$('#index').val(index);
+			$('#applylist').submit();
+		})
+
+		$('button[name=func2]').on("click", function() {
+			var index = $(this).parent().parent().index() / 3;
+			$('#index').val(index);
+			$("#applylist").attr("action", "apply_delete.do");
+			$('#applylist').submit();
+		})
+
 	})
-	
 	
 </script>
 
 
 
-<form action="apply_update.do" name="applylist">
+<form action="apply_update.do" name="applylist" id="applylist">
+	<input type="hidden" name="message" id="message" value="${alert }">
 	<div class="container">
 		<div class="row my-3">
 			<h2>
@@ -97,23 +107,76 @@
 			<table class="table">
 				<thead align="center">
 					<tr>
-						<th class="col-1" scope="col">번호</th>
+						<th class="col-1" scope="col">게시물 번호</th>
 						<th class="col-5" scope="col">메시지</th>
 						<th class="col-2" scope="col">작성자</th>
 						<th class="col-2" scope="col">상세보기</th>
 						<th class="col-2" scope="col">확인</th>
 					</tr>
 				</thead>
-					
-				<tbody>
+
+				<tbody align="center">
 					<!-- forEach로 돌리면 되고 페이징 넣어보자 id를 detail-1~5 , detail-page-1~5 -->
 					<c:forEach var="apply" items="${applyList }" varStatus="status">
 						<tr>
-							<th style="text-align: center;" scope="row">${paging.endRow - status.index }</th>
+							<th style="text-align: center;" scope="row"><a
+								href="posting_click.do?pid=${apply.posting_pid }">${apply.posting_pid }</a></th>
 							<td>${apply.aptitle}<!-- 상세보기 띄는 곳 -->
 								<div class="my-4" id="detail-page-${status.count}"
 									style="display: none">
-									<jsp:include page="mypage_apply_list_detail.jsp"></jsp:include>
+
+									<div id="content">
+										<div class="container">
+
+											<div class="row">
+												<div class="col-5 gy-3" align="center">
+													<!-- 프로필 이미지 넣는 곳  -->
+													<img src="https://picsum.photos/150/150/?random"
+														class="rounded-circle" alt="..."> <br>
+
+													<div align="center">
+														<!-- rate의 value에 유저의 별점이 들어오면 된다.  -->
+														<c:set var="full" value="${userRating / 2 }" />
+														<c:set var="half" value="${userRating % 2 }" />
+														<c:set var="emp" value="${5 - full }" />
+
+														<c:choose>
+															<c:when test="${full >= 1}">
+																<c:forEach var="full" begin="1" end="${full }">
+																	<i class="bi bi-star-fill"></i>
+																</c:forEach>
+															</c:when>
+														</c:choose>
+
+														<c:choose>
+															<c:when test="${half == 1}">
+																<i class="bi bi-star-half"></i>
+															</c:when>
+														</c:choose>
+
+														<c:choose>
+															<c:when test="${emp >= 1}">
+																<c:forEach var="full" begin="1" end="${emp }">
+																	<i class="bi bi-star"></i>
+																</c:forEach>
+															</c:when>
+														</c:choose>
+													</div>
+												</div>
+
+												<div class="col-7 gy-3">
+													<!-- 작성자명  -->
+													<h5 style="color: #FB9E58;">
+														<strong>${applyUserInfoList.get(status.index).unickname }</strong>
+													</h5>
+													<!-- 신청 보낸 날짜  -->
+													<p>${apply.apdate }</p>
+													<!-- 신청 시 보낸 메시지 내용 -->
+													<p>${apply.apcontent }</p>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div> <!-- 상세보기 끝 -->
 							</td>
 							<td>${apply.user_uid}</td>
@@ -125,11 +188,11 @@
 								</button>
 							</td>
 							<td style="text-align: center;">
-								<button type="button" class="btn btn-outline-primary" value="accept"
-									name="func" data-toggle="button"
+								<button type="button" class="btn btn-outline-primary"
+									value="accept" name="func1" data-toggle="button"
 									style="margin-right: 0.8rem;">수락</button>
-								<button type="button" class="btn btn-outline-danger" value="decline"
-									name="func" data-toggle="button">거절</button>
+								<button type="button" class="btn btn-outline-danger"
+									value="decline" name="func2" data-toggle="button">거절</button>
 							</td>
 
 						</tr>
@@ -138,10 +201,10 @@
 							value="${apply.posting_pid }">
 					</c:forEach>
 					<!-- 한 줄 끝 -->
-	
+
 				</tbody>
 			</table>
-			
+
 		</div>
 
 		<!-- 페이징 -->
@@ -161,7 +224,7 @@
 						<c:otherwise>
 							<!-- else -->
 							<li class="page-item"><a class="page-link"
-								href="posting.do?page=${paging.startPage - 1}&pcategory=${param.pcategory }">Previous
+								href="mypage_apply_list.do?page=${paging.startPage - 1}">Previous
 							</a></li>
 						</c:otherwise>
 
@@ -170,8 +233,7 @@
 					<c:forEach var="count" begin="${paging.startPage}"
 						end="${paging.endPage}">
 						<li class="page-item"><a class="page-link"
-							href="posting.do?page=${count}&pcategory=${param.pcategory }">${count}
-						</a></li>
+							href="mypage_apply_list.do?page=${count}">${count} </a></li>
 					</c:forEach>
 
 					<c:choose>
@@ -184,7 +246,7 @@
 						<c:otherwise>
 							<!-- else -->
 							<li class="page-item"><a class="page-link"
-								href="posting.do?page=${paging.endPage + 1}&pcategory=${param.pcategory }">Next
+								href="mypage_apply_list.do?page=${paging.endPage + 1}">Next
 							</a></li>
 						</c:otherwise>
 

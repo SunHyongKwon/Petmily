@@ -111,10 +111,11 @@ public class ApplyDAO {
 			connection = dataSource.getConnection();
 			
 			// apid , aptitle , apcontent , apdate , posting_pid , user_uid
-			String query1 = "select apid , aptitle , apcontent, apdate , posting_pid , user_uid from apply ";
-			String query2 = "where posting_user_uid = '" + uid + "' ";
-			String query3 = "and apcanceldate is null and apmatchingdate is null and apcompletedate is null";
-			String query4 = "order by apdate desc limit "+ start + "," + rowLength;
+			String query1 = "select a.apid , a.aptitle , a.apcontent, a.apdate , a.posting_pid , a.user_uid from apply a , posting p ";
+			String query2 = "where a.posting_user_uid = '" + uid + "' ";
+			String query3 = "and apcanceldate is null and apmatchingdate is null and apcompletedate is null "
+					+ "and p.pid = a.posting_pid and p.pdeletedate is null ";
+			String query4 = "order by a.apdate desc limit "+ start + "," + rowLength;
 			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4);
 			resultSet = preparedStatement.executeQuery();
 
@@ -184,6 +185,58 @@ public class ApplyDAO {
 			}
 		}
 		
+	}
+	
+	public void updateByApId(int apid,String columnname) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "update apply set "+ columnname + " = now() where apid = " + apid;
+			preparedStatement = connection.prepareStatement(query);
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void updateByPId(int pid,String columnname) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "update apply set apcanceldate = now() where posting_pid = " + pid;
+			preparedStatement = connection.prepareStatement(query);
+
+			preparedStatement.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 }
