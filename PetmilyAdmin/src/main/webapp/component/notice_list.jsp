@@ -97,7 +97,7 @@
 							
 							<c:otherwise><!-- else -->
 							<li class="page-item">
-							<a class="page-link" href="notice_list.do?page=${paging.startPage - 1}">Previous
+							<a class="page-link" href="notice_list.do?page=${paging.startPage - 1}"><
 							</a></li>
 							</c:otherwise>
 							
@@ -119,7 +119,7 @@
 							
 							<c:otherwise><!-- else -->
 							<li class="page-item">
-							<a class="page-link" href="notice_list.do?page=${paging.endPage + 1}">Next
+							<a class="page-link" href="notice_list.do?page=${paging.endPage + 1}">>
 							</a></li>
 							</c:otherwise>
 							

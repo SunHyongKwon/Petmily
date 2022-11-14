@@ -23,6 +23,14 @@
 		<div class="row justify-content-center">
 			<jsp:include page="component/header.jsp"></jsp:include>
 		</div>
+		
+		<div style="padding-top: 2rem"></div>
+
+		<div class="row justify-content-center">
+			<div class="col-11">
+				<jsp:include page="component/home_slide_0.jsp"></jsp:include>
+			</div>
+		</div>
 
 		<div style="padding-top: 2rem"></div>
 
