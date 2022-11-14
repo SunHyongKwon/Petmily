@@ -58,7 +58,7 @@ public class ApplyDAO {
 				DailyMatchingCount = resultSet.getString("a");
 				DailyPostCount = resultSet.getString("b");
 				DailyCommentCount = resultSet.getString("c");
-			wList
+			
 				//만들어놓은 배열에 담기
 			}
 			

@@ -2,13 +2,14 @@
 	pageEncoding="UTF-8"%>
 
 
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	
 
 	<!-- slide3 -->
-	<div class="container mb-15" style="background-color: #FFFAF3; height : 40rem;">
+	<div class="container ml-0 mr-0 mb-15" style="background-color: #FFFAF3; height : 40rem; width : 1440px; height : 789px">
 	  <div class="row">
-	    <div class="col my-auto">
+	    <div class="col my-auto p-10">
+	    	 <canvas id="myChart2"></canvas>
 	      그래프 들어갈곳
 	      <!-- 서울 데이터 광장 가서 데이터 가서와서 그거를 비교하는 거를 해볼 생각이다. -->
 	    </div>
@@ -36,3 +37,48 @@
 	    </div>
 	  </div>
 	</div>
+<script>
+
+  
+  //chart2
+  const data2 = {
+    labels: [
+  	  	'유기견',
+	    '유기묘',
+	    '기타'
+	],
+    datasets: [{
+        label: 'My First Dataset',
+        data: [150, 50, 100],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)'
+        ],
+        hoverOffset: 4
+      }]
+  };
+
+  const config2 = {
+    type: 'doughnut',
+    data: data2,
+    options: {
+    	plugins: {
+        title: {
+            display: true,
+            text: 'Custom Chart Title'
+	        }
+	    }
+  	}
+  };
+  
+  
+  </script>
+  
+  <script>
+  
+  const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
+  );
+  </script>
