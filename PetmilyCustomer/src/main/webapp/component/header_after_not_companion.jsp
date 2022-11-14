@@ -18,7 +18,7 @@
 					aria-current="page" href="home.do">HOME</a></li>
 
 				<li class="nav-item"><a class="nav-link mx-2"
-					href="pet_dictionary_card.do">펫과사전</a></li>
+					href="pet_dictionary_card.do?pstype=dog">펫과사전</a></li>
 
 				<li class="nav-item"><a class="nav-link mx-2"
 					href="challenge.do">도전</a></li>
