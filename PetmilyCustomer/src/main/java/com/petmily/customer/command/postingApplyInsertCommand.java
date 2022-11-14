@@ -16,15 +16,43 @@ public class postingApplyInsertCommand implements CustomerCommand {
 		
 		HttpSession session = request.getSession();
 		UserDTO udto = (UserDTO)session.getAttribute("user");
-		
-		String user_uid = udto.getUid();
-		int posting_pid = Integer.parseInt(request.getParameter("pid"));
-		String posting_user_uid = request.getParameter("user_uid");
-		String aptitle = request.getParameter("aptitle");
-		String apcontent = request.getParameter("apcontent");
-		
 		ApplyDAO adao = new ApplyDAO();
-		adao.postingApplyInsert(user_uid, posting_pid, posting_user_uid, aptitle, apcontent);
+		
+		String user_uid = "";
+		int posting_pid = 0;
+		String posting_user_uid = "";
+		String aptitle = "";
+		String apcontent = "";
+		
+		user_uid = udto.getUid();
+		posting_pid = Integer.parseInt(request.getParameter("pid"));
+		posting_user_uid = request.getParameter("user_uid");
+		aptitle = request.getParameter("aptitle");
+		apcontent = request.getParameter("apcontent");
+		
+		System.out.println("user_uid : "+user_uid);
+		System.out.println("posting_pid : "+posting_pid);
+		System.out.println("posting_user_uid : "+posting_user_uid);
+		System.out.println("aptitle : "+aptitle);
+		System.out.println("apcontent : "+apcontent);
+		
+		
+		
+		int count;
+		
+		count = adao.applyUserCount(user_uid, posting_pid);
+		System.out.println(count);
+		if ( count == 0) {
+			adao.postingApplyInsert(user_uid, posting_pid, posting_user_uid, aptitle, apcontent);
+			request.setAttribute("applyStatus", "신청이 완료되었습니다.");
+			
+		}
+		
+		if(count == 1){
+			request.setAttribute("applyStatus", "이미 신청한 내역이 있습니다.<br>신청은 한 번만 가능합니다.");			
+		}
+		
+		
 		
 		
 		

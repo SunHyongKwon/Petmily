@@ -57,7 +57,7 @@ $(document).ready(function(){
 		<div class="col-2 text-end align-self-center">조회수 :
 			${postingView}</div>
 		<!-- pid , user_uid , aptitle , apcontent -->
-		<form action="posting_apply_insert.do" name="posting_apply_insert" id="posting_apply_insert">
+		<form action="posting_apply_insert.do" name="posting_apply_insert" id="posting_apply_insert" method="get">
 			<div class="row justify-content-between my-2">
 				<div class="text-end">
 					<input type="hidden" name="user_uid" value="${postingUid }">
@@ -100,7 +100,9 @@ $(document).ready(function(){
 			</div>
 		</form>
 	</div>
-
+	<div>
+	${applyStatus}
+	</div>
 	<hr>
 
 	<div class="row justify-content-between">

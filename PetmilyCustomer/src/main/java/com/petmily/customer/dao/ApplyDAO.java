@@ -65,10 +65,10 @@ public class ApplyDAO {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return 0;
 	}
-	
+
 	public PagingDTO applyListPaging(int cPage, int totalRows, int pageLength) {
 
 		int currentBlock = 0;
@@ -97,9 +97,9 @@ public class ApplyDAO {
 		return dto;
 
 	}
-	
-	public ArrayList<ApplyDTO> applyGetList(int cPage, int rowLength,String uid){
-		
+
+	public ArrayList<ApplyDTO> applyGetList(int cPage, int rowLength, String uid) {
+
 		ArrayList<ApplyDTO> dtos = new ArrayList<ApplyDTO>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -109,13 +109,13 @@ public class ApplyDAO {
 
 		try {
 			connection = dataSource.getConnection();
-			
+
 			// apid , aptitle , apcontent , apdate , posting_pid , user_uid
 			String query1 = "select a.apid , a.aptitle , a.apcontent, a.apdate , a.posting_pid , a.user_uid from apply a , posting p ";
 			String query2 = "where a.posting_user_uid = '" + uid + "' ";
 			String query3 = "and apcanceldate is null and apmatchingdate is null and apcompletedate is null "
 					+ "and p.pid = a.posting_pid and p.pdeletedate is null ";
-			String query4 = "order by a.apdate desc limit "+ start + "," + rowLength;
+			String query4 = "order by a.apdate desc limit " + start + "," + rowLength;
 			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4);
 			resultSet = preparedStatement.executeQuery();
 
@@ -127,7 +127,7 @@ public class ApplyDAO {
 				int posting_pid = resultSet.getInt(5);
 				String user_uid = resultSet.getString(6);
 
-				ApplyDTO dto = new ApplyDTO(apid, aptitle, apcontent, apdate ,user_uid ,posting_pid);
+				ApplyDTO dto = new ApplyDTO(apid, aptitle, apcontent, apdate, user_uid, posting_pid);
 				dtos.add(dto);
 			}
 
@@ -149,11 +149,12 @@ public class ApplyDAO {
 			}
 		}
 		return dtos;
-		
+
 	}
-	
-	public void postingApplyInsert(String user_uid, int posting_pid, String posting_user_uid, String aptitle, String apcontent) {
-		
+
+	public void postingApplyInsert(String user_uid, int posting_pid, String posting_user_uid, String aptitle,
+			String apcontent) {
+
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -184,17 +185,82 @@ public class ApplyDAO {
 				e.printStackTrace();
 			}
 		}
+
+	}
+
+	public void updateByApId(int apid, String columnname) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "update apply set " + columnname + " = now() where apid = " + apid;
+			preparedStatement = connection.prepareStatement(query);
+
+			preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+				if (resultSet != null) {
+					resultSet.close();
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public int applyUserCount(String user_uid, int posting_pid) {
+
+		int result = 0;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		try {
+			connection = dataSource.getConnection();
+			String query = "select count(apid) from apply where user_uid = '" + user_uid + "' and posting_pid = '"
+					+ posting_pid + "'";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next() == true) {
+				result = resultSet.getInt(1);
+			}
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
+		return result;
 	}
-	
-	public void updateByApId(int apid,String columnname) {
+
+	public void updateByPId(int pid, String columnname) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "update apply set "+ columnname + " = now() where apid = " + apid;
+			String query = "update apply set apcanceldate = now() where posting_pid = " + pid
+					+ " and apmatchingdate is null";
 			preparedStatement = connection.prepareStatement(query);
 
 			preparedStatement.executeUpdate();
@@ -207,36 +273,15 @@ public class ApplyDAO {
 					preparedStatement.close();
 				if (connection != null)
 					connection.close();
+				if (resultSet != null) {
+					resultSet.close();
+				}
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+
 	}
-	
-	public void updateByPId(int pid,String columnname) {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 
-		try {
-			connection = dataSource.getConnection();
-
-			String query = "update apply set apcanceldate = now() where posting_pid = " + pid + " and apmatchingdate is null";
-			preparedStatement = connection.prepareStatement(query);
-
-			preparedStatement.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-				if (connection != null)
-					connection.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	
 }
