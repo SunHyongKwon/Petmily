@@ -186,4 +186,41 @@ public class ApplyDAO {
 		
 	}
 	
+	public int applyUserCount(String user_uid, int posting_pid) {
+		
+		int result = 0;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		try {
+			connection = dataSource.getConnection();
+			String query = "select count(apid) from apply where user_uid = '"+user_uid+"' and posting_pid = '"+posting_pid+"'";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next() == true) {
+				result = resultSet.getInt(1);
+			}
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
 }

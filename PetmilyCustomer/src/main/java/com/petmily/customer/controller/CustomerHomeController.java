@@ -13,18 +13,17 @@ import com.petmily.customer.command.AddressSearchCommand;
 import com.petmily.customer.command.ChallengeVideoCommand;
 import com.petmily.customer.command.ChattingCommand;
 import com.petmily.customer.command.CustomerCommand;
-import com.petmily.customer.command.EmailCommand;
 import com.petmily.customer.command.HomeSlide1Command;
 import com.petmily.customer.command.HomeSlide2Command;
 import com.petmily.customer.command.HomeSlide3Command;
 import com.petmily.customer.command.KakaoTokenCommand;
 import com.petmily.customer.command.LoginCommand;
 import com.petmily.customer.command.LogoutCommand;
+import com.petmily.customer.command.MyPageApplyUpdateCommand;
 import com.petmily.customer.command.Mypage1365InsertCommand;
 import com.petmily.customer.command.Mypage1365ListCommand;
 import com.petmily.customer.command.Mypage1365SearchCommand;
 import com.petmily.customer.command.MypageApplyListCommand;
-import com.petmily.customer.command.MypageApplyUpdateCommand;
 import com.petmily.customer.command.MypageChallengeCommand;
 import com.petmily.customer.command.MypageModifyLoginCommand;
 import com.petmily.customer.command.MypageModifyUpdateCommand;
@@ -39,8 +38,6 @@ import com.petmily.customer.command.PostingQueryCommand;
 import com.petmily.customer.command.PostingReplyInsertCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.SignupCommand;
-import com.petmily.customer.command.SignupIdCheckCommand;
-import com.petmily.customer.command.postingApplyCommand;
 import com.petmily.customer.command.postingApplyInsertCommand;
 
 
@@ -229,7 +226,7 @@ public class CustomerHomeController extends HttpServlet {
 			break;		
 		//마이페이지에서 거절승락
 		case("/apply_update.do"):
-		command = new MypageApplyUpdateCommand();
+		command = new MyPageApplyUpdateCommand();
 		command.execute(request, response);
 			viewpage = "mypage_apply_list.do";
 			
