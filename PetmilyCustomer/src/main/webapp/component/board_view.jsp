@@ -1,6 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script>
+
+var cnt = 1;
+$(document).ready(function(){
+	$("#apply").click(function() {
+		
+		if (cnt % 2 == 1) {
+			$('#apply_form').show()
+		}
+
+		if (cnt % 2 == 0) {
+			$('#apply_form').hide()
+		}
+		
+		cnt += 1;
+	})
+	
+	$('#apply_button').click(function(){
+		$('#posting_apply_insert').submit;
+	})
+})
+
+
+</script>
+
 <div class="container">
 	<div class="row justify-content-center my-4 text-center">
 		<h4>${postingDetail.ptitle}</h4>
@@ -11,13 +36,13 @@
 			<c:choose>
 
 				<c:when test="${postingUimage eq null }">
-					<img src="user/profile_sample.png"
-						height="60" width="60" class="rounded-circle" alt="">
+					<img src="user/profile_sample.png" height="60" width="60"
+						class="rounded-circle" alt="">
 				</c:when>
 
 				<c:otherwise>
-					<img src="user/${postingUimage }"
-						height="40" width="40" class="rounded-circle" alt="">
+					<img src="user/${postingUimage }" height="40" width="40"
+						class="rounded-circle" alt="">
 				</c:otherwise>
 
 			</c:choose>
@@ -26,35 +51,55 @@
 
 		<%
 		String user_uid = request.getParameter("user_uid");
-		%>	
-			<c:set var="postAuthor" value="<%=user_uid %>" />
+		%>
+		<c:set var="postAuthor" value="<%=user_uid%>" />
 
 
 		<div class="col-2 text-end align-self-center">조회수 :
 			${postingView}</div>
+		<!-- pid , user_uid , aptitle , apcontent -->
+		<form action="posting_apply_insert.do" name="posting_apply_insert" id="posting_apply_insert">
 			<div class="row justify-content-between my-2">
 				<div class="text-end">
-
+					<input type="hidden" name="user_uid" value="${user_uid }">
+					<input type="hidden" name="pid" value="${pid }">
 
 					<c:choose>
-					<c:when test = "${user_uid eq postAuthor}">
-						<button class="btn btn-primary col-1 gy-2 align-self-center"
-						type="button" onclick="#"
-						style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">수정하기</button>
+						<c:when test="${user_uid eq postAuthor}">
+							<button class="btn btn-primary col-1 gy-2 align-self-center"
+								type="button" onclick="#"
+								style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">수정하기</button>
 
-						<button class="btn btn-danger col-1 gy-2 align-self-center"
-						type="button" onclick="#"
-						style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">삭제하기</button>
-					</c:when>
-					<c:otherwise>
-						<button class="btn btn-warning col-1 gy-2 align-self-center"
-						type="button" onclick="#"
-						style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">신청하기</button>
-					</c:otherwise>
+							<button class="btn btn-danger col-1 gy-2 align-self-center"
+								type="button" onclick="#"
+								style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">삭제하기</button>
+						</c:when>
+						<c:otherwise>
+							<button class="btn btn-warning col-1 gy-2 align-self-center"
+								type="button" onclick="#" name="apply" id="apply"
+								style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">신청하기</button>
+						</c:otherwise>
 
 					</c:choose>
 				</div>
 			</div>
+
+
+			<div class="row justify-content-center my-2" id="apply_form"
+				style="display: none">
+				<div class="col-10">
+					<label for="title" class="form-label">신청 제목</label> <input
+						type="text" class="form-control my-2" name="aptitle" id="aptitle"
+						placeholder="신청제목을 입력해 주세요."> <label for="title"
+						class="form-label">신청 내용</label>
+					<textarea class="form-control" id="apcontent" name="apcontent"
+						placeholder="신청내용을 작성해 주세요" rows="5"></textarea>
+
+					<button class="btn btn-warning col-1 my-2 align-self-center"
+						type="button" id="apply_button">신청</button>
+				</div>
+			</div>
+		</form>
 	</div>
 
 	<hr>
@@ -123,18 +168,18 @@
 			<div class="col-1 align-self-center">
 				<c:choose>
 					<c:when test="${commentImageList.get(status.index) eq null }">
-						<img src="user/profile_sample.png"
-							height="40" width="40" class="rounded-circle" alt="">
+						<img src="user/profile_sample.png" height="40" width="40"
+							class="rounded-circle" alt="">
 					</c:when>
 
 					<c:otherwise>
-						<img src="user/${commentImageList.get(status.index) }"
-							height="40" width="40" class="rounded-circle" alt="">
+						<img src="user/${commentImageList.get(status.index) }" height="40"
+							width="40" class="rounded-circle" alt="">
 					</c:otherwise>
 
 				</c:choose>
 			</div>
-			<div class="col-2 text-start align-self-center" >
+			<div class="col-2 text-start align-self-center">
 				<span class="mx-2"> ${comment.user_uid}</span>
 			</div>
 			<div class="col-4 text-start align-self-center">
