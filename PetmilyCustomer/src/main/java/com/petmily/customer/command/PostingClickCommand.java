@@ -29,6 +29,7 @@ public class PostingClickCommand implements CustomerCommand {
 		int pid = Integer.parseInt(request.getParameter("pid"));
 		String postingUid = "";
 		String postingUserNickname = "";
+		String uimage = "";
 		String user_uid = udto.getUid();
 		
 		PostingDTO pdto = pdao.postingGetDetail(pid); 
@@ -37,6 +38,8 @@ public class PostingClickCommand implements CustomerCommand {
 		
 		viewCheck = sdao.showViewCount(pid, user_uid);
 		likeCheck = sdao.showLikeCount(pid, user_uid);
+		
+		uimage = udao.selectImage(postingUid);
 		
 		if( viewCheck == 0 ) {
 			sdao.showInsertView(pid, user_uid);
@@ -51,7 +54,7 @@ public class PostingClickCommand implements CustomerCommand {
 		request.setAttribute("likeCheck", likeCheck);
 		request.setAttribute("postingDetail", pdto);
 		request.setAttribute("postingUid", postingUid);
-		
+		request.setAttribute("postingUimage", uimage);
 		
 		
 	}

@@ -228,5 +228,46 @@ public class UserDAO {
 		return dto;
 		
 	}
+	
+	
+	//개인정보수정 유저 정보 가져오기
+		public String selectImage(String uid){
+			String uimage = null;
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			ResultSet resultSet = null;// 검색
 
+			try {
+				connection = dataSource.getConnection();
+
+				String query = "select uimage from user where uid = '"+ uid + "'";
+				preparedStatement = connection.prepareStatement(query);
+				resultSet = preparedStatement.executeQuery();
+
+				if (resultSet.next()) {
+					uimage = resultSet.getString(1);
+				}
+				
+				return uimage;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (resultSet != null) {
+						resultSet.close();
+					}
+					if (preparedStatement != null) {
+						preparedStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return null;
+			
+		}
 }

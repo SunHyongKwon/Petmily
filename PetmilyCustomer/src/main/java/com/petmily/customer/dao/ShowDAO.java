@@ -36,7 +36,7 @@ public class ShowDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select count(shdate) from showing where user_uid ="+user_uid+" and posting_pid = "+pid;
+			String query = "select count(shdate) from showing where user_uid = '"+user_uid+"' and posting_pid = '"+pid +"'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			//한개일때는 if, 여러개일때는while
@@ -79,7 +79,7 @@ public class ShowDAO {
 			try {
 				connection = dataSource.getConnection();
 
-				String query = "select count(shlike) from showing where user_uid ="+user_uid+" and posting_pid = "+pid+" and shlike and shlike >= 1";
+				String query = "select count(shlike) from showing where user_uid = '"+user_uid+"' and posting_pid = '"+pid+"' and shlike and shlike >= 1";
 				preparedStatement = connection.prepareStatement(query);
 				resultSet = preparedStatement.executeQuery();
 				//한개일때는 if, 여러개일때는while
@@ -233,7 +233,7 @@ public class ShowDAO {
 			connection = dataSource.getConnection();
 			
 			   
-			String query = "update showing set shlike = "+likeCheck+" where posting_pid = "+pid+" and user_uid = "+user_uid;
+			String query = "update showing set shlike = "+likeCheck+" where posting_pid = '"+pid+"' and user_uid = '"+user_uid + "'";
 			preparedStatement = connection.prepareStatement(query);
 			
 			
