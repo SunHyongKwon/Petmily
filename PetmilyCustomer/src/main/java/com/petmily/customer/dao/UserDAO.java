@@ -40,7 +40,8 @@ public class UserDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select count(*) , uname, utype, uimage from user where uid = '" + uid + "' and upw = '" + upw + "'";
+			String query = "select count(*) , uname, utype, uimage from user where uid = '" + uid + "' and upw = '"
+					+ upw + "'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
@@ -49,7 +50,7 @@ public class UserDAO {
 				uname = resultSet.getString(2);
 				utype = resultSet.getString(3);
 				uimage = resultSet.getString(4);
-				udto = new UserDTO(uid, uname, utype,uimage);
+				udto = new UserDTO(uid, uname, utype, uimage);
 
 			}
 
@@ -71,8 +72,8 @@ public class UserDAO {
 		return udto;
 	}
 
-	public void insert(String uid, String upw, String uname, String uphone, String uemail, String unickname ,String uaddress,
-			String utype, String uimage) {
+	public void insert(String uid, String upw, String uname, String uphone, String uemail, String unickname,
+			String uaddress, String utype, String uimage) {
 		// TODO Auto-generated method stub
 		PreparedStatement ps = null;
 
@@ -94,7 +95,6 @@ public class UserDAO {
 			ps.setString(9, uimage);
 
 			ps.executeUpdate();
-
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -144,10 +144,10 @@ public class UserDAO {
 
 		return -1;
 	}
-	
-	//pw체크
+
+	// pw체크
 	public int userPwCheck(String uid, String upw) {
-		
+
 		int result = 0;
 //맞으면 1 틀리면 0
 		try {
@@ -179,10 +179,10 @@ public class UserDAO {
 
 		return result;
 	}
-	
-	//개인정보수정 유저 정보 가져오기
-	public UserDTO userInfo(String uid){
-		
+
+	// 개인정보수정 유저 정보 가져오기
+	public UserDTO userInfo(String uid) {
+
 		UserDTO dto = new UserDTO();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -191,12 +191,13 @@ public class UserDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select uname, uemail, uphone, uaddress, unickname ,uimage from user where uid = '"+ uid + "'";
+			String query = "select uname, uemail, uphone, uaddress, unickname ,uimage from user where uid = '" + uid
+					+ "'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
-				
+
 				String uname = resultSet.getString(1);
 				String uemail = resultSet.getString(2);
 				String uphone = resultSet.getString(3);
@@ -205,7 +206,7 @@ public class UserDAO {
 				String uimage = resultSet.getString(6);
 
 				dto = new UserDTO(uname, uemail, uphone, uaddress, unickname, uimage);
-				
+
 			}
 
 		} catch (Exception e) {
@@ -226,48 +227,90 @@ public class UserDAO {
 			}
 		}
 		return dto;
-		
+
+	}
+
+	public String selectImage(String uid) {
+		String uimage = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select uimage from user where uid = '" + uid + "'";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+
+			if (resultSet.next()) {
+				uimage = resultSet.getString(1);
+			}
+
+			return uimage;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+
 	}
 	
-	
-	//개인정보수정 유저 정보 가져오기
-		public String selectImage(String uid){
-			String uimage = null;
-			Connection connection = null;
-			PreparedStatement preparedStatement = null;
-			ResultSet resultSet = null;// 검색
+	public ArrayList<String> selectImageList(ArrayList<PostingDTO> commentList) {
+		ArrayList<String> imageList = new ArrayList<>();
+		String uimage = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
 
-			try {
-				connection = dataSource.getConnection();
-
-				String query = "select uimage from user where uid = '"+ uid + "'";
+		try {
+			connection = dataSource.getConnection();
+			
+			for(PostingDTO comment : commentList) {
+				String query = "select uimage from user where uid = '" + comment.getUser_uid() + "'";
+				
 				preparedStatement = connection.prepareStatement(query);
 				resultSet = preparedStatement.executeQuery();
 
 				if (resultSet.next()) {
 					uimage = resultSet.getString(1);
-				}
-				
-				return uimage;
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (resultSet != null) {
-						resultSet.close();
-					}
-					if (preparedStatement != null) {
-						preparedStatement.close();
-					}
-					if (connection != null) {
-						connection.close();
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
+					
+					imageList.add(uimage);
 				}
 			}
-			return null;
-			
+			return imageList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		return null;
+
+	}
 }
