@@ -53,7 +53,7 @@
 
 
 				<li class="nav-item"><a class="nav-link mx-2"
-					href="chatting.do"><i class="bi bi-send"
+					href="#"><i class="bi bi-send"
 						style="font-size: 1.5rem;"></i></a></li>
 
 				<li class="nav-item"><a class="nav-link mx-2" href="#"><i

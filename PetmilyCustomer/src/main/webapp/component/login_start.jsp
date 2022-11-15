@@ -40,7 +40,7 @@
 		</div>
 
 		<div class="row justify-content-center my-3 text-center">
-			<div style="color: red;"" >
+			<div style="color: red;" >
 				${loginStatus }
 			</div>
 		

@@ -18,6 +18,7 @@
 <link rel="shortcut icon" href="component/images/logo.png">
 <script>
 	$(document).ready(function() {
+
 		$('#title').html("<strong>" + "강아지 등록제" + "</strong>");
 
 		$("button[name=category]").click(function() {
@@ -160,6 +161,10 @@
 							player = new YT.Player('player', {
 								height : '360',
 								width : '640',
+								playerVars : {
+									'disablekb' : 1,
+									'controls' : 0
+								},
 								videoId : '2xhRwydzHWw',
 								events : {
 									'onReady' : onPlayerReady,
@@ -176,13 +181,7 @@
 						// 5. The API calls this function when the player's state changes.
 						//    The function indicates that when playing a video (state=1),
 						//    the player should play for six seconds and then stop.
-						var done = false;
-						function onPlayerStateChange(event) {
-							if (event.data == YT.PlayerState.PLAYING && !done) {
 
-								done = true;
-							}
-						}
 						function stopVideo() {
 							player.stopVideo();
 						}
@@ -195,6 +194,10 @@
 							player = new YT.Player('player', {
 								height : '360',
 								width : '640',
+								playerVars : {
+									'disablekb' : 1,
+									'controls' : 0
+								},
 								videoId : vidid,
 								events : {
 									'onReady' : onPlayerReady,
@@ -206,11 +209,19 @@
 						function onPlayerReady(event) {
 							var url = player.getVideoUrl();
 							$('#url').text("출처 : " + url);
+							$('#complete_form').hide();
 						}
-
+						
 						function onPlayerStateChange(event) {
+							checkPlayTime();
+						}
+						
+						setInterval(checkPlayTime, 10000);
+						
+						function checkPlayTime() {
 							var total = player.getDuration();
 							var see = player.getCurrentTime();
+							console.log(total);
 							var percentTemp = (see / total) * 100;
 							var percent = Math.floor(percentTemp);
 							$('#percent').html("영상 본 시간 : " + percent + "%");
