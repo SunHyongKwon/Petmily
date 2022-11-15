@@ -59,9 +59,10 @@ DROP TABLE IF EXISTS `apply`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `apply` (
   `apid` int unsigned NOT NULL AUTO_INCREMENT,
-  `apcontent` varchar(100) DEFAULT NULL,
+  `aptitle` varchar(45) DEFAULT NULL,
+  `apcontent` text,
   `apdate` datetime DEFAULT NULL,
-  `apcaceldate` datetime DEFAULT NULL,
+  `apcanceldate` datetime DEFAULT NULL,
   `apmatchingdate` datetime DEFAULT NULL,
   `apcompletedate` datetime DEFAULT NULL,
   `user_uid` varchar(20) NOT NULL,
@@ -228,7 +229,7 @@ CREATE TABLE `notice` (
   PRIMARY KEY (`nid`,`admin_adid`),
   KEY `fk_notice_admin1_idx` (`admin_adid`),
   CONSTRAINT `fk_notice_admin1` FOREIGN KEY (`admin_adid`) REFERENCES `admin` (`adid`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,7 +238,6 @@ CREATE TABLE `notice` (
 
 LOCK TABLES `notice` WRITE;
 /*!40000 ALTER TABLE `notice` DISABLE KEYS */;
-INSERT INTO `notice` VALUES (1,'공지사항1','공공지지사사하항ㅇ',NULL,NULL,NULL,NULL,NULL,'2022-11-10 00:00:00',NULL,NULL,'admin'),(2,'123','123',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:20:33',NULL,NULL,'admin'),(3,'공지사항 작성 3','공지사항 내용 아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:26:35',NULL,NULL,'admin'),(4,'공지사항 작성 4','공지사항 내용 앙아이아아아아아아ㅏ아아암',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:26:54',NULL,NULL,'admin'),(5,'공지사항 작성 5','공지사항 내용 앙아이아아아아아아ㅏ아아암',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:26:59',NULL,NULL,'admin'),(6,'공지사항 작성 6','공지사항 내용 앙아이아아아아아아ㅏ아아암',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:27:05',NULL,NULL,'admin'),(7,'공지사항 작성 7','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:30:45',NULL,NULL,'admin'),(8,'공지사항 작성 78','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:30:45',NULL,NULL,'admin'),(19,'공지사 작성7','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(20,'공지사 작성8','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(21,'공지사 작성9','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(22,'공지사 작성10','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(23,'공지사 작성11','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(24,'공지사 작성12','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(25,'공지사 작성13','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(26,'공지사 작성14','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(27,'공지사 작성15','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(28,'공지사 작성16','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(29,'공지사 작성17','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(30,'공지사 작성18','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(31,'공지사 작성19','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(32,'공지사 작성20','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(33,'공지사 작성21','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(34,'공지사 작성22','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(35,'공지사 작성23','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(36,'공지사 작성24','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(37,'공지사 작성25','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(38,'공지사 작성26','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(39,'공지사 작성27','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(40,'공지사 작성28','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(41,'공지사 작성29','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(42,'공지사 작성30','공지사항 작성내용 아아아아아아아아아아아아',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:32:20',NULL,NULL,'admin'),(43,'테스트 마지막 공지사항','이게 마지막이도다!!!!!!',NULL,NULL,NULL,NULL,NULL,'2022-11-10 20:51:58',NULL,NULL,'admin'),(44,'이호식은 사람인가?','그건 잘 모르겠다',NULL,NULL,NULL,NULL,NULL,'2022-11-11 00:00:00',NULL,NULL,'admin');
 /*!40000 ALTER TABLE `notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -420,7 +420,7 @@ CREATE TABLE `showing` (
   KEY `fk_show_posting1_idx` (`posting_pid`),
   CONSTRAINT `fk_show_posting1` FOREIGN KEY (`posting_pid`) REFERENCES `posting` (`pid`),
   CONSTRAINT `fk_show_user1` FOREIGN KEY (`user_uid`) REFERENCES `user` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -536,4 +536,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-14 10:48:12
+-- Dump completed on 2022-11-14 20:22:44

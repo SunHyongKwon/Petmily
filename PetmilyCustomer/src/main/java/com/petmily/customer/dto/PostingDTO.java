@@ -26,18 +26,19 @@ public class PostingDTO {
 	
 	
  	
-	public PostingDTO(String pcontent, Timestamp pinitdate, String user_uid) {
+	public PostingDTO(String pcontent, Timestamp pinitdate, String user_uid,String pcatepgy) {
 		super();
 		this.pcontent = pcontent;
 		this.pinitdate = pinitdate;
 		this.user_uid = user_uid;
+		this.pcategory = pcatepgy;
 	}
 
 
 
 		// gukHwa [조회_게시판]
 		public PostingDTO(int pid, String ptitle, String pcontent, String pimage1,
-				String pimage2, String pimage3, String pcategory, String plocation) {
+				String pimage2, String pimage3, String pcategory, String plocation, Timestamp pinitdate) {
 			super();
 			this.pid = pid;
 			this.ptitle = ptitle;
@@ -47,6 +48,7 @@ public class PostingDTO {
 			this.pimage3 = pimage3;
 			this.pcategory = pcategory;
 			this.plocation = plocation;
+			this.pinitdate = pinitdate;
 		}
 		
 
@@ -73,7 +75,7 @@ public class PostingDTO {
 	}
 
 	public PostingDTO(String ptitle, String pcontent, String pimage1, String pimage2, String pimage3, String plocation,
-			Timestamp pinitdate, String user_uid) {
+			Timestamp pinitdate, String user_uid, String pcategory) {
 		super();
 		this.ptitle = ptitle;
 		this.pcontent = pcontent;
@@ -83,17 +85,20 @@ public class PostingDTO {
 		this.plocation = plocation;
 		this.pinitdate = pinitdate;
 		this.user_uid = user_uid;
+		this.pcategory = pcategory;
 	}
 
-	public PostingDTO(int pid, String ptitle, String plocation, Timestamp pinitdate, String user_uid) {
+	public PostingDTO(int pid, String ptitle, String plocation, Timestamp pinitdate, String user_uid, String pcategory) {
 		super();
 		this.pid = pid;
 		this.ptitle = ptitle;
 		this.plocation = plocation;
 		this.pinitdate = pinitdate;
 		this.user_uid = user_uid;
+		this.pcategory = pcategory;
 	}
-
+	
+	
 
 	public int getPid() {
 		return pid;

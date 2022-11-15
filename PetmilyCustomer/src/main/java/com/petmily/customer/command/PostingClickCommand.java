@@ -33,6 +33,7 @@ public class PostingClickCommand implements CustomerCommand {
 		String postingUserNickname = "";
 		String uimage = "";
 		String user_uid = udto.getUid();
+		String pcategory;
 		
 		PostingDTO pdto = pdao.postingGetDetail(pid); 
 		

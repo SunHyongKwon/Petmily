@@ -1,5 +1,6 @@
 package com.petmily.customer.command;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,10 +14,10 @@ import com.petmily.customer.dto.ApplyDTO;
 import com.petmily.customer.dto.PagingDTO;
 import com.petmily.customer.dto.UserDTO;
 
-public class MypageParticipateListCommand implements CustomerCommand {
+public class MypageAcceptListCommand implements CustomerCommand {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
@@ -44,7 +45,7 @@ public class MypageParticipateListCommand implements CustomerCommand {
 		
 		totalRows = adao.applyListRow(uid);
 		PagingDTO dto =  adao.applyListPaging(cPage, totalRows, pageLength);
-		ArrayList<ApplyDTO> dtos = adao.applyGetCompleteList(cPage, rowLength, uid);
+		ArrayList<ApplyDTO> dtos = adao.applyGetAcceptList(cPage, rowLength, uid);
 		ArrayList<UserDTO> udtos = new ArrayList<>();
 		int userRating = 0;
 		
@@ -65,11 +66,11 @@ public class MypageParticipateListCommand implements CustomerCommand {
 		request.setAttribute("applyList", dtos);
 		request.setAttribute("applyUserInfoList", udtos);
 		request.setAttribute("userRating", userRating);
-
+		
 	}
 
 	@Override
-	public int executeInt(HttpServletRequest request, HttpServletResponse response) {
+	public int executeInt(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
 		return 0;
 	}
