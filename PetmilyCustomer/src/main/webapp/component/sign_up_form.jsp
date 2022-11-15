@@ -317,7 +317,7 @@
 		<!-- 선택된 사진 보이는 곳 -->
 		<div class="row jstify-content-center">
 			<div class="text-center gy-1">
-				<img src="component/images/profile_sample.png" width="300"
+				<img src="user/profile_sample.png" width="300"
 					height="300" class="rounded-circle" alt="사진 선택시 변경" id="blah">
 			</div>
 		</div>
@@ -448,7 +448,7 @@
 			<div class="col-4 mb-3 gy-2">
 				<label for="exampleFormControlInput1" class="form-label">주소
 				</label> <input type="text" class="form-control" name="uaddress_basic"
-					id="uaddress_basic" placeholder="주소를 입력해 주세요">
+					id="uaddress_basic" placeholder="주소를 입력해 주세요" readonly="readonly">
 			</div>
 			<!-- 주소 검색 버튼 -->
 			<button class="btn btn-warning col-1 gy-2 align-self-center"

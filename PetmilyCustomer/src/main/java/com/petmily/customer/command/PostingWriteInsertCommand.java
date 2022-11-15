@@ -29,7 +29,6 @@ public class PostingWriteInsertCommand implements CustomerCommand {
 		ServletContext application = request.getServletContext();
 
 		String directory = application.getRealPath("/posting/");
-		System.out.println("directory : "+directory);
 		int maxSize = 1024 * 1024 * 100;
 		String encoding = "UTF-8";
 		
@@ -59,10 +58,6 @@ public class PostingWriteInsertCommand implements CustomerCommand {
 			}else {
 				pimage3 = fileRealName;
 			}
-			System.out.println(pimage1);
-			System.out.println(pimage2);
-			System.out.println(pimage3);
-			System.out.println(i);
 			
 			i++;
 		}

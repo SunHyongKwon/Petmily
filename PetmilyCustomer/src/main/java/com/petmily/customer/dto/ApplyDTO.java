@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 public class ApplyDTO {
 
 	int apid;
+	String aptitle;
 	String apcontent;
 	Timestamp apdate;
 	Timestamp apcaceldate;
@@ -25,6 +26,18 @@ public class ApplyDTO {
 		this.apcontent = apcontent;
 	}
 	
+	
+	
+
+	public ApplyDTO(int apid, String aptitle, String apcontent, Timestamp apdate, String user_uid, int posting_pid) {
+		super();
+		this.apid = apid;
+		this.aptitle = aptitle;
+		this.apcontent = apcontent;
+		this.apdate = apdate;
+		this.user_uid = user_uid;
+		this.posting_pid = posting_pid;
+	}
 
 	public ApplyDTO(int apid, String apcontent, Timestamp apdate, Timestamp apcaceldate, Timestamp apmatchingdate,
 			Timestamp apcompletedate, String user_uid, int posting_pid, String posting_user_uid) {
@@ -46,6 +59,14 @@ public class ApplyDTO {
 
 	public void setApid(int apid) {
 		this.apid = apid;
+	}
+	
+	public String getAptitle() {
+		return aptitle;
+	}
+
+	public void setAptitle(String aptitle) {
+		this.aptitle = aptitle;
 	}
 
 	public String getApcontent() {

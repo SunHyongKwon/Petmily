@@ -78,7 +78,7 @@
 				</c:when>
 
 			</c:choose>
-
+			<h3 style="color: red;">${deleteMessege }</h3>
 		</div>
 
 		<div class="row my-3">
@@ -105,7 +105,7 @@
 				</div>
 			
 			<div class="col-2"></div>
-
+				
 			<div class="col-1">
 				<c:choose>
 					<c:when test="${user.utype eq 'companion' }">
@@ -131,8 +131,6 @@
 						<th scope="col">작성자</th>
 						<th scope="col">시간</th>
 						<th scope="col">장소</th>
-						<th scope="col">좋아요</th>
-						<th scope="col">조회수</th>
 					</tr>
 				</thead>
 
@@ -142,7 +140,7 @@
 						<tr>
 							<th scope="row">${paging.endRow - status.index }</th>
 							<td><a
-								href="posting_click.do?pid=${list.pid }&user_uid=${list.user_uid}">${list.ptitle }</a></td>
+								href="posting_click.do?pid=${list.pid }&user_uid=${list.user_uid}&pcategory=${list.pcategory}">${list.ptitle }</a></td>
 							<td>${list.user_uid }</td>
 							<td>${list.pinitdate }</td>
 							<td>${list.plocation }</td>

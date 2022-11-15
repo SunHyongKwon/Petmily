@@ -29,7 +29,7 @@
 </script>
 
 <div class="container">
-	<form action="mypage_write_list_search.do" name="posting">
+	<form action="mypage_write_list.do" name="posting">
 
 		<%
 			String param = request.getParameter("pcategory");
@@ -52,32 +52,7 @@
 		
 		<div class="row justify-content-start my-2">
 
-			<!-- <input type="hidden" name="pcategory" id="pcategory"
-				value="${pcategory }"> -->
-
-			<c:choose>
-
-				<c:when test="${pcategory eq 'walk'}">
-					<h3>함께 산책</h3>
-				</c:when>
-
-				<c:when test="${pcategory eq 'volunteer'}">
-					<h3>함께 봉사</h3>
-				</c:when>
-
-				<c:when test="${pcategory eq 'petcafe'}">
-					<h3>함께 펫카페</h3>
-				</c:when>
-
-				<c:when test="${pcategory eq 'find'}">
-					<h3>찾아주세요</h3>
-				</c:when>
-
-				<c:when test="${pcategory eq 'found'}">
-					<h3>찾았어요</h3>
-				</c:when>
-
-			</c:choose>
+			<input type="hidden" name="pcategory" id="pcategory" value="${pcategory }">
 
 		</div>
 
@@ -87,8 +62,8 @@
 				<div class="col-2">
 					<select class="form-select w-100"
 						aria-label="Default select example" name="pcategory">
-						<option value="walk" selected>함께 산책</option>
-						<option value="volunteer">함께 봉사</option>
+						<option value="volunteer" selected>함께 봉사</option>
+						<option value="walk" >함께 산책</option>
 						<option value="petcafe">함께 펫카페</option>
 						<option value="find">찾아주세요</option>
 						<option value="found">찾았어요</option>
@@ -176,7 +151,7 @@
 						<c:otherwise>
 							<!-- else -->
 							<li class="page-item"><a class="page-link"
-								href="posting.do?page=${paging.startPage - 1}&pcategory=${param.pcategory }">Previous
+								href="mypage_write_list.do?page=${paging.startPage - 1}&pcategory=${param.pcategory }">Previous
 							</a></li>
 						</c:otherwise>
 
@@ -185,7 +160,7 @@
 					<c:forEach var="count" begin="${paging.startPage}"
 						end="${paging.endPage}">
 						<li class="page-item"><a class="page-link"
-							href="posting.do?page=${count}&pcategory=${param.pcategory }">${count}
+							href="mypage_write_list.do?page=${count}&pcategory=${param.pcategory }">${count}
 						</a></li>
 					</c:forEach>
 
@@ -199,7 +174,7 @@
 						<c:otherwise>
 							<!-- else -->
 							<li class="page-item"><a class="page-link"
-								href="posting.do?page=${paging.endPage + 1}&pcategory=${param.pcategory }">Next
+								href="mypage_write_list.do?page=${paging.endPage + 1}&pcategory=${param.pcategory }">Next
 							</a></li>
 						</c:otherwise>
 

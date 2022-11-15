@@ -45,6 +45,19 @@ public class PostingDTO {
 		this.user_uid = user_uid;
 	}
 
+	
+
+	public PostingDTO(int pid, String ptitle, String pcontent, String pcategory, String plocation,
+			Timestamp pinitdate) {
+		super();
+		this.pid = pid;
+		this.ptitle = ptitle;
+		this.pcontent = pcontent;
+		this.pcategory = pcategory;
+		this.plocation = plocation;
+		this.pinitdate = pinitdate;
+	}
+
 	public int getPid() {
 		return pid;
 	}

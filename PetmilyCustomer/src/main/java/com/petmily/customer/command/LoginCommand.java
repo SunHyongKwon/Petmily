@@ -28,7 +28,7 @@ public class LoginCommand implements CustomerCommand {
 			session.setAttribute("user", dto);
 			return 0;
 		}else {
-			request.setAttribute("loginStatus", "로그인에 실패하셨습니다.");
+			request.setAttribute("loginStatus", "아이디 및 비밀번호를 확인해 주세요");
 			return 1;
 		}
 

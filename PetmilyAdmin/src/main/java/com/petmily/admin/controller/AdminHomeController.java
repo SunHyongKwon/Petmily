@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.petmily.admin.command.AdminCommand;
 import com.petmily.admin.command.AdminInfoListCommand;
 import com.petmily.admin.command.BoardListCommand;
+import com.petmily.admin.command.ChartCommand;
+import com.petmily.admin.command.HomeListCommand;
 import com.petmily.admin.command.LoginCommand;
 import com.petmily.admin.command.LogoutCommand;
 import com.petmily.admin.command.MypageModifyLoginCommand;
@@ -57,7 +59,13 @@ public class AdminHomeController extends HttpServlet {
 		
 		//홈페이지 접속시
 		case("/home.do"):
-			viewpage = "home.jsp";
+			//차트및 여러가지띄우기 >>차트만작동.. 수정필요!!(병준) 
+			//HomeListCommand 또는 ChartCommand 쓰기.
+			command = new HomeListCommand();
+			command.execute(request, response);
+			//최근게시글,댓글 띄우기
+			
+			viewpage = "homde.jsp";
 			break;
 		//로그인화면접속
 		case("/login_page.do"):

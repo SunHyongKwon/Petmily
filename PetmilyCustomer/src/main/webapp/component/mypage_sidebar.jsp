@@ -12,23 +12,19 @@
 	  </li>
 	  
 	  <li class="nav-item my-2">
-	   <a class="nav-link" href="mypage_1365.do" style="color:black;"><p class="h5">1365 적립</p></a>
-	  </li>
-	  
-	  <li class="nav-item my-2">
-	   <a class="nav-link" href="mypage_1365_list.do" style="color:black;"><p class="h5">1365 참여 내역</p></a>
-	  </li>
-	  
-	  <li class="nav-item my-2">
 	   <a class="nav-link" href="mypage_participate_list.do" style="color:black;"><p class="h5">사이트 참여 내역</p></a>
 	  </li>
 	  
 	  <li class="nav-item my-2">
-	   <a class="nav-link" href="mypage_write_list.do" style="color:black;"><p class="h5">작성 내역</p></a>
+	   <a class="nav-link" href="mypage_write_list.do?&pcategory=volunteer" style="color:black;"><p class="h5">작성 내역</p></a>
 	  </li>
 	  
 	  <li class="nav-item my-2">
 	   <p class="h5"><a class="nav-link" href="mypage_apply_list.do" style="color:black;">신청 내역</a></p>
+	  </li>
+	  
+	   <li class="nav-item my-2">
+	   <p class="h5"><a class="nav-link" href="mypage_accept_list.do" style="color:black;">신청수락 내역</a></p>
 	  </li>
 	  
 	</ul>
