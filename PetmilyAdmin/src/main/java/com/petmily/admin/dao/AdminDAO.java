@@ -191,5 +191,37 @@ public class AdminDAO {
 					}
 					return adpw;
 				}//pwcheck end
+				
+				//석진 
+				public int mypagelogin(String adpw) {
+					
+					int count = 0;
+					try {
+						connection = dataSource.getConnection();
+
+						String query = "select count(*) from admin where adpw = '" + adpw + "'";
+						preparedStatement = connection.prepareStatement(query);
+						resultSet = preparedStatement.executeQuery();
+
+						if (resultSet.next()) {
+							count = resultSet.getInt(1);
+						}
+
+					} catch (Exception e) {
+						e.printStackTrace();
+					} finally {
+						try {
+							if (resultSet != null)
+								resultSet.close();
+							if (preparedStatement != null)
+								preparedStatement.close();
+							if (connection != null)
+								connection.close();
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+					return count;
+				}//mypagelogin end
 	
 }//End

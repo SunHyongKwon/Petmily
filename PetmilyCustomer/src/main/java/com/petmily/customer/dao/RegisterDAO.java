@@ -24,4 +24,35 @@ public class RegisterDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public void insert(String uid, int petid) {
+	      // TODO Auto-generated method stub
+	      PreparedStatement ps = null;
+	      
+	      try {
+	         connection = dataSource.getConnection();
+	         
+	         String query = "insert into register (reginitdate,user_uid,pet_petid) values ( now() , ? , ? ) ";
+	         
+	         ps = connection.prepareStatement(query);
+	         
+	         ps.setString(1, uid);
+	         ps.setInt(2, petid);
+	      
+
+	         ps.executeUpdate();
+	         
+	      }catch(Exception e) {
+	         e.printStackTrace();
+	      }finally {
+	         try {
+	            if(resultSet != null) resultSet.close();
+	            if(preparedStatement != null) preparedStatement.close();
+	            if(connection != null)connection.close();
+	         }catch(Exception e) {
+	            e.printStackTrace();
+	         }
+	      }
+	}
+	
 }
