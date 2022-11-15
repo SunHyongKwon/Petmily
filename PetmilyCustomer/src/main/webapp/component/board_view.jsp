@@ -61,16 +61,17 @@ $(document).ready(function(){
 			<div class="row justify-content-between my-2">
 				<div class="text-end">
 					<input type="hidden" name="user_uid" value="${postingUid }">
-					<input type="hidden" name="pid" value="${pid }">
+					<input type="hidden" name="pid" value="${pid}">
+					<input type="hidden" name="pcategory" value="${postingDetail.pcategory}">
 
 					<c:choose>
 						<c:when test="${user_uid eq postAuthor}">
 							<button class="btn btn-primary col-1 gy-2 align-self-center"
-								type="button" onclick="location.href='posting_apply.do'" 
+								type="button" onclick="location.href='posting_modify.do?pid=${pid}&pcategory=${postingDetail.pcategory}'" 
 								style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">수정하기</button>
 
 							<button class="btn btn-danger col-1 gy-2 align-self-center"
-								type="button" onclick="#"
+								type="button" onclick="location.href='posting_delete.do?pid=${pid}&pcategory=${postingDetail.pcategory}'"
 								style="margin-top: 1.5rem; padding-top: 0.7rem; padding-bottom: 0.7rem;">삭제하기</button>
 						</c:when>
 						<c:otherwise>

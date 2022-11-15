@@ -22,10 +22,12 @@ import com.petmily.customer.command.LogoutCommand;
 import com.petmily.customer.command.Mypage1365InsertCommand;
 import com.petmily.customer.command.Mypage1365ListCommand;
 import com.petmily.customer.command.Mypage1365SearchCommand;
+import com.petmily.customer.command.MypageAcceptListCommand;
 import com.petmily.customer.command.MypageApplyDeleteCommand;
 import com.petmily.customer.command.MypageApplyListCommand;
 import com.petmily.customer.command.MypageApplyUpdateCommand;
 import com.petmily.customer.command.MypageChallengeCommand;
+import com.petmily.customer.command.MypageCompleteUpdateCommand;
 import com.petmily.customer.command.MypageModifyLoginCommand;
 import com.petmily.customer.command.MypageModifyUpdateCommand;
 import com.petmily.customer.command.MypageParticipateListCommand;
@@ -40,6 +42,9 @@ import com.petmily.customer.command.PostingReplyInsertCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.SignupCommand;
 import com.petmily.customer.command.postingApplyInsertCommand;
+import com.petmily.customer.command.postingDeleteCommand;
+import com.petmily.customer.command.postingInfoCommand;
+import com.petmily.customer.command.postingUpdateCommand;
 
 
 @WebServlet("*.do")
@@ -96,7 +101,8 @@ public class CustomerHomeController extends HttpServlet {
 			command = new LoginCommand();
 			result = command.executeInt(request, response);
 			if(result == 0) {
-				viewpage = "home.do";	
+				viewpage = "home.do";
+				request.setAttribute("message", "로그인 되었습니다.");
 				//로그인
 			}else {
 				viewpage = "login_page.do";
@@ -123,7 +129,9 @@ public class CustomerHomeController extends HttpServlet {
 		case ("/sign_up_kakao.do"):
 			command = new KakaoTokenCommand();
 			command.execute(request, response);
-			viewpage = "signup_form.do";
+			viewpage = "sign_up_form.do";
+			content_viewpage = "mypage_modify.jsp";
+			request.setAttribute("content_viewpage", content_viewpage);
 			break;
 		//회원가입 화면에서 가입하기 버튼 클릭 시
 		case("/sign_up.do"):
@@ -205,14 +213,8 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "mypage_participate_list.jsp";
 			break;
-		//마이페이지에서 작성내역 클릭시
+		//마이페이지에서 작성내역 클릭시 및 검색시
 		case("/mypage_write_list.do"):
-			command = new MypageWriteListCommand();
-			command.execute(request, response);
-			viewpage = "mypage_write_list.jsp";
-			break;
-		//마이페이지에 작성내역에서 검색 클릭시
-		case("/ypage_write_list_search.do"):
 			command = new MypageWriteListCommand();
 			command.execute(request, response);
 			viewpage = "mypage_write_list.jsp";
@@ -223,19 +225,30 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "mypage_apply_list.jsp";
 			break;		
-		//마이페이지에서 승락 버튼 누를 시 
+		//신청내역에서 승락 버튼 누를 시 
 		case("/apply_update.do"):
 			command = new MypageApplyUpdateCommand();
 			command.execute(request, response);
 			viewpage = "mypage_apply_list.do";
 			break;
-		//마이페이지에서 승락 버튼 누를 시 
+		//신청내역에서 거절 버튼 누를 시 
 		case("/apply_delete.do"):
 			command = new MypageApplyDeleteCommand();
 			command.execute(request, response);
 			viewpage = "mypage_apply_list.do";
 			break;	
-			
+		//마이페이지에서 승락내역 누를 시
+		case("/mypage_accept_list.do"):
+			command = new MypageAcceptListCommand();
+			command.execute(request, response);
+			viewpage = "mypage_accept_list.jsp";
+			break;
+		//승락내역에서 완료 누를 시
+		case("/mypage_accept_complete_list.do"):
+			command = new MypageCompleteUpdateCommand();
+			command.execute(request, response);
+			viewpage = "mypage_accept_list.do";
+			break;
 	
 	// 게시판 관련 do
 		//모든게시판 접속시 테이블보여주기 및 검색시
@@ -268,9 +281,15 @@ public class CustomerHomeController extends HttpServlet {
 		//게시판에서 게시물 클릭 했을 떄 
 		case("/posting_click.do"):
 			command = new PostingClickCommand();
-			command.execute(request, response);
-			viewpage = "board_view.jsp";
-			break;
+			result = command.executeInt(request, response);
+			if(result == 1) {
+				viewpage = "board_view.jsp";
+				break;
+			}else {
+				viewpage = "error.do";
+				break;
+			}
+
 		//게시물에서 좋아요 클릭 시
 		case("/posting_like_click.do"):
 			command = new PostingLikeClickCommand();
@@ -289,6 +308,25 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "posting_click.do";
 			break;
+		//게시물에서 수정하기 클릭시
+		case("/posting_modify.do"):
+			command = new postingInfoCommand();
+			command.execute(request, response);
+			viewpage = "board_modify.jsp";
+			break;
+		//게시물수정하기에서 수정하기 클릭시
+		case("/posting_midify_update.do"):
+			command = new postingUpdateCommand();
+			command.execute(request, response);
+			viewpage = "board_modify.do";
+			break;
+		//게시물에서 삭제하기 클릭시
+		case("/posting_delete.do"):
+			command = new postingDeleteCommand();
+			command.execute(request, response);
+			viewpage = "posting.do";
+			break;
+		
 
 			
 	// 펫과사전 관련 do
@@ -320,6 +358,10 @@ public class CustomerHomeController extends HttpServlet {
 			command = new ChattingCommand();
 			command.execute(request, response);
 			viewpage = "chatting.jsp";
+			break;
+			//error
+		case("/error.do"):
+			viewpage = "error.jsp";
 			break;
 		
 				

@@ -98,6 +98,7 @@ public class ApplyDAO {
 
 	}
 
+	// 신청내역 list
 	public ArrayList<ApplyDTO> applyGetList(int cPage, int rowLength, String uid) {
 
 		ArrayList<ApplyDTO> dtos = new ArrayList<ApplyDTO>();
@@ -114,6 +115,116 @@ public class ApplyDAO {
 			String query1 = "select a.apid , a.aptitle , a.apcontent, a.apdate , a.posting_pid , a.user_uid from apply a , posting p ";
 			String query2 = "where a.posting_user_uid = '" + uid + "' ";
 			String query3 = "and apcanceldate is null and apmatchingdate is null and apcompletedate is null "
+					+ "and p.pid = a.posting_pid and p.pdeletedate is null ";
+			String query4 = "order by a.apdate desc limit " + start + "," + rowLength;
+			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int apid = resultSet.getInt(1);
+				String aptitle = resultSet.getString(2);
+				String apcontent = resultSet.getString(3);
+				Timestamp apdate = resultSet.getTimestamp(4);
+				int posting_pid = resultSet.getInt(5);
+				String user_uid = resultSet.getString(6);
+
+				ApplyDTO dto = new ApplyDTO(apid, aptitle, apcontent, apdate, user_uid, posting_pid);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+
+	}
+
+	// 신청내역 list
+	public ArrayList<ApplyDTO> applyGetAcceptList(int cPage, int rowLength, String uid) {
+
+		ArrayList<ApplyDTO> dtos = new ArrayList<ApplyDTO>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		int start = (cPage - 1) * rowLength;
+
+		try {
+			connection = dataSource.getConnection();
+
+			// apid , aptitle , apcontent , apdate , posting_pid , user_uid
+			String query1 = "select a.apid , a.aptitle , a.apcontent, a.apdate , a.posting_pid , a.user_uid from apply a , posting p ";
+			String query2 = "where a.posting_user_uid = '" + uid + "' ";
+			String query3 = "and apcanceldate is null and apmatchingdate is not null and apcompletedate is null "
+					+ "and p.pid = a.posting_pid and p.pdeletedate is null ";
+			String query4 = "order by a.apdate desc limit " + start + "," + rowLength;
+			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int apid = resultSet.getInt(1);
+				String aptitle = resultSet.getString(2);
+				String apcontent = resultSet.getString(3);
+				Timestamp apdate = resultSet.getTimestamp(4);
+				int posting_pid = resultSet.getInt(5);
+				String user_uid = resultSet.getString(6);
+
+				ApplyDTO dto = new ApplyDTO(apid, aptitle, apcontent, apdate, user_uid, posting_pid);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+
+	}
+
+	// 완료내역 list
+	public ArrayList<ApplyDTO> applyGetCompleteList(int cPage, int rowLength, String uid) {
+
+		ArrayList<ApplyDTO> dtos = new ArrayList<ApplyDTO>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		int start = (cPage - 1) * rowLength;
+
+		try {
+			connection = dataSource.getConnection();
+
+			// apid , aptitle , apcontent , apdate , posting_pid , user_uid
+			String query1 = "select a.apid , a.aptitle , a.apcontent, a.apdate , a.posting_pid , a.user_uid from apply a , posting p ";
+			String query2 = "where a.posting_user_uid = '" + uid + "' ";
+			String query3 = "and apcanceldate is null and apmatchingdate is not null and apcompletedate is not null "
 					+ "and p.pid = a.posting_pid and p.pdeletedate is null ";
 			String query4 = "order by a.apdate desc limit " + start + "," + rowLength;
 			preparedStatement = connection.prepareStatement(query1 + query2 + query3 + query4);
@@ -248,7 +359,7 @@ public class ApplyDAO {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
 
@@ -283,8 +394,8 @@ public class ApplyDAO {
 		}
 
 	}
-	
-	public int selectCategory(String uid , String pcategory) {
+
+	public int selectCategory(String uid, String pcategory) {
 		int postingCnt = 0;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -298,10 +409,6 @@ public class ApplyDAO {
 			String query3 = "and a.posting_pid = p.pid and p.pcategory = '" + pcategory + "'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
-
-			if (resultSet.next() == true) {
-				postingCnt = resultSet.getInt(1);
-			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -323,4 +430,34 @@ public class ApplyDAO {
 		return postingCnt;
 	}
 
+//승락내역에서 완료 됐을 경우
+	public void completeUpdate(int apid) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		try {
+			connection = dataSource.getConnection();
+			String query = "update apply set apcompletedate = now() where apid = " + apid;
+			preparedStatement = connection.prepareStatement(query);
+
+			preparedStatement.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
 }

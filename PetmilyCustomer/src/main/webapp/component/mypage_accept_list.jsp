@@ -80,13 +80,13 @@
 
 
 
-<form action="apply_update.do" name="applylist" id="applylist">
+<form action="mypage_accept_complete_list.do" name="applylist" id="applylist">
 	<input type="hidden" name="message" id="message" value="${alert }">
 	<div class="container">
 		<div class="row my-3">
 			<h2>
-				<strong>신청내역</strong>
-				<h6>비반려인이 반려인에게 신청한 내역</h6>
+				<strong>신청수락내역</strong>
+				<h6>비반려인이 반려인에게 신청을 반려인이 수락한 내역</h6>
 			</h2>
 		</div>
 
@@ -97,7 +97,7 @@
 			</div>
 			<div class="col-6 align-self-center" style="padding-top: 0.8rem">
 				<h4>
-					<strong>신청자 총 <strong style="color: #FB9E58">
+					<strong>완료대기 총 <strong style="color: #FB9E58">
 							${fn:length(applyList) } </strong> 건
 					</strong>
 				</h4>
@@ -192,9 +192,9 @@
 							<td style="text-align: center;">
 								<button type="button" class="btn btn-outline-primary"
 									value="accept" name="func1" data-toggle="button"
-									style="margin-right: 0.8rem;">수락</button>
-								<button type="button" class="btn btn-outline-danger"
-									value="decline" name="func2" data-toggle="button">거절</button>
+									style="margin-right: 0.8rem;">완료</button>
+								<!-- <button type="button" class="btn btn-outline-danger"
+									value="decline" name="func2" data-toggle="button">거절</button> -->
 							</td>
 
 						</tr>

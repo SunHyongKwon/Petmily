@@ -17,7 +17,6 @@ public class PostingClickCommand implements CustomerCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		
 	}
 
 	@Override

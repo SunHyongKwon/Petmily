@@ -16,9 +16,8 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<body>
 
+</head>
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<jsp:include page="component/header.jsp"></jsp:include>

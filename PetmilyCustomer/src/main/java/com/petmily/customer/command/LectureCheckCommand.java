@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.petmily.customer.dao.LecturecheckDAO;
-import com.petmily.customer.dao.PostingDAO;
 import com.petmily.customer.dto.UserDTO;
+
 
 public class LectureCheckCommand implements CustomerCommand {
 
@@ -27,9 +27,11 @@ public class LectureCheckCommand implements CustomerCommand {
 		
 	}	
 
+
+
 	@Override
 	public int executeInt(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
+		// TODO Auto-generated method stub
 		return 0;
 	}
 

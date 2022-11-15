@@ -58,8 +58,10 @@ public class MypageWriteListCommand implements CustomerCommand {
 		} catch (Exception e) {
 			cPage = 1;
 		}
+
 		
-		totalRows = pdao.postingListRow(pcategory);
+		
+		totalRows = pdao.postingWriteListRow(uid);
 		PagingDTO dto =  pdao.postingListPaging(cPage, totalRows, pageLength);
 		ArrayList<PostingDTO> dtos = pdao.postingMypageWriteList(cPage, rowLength, uid, option, pcategory, query);
 				
