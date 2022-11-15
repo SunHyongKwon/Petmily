@@ -38,14 +38,14 @@ public class ChartCommand implements AdminCommand {
 
 	//test start -------------- homelistcommnad 꺼 불러온거임 한커맨드로 컨트롤러에 넣을려고.,
 	
-	PostingDAO dao1 = new PostingDAO();
-	ArrayList<PostingDTO> dtos1 = dao1.postList();
-	request.setAttribute("POSTLIST", dtos1);
+//	PostingDAO dao1 = new PostingDAO();
+//	ArrayList<PostingDTO> dtos1 = dao1.postList();
+//	request.setAttribute("POSTLIST", dtos1);
 	
 	//최근 댓글4개
-	PostingDAO dao2 = new PostingDAO();
-	ArrayList<PostingDTO> dtos2 = dao2.commentList();
-	request.setAttribute("COMMENTLIST", dtos2);
+//	PostingDAO dao2 = new PostingDAO();
+//	ArrayList<PostingDTO> dtos2 = dao2.commentList();
+//	request.setAttribute("COMMENTLIST", dtos2);
 	
 	//test end --------------
 		

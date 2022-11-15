@@ -111,13 +111,14 @@
 						    </tr>
 						  </thead>
 						  <tbody>
-						  <c:forEach items="${POSTLIST }" var="dto1">f
+						  <c:forEach items="${POSTLIST }" var="dto">
 						    <tr>
-						      <td >${dto1.pinitdate }</td>
-						      <td>${dto1.pcategory }</td>
-						      <td>${dto1.ptitle }</td>
-						      <td>${dto1.pcontent }..</td>
-  							  <td><input type="button" value="수정"><input type="button" value="삭제"><td>						    </tr>
+						      <td >${dto.pinitdate }</td>
+						      <td>${dto.pcategory }</td>
+						      <td>${dto.ptitle }</td>
+						      <td>${dto.pcontent }..</td>
+  							  <td><input type="button" value="수정"><input type="button" value="삭제"></td>
+  							  </tr>
 						  </c:forEach>
 						  </tbody>
 						</table>

@@ -61,7 +61,7 @@ public class AdminHomeController extends HttpServlet {
 		case("/home.do"):
 			//차트및 여러가지띄우기 >>차트만작동.. 수정필요!!(병준) 
 			//HomeListCommand 또는 ChartCommand 쓰기.
-			command = new HomeListCommand();
+			command = new ChartCommand();
 			command.execute(request, response);
 			//최근게시글,댓글 띄우기
 			

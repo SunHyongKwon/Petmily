@@ -84,7 +84,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="list" items="${postingList}">
+					<c:forEach var="list" items="${POSTLIST}">
 					<tr>
 						<td><input type="checkbox"></td>
 						<th scope="row"><a href="#">${list.pid }</a></th>

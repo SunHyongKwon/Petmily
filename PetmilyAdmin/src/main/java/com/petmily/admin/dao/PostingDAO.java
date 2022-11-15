@@ -29,8 +29,6 @@ public class PostingDAO {
 	//postList - 최근게시글 4개 불러오는것/ 게시글레벨 0으로 가정 /병준
 	public ArrayList<PostingDTO> postList(){
 		
-		System.out.println("dao postList");
-		
 		ArrayList<PostingDTO> dtos = new ArrayList<PostingDTO>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -39,7 +37,7 @@ public class PostingDAO {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select pid, ptitle, left(pcontent,6), pcategory, plocation, pinitdate from posting where plevel ='0' limit 4";
+			String query = "select pid, ptitle, left(pcontent,6), pcategory, plocation, pinitdate from posting where plevel ='0' order by pinitdate desc limit 4";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -55,7 +53,7 @@ public class PostingDAO {
 				dtos.add(dto);
 			}
 			
-			System.out.println("제목"+ptitle);
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
