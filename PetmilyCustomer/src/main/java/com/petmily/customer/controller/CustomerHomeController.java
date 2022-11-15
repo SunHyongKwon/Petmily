@@ -19,9 +19,6 @@ import com.petmily.customer.command.HomeSlide3Command;
 import com.petmily.customer.command.KakaoTokenCommand;
 import com.petmily.customer.command.LoginCommand;
 import com.petmily.customer.command.LogoutCommand;
-import com.petmily.customer.command.Mypage1365InsertCommand;
-import com.petmily.customer.command.Mypage1365ListCommand;
-import com.petmily.customer.command.Mypage1365SearchCommand;
 import com.petmily.customer.command.MypageAcceptListCommand;
 import com.petmily.customer.command.MypageApplyDeleteCommand;
 import com.petmily.customer.command.MypageApplyListCommand;
@@ -169,44 +166,12 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "mypage_modify.jsp";
 			break;
-		
 		//마이페이지에서 챌린지 클릭했을 때
 		case("/mypage_challenge.do"):
 			command = new MypageChallengeCommand();
 			command.execute(request, response);
 			viewpage = "mypage_challenge.jsp";
 			break;	
-		//마이페이지에서 1365적립 클릭시
-		case("/mypage_1365.do"):
-			viewpage = "mypage_1365.jsp";
-			break;
-		//마이페이지에서 1365적립 화면에서 인증 클릭시 1365api에서 정보를 불러옴
-		case("/mypage_1365_search.do"):
-			command = new Mypage1365SearchCommand();
-			result = command.executeInt(request, response);
-			if(result == 1) {
-				
-			}else {
-				
-			}
-			break;
-		//마이페이지에서 1365적립 화면에서 적립 클릭시
-		case("/mypage_1365_insert.do"):
-			command = new Mypage1365InsertCommand();
-			result = command.executeInt(request, response);
-			if(result == 1) {
-				
-			}else {
-				
-			}
-			viewpage = "mypage_1365.do";
-			break;
-		//1365적립내역 확인시 
-		case("/mypage_1365_list.do"):
-			command = new Mypage1365ListCommand();
-			command.execute(request, response);
-			viewpage = "mypage_1365_select.jsp";
-			break;
 		//마이페이지에서 사이트참여내역 클릭시
 		case("/mypage_participate_list.do"):
 			command = new MypageParticipateListCommand();
