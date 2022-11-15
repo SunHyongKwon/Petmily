@@ -24,7 +24,18 @@ public class PostingDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	// gukHwa [조회_게시판]
+	
+ 	
+	public PostingDTO(String pcontent, Timestamp pinitdate, String user_uid) {
+		super();
+		this.pcontent = pcontent;
+		this.pinitdate = pinitdate;
+		this.user_uid = user_uid;
+	}
+
+
+
+		// gukHwa [조회_게시판]
 		public PostingDTO(int pid, String ptitle, String pcontent, String pimage1,
 				String pimage2, String pimage3, String pcategory, String plocation) {
 			super();

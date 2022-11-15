@@ -29,6 +29,7 @@ public class PostingWriteInsertCommand implements CustomerCommand {
 		ServletContext application = request.getServletContext();
 
 		String directory = application.getRealPath("/posting/");
+		System.out.println("directory : "+directory);
 		int maxSize = 1024 * 1024 * 100;
 		String encoding = "UTF-8";
 		
@@ -46,9 +47,11 @@ public class PostingWriteInsertCommand implements CustomerCommand {
 		while (files.hasMoreElements()) {
 
 			String file = (String) files.nextElement();
+			
 			String fileName = multipartRequest.getOriginalFileName(file);
 			// 우리가 서버에 저장할 이름이 여기 들어가면 된다.
 			String fileRealName = multipartRequest.getFilesystemName(file);
+			
 			if(i == 1) {
 				pimage1 = fileRealName;
 			}else if (i == 2) {

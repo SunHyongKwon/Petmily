@@ -29,7 +29,7 @@
 </script>
 
 <div class="container">
-	<form action="posting_query.do" name="posting">
+	<form action="posting.do" name="posting">
 
 		<%
 			String param = request.getParameter("pcategory");
@@ -84,25 +84,26 @@
 		<div class="row my-3">
 			<div class="col-3"></div>
 			<!-- 드롭다운  -->
-			<div class="col-1">
-				<select class="form-select w-100"
-					aria-label="Default select example">
-					<option selected>옵션</option>
-					<option value="ptitle">제목</option>
-					<option value="user_uid">작성자</option>
-				</select>
-			</div>
-			<!-- 검색  -->
-			<div class="col-3">
-				<input type="text" class="form-control" name="query"
-					id="exampleFormControlInput1" placeholder="검색어를 입력해 주세요">
-			</div>
+			
+				<div class="col-1">
+					<select class="form-select w-100"
+						aria-label="Default select example" name="option">
+						<option value="ptitle" selected>제목</option>
+						<option value="user_uid">작성자</option>
+						<option value="plocation">장소</option>
+					</select>
+				</div>
+				<!-- 검색  -->
+				<div class="col-3">
+					<input type="text" class="form-control" name="query"
+						id="exampleFormControlInput1" placeholder="검색어를 입력해 주세요">
+				</div>
 
-			<!-- 검색 버튼 -->
-			<div class="col-1">
-				<input class="btn btn-warning " type="submit" value="검색">
-			</div>
-
+				<!-- 검색 버튼 -->
+				<div class="col-1">
+					<input class="btn btn-warning " type="submit" value="검색">
+				</div>
+			
 			<div class="col-2"></div>
 
 			<div class="col-1">
@@ -130,8 +131,6 @@
 						<th scope="col">작성자</th>
 						<th scope="col">시간</th>
 						<th scope="col">장소</th>
-						<th scope="col">좋아요</th>
-						<th scope="col">조회수</th>
 					</tr>
 				</thead>
 

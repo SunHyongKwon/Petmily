@@ -78,7 +78,6 @@
   </script>
   
   <script>
-  
   const myChart2 = new Chart(
     document.getElementById('myChart2'),
     config2

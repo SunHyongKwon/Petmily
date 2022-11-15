@@ -25,11 +25,14 @@
 		<div class="row">		
 			<jsp:include page="component/header.jsp"></jsp:include>
 		</div>
+		
+		<div style="padding-top: 2rem"></div>
+		
 		<div class="row">
 			<div class="col-2">
 				<jsp:include page="component/pet_dictionary_sidebar.jsp"></jsp:include>			
 			</div>
-			<div class="col-10">
+			<div class="col-10 gy-2">
 				<jsp:include page="component/${content_viewpage }"></jsp:include>			
 			</div>
 		</div>

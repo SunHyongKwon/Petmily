@@ -28,7 +28,7 @@ $(document).ready(function(){
 			<div class="row">
 
 				<div class="col-12 text-center">
-					<h2 class="mb-3">알면 알수록 쓸모있는 펫과사전</h2>
+					<h2 class="mb-3" style ="color: #e8853e;">알면 알수록 쓸모있는 펫과사전</h2>
 					<div class="btn-group" role="group"
 						aria-label="Default button group">
 						<input type="hidden" id="pstype" name="pstype" value="dog">
@@ -44,10 +44,10 @@ $(document).ready(function(){
 						
 					<c:forEach var="psbreeds" items="${specList }">
 						<div class="col-3">
-							<div class="card h-100">
+							<div class="card border-0" >
 								<img
-									src="1.png" width="200" height="200"
-									class="card-img-top" alt="...">
+									src="petspec/${psbreeds.psbreeds }.jpeg" width="300" height="300"
+									class="card-img-top rounded-circle" alt="...">
 								<div class="card-body text-center">
 									<div class="clearfix mb-3">
 										<span style=" font-weight: 800; font-size:1.2rem; ">${psbreeds.psbreeds }</span> 

@@ -8,7 +8,6 @@
 			
 				대표 황국화 | 사업자번호 123-45-67890
 				<div class="text-right">
-					<i class="bi bi-facebook"></i>
 				</div><br>
 		
 				직업정보제공사업 신고번호 2016-서울강남-1234<br>

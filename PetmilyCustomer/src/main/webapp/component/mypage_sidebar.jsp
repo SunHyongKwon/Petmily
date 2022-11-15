@@ -12,14 +12,6 @@
 	  </li>
 	  
 	  <li class="nav-item my-2">
-	   <a class="nav-link" href="mypage_1365.do" style="color:black;"><p class="h5">1365 적립</p></a>
-	  </li>
-	  
-	  <li class="nav-item my-2">
-	   <a class="nav-link" href="mypage_1365_list.do" style="color:black;"><p class="h5">1365 참여 내역</p></a>
-	  </li>
-	  
-	  <li class="nav-item my-2">
 	   <a class="nav-link" href="mypage_participate_list.do" style="color:black;"><p class="h5">사이트 참여 내역</p></a>
 	  </li>
 	  

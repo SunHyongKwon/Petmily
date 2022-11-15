@@ -36,41 +36,6 @@
 								"selected");
 
 										
-						$('input[type=file]').change(function(){
-							var fileInput = document.getElementById("file");
-				            
-				            var files = fileInput.files;
-				            				            
-				            if(files.length >= 4){
-				            	alert('4개이상은 못넣으세요');
-				            	$('#file').val('');
-				            	
-				            }
-				            
-				            var file;
-				            $('#tBody').empty();
-				            for (var i = 0; i < files.length; i++) {
-				                				                
-				            	file = files[i];				            	
-				            	
-				                insertTr = "<tr>";
-								insertTr += "<td>" + file.name
-										+ "</td>";
-								insertTr += "<td><button name=\"trash\" class=\"btn btn-outline-secondary\"><i class=\"bi bi-trash\"></i></button></td>";
-								insertTr += "</tr>";
-								insertTr += "<input type=\"hidden\" name=\"pimage\" value=\""+file.name+ "\" >";
-								$("#photo_table").append(insertTr);
-				            }	
-						
-						
-						})
-
-						/* 동적으로 할당된 것들은 이런식으로 만들어야 된다. */
-						$(document).on("click", "button[name=trash]",
-								function() {
-									/* 내가 클릭한 row를 찾아서 삭제하는 방법 */
-									$(this).parent().parent().remove();
-								})
 					});
 	
 	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -186,29 +151,6 @@
 					
 			</div>
 
-		</div>
-
-
-		<!-- 추가한 거 밑에 띄우기 -->
-		<div class="row justify-content-center ">
-			<div class="col-4 mb-3 gy-3">
-				<label for="exampleFormControlInput1" class="form-label">사진
-					항목</label>
-					
-					<!-- 여기까지 테스트임 -->
-			</div>
-			<div class="col-2 mb-3 gy-3"></div>
-		</div>
-
-		<!-- 등록 정보 확인 -->
-		<!-- 등록 버튼 누를 시 요런 형태로 들어오게 된다. -->
-		<div class="row justify-content-center my-2">
-			<div class="col-6" id="list">
-				<table class="table text-center" id="photo_table">
-					<tbody id="tBody">
-					</tbody>
-				</table>
-			</div>
 		</div>
 
 		<!-- 등록 버튼 -->

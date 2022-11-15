@@ -13,6 +13,7 @@ public class UserDTO {
 	String ulevel;
 	String uinfo;
 	String unickname;
+	String uimage;
 	
 	public UserDTO() {
 		// TODO Auto-generated constructor stub
@@ -45,11 +46,24 @@ public class UserDTO {
 		this.unickname = unickname;
 	}
 	
-	public UserDTO(String uid, String uname, String utype) {
+	
+	
+	public UserDTO(String uname, String uemail, String uphone, String uaddress, String unickname, String uimage) {
+		super();
+		this.uname = uname;
+		this.uemail = uemail;
+		this.uphone = uphone;
+		this.uaddress = uaddress;
+		this.unickname = unickname;
+		this.uimage = uimage;
+	}
+
+	public UserDTO(String uid, String uname, String utype , String uimage) {
 		super();
 		this.uid = uid;
 		this.uname = uname;
 		this.utype = utype;
+		this.uimage = uimage;
 	}
 
 	public String getUid() {
@@ -131,6 +145,15 @@ public class UserDTO {
 	public void setUnickname(String unickname) {
 		this.unickname = unickname;
 	}
+
+	public String getUimage() {
+		return uimage;
+	}
+
+	public void setUimage(String uimage) {
+		this.uimage = uimage;
+	}
+	
 	
 	
 }

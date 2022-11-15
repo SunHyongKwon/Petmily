@@ -13,7 +13,7 @@
 			<div class="collapse navbar-collapse justify-content-between"
 				id="collapsibleNavbar">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="#">${user.uname }님
+					<li class="nav-item"><a class="nav-link" href="#">${user.uid }님
 							환영합니다!</a></li>
 					<!-- <li class="nav-item"><a class="nav-link" href="#">등급혜택 보기</a>
 					</li> -->

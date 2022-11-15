@@ -144,21 +144,22 @@ public class PostingDAO {
 	}
 
 	// postingList 출력
-	public ArrayList<PostingDTO> postingGetList(int cPage, int rowLength, String pcategory) {
+	public ArrayList<PostingDTO> postingGetList(int cPage, int rowLength, String pcategory, String option, String query) {
 
 		ArrayList<PostingDTO> dtos = new ArrayList<PostingDTO>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;// 검색
-
 		int start = (cPage - 1) * rowLength;
 
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select pid, ptitle, plocation, pinitdate, user_uid from posting where pcategory = '"
-					+ pcategory + "' order by pid desc  limit " + start + "," + rowLength;
-			preparedStatement = connection.prepareStatement(query);
+			//String query = "select pid, ptitle, plocation, pinitdate, user_uid from posting where pcategory = '" + pcategory + "' and pdeletedate is null order by pid desc  limit " + start + "," + rowLength;
+			String query1 = "select pid, ptitle, plocation, pinitdate, user_uid from posting ";
+			String query2 = "where pcategory = '"+pcategory+"' and pdeletedate is null and "+option+" like '%"+query+"%' ";
+			String query3 = "order by pid desc limit "+start+","+rowLength;
+			preparedStatement = connection.prepareStatement(query1+query2+query3);
 			resultSet = preparedStatement.executeQuery();
 
 			while (resultSet.next()) {
@@ -248,8 +249,147 @@ public class PostingDAO {
 				e.printStackTrace();
 			}
 		}
-		return dto;
 
+		return dto;	
 	}
+
+	//댓글 입력
+	public void postingRyplyWriteAction(String pparentid, String ureply, int plevel, String user_uid ) {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		
+		try {
+			connection = dataSource.getConnection();
+			
+			String query = "insert into posting (pparentid, pcontent, plevel, user_uid, pinitdate ) ";
+			String query2 = "values (?,?,?,?,now())";
+			preparedStatement = connection.prepareStatement(query + query2);
+			
+			preparedStatement.setString(1, pparentid);
+			preparedStatement.setString(2, ureply);
+			preparedStatement.setInt(3, plevel);
+			preparedStatement.setString(4,user_uid);
+			
+			
+			preparedStatement.executeUpdate();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+	         try {
+	             if(preparedStatement != null ) preparedStatement.close();
+	             if(connection != null) connection.close();
+	          }catch (Exception e) {
+	             e.printStackTrace();
+	          }
+		}
+	}
+	
+	public ArrayList<PostingDTO> postingMypageWriteList(int cPage, int rowLength, String uid, String option, String pcategory, String query){
+		ArrayList<PostingDTO> dtos = new ArrayList<PostingDTO>();
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		int start = (cPage - 1) * rowLength;
+
+		try {
+			connection = dataSource.getConnection();
+
+			//String query = "select pid, ptitle, plocation, pinitdate, user_uid from posting where pcategory = '" + pcategory + "' and pdeletedate is null order by pid desc  limit " + start + "," + rowLength;
+			String query1 = "select pid, ptitle, plocation, pinitdate, user_uid from posting ";
+			String query2 = "where pcategory = '"+pcategory+"' and pdeletedate is null and "+option+" like '%"+query+"%' and user_uid = '"+uid+"'";
+			String query3 = " order by pid desc limit "+start+","+rowLength;
+			preparedStatement = connection.prepareStatement(query1+query2+query3);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				int pid = resultSet.getInt(1);
+				String ptitle = resultSet.getString(2);
+				String plocation = resultSet.getString(3);
+				Timestamp pinitdate = resultSet.getTimestamp(4);
+				String user_uid = resultSet.getString(5);
+
+				PostingDTO dto = new PostingDTO(pid, ptitle, plocation, pinitdate, user_uid);
+				dtos.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dtos;
+
+		
+		
+	}
+	
+	public ArrayList<PostingDTO> selectCommentList(int pid){
+		ArrayList<PostingDTO> commentList = new ArrayList<>();
+		
+		String pcontent;
+		Timestamp pinitdate;
+		String user_uid;
+		
+
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;// 검색
+
+		try {
+			connection = dataSource.getConnection();
+
+			String query = "select pcontent, pinitdate, user_uid from posting where pparentid = " + pid + " order by pinitdate desc";
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			// 한개일때는 if, 여러개일때는while
+
+			while (resultSet.next() == true) {
+				 pcontent = resultSet.getString(1);
+				 pinitdate = resultSet.getTimestamp(2);
+				 user_uid = resultSet.getString(3);
+				 
+				 PostingDTO dto = new PostingDTO(pcontent, pinitdate, user_uid);
+				 commentList.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return commentList;
+	}
+	
+	
 
 }

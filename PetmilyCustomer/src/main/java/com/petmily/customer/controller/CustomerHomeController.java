@@ -13,7 +13,6 @@ import com.petmily.customer.command.AddressSearchCommand;
 import com.petmily.customer.command.ChallengeVideoCommand;
 import com.petmily.customer.command.ChattingCommand;
 import com.petmily.customer.command.CustomerCommand;
-import com.petmily.customer.command.EmailCommand;
 import com.petmily.customer.command.HomeSlide1Command;
 import com.petmily.customer.command.HomeSlide2Command;
 import com.petmily.customer.command.HomeSlide3Command;
@@ -24,9 +23,12 @@ import com.petmily.customer.command.LogoutCommand;
 import com.petmily.customer.command.Mypage1365InsertCommand;
 import com.petmily.customer.command.Mypage1365ListCommand;
 import com.petmily.customer.command.Mypage1365SearchCommand;
+import com.petmily.customer.command.MypageApplyDeleteCommand;
 import com.petmily.customer.command.MypageApplyListCommand;
+import com.petmily.customer.command.MypageApplyUpdateCommand;
 import com.petmily.customer.command.MypageChallengeCommand;
 import com.petmily.customer.command.MypageModifyLoginCommand;
+import com.petmily.customer.command.MypageModifyUpdateCommand;
 import com.petmily.customer.command.MypageParticipateListCommand;
 import com.petmily.customer.command.MypageWriteListCommand;
 import com.petmily.customer.command.PetDictinaryDetailCommand;
@@ -39,7 +41,7 @@ import com.petmily.customer.command.PostingReplyInsertCommand;
 import com.petmily.customer.command.PostingWriteInsertCommand;
 import com.petmily.customer.command.QuizCheckCommand;
 import com.petmily.customer.command.SignupCommand;
-import com.petmily.customer.command.SignupIdCheckCommand;
+import com.petmily.customer.command.postingApplyInsertCommand;
 
 
 @WebServlet("*.do")
@@ -123,9 +125,7 @@ public class CustomerHomeController extends HttpServlet {
 		case ("/sign_up_kakao.do"):
 			command = new KakaoTokenCommand();
 			command.execute(request, response);
-			viewpage = "sign_up_form.jsp";
-			content_viewpage = "mypage_modify.jsp";
-			request.setAttribute("content_viewpage", content_viewpage);
+			viewpage = "signup_form.do";
 			break;
 		//회원가입 화면에서 가입하기 버튼 클릭 시
 		case("/sign_up.do"):
@@ -152,11 +152,18 @@ public class CustomerHomeController extends HttpServlet {
 			command = new MypageModifyLoginCommand();
 			result = command.executeInt(request, response);
 			if(result == 1) {
-				viewpage = "mypage_modify.jsp";
+				viewpage = "mypage_modify_update.do";
 			}else {
 				viewpage = "mypage_modify_login.jsp";
 			}
 			break;
+		//마이페이지 개인정보수정화면
+		case("/mypage_modify_update.do"):
+			command = new MypageModifyUpdateCommand();
+			command.execute(request, response);
+			viewpage = "mypage_modify.jsp";
+			break;
+		
 		//마이페이지에서 챌린지 클릭했을 때
 		case("/mypage_challenge.do"):
 			command = new MypageChallengeCommand();
@@ -206,12 +213,30 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "mypage_write_list.jsp";
 			break;
+		//마이페이지에 작성내역에서 검색 클릭시
+		case("/ypage_write_list_search.do"):
+			command = new MypageWriteListCommand();
+			command.execute(request, response);
+			viewpage = "mypage_write_list.jsp";
+			break;
 		//마이페이지에서 신청내역 클릭시
 		case("/mypage_apply_list.do"):
 			command = new MypageApplyListCommand();
 			command.execute(request, response);
 			viewpage = "mypage_apply_list.jsp";
 			break;		
+		//마이페이지에서 승락 버튼 누를 시 
+		case("/apply_update.do"):
+			command = new MypageApplyUpdateCommand();
+			command.execute(request, response);
+			viewpage = "mypage_apply_list.do";
+			break;
+		//마이페이지에서 승락 버튼 누를 시 
+		case("/apply_delete.do"):
+			command = new MypageApplyDeleteCommand();
+			command.execute(request, response);
+			viewpage = "mypage_apply_list.do";
+			break;	
 			
 	
 	// 게시판 관련 do
@@ -260,6 +285,13 @@ public class CustomerHomeController extends HttpServlet {
 			command.execute(request, response);
 			viewpage = "posting_click.do";
 			break;
+		//신청하기 작성페이지에서 신청하기 버튼 클릭 시
+		case("/posting_apply_insert.do"):
+			command = new postingApplyInsertCommand();
+			command.execute(request, response);
+			viewpage = "posting_click.do";
+			break;
+
 			
 	// 펫과사전 관련 do
 		//헤더에서 펫과사전 클릭시, 펫과사전 사이드바에서 동물종류 클릭시
