@@ -280,6 +280,7 @@ public class CustomerHomeController extends HttpServlet {
 		//헤더에서 도전하기 클릭시, 챌린지 사이드바에서 챕터 클릭시
 		case("/challenge.do"):
 			command = new ChallengeVideoCommand();
+			command.execute(request, response);
 			viewpage = "challenge.jsp";
 			break;
 		//사이드바에서 하나 선택했을때

@@ -28,10 +28,19 @@
 			
 			</div>
 			
-			<div class="col-10 mt-4 text-center">
+			<div class="col-8 mt-4 text-center">
 				<!-- command에서 이걸 갈아 끼울 것이다.  -->			
 				<!--<jsp:include page="component/${content_viewpage }"></jsp:include>	-->	
-				ddddd
+				<div class="card mx-auto" style="width : 500px; height : 300px">
+					<div class="card-body">
+					    <h5 class="card-title">정답입니다</h5>
+					    <p class="card-text mb-5">영상을 더 시청하고 퀴즈를 풀어보세요!</p>
+					    <a href="challenge.do" class="btn btn-primary">다른문제 풀러가기</a>
+					    <a href="home.do" class="btn btn-secondary">홈으로 돌아가기</a>
+					  </div>
+					</div>
+			</div>
+			<div class="col-2">
 			</div>
 		</div>
 	
