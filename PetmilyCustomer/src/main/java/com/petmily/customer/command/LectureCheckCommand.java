@@ -16,6 +16,7 @@ public class LectureCheckCommand implements CustomerCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// form에서 category num
 		String categoryNum = request.getParameter("category_num");
+		System.out.println(categoryNum);
 		// session에서 user.uid
 		HttpSession session = request.getSession();
 		UserDTO user = (UserDTO) session.getAttribute("user");

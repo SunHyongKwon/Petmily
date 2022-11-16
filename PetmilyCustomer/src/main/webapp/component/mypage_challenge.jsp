@@ -53,7 +53,7 @@
 	<div class="row text-center">
 		<div class="col-2 mx-2 my-2" id="square-bronze">
 			<c:choose>
-				<c:when test="${checkChapter ge 1 }">
+				<c:when test="${checkChapter ge '1' }">
 					<i class="bi bi-play-circle"></i>
 				</c:when>
 				<c:otherwise>
@@ -63,7 +63,7 @@
 		</div>
 		<div class="col-2 mx-2 my-2" id="square-silver">
 			<c:choose>
-				<c:when test="${checkChapter ge 2 }">
+				<c:when test="${checkChapter ge '2' }">
 					<i class="bi bi-play-circle"></i>
 				</c:when>
 				<c:otherwise>
@@ -73,7 +73,7 @@
 		</div>
 		<div class="col-2 mx-2 my-2" id="square-gold">
 			<c:choose>
-				<c:when test="${checkChapter ge 3 }">
+				<c:when test="${checkChapter ge '3' }">
 					<i class="bi bi-play-circle"></i>
 				</c:when>
 				<c:otherwise>

@@ -25,21 +25,19 @@ public class MypageChallengeCommand implements CustomerCommand {
 		int chapterThree = dao.selectChapterThree(uid);
 
 		int checkChapter = 0;
-
 		if (chapterOne == 2) {
 			checkChapter++;
 		}
 
-		if (chapterTwo == 6) {
+		if (chapterTwo >= 6) {
 			checkChapter++;
 		}
 
-		if (chapterThree == 3) {
+		if (chapterThree >= 3) {
 			checkChapter++;
 		}
-
 		// 도전 과제 수행 했는지 안했는지
-		request.setAttribute("checkChapater", checkChapter);
+		request.setAttribute("checkChapter", checkChapter);
 
 		ApplyDAO dao2 = new ApplyDAO();
 

@@ -101,8 +101,7 @@
 					<option value="" disabled selected>동물 유형 선택</option>
 					<option value="dog">강아지</option>
 					<option value="cat">고양이</option>
-					<option value="rabbit">토끼</option>
-					<option value="turtle">거북이</option>
+					<option value="etc">기타</option>
 				</select>
 			</div>
 			<div class="col-2"></div>

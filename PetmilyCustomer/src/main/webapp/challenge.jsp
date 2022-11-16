@@ -121,7 +121,7 @@
 			<!-- 영상 나오는 곳 시작 -->
 			<div class="col-8 mx-5">
 				<form action="lecture_check.do" name="lectureCheck">
-					<input type="hidden" id="category_num">
+					<input type="hidden" id="category_num" name="category_num">
 					<div class="row my-5 justify-content-center text-center">
 						<h3 id="title" style="color: #de6637"></h3>
 					</div>
@@ -194,10 +194,10 @@
 							player = new YT.Player('player', {
 								height : '360',
 								width : '640',
-								playerVars : {
+								/* playerVars : {
 									'disablekb' : 1,
 									'controls' : 0
-								},
+								}, */
 								videoId : vidid,
 								events : {
 									'onReady' : onPlayerReady,
@@ -221,7 +221,6 @@
 						function checkPlayTime() {
 							var total = player.getDuration();
 							var see = player.getCurrentTime();
-							console.log(total);
 							var percentTemp = (see / total) * 100;
 							var percent = Math.floor(percentTemp);
 							$('#percent').html("영상 본 시간 : " + percent + "%");

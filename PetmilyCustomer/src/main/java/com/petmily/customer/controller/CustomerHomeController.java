@@ -17,6 +17,7 @@ import com.petmily.customer.command.HomeSlide1Command;
 import com.petmily.customer.command.HomeSlide2Command;
 import com.petmily.customer.command.HomeSlide3Command;
 import com.petmily.customer.command.KakaoTokenCommand;
+import com.petmily.customer.command.LectureCheckCommand;
 import com.petmily.customer.command.LoginCommand;
 import com.petmily.customer.command.LogoutCommand;
 import com.petmily.customer.command.MypageAcceptListCommand;
@@ -126,9 +127,7 @@ public class CustomerHomeController extends HttpServlet {
 		case ("/sign_up_kakao.do"):
 			command = new KakaoTokenCommand();
 			command.execute(request, response);
-			viewpage = "sign_up_form.do";
-			content_viewpage = "mypage_modify.jsp";
-			request.setAttribute("content_viewpage", content_viewpage);
+			viewpage = "signup_form.do";
 			break;
 		//회원가입 화면에서 가입하기 버튼 클릭 시
 		case("/sign_up.do"):
@@ -315,8 +314,13 @@ public class CustomerHomeController extends HttpServlet {
 			command = new ChallengeVideoCommand();
 			viewpage = "challenge.jsp";
 			break;
-		
-			
+		// 도전에서 완료버튼 클릭 시 
+		case("/lecture_check.do"):
+			command = new LectureCheckCommand();
+			command.execute(request, response);
+			viewpage = "challenge.do";
+			break;
+	
 	// 채팅 관련 do
 		//헤더에서 채팅버튼 클릭시
 		case("/chatting.do"):

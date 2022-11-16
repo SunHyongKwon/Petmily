@@ -34,7 +34,7 @@ public class LecturecheckDAO {
 			connection = dataSource.getConnection();
 
 			String query = "insert into lecturecheck (lcdate, user_uid, lecture_lid) ";
-			String query2 = "values (now() ,?,?)";
+			String query2 = "values (now(),?,?)";
 			preparedStatement = connection.prepareStatement(query + query2);
 
 			preparedStatement.setString(1, uid);
@@ -103,7 +103,7 @@ public class LecturecheckDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			String query = "select count(*) from lecturecheck where user_uid = '" + uid + "' and lecture_lid like '2%'";
+			String query = "select count(*) from lecturecheck where user_uid = '" + uid + "' and lecture_lid like '%2%'";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			// 한개일때는 if, 여러개일때는while
