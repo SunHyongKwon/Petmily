@@ -160,4 +160,4 @@ $RECYCLE.BIN/
 /servers
 
 
-.classpath
+*.classpath
