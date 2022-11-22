@@ -20,6 +20,13 @@ public class PostingDTO {
 	Timestamp pdeletedate;
 	String user_uid;
 	
+	//일,월,년간 통계표용 declare
+	String date;
+	int postingquantity;
+	int commentquantity;
+	int matchingquantity;
+	
+	
 	public PostingDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -56,6 +63,57 @@ public class PostingDTO {
 		this.pcategory = pcategory;
 		this.plocation = plocation;
 		this.pinitdate = pinitdate;
+	}
+
+	public PostingDTO(int pid, String ptitle, String plocation, Timestamp pinitdate, String user_uid, String pcategory 
+			) {
+		super();
+		this.pid = pid;
+		this.ptitle = ptitle;
+		this.pcategory = pcategory;
+		this.plocation = plocation;
+		this.pinitdate = pinitdate;
+		this.user_uid = user_uid;
+	}
+
+	public PostingDTO(String date, int postingquantity, int commentquantity, int matchingquantity) {
+		super();
+		this.date = date;
+		this.postingquantity = postingquantity;
+		this.commentquantity = commentquantity;
+		this.matchingquantity = matchingquantity;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public int getPostingquantity() {
+		return postingquantity;
+	}
+
+	public void setPostingquantity(int postingquantity) {
+		this.postingquantity = postingquantity;
+	}
+
+	public int getCommentquantity() {
+		return commentquantity;
+	}
+
+	public void setCommentquantity(int commentquantity) {
+		this.commentquantity = commentquantity;
+	}
+
+	public int getMatchingquantity() {
+		return matchingquantity;
+	}
+
+	public void setMatchingquantity(int matchingquantity) {
+		this.matchingquantity = matchingquantity;
 	}
 
 	public int getPid() {

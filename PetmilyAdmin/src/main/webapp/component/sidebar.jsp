@@ -14,7 +14,7 @@
 	  </li>
 	  
 	  <li class="nav-item my-2">
-	   <a class="nav-link" href="board_list.do" style="color:black;"><p class="h5">게시물관리</p></a>
+	   <a class="nav-link" href="posting.do?pcategory=volunteer" style="color:black;"><p class="h5">게시물관리</p></a>
 	  </li>
 	  
 	  <!-- <li class="nav-item my-2">

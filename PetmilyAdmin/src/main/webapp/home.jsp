@@ -18,10 +18,10 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body >
 
 	<jsp:include page="component/header.jsp"></jsp:include>
-	<div style = "padding : 1rem"></div>
+	
 		
 	<div class = "container-fluid">
 		<div class="row">
@@ -30,7 +30,7 @@
 			
 			</div>
 			
-			<div class="col-10">
+			<div class="col-10 pt-3" style="background-color: #F6F5F9;">
 				<jsp:include page="component/chart5.jsp"></jsp:include>
 			</div>
 		</div>

@@ -25,6 +25,7 @@ import com.petmily.admin.command.SearchIdCommand;
 import com.petmily.admin.command.SearchPwCommand;
 import com.petmily.admin.command.SignupCommand;
 import com.petmily.admin.command.UserInfoListCommand;
+import com.petmily.admin.command.PostingCommand;
 
 
 
@@ -65,7 +66,7 @@ public class AdminHomeController extends HttpServlet {
 			command.execute(request, response);
 			//최근게시글,댓글 띄우기
 			
-			viewpage = "homde.jsp";
+			viewpage = "home.jsp";
 			break;
 		//로그인화면접속
 		case("/login_page.do"):
@@ -142,10 +143,24 @@ public class AdminHomeController extends HttpServlet {
 			break;
 			//사이드바에서 게시물관리 클릭 및 검색버튼 클릭 
 		case("/board_list.do"):
-			command = new BoardListCommand();
+			command = new PostingCommand();
 			command.execute(request, response);
 			viewpage = "board_list.jsp";
 			break;
+			
+			
+			
+		//test ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ	
+		case("/posting.do"):
+			command = new PostingCommand();
+			command.execute(request, response);
+			viewpage = "board_list.jsp";
+			break;
+		//test ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ	
+			
+			
+			
+			
 			//사이드바에서 관리리자정보관리 클릭 및 검색버튼 클릭
 		case("/admin_info_list.do"):
 			command = new AdminInfoListCommand();
@@ -181,7 +196,6 @@ public class AdminHomeController extends HttpServlet {
 			viewpage="notice_view.jsp";
 			break;
 		
-			
 		}
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewpage);

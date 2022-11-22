@@ -67,9 +67,9 @@ public class UserDAO {
 			ulevelCount.add(silverCount);
 			ulevelCount.add(goldCount);
 		
-		System.out.println(ulevelCount.get(0));
-		System.out.println(ulevelCount.get(1));
-		System.out.println(ulevelCount.get(2));
+//		System.out.println(ulevelCount.get(0));
+//		System.out.println(ulevelCount.get(1));
+//		System.out.println(ulevelCount.get(2));
 			
 		}catch(Exception e) {
 			e.printStackTrace();

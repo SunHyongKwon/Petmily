@@ -15,18 +15,35 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+
+.btn-warning {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #FB9E58;
+    --bs-btn-border-color: #FB9E58;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #F9B581;
+    --bs-btn-hover-border-color: #F9B581;
+    --bs-btn-focus-shadow-rgb: 217,164,6;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #F9B581;
+    --bs-btn-active-border-color: #F9B581;
+    --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #F9B581;
+    --bs-btn-disabled-border-color: #F9B581;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="component/header.jsp"></jsp:include>
-	<div style = "padding : 1rem"></div>
-	<div class = "container-fluid">
+	<div class = "container-fluid ">
 		<div class="row">
 			<div class="col-2">
 				<jsp:include page="component/sidebar.jsp"></jsp:include>
 			
 			</div>
-			
-			<div class="col-10">
+			<div class="col-10 pt-3" style="background-color: #F6F5F9">
 				<jsp:include page="component/board_list.jsp"></jsp:include>
 				<!-- command에서 이걸 갈아 끼울 것이다.  -->			
 				<%-- <jsp:include page="component/${content_viewpage }"></jsp:include> --%>			
